@@ -3,4 +3,6 @@
     <dimen name="verticalSpace">16dp</dimen>
     <dimen name="margin">8dp</dimen>
     <dimen name="largeMargin">16dp</dimen>
+    <dimen name="actionBarHeight">56dp</dimen>
+    <dimen name="imageSelectorColumnWidth">128dp</dimen>
 </resources>

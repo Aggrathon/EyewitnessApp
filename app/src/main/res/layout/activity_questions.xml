@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="aggrathon.eyewitnessapp.QuestionsActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/sureTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sureTitle"
+        android:paddingTop="@dimen/largeMargin"/>
+
+    <SeekBar
+        android:id="@+id/sureBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/verticalSpace"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <TextView
+        android:id="@+id/distTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/largeMargin"
+        android:text="@string/distTitle"/>
+
+    <SeekBar
+        android:id="@+id/distBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/verticalSpace"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <TextView
+        android:id="@+id/ageQuestionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ageQuestionTitle"
+        android:paddingTop="@dimen/margin"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:paddingTop="@dimen/margin"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/verticalSpace"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <TextView
+        android:id="@+id/recogniseTargetQuestionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin"
+        android:text="@string/recogniseTargetQuestionTitle"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/noAnswerTarget"
+        android:paddingTop="@dimen/margin">
+
+        <RadioButton
+            android:id="@+id/yesAnswerTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/yesAnswer"/>
+
+        <RadioButton
+            android:id="@+id/noAnswerTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/noAnswer"/>
+    </RadioGroup>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/verticalSpace"
+        android:layout_marginTop="@dimen/margin"/>
+
+
+    <TextView
+        android:id="@+id/recogniseOtherQuestionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin"
+        android:text="@string/recogniseOtherQuestionTitle"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/noAnswerOther"
+        android:paddingTop="@dimen/margin">
+
+        <RadioButton
+            android:id="@+id/yesAnswerOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/yesAnswer"/>
+
+        <RadioButton
+            android:id="@+id/noAnswerOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/noAnswer"/>
+    </RadioGroup>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_weight="100"/>
+
+    <Button
+        android:id="@+id/nextButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/next"/>
+
+
+</LinearLayout>

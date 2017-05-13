@@ -10,4 +10,15 @@
     <string name="childFin">Finländare</string>
     <string name="childOther">Annat</string>
     <string name="startButton">Börja</string>
+    <string name="title_activity_test">Test Activity</string>
+    <string name="testSelectImageTitle">Välj bild</string>
+    <string name="title_activity_questions">QuestionsActivity</string>
+    <string name="sureTitle">Hur säker är du på ditt val?</string>
+    <string name="distTitle">Hur långt ifrån skulle du estimera att personen var?</string>
+    <string name="ageQuestionTitle">Hur gammal skulle du säga att personen var?</string>
+    <string name="recogniseTargetQuestionTitle">Var ansiktet du valde bekant?</string>
+    <string name="yesAnswer">Ja</string>
+    <string name="noAnswer">Nej</string>
+    <string name="recogniseOtherQuestionTitle">Var några av de övriga ansiktena bekanta?</string>
+    <string name="next">Nästa</string>
 </resources>

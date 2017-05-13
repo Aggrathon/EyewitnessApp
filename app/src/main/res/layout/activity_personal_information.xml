@@ -22,7 +22,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"/>
 
     <EditText
         android:id="@+id/ageField"
@@ -35,18 +37,22 @@
         android:layout_marginRight="@dimen/margin"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="@dimen/margin"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"/>
 
     <Space
         android:id="@+id/space1"
         android:layout_width="0dp"
-        android:layout_height="@dimen/verticalSpace"
+        android:layout_height="16dp"
         android:layout_marginTop="@dimen/margin"
         app:layout_constraintTop_toBottomOf="@+id/ageField"
         android:layout_marginLeft="@dimen/margin"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="@dimen/margin"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"/>
 
     <TextView
         android:id="@+id/sexTitle"
@@ -58,7 +64,8 @@
         android:text="@string/sextitle"
         android:visibility="visible"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space1"/>
+        app:layout_constraintTop_toBottomOf="@+id/space1"
+        android:layout_marginStart="@dimen/margin"/>
 
     <RadioGroup
         android:id="@+id/sexRadioGroup"
@@ -71,7 +78,9 @@
         android:layout_marginRight="@dimen/margin"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="@dimen/margin"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin">
 
         <RadioButton
             android:id="@+id/sexMan"
@@ -100,15 +109,17 @@
 
     <Space
         android:id="@+id/space2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/verticalSpace"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginRight="@dimen/margin"
         android:layout_marginTop="@dimen/margin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sexRadioGroup"
-        app:layout_constraintHorizontal_bias="0.0"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"/>
 
     <TextView
         android:id="@+id/natTitle"
@@ -121,7 +132,9 @@
         android:text="@string/natTitle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space2"/>
+        app:layout_constraintTop_toBottomOf="@+id/space2"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"/>
 
     <EditText
         android:id="@+id/natField"
@@ -135,19 +148,23 @@
         android:layout_marginRight="@dimen/margin"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="@dimen/margin"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"/>
 
     <Space
         android:id="@+id/space3"
         android:layout_width="0dp"
-        android:layout_height="@dimen/verticalSpace"
+        android:layout_height="16dp"
         android:layout_marginTop="@dimen/margin"
         app:layout_constraintTop_toBottomOf="@+id/natField"
         android:layout_marginRight="@dimen/margin"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="@dimen/margin"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"/>
 
     <TextView
         android:id="@+id/childTitle"
@@ -160,7 +177,9 @@
         android:text="@string/childTitle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space3"/>
+        app:layout_constraintTop_toBottomOf="@+id/space3"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"/>
 
     <RadioGroup
         android:id="@+id/childRadioGroup"
@@ -174,7 +193,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/childTitle">
+        app:layout_constraintTop_toBottomOf="@+id/childTitle"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin">
 
         <RadioButton
             android:id="@+id/childFin"
@@ -200,9 +221,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginRight="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
         android:layout_weight="1"
+        android:onClick="onStartButton"
         android:text="@string/startButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
