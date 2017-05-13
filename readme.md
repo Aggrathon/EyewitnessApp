@@ -1,2 +1,3 @@
-# Screenshots
+# Screenshot
+![screenshot](screenshot.png)
 
