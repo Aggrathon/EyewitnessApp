@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Eyewitness App</string>
+    <string name="ageTitle">Ålder</string>
+    <string name="sextitle">Kön</string>
+    <string name="sexMan">Man</string>
+    <string name="sexWoman">Kvinna</string>
+    <string name="sexOther">Annat</string>
+    <string name="natTitle">Nationalitet</string>
+    <string name="childTitle">Jag har vuxit upp med huvudsakligen:</string>
+    <string name="childFin">Finländare</string>
+    <string name="childOther">Annat</string>
+    <string name="startButton">Börja</string>
 </resources>
