@@ -25,4 +25,6 @@
     <string name="swedish">Svenska</string>
     <string name="english">Engelska</string>
     <string name="backgroundInformationTitle">Bakgrundsinformation</string>
+    <string name="resultTitle">Resultat</string>
+    <string name="quit">Avsluta</string>
 </resources>

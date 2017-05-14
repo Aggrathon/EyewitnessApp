@@ -1,5 +1,6 @@
 package aggrathon.eyewitnessapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,10 @@ public class QuestionsActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (!ExperimentData.isInstanced()) {
+			startActivity(new Intent(this, MainActivity.class));
+			return;
+		}
 		setContentView(R.layout.activity_questions);
 
 		final TextView sureText = (TextView)findViewById(R.id.sureText);
@@ -41,6 +46,10 @@ public class QuestionsActivity extends AppCompatActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
+	}
+
+	public void onNextButton(View v) {
+		startActivity(new Intent(this, ResultActivity.class));
 	}
 
 }

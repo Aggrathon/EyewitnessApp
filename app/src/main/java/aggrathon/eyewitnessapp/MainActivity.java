@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 		langSwedish = (ImageButton)findViewById(R.id.sweButton);
 		langEnglish = (ImageButton)findViewById(R.id.finButton);
 		langFinnish = (ImageButton)findViewById(R.id.engButton);
+
+		ExperimentData.clearInstance();	//RESET DATA
 	}
 
 	public void onLangSwedish(View view) {
