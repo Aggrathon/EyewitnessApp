@@ -28,4 +28,5 @@
     <string name="resultTitle">Resultat</string>
     <string name="quit">Avsluta</string>
     <string name="targetAbsent">Saknas</string>
+    <string name="endExperiment">Avsluta Experimentet?</string>
 </resources>

@@ -14,7 +14,7 @@ import android.widget.ViewSwitcher;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class LineupActivity extends AppCompatActivity {
+public class LineupActivity extends ACancelCheckActivity {
 
 	private GridView grid;
 	private ImageGridAdapter gridAdapter;

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class QuestionsActivity extends AppCompatActivity {
+public class QuestionsActivity extends ACancelCheckActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -23,6 +23,13 @@ public class ExperimentData {
 		instance = null;
 	}
 
+	public static void clearInstance(boolean save)
+	{
+		if (instance != null && save)
+			instance.save();
+		instance = null;
+	}
+
 	public static void createInstance() {
 		instance = new ExperimentData();
 	}
@@ -55,6 +62,10 @@ public class ExperimentData {
 		images.add(R.drawable.flag_of_sweden);
 		images.add(R.drawable.flag_of_the_united_kingdom);
 		images.add(R.drawable.flag_of_finland);
+	}
+
+	public void save() {
+
 	}
 
 	@Override
