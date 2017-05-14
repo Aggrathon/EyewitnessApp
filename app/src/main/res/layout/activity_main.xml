@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="@dimen/margin"
+    tools:context="aggrathon.eyewitnessapp.MainActivity"
+    android:gravity="center">
+
+    <ImageButton
+        android:id="@+id/finButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/finnish"
+        android:cropToPadding="false"
+        android:onClick="onLangFinnish"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:tint="@android:color/darker_gray"
+        android:tintMode="screen"
+        app:srcCompat="@drawable/flag_of_finland"/>
+
+    <ImageButton
+        android:id="@+id/sweButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/swedish"
+        android:cropToPadding="false"
+        android:onClick="onLangSwedish"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/flag_of_sweden"/>
+
+    <ImageButton
+        android:id="@+id/engButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/english"
+        android:cropToPadding="false"
+        android:onClick="onLangEnglish"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:tint="@android:color/darker_gray"
+        android:tintMode="screen"
+        app:srcCompat="@drawable/flag_of_the_united_kingdom"/>
+
+</LinearLayout>

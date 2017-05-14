@@ -12,6 +12,7 @@
     - [ ] Sequential (50%, Each pictore on its own)
     - [ ] Target Present (?%)
     - [ ] Target Missing (?%)
+ - [ ] Handle backbutton
 ### Pages
  - [ ] languages
     - [x] Swedish
@@ -29,6 +30,7 @@
 - [ ] [eye test](http://www.michaelbach.de/fract/index.html)
 - [ ] number selection
     - four big buttons
+    - quit button
 - [ ] Wait for instructions
 - [ ] Questions
     - [ ] sex

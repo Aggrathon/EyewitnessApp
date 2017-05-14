@@ -5,4 +5,5 @@
     <dimen name="largeMargin">16dp</dimen>
     <dimen name="actionBarHeight">56dp</dimen>
     <dimen name="imageSelectorColumnWidth">128dp</dimen>
+    <dimen name="tabletLandscapeColumnWidth">384dp</dimen>
 </resources>
