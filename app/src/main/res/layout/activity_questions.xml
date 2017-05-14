@@ -110,7 +110,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:checkedButton="@+id/noAnswerTarget"
-        android:paddingTop="@dimen/margin">
+        android:paddingTop="@dimen/margin"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/yesAnswerTarget"
@@ -144,7 +145,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:checkedButton="@+id/noAnswerOther"
-        android:paddingTop="@dimen/margin">
+        android:paddingTop="@dimen/margin"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/yesAnswerOther"
