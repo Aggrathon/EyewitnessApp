@@ -45,6 +45,7 @@ public class ExperimentData {
 	public LineupVariant lineup;
 	public boolean targetPresent;
 	public ArrayList<Integer> images;
+	public StringBuilder log;
 
 	private ExperimentData() {
 		Random rnd = new Random();
@@ -57,11 +58,13 @@ public class ExperimentData {
 		images.add(R.drawable.flag_of_the_united_kingdom);
 		images.add(R.drawable.flag_of_finland);
 		images.add(R.drawable.flag_of_sweden);
-		images.add(R.drawable.flag_of_the_united_kingdom);
-		images.add(R.drawable.flag_of_finland);
-		images.add(R.drawable.flag_of_sweden);
-		images.add(R.drawable.flag_of_the_united_kingdom);
-		images.add(R.drawable.flag_of_finland);
+		images.add(R.drawable.one);
+		images.add(R.drawable.two);
+		images.add(R.drawable.three);
+		images.add(R.drawable.four);
+		images.add(R.mipmap.icon);
+
+		log = new StringBuilder();
 	}
 
 	public void save() {
@@ -85,6 +88,9 @@ public class ExperimentData {
 			sb.append("present.\n");
 		else
 			sb.append("absent.\n");
+
+		sb.append('\n');
+		sb.append(log);
 
 		return sb.toString();
 	}

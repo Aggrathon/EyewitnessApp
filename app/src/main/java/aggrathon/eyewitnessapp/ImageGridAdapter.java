@@ -18,14 +18,14 @@ import java.util.ArrayList;
 public class ImageGridAdapter extends ArrayAdapter {
 
 	private Context context;
-	private int layoutResourceId;
 	private ArrayList data = new ArrayList();
+	private OnSelectionListener callback;
 
-	public ImageGridAdapter(Context context, int layoutResourceId, ArrayList data) {
-		super(context, layoutResourceId, data);
+	public ImageGridAdapter(Context context, ArrayList data, OnSelectionListener callback) {
+		super(context, R.layout.image_selector_button, data);
 		this.context = context;
-		this.layoutResourceId = layoutResourceId;
 		this.data = data;
+		this.callback = callback;
 	}
 
 	@NonNull
@@ -34,19 +34,22 @@ public class ImageGridAdapter extends ArrayAdapter {
 
 		if (convertView == null) {
 			LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-			convertView = inflater.inflate(layoutResourceId, parent, false);
+			convertView = inflater.inflate(R.layout.image_selector_button, parent, false);
 			convertView.setTag(convertView.findViewById(R.id.image_button));
 		}
-		final ImageButton imgB = (ImageButton)convertView.getTag();
-		final int dataInt = (Integer) data.get(position);
-		imgB.setImageResource(R.mipmap.icon);
+		ImageButton imgB = (ImageButton)convertView.getTag();
+		imgB.setImageResource((int)data.get(position));
+		final int pos = position;
 		imgB.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				context.startActivity(new Intent(context, QuestionsActivity.class));
+				callback.callback(pos);
 			}
 		});
-		Log.d("Grid View", ""+dataInt);
 		return convertView;
+	}
+
+	public interface OnSelectionListener {
+		void callback(int i);
 	}
 }

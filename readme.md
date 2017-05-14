@@ -8,11 +8,11 @@
     - [ ] local
     - [ ] synced
  - [ ] Lineup variations
-    - [ ] Simultaneous (50%, All pictures in a row)
-    - [ ] Sequential (50%, Each pictore on its own)
-    - [ ] Target Present (?%)
-    - [ ] Target Missing (?%)
- - [ ] Handle backbutton
+    - [x] Simultaneous (50%, All pictures in a row)
+    - [x] Sequential (50%, Each pictore on its own)
+    - [x] Target Present (?%)
+    - [x] Target Missing (?%)
+ - [x] Handle backbutton
 ### Pages
  - [ ] languages
     - [x] Swedish
@@ -37,6 +37,7 @@
     - [ ] length
     - [ ] weight
 - [ ] Lineup Instructions
+- [x] Lineup
 - [ ] Questions
     - [ ] how sure
     - [ ] distance

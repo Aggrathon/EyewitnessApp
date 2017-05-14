@@ -18,7 +18,7 @@ public class LineupActivity extends ACancelCheckActivity {
 
 	private GridView grid;
 	private ImageGridAdapter gridAdapter;
-
+	ArrayList<Integer> imageArray;
 	private ImageSwitcher imageSwitcher;
 	private int imageIndex = 0;
 
@@ -31,7 +31,13 @@ public class LineupActivity extends ACancelCheckActivity {
 			return;
 		}
 		ExperimentData data = ExperimentData.getInstance();
-		Collections.shuffle(data.images);
+		imageArray = new ArrayList<>(data.images);
+		Collections.shuffle(imageArray);
+		data.log.append("Lineup image order: ");
+		for (int img : data.images) {
+			data.log.append(imageArray.indexOf(img)).append(" ");
+		}
+		data.log.append('\n');
 
 		switch (data.lineup) {
 			case sequential:
@@ -61,10 +67,13 @@ public class LineupActivity extends ACancelCheckActivity {
 				setContentView(R.layout.activity_lineup);
 
 				grid = (GridView)findViewById(R.id.gridView);
-				ArrayList<Integer> arr = new ArrayList();
-				for (int i = 0; i < 8; i++)
-					arr.add(i);
-				gridAdapter = new ImageGridAdapter(this, R.layout.image_selector_button, arr);
+				gridAdapter = new ImageGridAdapter(this, imageArray, new ImageGridAdapter.OnSelectionListener() {
+					@Override
+					public void callback(int i) {
+						imageIndex = i;
+						onSelectImageButton(null);
+					}
+				});
 				grid.setAdapter(gridAdapter);
 				break;
 		}
@@ -73,26 +82,26 @@ public class LineupActivity extends ACancelCheckActivity {
 	}
 
 	public void onTargetMissingButton(View v) {
+		ExperimentData.getInstance().log.append("Lineup image missing selected\n");
 		startActivity(new Intent(this, QuestionsActivity.class));
 	}
 
 	public void onNextImageButton(View v) {
 		if(imageSwitcher != null) {
-			ExperimentData data = ExperimentData.getInstance();
-			imageIndex = (imageIndex+1)%data.images.size();
-			imageSwitcher.setImageResource(data.images.get(imageIndex));
+			imageIndex = (imageIndex+1)%imageArray.size();
+			imageSwitcher.setImageResource(imageArray.get(imageIndex));
 		}
 	}
 
 	public void onPrevImageButton(View v) {
 		if(imageSwitcher != null) {
-			ExperimentData data = ExperimentData.getInstance();
-			imageIndex = (imageIndex-1+data.images.size())%data.images.size();
-			imageSwitcher.setImageResource(data.images.get(imageIndex));
+			imageIndex = (imageIndex-1+imageArray.size())%imageArray.size();
+			imageSwitcher.setImageResource(imageArray.get(imageIndex));
 		}
 	}
 
 	public void onSelectImageButton(View v) {
+		ExperimentData.getInstance().log.append("Lineup image ").append(imageIndex).append(" selected\n");
 		startActivity(new Intent(this, QuestionsActivity.class));
 	}
 }

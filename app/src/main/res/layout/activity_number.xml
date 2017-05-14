@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="aggrathon.eyewitnessapp.LineupActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarHeight">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/listenToInstructions"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="100"/>
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin"
+        android:drawSelectorOnTop="true"
+        android:gravity="center"
+        android:horizontalSpacing="@dimen/largeMargin"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="@dimen/margin"
+        android:layout_weight="1">
+
+    </GridView>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="100"/>
+
+    <Button
+        android:id="@+id/endButton"
+        android:layout_width="@dimen/tabletLandscapeColumnWidth"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin"
+        android:onClick="OnEndButton"
+        android:text="@string/quit"/>
+
+</LinearLayout>

@@ -49,7 +49,7 @@ public class QuestionsActivity extends ACancelCheckActivity {
 	}
 
 	public void onNextButton(View v) {
-		startActivity(new Intent(this, ResultActivity.class));
+		startActivity(new Intent(this, NumberActivity.class));
 	}
 
 }

@@ -28,8 +28,7 @@ public abstract class ACancelCheckActivity extends AppCompatActivity {
 			builder.setMessage(R.string.endExperiment)
 					.setPositiveButton(R.string.yesAnswer, new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
-							ExperimentData.clearInstance(true);
-							act.startActivity(new Intent(act, MainActivity.class));
+							act.startActivity(new Intent(act, ResultActivity.class));
 						}
 					})
 					.setNegativeButton(R.string.noAnswer, new DialogInterface.OnClickListener() {

@@ -29,4 +29,5 @@
     <string name="quit">Avsluta</string>
     <string name="targetAbsent">Saknas</string>
     <string name="endExperiment">Avsluta Experimentet?</string>
+    <string name="listenToInstructions">Vänta på instruktioner från testledaren</string>
 </resources>
