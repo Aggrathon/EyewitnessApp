@@ -69,7 +69,7 @@ public class LineupActivity extends AppCompatActivity {
 				break;
 		}
 
-		findViewById(R.id.targetAbsentButton).setEnabled(!data.targetPresent);
+		findViewById(R.id.targetAbsentButton).setVisibility(data.targetPresent? View.GONE: View.VISIBLE);
 	}
 
 	public void onTargetMissingButton(View v) {
