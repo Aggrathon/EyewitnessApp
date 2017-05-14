@@ -17,6 +17,6 @@ public class BackgroundInformation extends AppCompatActivity {
 	public void onStartButton(View view) {
 		ExperimentData.createInstance();
 		Log.d("Data",ExperimentData.getInstance().toString());
-		startActivity(new Intent(this, TestActivity.class));
+		startActivity(new Intent(this, LineupActivity.class));
 	}
 }

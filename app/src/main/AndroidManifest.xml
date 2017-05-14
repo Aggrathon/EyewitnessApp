@@ -24,7 +24,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".TestActivity"
+            android:name=".LineupActivity"
             android:immersive="true"
             android:label="@string/title_activity_test"
             android:noHistory="true"

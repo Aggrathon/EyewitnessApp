@@ -27,4 +27,5 @@
     <string name="backgroundInformationTitle">Bakgrundsinformation</string>
     <string name="resultTitle">Resultat</string>
     <string name="quit">Avsluta</string>
+    <string name="targetAbsent">Saknas</string>
 </resources>

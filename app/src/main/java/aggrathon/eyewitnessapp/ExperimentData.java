@@ -1,7 +1,13 @@
 package aggrathon.eyewitnessapp;
 
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class ExperimentData {
+
+
+	//region static instance
 
 	private static ExperimentData instance;
 
@@ -26,13 +32,29 @@ public class ExperimentData {
 		simultaneous
 	}
 
+	//endregion
+
 
 	public LineupVariant lineup;
 	public boolean targetPresent;
+	public ArrayList<Integer> images;
 
 	private ExperimentData() {
-		lineup = LineupVariant.simultaneous;
-		targetPresent = true;
+		Random rnd = new Random();
+		LineupVariant[] vars = LineupVariant.values();
+
+		lineup = vars[rnd.nextInt(vars.length)];
+		targetPresent = rnd.nextBoolean();
+
+		images = new ArrayList<>();
+		images.add(R.drawable.flag_of_the_united_kingdom);
+		images.add(R.drawable.flag_of_finland);
+		images.add(R.drawable.flag_of_sweden);
+		images.add(R.drawable.flag_of_the_united_kingdom);
+		images.add(R.drawable.flag_of_finland);
+		images.add(R.drawable.flag_of_sweden);
+		images.add(R.drawable.flag_of_the_united_kingdom);
+		images.add(R.drawable.flag_of_finland);
 	}
 
 	@Override
