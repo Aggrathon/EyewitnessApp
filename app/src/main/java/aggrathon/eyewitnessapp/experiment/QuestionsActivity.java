@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.experiment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,10 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import aggrathon.eyewitnessapp.ACancelCheckActivity;
+import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.experiment.NumberActivity;
 
 public class QuestionsActivity extends ACancelCheckActivity {
 

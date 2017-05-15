@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="aggrathon.eyewitnessapp.LineupActivity">
+    tools:context="aggrathon.eyewitnessapp.experiment.LineupActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/toolbar"

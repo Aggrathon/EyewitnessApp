@@ -1,12 +1,13 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.experiment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import aggrathon.eyewitnessapp.ACancelCheckActivity;
+import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class LineupActivity extends ACancelCheckActivity {

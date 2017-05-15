@@ -1,10 +1,7 @@
 package aggrathon.eyewitnessapp.start;
 
 import android.content.Intent;
-import android.icu.text.NumberFormat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -13,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
-import aggrathon.eyewitnessapp.NumberActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 

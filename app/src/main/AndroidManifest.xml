@@ -25,14 +25,14 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".LineupActivity"
+            android:name=".experiment.LineupActivity"
             android:immersive="true"
             android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".QuestionsActivity"
+            android:name=".experiment.QuestionsActivity"
             android:immersive="true"
             android:noHistory="true"
             android:screenOrientation="landscape"
@@ -47,7 +47,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".NumberActivity"
+            android:name=".experiment.NumberActivity"
             android:immersive="true"
             android:label="@string/listenToInstructions"
             android:noHistory="true"
