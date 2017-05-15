@@ -132,6 +132,8 @@ public class ExperimentData {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append(personalInformation.toString());
+		sb.append("\n");
 
 		//Lineup
 		sb.append("Lineup:\n\t");
@@ -147,7 +149,7 @@ public class ExperimentData {
 		else
 			sb.append("absent.\n");
 
-		sb.append('\n');
+		sb.append("\nLog:\n\n");
 		sb.append(log);
 
 		return sb.toString();

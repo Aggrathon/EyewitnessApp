@@ -30,229 +30,203 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="100"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin"
+        android:layout_weight="100">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/tabletLandscapeColumnWidth"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="@dimen/margin"
-            android:elevation="2dp">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="@dimen/tabletLandscapeColumnWidth"
+            <TextView
+                android:id="@+id/ageTitle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:labelFor="@+id/ageField"
+                android:text="@string/ageTitle"
+                android:visibility="visible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="24dp"/>
+
+            <EditText
+                android:id="@+id/ageField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ageTitle"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_margin="@dimen/margin"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ageField"/>
+
+            <TextView
+                android:id="@+id/natTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:labelFor="@+id/natField"
+                android:text="@string/natTitle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space2"/>
+
+            <EditText
+                android:id="@+id/natField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:ems="10"
+                android:inputType="text|textAutoComplete"
+                android:maxLines="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/natTitle"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_margin="@dimen/margin"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="@dimen/margin">
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sexRadioGroup"/>
 
-                <TextView
-                    android:id="@+id/ageTitle"
-                    android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/sexTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:labelFor="@+id/sexLayout"
+                android:text="@string/selfSexTitle"
+                android:visibility="visible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space1"/>
+
+            <RadioGroup
+                android:id="@+id/sexRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin"
+                android:checkedButton="@+id/sexOther"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sexTitle">
+
+                <RadioButton
+                    android:id="@+id/sexMan"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:labelFor="@+id/ageField"
-                    android:text="@string/ageTitle"
-                    android:visibility="visible"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    tools:layout_editor_absoluteY="24dp"/>
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:text="@string/sexMan"/>
 
-                <EditText
-                    android:id="@+id/ageField"
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:id="@+id/sexWoman"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
-                    android:ems="10"
-                    android:inputType="number"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ageTitle"/>
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:text="@string/sexWoman"/>
 
-                <Space
-                    android:id="@+id/space1"
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ageField"/>
-
-                <TextView
-                    android:id="@+id/sexTitle"
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:id="@+id/sexOther"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
-                    android:labelFor="@+id/sexLayout"
-                    android:text="@string/sextitle"
-                    android:visibility="visible"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/space1"/>
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/sexOther"/>
 
-                <RadioGroup
-                    android:id="@+id/sexRadioGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
-                    android:checkedButton="@+id/sexOther"
-                    android:orientation="horizontal"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/sexTitle">
+            </RadioGroup>
 
-                    <RadioButton
-                        android:id="@+id/sexMan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:text="@string/sexMan"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_margin="@dimen/margin"
+                android:layout_weight="1"/>
 
-                    <RadioButton
-                        android:id="@+id/sexWoman"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:text="@string/sexWoman"/>
-
-                    <RadioButton
-                        android:id="@+id/sexOther"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:checked="true"
-                        android:text="@string/sexOther"/>
-
-                </RadioGroup>
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/selfLengthTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:labelFor="@+id/natField"
+                android:text="@string/selfLengthTitle"/>
 
             <LinearLayout
-                android:layout_width="@dimen/tabletLandscapeColumnWidth"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/margin">
+
+                <SeekBar
+                    android:id="@+id/selfLengthBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:max="220"
+                    android:progress="170"/>
 
                 <TextView
-                    android:id="@+id/natTitle"
-                    android:layout_width="match_parent"
+                    android:id="@+id/selfLengthText"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
-                    android:labelFor="@+id/natField"
-                    android:text="@string/natTitle"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/space2"/>
-
-                <EditText
-                    android:id="@+id/natField"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
-                    android:ems="10"
-                    android:inputType="text|textAutoComplete"
-                    android:maxLines="1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/natTitle"/>
-
-                <Space
-                    android:id="@+id/space2"
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
                     android:layout_weight="1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/sexRadioGroup"/>
+                    android:text="220 cm"
+                    android:textAlignment="textEnd"/>
 
-                <TextView
-                    android:id="@+id/childTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
-                    android:labelFor="@+id/childLayout"
-                    android:text="@string/childTitle"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/space3"/>
-
-                <RadioGroup
-                    android:id="@+id/childRadioGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginStart="@dimen/margin"
-                    android:layout_marginTop="@dimen/margin"
-                    android:checkedButton="@+id/childOther"
-                    android:orientation="horizontal"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/childTitle">
-
-                    <RadioButton
-                        android:id="@+id/childFin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:text="@string/childFin"/>
-
-                    <RadioButton
-                        android:id="@+id/childOther"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:checked="false"
-                        android:text="@string/childOther"/>
-
-                </RadioGroup>
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_margin="@dimen/margin"
+                android:layout_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sexRadioGroup"/>
+
+            <TextView
+                android:id="@+id/selfLivedLandTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:layout_weight="1"
+                android:labelFor="@+id/selfLivedLandField"
+                android:text="@string/selfLivedLand"/>
+
+            <EditText
+                android:id="@+id/selfLivedLandField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text|textAutoComplete"
+                android:maxLines="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/natTitle"/>
 
         </LinearLayout>
+
     </ScrollView>
 
     <Button
-        android:id="@+id/startButton"
+        android:id="@+id/nextButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="@dimen/tabletLandscapeColumnWidth"
         android:layout_height="wrap_content"
@@ -263,6 +237,6 @@
         android:layout_marginStart="@dimen/margin"
         android:layout_weight="1"
         android:onClick="onStartButton"
-        android:text="@string/startButton"/>
+        android:text="@string/next"/>
 
 </LinearLayout>

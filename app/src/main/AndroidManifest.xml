@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BackgroundInformation"
+            android:name=".start.BackgroundInformationActivity"
             android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
@@ -27,7 +27,6 @@
         <activity
             android:name=".LineupActivity"
             android:immersive="true"
-            android:label="@string/title_activity_test"
             android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
@@ -35,26 +34,44 @@
         <activity
             android:name=".QuestionsActivity"
             android:immersive="true"
-            android:label="@string/title_activity_questions"
             android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".ResultActivity"
-            android:label="@string/resultTitle"
             android:immersive="true"
+            android:label="@string/resultTitle"
             android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".NumberActivity"
+            android:immersive="true"
             android:label="@string/listenToInstructions"
+            android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".start.AgeActivity"
             android:immersive="true"
             android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".start.ExperimentInformationActivity"
+            android:label="@string/title_activity_experiment_information"
+            android:immersive="true"
+            android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="aggrathon.eyewitnessapp.MainActivity"/>
         </activity>
     </application>
 

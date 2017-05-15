@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Eyewitness App</string>
+    <string name="english">English</string>
+    <string name="finnish">Suomi</string>
+    <string name="childOther">Other</string>
+    <string name="ageTitle">Age</string>
+    <string name="noAnswer">No</string>
+    <string name="next">Continue</string>
+    <string name="yesAnswer">Yes</string>
+</resources>

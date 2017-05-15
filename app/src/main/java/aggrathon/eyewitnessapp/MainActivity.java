@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.start.AgeActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,17 +28,17 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void onLangSwedish(View view) {
-		startActivity(new Intent(this, BackgroundInformation.class));
 		ExperimentData.createInstance("swe");
+		startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangEnglish(View view) {
-		startActivity(new Intent(this, BackgroundInformation.class));
 		ExperimentData.createInstance("eng");
+		startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangFinnish(View view) {
-		startActivity(new Intent(this, BackgroundInformation.class));
 		ExperimentData.createInstance("fin");
+		startActivity(new Intent(this, AgeActivity.class));
 	}
 }

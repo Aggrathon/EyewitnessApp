@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Eyewitness App</string>
+    <string name="english">English</string>
+    <string name="finnish">Suomi</string>
+</resources>
