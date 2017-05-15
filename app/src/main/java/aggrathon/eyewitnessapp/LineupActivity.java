@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ViewSwitcher;
@@ -16,8 +17,6 @@ import java.util.Collections;
 
 public class LineupActivity extends ACancelCheckActivity {
 
-	private GridView grid;
-	private ImageGridAdapter gridAdapter;
 	ArrayList<Integer> imageArray;
 	private ImageSwitcher imageSwitcher;
 	private int imageIndex = 0;
@@ -66,18 +65,30 @@ public class LineupActivity extends ACancelCheckActivity {
 			case simultaneous:
 				setContentView(R.layout.activity_lineup);
 
-				grid = (GridView)findViewById(R.id.gridView);
-				gridAdapter = new ImageGridAdapter(this, imageArray, new ImageGridAdapter.OnSelectionListener() {
-					@Override
-					public void callback(int i) {
-						imageIndex = i;
-						onSelectImageButton(null);
-					}
-				});
-				grid.setAdapter(gridAdapter);
+				setupButton(R.id.imageButton0, 0);
+				setupButton(R.id.imageButton1, 1);
+				setupButton(R.id.imageButton2, 2);
+				setupButton(R.id.imageButton3, 3);
+				setupButton(R.id.imageButton4, 4);
+				setupButton(R.id.imageButton5, 5);
+				setupButton(R.id.imageButton6, 6);
+				setupButton(R.id.imageButton7, 7);
 				findViewById(R.id.targetAbsentButton).setVisibility(data.targetPresent? View.GONE: View.VISIBLE);
 				break;
 		}
+	}
+
+	private void setupButton(int viewId, int index) {
+		ImageButton imageButton = (ImageButton)findViewById(viewId);
+		imageButton.setImageResource(imageArray.get(index));
+		final int i = index;
+		imageButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				imageIndex = i;
+				onSelectImageButton(null);
+			}
+		});
 	}
 
 	public void onTargetMissingButton(View v) {

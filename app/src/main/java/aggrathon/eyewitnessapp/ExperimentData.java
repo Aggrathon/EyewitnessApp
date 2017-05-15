@@ -51,19 +51,19 @@ public class ExperimentData {
 		Random rnd = new Random();
 		LineupVariant[] vars = LineupVariant.values();
 
-		lineup = vars[rnd.nextInt(vars.length)];
-		//lineup = vars[0];
+		//lineup = vars[rnd.nextInt(vars.length)];
+		lineup = vars[1];
 		targetPresent = rnd.nextBoolean();
 
 		images = new ArrayList<>();
+		images.add(R.drawable.test_horizontal);
+		images.add(R.drawable.test_horizontal);
+		images.add(R.drawable.test_vertical);
+		images.add(R.drawable.test_horizontal);
+		images.add(R.drawable.test_vertical);
+		images.add(R.drawable.test_vertical);
 		images.add(R.drawable.flag_of_the_united_kingdom);
-		images.add(R.drawable.flag_of_finland);
-		images.add(R.drawable.flag_of_sweden);
-		images.add(R.drawable.one);
-		images.add(R.drawable.two);
-		images.add(R.drawable.three);
-		images.add(R.drawable.four);
-		images.add(R.mipmap.icon);
+		images.add(R.drawable.flag_of_the_united_kingdom);
 
 		log = new StringBuilder();
 	}
