@@ -1,18 +1,13 @@
 package aggrathon.eyewitnessapp;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageButton;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
-import android.widget.ViewSwitcher;
 
-import java.io.IOException;
+import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class LineupActivity extends ACancelCheckActivity {
 
@@ -22,9 +17,7 @@ public class LineupActivity extends ACancelCheckActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (!ExperimentData.isInstanced()) {
-			Log.d("Test", "No Data");
-			startActivity(new Intent(this, MainActivity.class));
+		if (!ExperimentData.checkInstanced(this)) {
 			return;
 		}
 		ExperimentData data = ExperimentData.getInstance();

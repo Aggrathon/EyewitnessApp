@@ -1,7 +1,8 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.data;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -11,6 +12,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+
+import aggrathon.eyewitnessapp.MainActivity;
+import aggrathon.eyewitnessapp.R;
 
 public class ExperimentData {
 
@@ -23,8 +27,11 @@ public class ExperimentData {
 		return instance;
 	}
 
-	public static boolean isInstanced() {
-		return (instance != null);
+	public static boolean checkInstanced(Activity act) {
+		if (instance != null)
+			return true;
+		act.startActivity(new Intent(act, MainActivity.class));
+		return false;
 	}
 
 	public static void clearInstance() {
@@ -38,8 +45,8 @@ public class ExperimentData {
 		instance = null;
 	}
 
-	public static void createInstance() {
-		instance = new ExperimentData();
+	public static void createInstance(String language) {
+		instance = new ExperimentData(language);
 	}
 
 	public enum LineupVariant {
@@ -49,17 +56,20 @@ public class ExperimentData {
 
 	//endregion
 
-
+	//Experiment Variables
 	public LineupVariant lineup;
 	public boolean targetPresent;
 	public ArrayList<Bitmap> images;
-	public ArrayList<String> imageLabels;
+	private ArrayList<String> imageLabels;
 	public StringBuilder log;
 
-	private ExperimentData() {
+	//Information
+	public PersonalInformation personalInformation;
+	public ArrayList<ExperimentIteration> data;
+
+	private ExperimentData(String language) {
 		Random rnd = new Random();
 		LineupVariant[] vars = LineupVariant.values();
-
 		lineup = vars[rnd.nextInt(vars.length)];
 		//lineup = vars[1];
 		targetPresent = rnd.nextBoolean();
@@ -67,6 +77,10 @@ public class ExperimentData {
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
 		log = new StringBuilder();
+
+		personalInformation = new PersonalInformation();
+		personalInformation.language = language;
+		data = new ArrayList<>();
 	}
 
 	public void LoadImages(String id, Activity act) {

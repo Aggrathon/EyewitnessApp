@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import java.util.ArrayList;
+import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class NumberActivity extends ACancelCheckActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if(!ExperimentData.isInstanced()) {
-			startActivity(new Intent(this, MainActivity.class));
+		if(!ExperimentData.checkInstanced(this)) {
 			return;
 		}
 		setContentView(R.layout.activity_number);

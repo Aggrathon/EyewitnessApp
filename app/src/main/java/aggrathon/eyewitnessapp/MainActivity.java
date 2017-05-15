@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import aggrathon.eyewitnessapp.data.ExperimentData;
+
 public class MainActivity extends AppCompatActivity {
 
 	ImageButton langSwedish;
@@ -26,13 +28,16 @@ public class MainActivity extends AppCompatActivity {
 
 	public void onLangSwedish(View view) {
 		startActivity(new Intent(this, BackgroundInformation.class));
+		ExperimentData.createInstance("swe");
 	}
 
 	public void onLangEnglish(View view) {
 		startActivity(new Intent(this, BackgroundInformation.class));
+		ExperimentData.createInstance("eng");
 	}
 
 	public void onLangFinnish(View view) {
 		startActivity(new Intent(this, BackgroundInformation.class));
+		ExperimentData.createInstance("fin");
 	}
 }

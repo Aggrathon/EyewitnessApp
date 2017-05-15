@@ -2,6 +2,8 @@ package aggrathon.eyewitnessapp;
 
 import org.junit.Test;
 
+import aggrathon.eyewitnessapp.data.ExperimentData;
+
 import static org.junit.Assert.*;
 
 public class ExperimentDataUnitTest {

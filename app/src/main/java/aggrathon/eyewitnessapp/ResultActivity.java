@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import aggrathon.eyewitnessapp.data.ExperimentData;
+
 public class ResultActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (!ExperimentData.isInstanced()) {
-			startActivity(new Intent(this, MainActivity.class));
+		if (!ExperimentData.checkInstanced(this)) {
 			return;
 		}
 		setContentView(R.layout.activity_result);

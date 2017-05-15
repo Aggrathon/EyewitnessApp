@@ -2,21 +2,18 @@ package aggrathon.eyewitnessapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class QuestionsActivity extends ACancelCheckActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (!ExperimentData.isInstanced()) {
-			startActivity(new Intent(this, MainActivity.class));
+		if (!ExperimentData.checkInstanced(this)) {
 			return;
 		}
 		setContentView(R.layout.activity_questions);
