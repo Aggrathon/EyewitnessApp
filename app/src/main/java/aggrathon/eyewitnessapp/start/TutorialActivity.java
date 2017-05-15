@@ -19,7 +19,7 @@ public class TutorialActivity extends AMessageActivity {
 		super.onCreate(savedInstanceState);
 		if(ExperimentData.checkInstanced(null)) {
 			titleText.setText(R.string.title_activity_tutorial);
-			messageText.setText(R.string.tutorialInstructions2);
+			messageText.setText(R.string.tutorialInstructions1);
 			final Activity act = this;
 			nextButton.setOnClickListener(new View.OnClickListener() {
 				@Override

@@ -62,7 +62,6 @@ public class ExperimentData {
 	public boolean targetPresent;
 	public ArrayList<Bitmap> images;
 	private ArrayList<String> imageLabels;
-	public StringBuilder log;
 
 	//Information
 	public PersonalInformation personalInformation;
@@ -77,7 +76,6 @@ public class ExperimentData {
 
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
-		log = new StringBuilder();
 
 		personalInformation = new PersonalInformation();
 		personalInformation.language = language;
@@ -111,7 +109,6 @@ public class ExperimentData {
 		}
 		//Shuffle
 		Random rnd = new Random();
-		log.append("Image Sequence:");
 		for (int i = 0; i < imageLabels.size(); i++) {
 			Bitmap a = images.get(i);
 			String as = imageLabels.get(i);
@@ -122,30 +119,63 @@ public class ExperimentData {
 			images.set(r, a);
 			imageLabels.set(r, as);
 			imageLabels.set(i, bs);
-			log.append(" ").append(bs);
 		}
-		log.append('\n');
+	}
+
+	public ExperimentIteration startExperimentIteration() {
+		ExperimentIteration iter = new ExperimentIteration();
+		data.add(iter);
+		String comb = "";
+		for (String s :imageLabels) {
+			comb += s+" ";
+		}
+		iter.imageOrder = comb.substring(0, comb.length()-1);
+		return iter;
 	}
 
 	public ExperimentIteration getLatestData() {
-		if (data.size() < 1)
+		if (data == null || data.size() < 1)
 			return new ExperimentIteration();
 		else
 			return data.get(data.size()-1);
 	}
 
-	public void save() {
+	public void selectImage(int index) {
+		if (data != null && data.size() > 0) {
+			if (index > -1 && index < imageLabels.size()) {
+				String img = imageLabels.get(index);
+				data.get(data.size() - 1).selectedImage = img.equals("_Correct")? "correct" : img;
+			}
+			else {
+				data.get(data.size() - 1).selectedImage = "missing";
+			}
+		}
+	}
 
+	public void save() {
+		//TODO
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+
+		int correct = 0;
+		for (ExperimentIteration d : data) {
+			if (d.selectedImage.equals("correct"))
+				correct++;
+		}
+
+		sb.append("Du identifierade ").append(correct).append(" korrekta\n\n");
+		sb.append("Tack för ditt deltagande som ögonvittne!\n");
+
+		sb.append("\n\nTEMPORÄRT VISAR LOG-DATA NEDAN\n\n");
+
 		sb.append(personalInformation.toString());
 		sb.append("\n");
 
 		//Lineup
-		sb.append("Lineup:\n\t");
+		sb.append("Lineup: ");
 		switch (lineup) {
 			case sequential:
 				sb.append("Sequential and the target was ");
@@ -154,13 +184,13 @@ public class ExperimentData {
 				sb.append("Simultaneous and the target was ");
 		}
 		if(targetPresent)
-			sb.append("present.\n");
+			sb.append("present.\n\n");
 		else
-			sb.append("absent.\n");
+			sb.append("absent.\n\n");
 
-		sb.append("\nLog:\n\n");
-		sb.append(log);
-
+		for (int i = 0; i < data.size(); i++) {
+			sb.append(data.get(i).toString(i));
+		}
 		return sb.toString();
 	}
 }

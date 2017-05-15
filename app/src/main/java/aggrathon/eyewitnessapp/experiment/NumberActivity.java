@@ -26,25 +26,25 @@ public class NumberActivity extends ACancelCheckActivity {
 
 	public void OnNumberOne(View v) {
 		ExperimentData.getInstance().LoadImages("1", this);
-		ExperimentData.getInstance().data.add(new ExperimentIteration());
+		ExperimentData.getInstance().startExperimentIteration().lineupNumber = 1;
 		startActivity(new Intent(this, WaitActivity.class));
 	}
 
 	public void OnNumberTwo(View v) {
 		ExperimentData.getInstance().LoadImages("2", this);
-		ExperimentData.getInstance().data.add(new ExperimentIteration());
+		ExperimentData.getInstance().startExperimentIteration().lineupNumber = 2;
 		startActivity(new Intent(this, WaitActivity.class));
 	}
 
 	public void OnNumberThree(View v) {
 		ExperimentData.getInstance().LoadImages("3", this);
-		ExperimentData.getInstance().data.add(new ExperimentIteration());
+		ExperimentData.getInstance().startExperimentIteration().lineupNumber = 3;
 		startActivity(new Intent(this, WaitActivity.class));
 	}
 
 	public void OnNumberFour(View v) {
 		ExperimentData.getInstance().LoadImages("4", this);
-		ExperimentData.getInstance().data.add(new ExperimentIteration());
+		ExperimentData.getInstance().startExperimentIteration().lineupNumber = 4;
 		startActivity(new Intent(this, WaitActivity.class));
 	}
 }

@@ -65,7 +65,7 @@ public class LineupActivity extends ACancelCheckActivity {
 	}
 
 	public void onTargetMissingButton(View v) {
-		ExperimentData.getInstance().log.append("Lineup image missing selected\n");
+		ExperimentData.getInstance().selectImage(-2);
 		startActivity(new Intent(this, QuestionsActivity.class));
 	}
 
@@ -81,7 +81,7 @@ public class LineupActivity extends ACancelCheckActivity {
 	}
 
 	public void onSelectImageButton(View v) {
-		ExperimentData.getInstance().log.append("Lineup image ").append(imageIndex).append(" selected\n");
+		ExperimentData.getInstance().selectImage(imageIndex);
 		startActivity(new Intent(this, QuestionsActivity.class));
 	}
 }

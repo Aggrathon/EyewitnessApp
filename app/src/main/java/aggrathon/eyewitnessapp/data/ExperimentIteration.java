@@ -24,4 +24,19 @@ public class ExperimentIteration {
 		sdf.setTimeZone(TimeZone.getDefault());
 		time = sdf.format(new Date());
 	}
+
+	public String toString(int index) {
+		return "Experiment Iteration "+index+":"+
+				"\n\tTime: "+time+
+				"\n\tNumber: "+lineupNumber+
+				"\n\tImage Order: "+imageOrder+
+				"\n\tSelected: "+selectedImage+
+				"\n\tTarget sex: "+targetSex+
+				"\n\tTarget Height: "+targetHeight+
+				"\n\tTarget Weight: "+targetWeight+
+				"\n\tConfidence: "+confidence+
+				"\n\tDistance To Target: "+distance+
+				"\n\tRecognised Target: "+recognisedTarget+
+				"\n\tRecognised Other: "+recognisedOther+"\n";
+	}
 }
