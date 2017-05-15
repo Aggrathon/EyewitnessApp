@@ -70,7 +70,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 				data.personalInformation.height = lengthBar.getProgress();
 				data.personalInformation.country = livedText.getText().toString();
 				data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
-				startActivity(new Intent(this, NumberActivity.class));
+				startActivity(new Intent(this, TutorialActivity.class));
 			}
 			catch (NumberFormatException e) {
 				Toast.makeText(this, R.string.notificationFillAllValues, Toast.LENGTH_SHORT);

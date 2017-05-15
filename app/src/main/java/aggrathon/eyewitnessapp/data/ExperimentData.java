@@ -105,12 +105,13 @@ public class ExperimentData {
 			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
 			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
 			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
-			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
+			if(targetPresent)
+				images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
 		}
 		//Shuffle
 		Random rnd = new Random();
 		log.append("Image Sequence:");
-		for (int i = 0; i < images.size(); i++) {
+		for (int i = 0; i < imageLabels.size(); i++) {
 			Bitmap a = images.get(i);
 			String as = imageLabels.get(i);
 			int r = rnd.nextInt(images.size()-i)+i;

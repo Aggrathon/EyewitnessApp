@@ -25,7 +25,7 @@
     <string name="english">English</string>
     <string name="backgroundInformationTitle">Bakgrundsinformation</string>
     <string name="resultTitle">Resultat</string>
-    <string name="quit">Avsluta</string>
+    <string name="quit">Avsluta testet</string>
     <string name="targetAbsent">Saknas</string>
     <string name="endExperiment">Avsluta Experimentet?</string>
     <string name="listenToInstructions">Vänta på instruktioner från testledaren</string>
@@ -42,4 +42,8 @@
     <string name="selfLivedLand">I vilket land har du bott största delen av ditt liv?</string>
     <string name="selfSexTitle">Default\tHur skulle du definiera ditt kön?</string>
     <string name="notificationFillAllValues">Fyll i alla fält först!</string>
+    <string name="title_activity_tutorial">Testrunda</string>
+    <string name="tutorialInstructions1">Till näst kommer du att göra en testrunda innan huvudexperimentet börjar</string>
+    <string name="listenToNumberInstructions">Tryck på den siffra som testledare säger</string>
+    <string name="tutorialInstructions2">Till näst börjar huvudexperimentet.\nDet fungerar på samma vis som testrudan.</string>
 </resources>

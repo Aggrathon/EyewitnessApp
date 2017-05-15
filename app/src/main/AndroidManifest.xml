@@ -63,15 +63,59 @@
         </activity>
         <activity
             android:name=".start.ExperimentInformationActivity"
-            android:label="@string/title_activity_experiment_information"
             android:immersive="true"
+            android:label="@string/title_activity_experiment_information"
             android:noHistory="true"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="aggrathon.eyewitnessapp.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".start.TutorialActivity"
+            android:label="@string/title_activity_tutorial"
+            android:noHistory="true"
+            android:immersive="true"
             android:screenOrientation="landscape"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="aggrathon.eyewitnessapp.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".start.TutorialActivity$TutorialNumbers"
+            android:label="@string/title_activity_tutorial"
+            android:noHistory="true"
+            android:immersive="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".start.TutorialActivity$TutorialLineup"
+            android:label="@string/title_activity_tutorial"
+            android:noHistory="true"
+            android:immersive="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".start.TutorialActivity$TutorialQuestions"
+            android:label="@string/title_activity_tutorial"
+            android:noHistory="true"
+            android:immersive="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".start.TutorialActivity$TutorialEnd"
+            android:label="@string/title_activity_tutorial"
+            android:noHistory="true"
+            android:immersive="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
