@@ -2,8 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        config {
-        }
     }
     compileSdkVersion 24
     buildToolsVersion "25.0.1"
@@ -11,8 +9,8 @@ android {
         applicationId "aggrathon.eyewitnessapp"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 3
-        versionName '0.2'
+        versionCode 4
+        versionName '0.2.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         versionNameSuffix 'alpha'
     }

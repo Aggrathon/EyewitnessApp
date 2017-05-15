@@ -52,6 +52,7 @@ public class ExperimentData {
 		LineupVariant[] vars = LineupVariant.values();
 
 		lineup = vars[rnd.nextInt(vars.length)];
+		//lineup = vars[0];
 		targetPresent = rnd.nextBoolean();
 
 		images = new ArrayList<>();

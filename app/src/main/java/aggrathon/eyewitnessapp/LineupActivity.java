@@ -59,8 +59,8 @@ public class LineupActivity extends ACancelCheckActivity {
 						onNextImageButton(null);
 					}
 				});
-				imageIndex = 1;
-				onPrevImageButton(null);
+				imageIndex = 0;
+				imageSwitcher.setImageResource(imageArray.get(0));
 				break;
 
 			case simultaneous:
@@ -75,10 +75,9 @@ public class LineupActivity extends ACancelCheckActivity {
 					}
 				});
 				grid.setAdapter(gridAdapter);
+				findViewById(R.id.targetAbsentButton).setVisibility(data.targetPresent? View.GONE: View.VISIBLE);
 				break;
 		}
-
-		findViewById(R.id.targetAbsentButton).setVisibility(data.targetPresent? View.GONE: View.VISIBLE);
 	}
 
 	public void onTargetMissingButton(View v) {
@@ -87,16 +86,12 @@ public class LineupActivity extends ACancelCheckActivity {
 	}
 
 	public void onNextImageButton(View v) {
-		if(imageSwitcher != null) {
-			imageIndex = (imageIndex+1)%imageArray.size();
-			imageSwitcher.setImageResource(imageArray.get(imageIndex));
-		}
-	}
-
-	public void onPrevImageButton(View v) {
-		if(imageSwitcher != null) {
-			imageIndex = (imageIndex-1+imageArray.size())%imageArray.size();
-			imageSwitcher.setImageResource(imageArray.get(imageIndex));
+		if(imageSwitcher != null && imageArray != null) {
+			imageIndex++;
+			if (imageIndex == imageArray.size())
+				onTargetMissingButton(null);
+			else
+				imageSwitcher.setImageResource(imageArray.get(imageIndex));
 		}
 	}
 
