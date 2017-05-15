@@ -10,50 +10,101 @@
     tools:context="aggrathon.eyewitnessapp.MainActivity"
     android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/finButton"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:layout_margin="@dimen/margin"
         android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/finnish"
-        android:cropToPadding="false"
-        android:onClick="onLangFinnish"
-        android:padding="0dp"
-        android:scaleType="fitCenter"
-        android:tint="@android:color/darker_gray"
-        android:tintMode="screen"
-        app:srcCompat="@drawable/flag_of_finland"/>
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/sweButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/swedish"
-        android:cropToPadding="false"
-        android:onClick="onLangSwedish"
-        android:padding="0dp"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/flag_of_sweden"/>
+        <ImageButton
+            android:id="@+id/finButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="100"
+            android:adjustViewBounds="true"
+            android:background="@android:color/background_light"
+            android:contentDescription="@string/finnish"
+            android:cropToPadding="false"
+            android:onClick="onLangFinnish"
+            android:scaleType="fitCenter"
+            android:tint="@android:color/darker_gray"
+            android:tintMode="screen"
+            app:srcCompat="@drawable/flag_of_finland"/>
 
-    <ImageButton
-        android:id="@+id/engButton"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/finnish"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:layout_margin="@dimen/margin"
         android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/english"
-        android:cropToPadding="false"
-        android:onClick="onLangEnglish"
-        android:padding="0dp"
-        android:scaleType="fitCenter"
-        android:tint="@android:color/darker_gray"
-        android:tintMode="screen"
-        app:srcCompat="@drawable/flag_of_the_united_kingdom"/>
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/sweButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:adjustViewBounds="true"
+            android:background="@android:color/background_light"
+            android:contentDescription="@string/swedish"
+            android:cropToPadding="false"
+            android:onClick="onLangSwedish"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/flag_of_sweden"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/swedish"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:id="@+id/engButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:adjustViewBounds="true"
+            android:background="@android:color/background_light"
+            android:contentDescription="@string/english"
+            android:cropToPadding="false"
+            android:onClick="onLangEnglish"
+            android:scaleType="fitCenter"
+            android:tint="@android:color/darker_gray"
+            android:tintMode="screen"
+            app:srcCompat="@drawable/flag_of_the_united_kingdom"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/english"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    </LinearLayout>
 
 </LinearLayout>

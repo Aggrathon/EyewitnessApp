@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class NumberActivity extends ACancelCheckActivity {
 
 	@Override
@@ -21,18 +23,22 @@ public class NumberActivity extends ACancelCheckActivity {
 	}
 
 	public void OnNumberOne(View v) {
+		ExperimentData.getInstance().LoadImages("1", this);
 		startActivity(new Intent(this, LineupActivity.class));
 	}
 
 	public void OnNumberTwo(View v) {
+		ExperimentData.getInstance().LoadImages("2", this);
 		startActivity(new Intent(this, LineupActivity.class));
 	}
 
 	public void OnNumberThree(View v) {
+		ExperimentData.getInstance().LoadImages("3", this);
 		startActivity(new Intent(this, LineupActivity.class));
 	}
 
 	public void OnNumberFour(View v) {
+		ExperimentData.getInstance().LoadImages("4", this);
 		startActivity(new Intent(this, LineupActivity.class));
 	}
 }

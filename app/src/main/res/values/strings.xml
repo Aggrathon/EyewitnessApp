@@ -21,9 +21,9 @@
     <string name="noAnswer">Nej</string>
     <string name="recogniseOtherQuestionTitle">Var några av de övriga ansiktena bekanta?</string>
     <string name="next">Nästa</string>
-    <string name="finnish">Finska</string>
+    <string name="finnish">Suomi</string>
     <string name="swedish">Svenska</string>
-    <string name="english">Engelska</string>
+    <string name="english">English</string>
     <string name="backgroundInformationTitle">Bakgrundsinformation</string>
     <string name="resultTitle">Resultat</string>
     <string name="quit">Avsluta</string>

@@ -1,24 +1,22 @@
 package aggrathon.eyewitnessapp;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout.LayoutParams;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ViewSwitcher;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.IOException;
 
 public class LineupActivity extends ACancelCheckActivity {
 
-	ArrayList<Integer> imageArray;
-	private ImageSwitcher imageSwitcher;
+	private ImageView imageView;
 	private int imageIndex = 0;
 
 	@Override
@@ -30,57 +28,38 @@ public class LineupActivity extends ACancelCheckActivity {
 			return;
 		}
 		ExperimentData data = ExperimentData.getInstance();
-		imageArray = new ArrayList<>(data.images);
-		Collections.shuffle(imageArray);
-		data.log.append("Lineup image order: ");
-		for (int img : data.images) {
-			data.log.append(imageArray.indexOf(img)).append(" ");
-		}
-		data.log.append('\n');
 
 		switch (data.lineup) {
 			case sequential:
 				setContentView(R.layout.activity_lineup2);
 
-				imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher);
-				imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
-					@Override
-					public View makeView() {
-						ImageView view = new ImageView(getApplicationContext());
-						view.setScaleType(ImageView.ScaleType.FIT_CENTER);
-						view.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-						return view;
-					}
-				});
-				imageSwitcher.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View view) {
-						onNextImageButton(null);
-					}
-				});
+				imageView = (ImageView) findViewById(R.id.imageView);
 				imageIndex = 0;
-				imageSwitcher.setImageResource(imageArray.get(0));
+				imageView.setImageBitmap(data.images.get(imageIndex));
 				break;
 
 			case simultaneous:
 				setContentView(R.layout.activity_lineup);
 
-				setupButton(R.id.imageButton0, 0);
-				setupButton(R.id.imageButton1, 1);
-				setupButton(R.id.imageButton2, 2);
-				setupButton(R.id.imageButton3, 3);
-				setupButton(R.id.imageButton4, 4);
-				setupButton(R.id.imageButton5, 5);
-				setupButton(R.id.imageButton6, 6);
-				setupButton(R.id.imageButton7, 7);
+				setupButton(R.id.imageButton0, 0, data);
+				setupButton(R.id.imageButton1, 1, data);
+				setupButton(R.id.imageButton2, 2, data);
+				setupButton(R.id.imageButton3, 3, data);
+				setupButton(R.id.imageButton4, 4, data);
+				setupButton(R.id.imageButton5, 5, data);
+				setupButton(R.id.imageButton6, 6, data);
+				if(data.targetPresent)
+					setupButton(R.id.imageButton7, 7, data);
+				else
+					findViewById(R.id.imageButton7).setVisibility(View.GONE);
 				findViewById(R.id.targetAbsentButton).setVisibility(data.targetPresent? View.GONE: View.VISIBLE);
 				break;
 		}
 	}
 
-	private void setupButton(int viewId, int index) {
+	private void setupButton(int viewId, int index, ExperimentData data) {
 		ImageButton imageButton = (ImageButton)findViewById(viewId);
-		imageButton.setImageResource(imageArray.get(index));
+		imageButton.setImageBitmap(data.images.get(index));
 		final int i = index;
 		imageButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -97,12 +76,13 @@ public class LineupActivity extends ACancelCheckActivity {
 	}
 
 	public void onNextImageButton(View v) {
-		if(imageSwitcher != null && imageArray != null) {
+		ExperimentData data = ExperimentData.getInstance();
+		if(imageView != null && data.images != null) {
 			imageIndex++;
-			if (imageIndex == imageArray.size())
+			if (imageIndex == data.images.size())
 				onTargetMissingButton(null);
 			else
-				imageSwitcher.setImageResource(imageArray.get(imageIndex));
+				imageView.setImageBitmap(data.images.get(imageIndex));
 		}
 	}
 
