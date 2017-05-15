@@ -30,7 +30,8 @@ public class ExperimentData {
 	public static boolean checkInstanced(Activity act) {
 		if (instance != null)
 			return true;
-		act.startActivity(new Intent(act, MainActivity.class));
+		if (act != null)
+			act.startActivity(new Intent(act, MainActivity.class));
 		return false;
 	}
 
@@ -124,6 +125,13 @@ public class ExperimentData {
 			log.append(" ").append(bs);
 		}
 		log.append('\n');
+	}
+
+	public ExperimentIteration getLatestData() {
+		if (data.size() < 1)
+			return new ExperimentIteration();
+		else
+			return data.get(data.size()-1);
 	}
 
 	public void save() {

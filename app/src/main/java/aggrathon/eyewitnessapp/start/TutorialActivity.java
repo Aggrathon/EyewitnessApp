@@ -1,29 +1,33 @@
 package aggrathon.eyewitnessapp.start;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
-import aggrathon.eyewitnessapp.ACancelCheckActivity;
+import aggrathon.eyewitnessapp.AMessageActivity;
 import aggrathon.eyewitnessapp.experiment.LineupActivity;
 import aggrathon.eyewitnessapp.experiment.NumberActivity;
 import aggrathon.eyewitnessapp.experiment.QuestionsActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 
-public class TutorialActivity extends ACancelCheckActivity {
+public class TutorialActivity extends AMessageActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if(!ExperimentData.checkInstanced(this))
-			return;
-		setContentView(R.layout.activity_tutorial);
-	}
-
-	public void onNextButton(View v) {
-		startActivity(new Intent(this, TutorialNumbers.class));
+		if(ExperimentData.checkInstanced(null)) {
+			titleText.setText(R.string.title_activity_tutorial);
+			messageText.setText(R.string.tutorialInstructions2);
+			final Activity act = this;
+			nextButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					startActivity(new Intent(act, TutorialNumbers.class));
+				}
+			});
+		}
 	}
 
 
@@ -82,16 +86,21 @@ public class TutorialActivity extends ACancelCheckActivity {
 		}
 	}
 
-	public static class TutorialEnd extends TutorialActivity {
+	public static class TutorialEnd extends AMessageActivity {
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
-			((TextView)findViewById(R.id.tutorialText)).setText(R.string.tutorialInstructions2);
-		}
-
-		@Override
-		public void onNextButton(View v) {
-			startActivity(new Intent(this, NumberActivity.class));
+			if(ExperimentData.checkInstanced(null)) {
+				titleText.setText(R.string.title_activity_tutorial);
+				messageText.setText(R.string.tutorialInstructions2);
+				final Activity act = this;
+				nextButton.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						startActivity(new Intent(act, NumberActivity.class));
+					}
+				});
+			}
 		}
 	}
 }

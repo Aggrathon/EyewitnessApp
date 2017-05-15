@@ -47,4 +47,9 @@
     <string name="listenToNumberInstructions">Tryck på den siffra som testledare säger</string>
     <string name="tutorialInstructions2">Till näst börjar huvudexperimentet.\nDet fungerar på samma vis som testrudan.</string>
     <string name="title_activity_tutorial">Testrunda</string>
+    <string name="wait">Vänta</string>
+    <string name="witnessAndWait">Nu skall du vittna en person.\nVänta på instruktioner från testledaren innan du går vidare.</string>
+    <string name="targetSexTitle">Vilket kön var personen som du såg?</string>
+    <string name="targetWeightTitle">Hur mycket uppskattar du att personen väger?</string>
+    <string name="targetHeightTitle">Hur lång var personen som du såg?</string>
 </resources>

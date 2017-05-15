@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/margin"
-    tools:context="aggrathon.eyewitnessapp.experiment.QuestionsActivity"
+    tools:context="aggrathon.eyewitnessapp.experiment.TargetQuestionsActivity"
     android:gravity="center">
 
     <ScrollView
@@ -26,11 +26,47 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/sureTitle"
+                    android:id="@+id/targetSexTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
-                    android:text="@string/sureTitle"
+                    android:layout_weight="1"
+                    android:text="@string/targetSexTitle"
+                    android:textAppearance="@style/TextAppearance.AppCompat"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
+                    android:checkedButton="@+id/sexMan"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/sexMan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/sexMan"/>
+
+                    <RadioButton
+                        android:id="@+id/sexWoman"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/sexWoman"/>
+                </RadioGroup>
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/verticalSpace"
+                    android:layout_margin="@dimen/margin"/>
+
+                <TextView
+                    android:id="@+id/targetHeightTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
+                    android:text="@string/targetHeightTitle"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <LinearLayout
@@ -40,20 +76,20 @@
                     android:layout_margin="@dimen/margin">
 
                     <SeekBar
-                        android:id="@+id/sureBar"
+                        android:id="@+id/heightBar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="100"
-                        android:max="100"
-                        android:progress="100"/>
+                        android:max="220"
+                        android:progress="170"/>
 
                     <TextView
-                        android:id="@+id/sureText"
+                        android:id="@+id/heightText"
                         android:layout_width="60dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="100%"
                         android:gravity="bottom"
+                        android:text="170 cm"
                         android:textAlignment="textEnd"
                         android:textAppearance="@style/TextAppearance.AppCompat"/>
 
@@ -65,12 +101,12 @@
                     android:layout_margin="@dimen/margin"/>
 
                 <TextView
-                    android:id="@+id/distTitle"
+                    android:id="@+id/targetWeightTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:paddingTop="@dimen/largeMargin"
-                    android:text="@string/distTitle"
+                    android:text="@string/targetWeightTitle"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <LinearLayout
@@ -80,102 +116,27 @@
                     android:layout_margin="@dimen/margin">
 
                     <SeekBar
-                        android:id="@+id/distBar"
+                        android:id="@+id/weightBar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="100"
-                        android:max="200"
-                        android:progress="40"/>
+                        android:max="150"
+                        android:progress="70"/>
 
                     <TextView
-                        android:id="@+id/distText"
+                        android:id="@+id/weightText"
                         android:layout_width="60dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="bottom"
+                        android:text="70 kg"
                         android:textAlignment="textEnd"
-                        android:text="40 m"
                         android:textAppearance="@style/TextAppearance.AppCompat"/>
                 </LinearLayout>
 
-                <android.support.v4.widget.Space
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/verticalSpace"
-                    android:layout_margin="@dimen/margin"/>
-
-                <TextView
-                    android:id="@+id/recogniseTargetQuestionTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
-                    android:text="@string/recogniseTargetQuestionTitle"
-                    android:textAppearance="@style/TextAppearance.AppCompat"/>
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checkedButton="@+id/noAnswerTarget"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/margin">
-
-                    <RadioButton
-                        android:id="@+id/yesAnswerTarget"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/yesAnswer"/>
-
-                    <RadioButton
-                        android:id="@+id/noAnswerTarget"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/noAnswer"/>
-                </RadioGroup>
-
-                <android.support.v4.widget.Space
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/verticalSpace"
-                    android:layout_margin="@dimen/margin"/>
-
-
-                <TextView
-                    android:id="@+id/recogniseOtherQuestionTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
-                    android:text="@string/recogniseOtherQuestionTitle"
-                    android:textAppearance="@style/TextAppearance.AppCompat"/>
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checkedButton="@+id/noAnswerOther"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/margin">
-
-                    <RadioButton
-                        android:id="@+id/yesAnswerOther"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/yesAnswer"/>
-
-                    <RadioButton
-                        android:id="@+id/noAnswerOther"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/noAnswer"/>
-                </RadioGroup>
-
-                <android.support.v4.widget.Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin"
-                    android:layout_weight="100"/>
 
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

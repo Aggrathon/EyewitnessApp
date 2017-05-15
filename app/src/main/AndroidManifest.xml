@@ -75,11 +75,11 @@
         </activity>
         <activity
             android:name=".start.TutorialActivity"
+            android:immersive="true"
             android:label="@string/title_activity_tutorial"
             android:noHistory="true"
-            android:immersive="true"
-            android:screenOrientation="landscape"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -87,33 +87,47 @@
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialNumbers"
+            android:immersive="true"
             android:label="@string/title_activity_tutorial"
             android:noHistory="true"
-            android:immersive="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialLineup"
+            android:immersive="true"
             android:label="@string/title_activity_tutorial"
             android:noHistory="true"
-            android:immersive="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialQuestions"
+            android:immersive="true"
             android:label="@string/title_activity_tutorial"
             android:noHistory="true"
-            android:immersive="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialEnd"
+            android:immersive="true"
             android:label="@string/title_activity_tutorial"
             android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".experiment.WaitActivity"
             android:immersive="true"
+            android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".experiment.TargetQuestionsActivity"
+            android:immersive="true"
+            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
