@@ -9,22 +9,6 @@
     android:gravity="center"
     tools:context="aggrathon.eyewitnessapp.experiment.LineupActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/actionBarHeight">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/testSelectImageTitle"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"/>
-    </android.support.design.widget.AppBarLayout>
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

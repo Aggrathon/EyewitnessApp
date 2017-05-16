@@ -10,7 +10,6 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public abstract class AMessageActivity extends ACancelCheckActivity {
 
-	protected TextView titleText;
 	protected TextView messageText;
 	protected Button nextButton;
 
@@ -21,7 +20,6 @@ public abstract class AMessageActivity extends ACancelCheckActivity {
 			return;
 		setContentView(R.layout.activity_message);
 
-		titleText = (TextView)findViewById(R.id.titleText);
 		messageText = (TextView)findViewById(R.id.messageText);
 		nextButton = (Button)findViewById(R.id.nextButton);
 	}

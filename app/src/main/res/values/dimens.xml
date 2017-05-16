@@ -3,7 +3,7 @@
     <dimen name="verticalSpace">16dp</dimen>
     <dimen name="margin">8dp</dimen>
     <dimen name="largeMargin">16dp</dimen>
-    <dimen name="actionBarHeight">56dp</dimen>
+    <dimen name="actionBarHeight">64dp</dimen>
     <dimen name="tabletLandscapeColumnWidth">400dp</dimen>
     <dimen name="imageButtonElevation">4dp</dimen>
     <dimen name="fab_margin">16dp</dimen>

@@ -8,24 +8,6 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/actionBarHeight"
-        android:gravity="center"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:text="@string/select"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-
-    </android.support.design.widget.AppBarLayout>
-
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

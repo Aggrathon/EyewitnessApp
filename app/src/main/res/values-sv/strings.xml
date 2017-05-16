@@ -6,7 +6,6 @@
     <string name="sexOther">Annat</string>
     <string name="natTitle">Vad är din nationalitet</string>
     <string name="startButton">Börja</string>
-    <string name="testSelectImageTitle">Välj bild</string>
     <string name="sureTitle">Hur säker är du på ditt val?</string>
     <string name="distTitle">Hur långt ifrån skulle du estimera att personen var?</string>
     <string name="ageQuestionTitle">Hur gammal skulle du säga att personen var?</string>
@@ -49,4 +48,5 @@
     <string name="notificationStorageError">Kunde inte komma åt minnet</string>
     <string name="messageStorageRequired">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
     <string name="ok">OK</string>
+    <string name="lineupSelectImage">Välj bild</string>
 </resources>

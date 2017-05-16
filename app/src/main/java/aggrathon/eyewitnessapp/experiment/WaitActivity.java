@@ -15,7 +15,6 @@ public class WaitActivity extends AMessageActivity {
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if(ExperimentData.checkInstanced(null)) {
-			titleText.setText(R.string.wait);
 			messageText.setText(R.string.witnessAndWait);
 			final Activity act = this;
 			nextButton.setOnClickListener(new View.OnClickListener() {
