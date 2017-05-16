@@ -19,7 +19,7 @@ public class ResultActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_result);
 
 		ExperimentData data = ExperimentData.getInstance();
-		((TextView)findViewById(R.id.resultText)).setText(data.toString());
+		((TextView)findViewById(R.id.resultText)).setText(data.getResultString());
 		data.save(this);
 		ExperimentData.clearInstance();
 	}

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -147,23 +148,62 @@ public class ExperimentData {
 	}
 
 	public void save(Activity activity) {
-		StorageManager.createLogfile(activity, toString().split("\n"), "LABELS");
+		StorageManager.createLogfile(activity, toCsv(), CSV_HEADERS);
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
+	public static final String CSV_HEADERS = TextUtils.join("\",\"",new String[] {
+			"\"Time", "Language", "Test Number", "Language", "Nationality", "Home Country", "Age",
+			"Height", "Sex", "Previous Participant", "Iteration", "Lineup Number", "Lineup Presentation",
+			"Target in Lineup", "Image Order", "Selected Image", "Confidence", "Target Height",
+			"Target Weight", "Target Sex", "Target Distance", "Recognised Target", "Recognised Other\""
+	});
+	public String[] toCsv() {
+		String[] csvs = new String[data.size()];
+		for (int i = 0; i < data.size(); i++) {
+			ExperimentIteration d = data.get(i);
+			csvs[i] =
+				'"'+d.time+ "\","+
+				personalInformation.testNumber +",\""+
+				personalInformation.language +"\",\""+
+				personalInformation.nationality.replace("\"","") +"\",\""+
+				personalInformation.country.replace("\"","") + "\"," +
+				personalInformation.age + ","+
+				personalInformation.height +",\""+
+				personalInformation.sex +",\"" +
+				personalInformation.previousParticipations +"\"," +
+				i + ",\"" +
+				lineup.toString() + "\",\"" +
+				targetPresent + "\"," +
+				d.lineupNumber +",\"" +
+				d.imageOrder + "\",\"" +
+				d.selectedImage + "\"," +
+				d.confidence + "," +
+				d.targetHeight + "," +
+				d.targetWeight + ",\"" +
+				d.targetSex + "\"," +
+				d.distance + ",\"" +
+				d.recognisedTarget + "\",\"" +
+				d.recognisedOther + "\"";
+		}
+		return csvs;
+	}
 
+	public String getResultString() {
 		int correct = 0;
 		for (ExperimentIteration d : data) {
 			if (d.selectedImage.equals("correct"))
 				correct++;
 		}
 
-		sb.append("Du identifierade ").append(correct).append(" korrekta\n\n");
-		sb.append("Tack för ditt deltagande som ögonvittne!\n");
+		if (personalInformation.language.equals("swe") || true) {
+			return "Du identifierade "+correct+" korrekta\n\nTack för ditt deltagande som ögonvittne!";
+		}
+		return "Du identifierade "+correct+" korrekta\n\nTack för ditt deltagande som ögonvittne!";
+	}
 
-		sb.append("\n\nTEMPORÄRT VISAR LOG-DATA NEDAN\n\n");
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
 
 		sb.append(personalInformation.toString());
 		sb.append("\n");
