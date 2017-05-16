@@ -6,8 +6,8 @@ import android.view.View;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
+import aggrathon.eyewitnessapp.StorageManager;
 import aggrathon.eyewitnessapp.data.ExperimentData;
-import aggrathon.eyewitnessapp.data.ExperimentIteration;
 
 public class NumberActivity extends ACancelCheckActivity {
 
@@ -18,6 +18,7 @@ public class NumberActivity extends ACancelCheckActivity {
 			return;
 		}
 		setContentView(R.layout.activity_number);
+		StorageManager.checkForStoragePermissions(this);
 	}
 
 	public void OnEndButton(View v) {

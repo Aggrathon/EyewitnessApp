@@ -20,7 +20,8 @@ public class ResultActivity extends AppCompatActivity {
 
 		ExperimentData data = ExperimentData.getInstance();
 		((TextView)findViewById(R.id.resultText)).setText(data.toString());
-		ExperimentData.clearInstance(true);
+		data.save(this);
+		ExperimentData.clearInstance();
 	}
 
 	public void endExperiment(View v) {

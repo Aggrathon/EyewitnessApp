@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,13 @@ public abstract class ACancelCheckActivity extends AppCompatActivity {
 	public void onBackPressed() {
 		DialogFragment df = new EndExperimentDialog();
 		df.show(getSupportFragmentManager(), "End Experiment");
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		if (requestCode == StorageManager.STORAGE_PERMISSION_REQUEST) {
+			StorageManager.handleStoragePermissionCallback(this, grantResults[0] == PackageManager.PERMISSION_GRANTED);
+		}
 	}
 
 	public static class EndExperimentDialog extends DialogFragment {

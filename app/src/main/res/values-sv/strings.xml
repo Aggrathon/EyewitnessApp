@@ -5,13 +5,8 @@
     <string name="sexWoman">Kvinna</string>
     <string name="sexOther">Annat</string>
     <string name="natTitle">Vad är din nationalitet</string>
-    <string name="childTitle">Jag har vuxit upp med huvudsakligen:</string>
-    <string name="childFin">Finländare</string>
-    <string name="childOther">Annat</string>
     <string name="startButton">Börja</string>
-    <string name="title_activity_test">Test Activity</string>
     <string name="testSelectImageTitle">Välj bild</string>
-    <string name="title_activity_questions">QuestionsActivity</string>
     <string name="sureTitle">Hur säker är du på ditt val?</string>
     <string name="distTitle">Hur långt ifrån skulle du estimera att personen var?</string>
     <string name="ageQuestionTitle">Hur gammal skulle du säga att personen var?</string>
@@ -40,7 +35,7 @@
     <string name="notificationTestNumberNotANumber">Testnumret måste vara ett nummer</string>
     <string name="selfLengthTitle">Vad är din kroppslängd?</string>
     <string name="selfLivedLand">I vilket land har du bott största delen av ditt liv?</string>
-    <string name="selfSexTitle">Default\tHur skulle du definiera ditt kön?</string>
+    <string name="selfSexTitle">Hur skulle du definiera ditt kön?</string>
     <string name="notificationFillAllValues">Fyll i alla fält först!</string>
     <string name="title_activity_tutorial">Testrunda</string>
     <string name="tutorialInstructions1">Till näst kommer du att göra en testrunda innan huvudexperimentet börjar</string>
@@ -51,4 +46,7 @@
     <string name="targetSexTitle">Vilket kön var personen som du såg?</string>
     <string name="targetHeightTitle">Hur lång var personen som du såg?</string>
     <string name="targetWeightTitle">Hur mycket uppskattar du att personen väger?</string>
+    <string name="notificationStorageError">Kunde inte komma åt minnet</string>
+    <string name="messageStorageRequired">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
+    <string name="ok">OK</string>
 </resources>

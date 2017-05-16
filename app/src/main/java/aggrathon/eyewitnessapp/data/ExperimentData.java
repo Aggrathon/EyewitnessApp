@@ -15,6 +15,7 @@ import java.util.Random;
 
 import aggrathon.eyewitnessapp.MainActivity;
 import aggrathon.eyewitnessapp.R;
+import aggrathon.eyewitnessapp.StorageManager;
 
 public class ExperimentData {
 
@@ -36,13 +37,6 @@ public class ExperimentData {
 	}
 
 	public static void clearInstance() {
-		instance = null;
-	}
-
-	public static void clearInstance(boolean save)
-	{
-		if (instance != null && save)
-			instance.save();
 		instance = null;
 	}
 
@@ -152,8 +146,8 @@ public class ExperimentData {
 		}
 	}
 
-	public void save() {
-		//TODO
+	public void save(Activity activity) {
+		StorageManager.createLogfile(activity, toString().split("\n"), "LABELS");
 	}
 
 	@Override
