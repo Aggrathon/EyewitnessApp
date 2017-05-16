@@ -120,6 +120,22 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
+            android:name=".start.TutorialActivity$TutorialWait"
+            android:immersive="true"
+            android:label="@string/title_activity_tutorial"
+            android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".start.TutorialActivity$TutorialTargetQuestions"
+            android:immersive="true"
+            android:label="@string/title_activity_tutorial"
+            android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".experiment.WaitActivity"
             android:immersive="true"
             android:noHistory="true"

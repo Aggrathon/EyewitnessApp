@@ -3,6 +3,7 @@ package aggrathon.eyewitnessapp.start;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import aggrathon.eyewitnessapp.AMessageActivity;
@@ -11,6 +12,8 @@ import aggrathon.eyewitnessapp.experiment.NumberActivity;
 import aggrathon.eyewitnessapp.experiment.QuestionsActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.experiment.TargetQuestionsActivity;
+import aggrathon.eyewitnessapp.experiment.WaitActivity;
 
 public class TutorialActivity extends AMessageActivity {
 
@@ -42,24 +45,45 @@ public class TutorialActivity extends AMessageActivity {
 		@Override
 		public void OnNumberOne(View v) {
 			ExperimentData.getInstance().LoadImages("Test", this);
-			startActivity(new Intent(this, TutorialLineup.class));
+			startActivity(new Intent(this, TutorialWait.class));
 		}
 
 		@Override
 		public void OnNumberTwo(View v) {
 			ExperimentData.getInstance().LoadImages("Test", this);
-			startActivity(new Intent(this, TutorialLineup.class));
+			startActivity(new Intent(this, TutorialWait.class));
 		}
 
 		@Override
 		public void OnNumberThree(View v) {
 			ExperimentData.getInstance().LoadImages("Test", this);
-			startActivity(new Intent(this, TutorialLineup.class));
+			startActivity(new Intent(this, TutorialWait.class));
 		}
 
 		@Override
 		public void OnNumberFour(View v) {
 			ExperimentData.getInstance().LoadImages("Test", this);
+			startActivity(new Intent(this, TutorialWait.class));
+		}
+	}
+
+	public static class TutorialWait extends WaitActivity {
+		@Override
+		protected void onCreate(@Nullable Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			final Activity act = this;
+			nextButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					startActivity(new Intent(act, TutorialTargetQuestions.class));
+				}
+			});
+		}
+	}
+
+	public static class TutorialTargetQuestions extends TargetQuestionsActivity {
+		@Override
+		public void onNextButton(View v) {
 			startActivity(new Intent(this, TutorialLineup.class));
 		}
 	}
