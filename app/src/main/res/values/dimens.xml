@@ -6,5 +6,4 @@
     <dimen name="actionBarHeight">64dp</dimen>
     <dimen name="tabletLandscapeColumnWidth">400dp</dimen>
     <dimen name="imageButtonElevation">4dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
 </resources>

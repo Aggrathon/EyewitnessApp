@@ -22,7 +22,6 @@
     <string name="quit">Avsluta testet</string>
     <string name="targetAbsent">Saknas</string>
     <string name="endExperiment">Avsluta Experimentet?</string>
-    <string name="listenToInstructions">Vänta på instruktioner från testledaren</string>
     <string name="select">Välj</string>
     <string name="ageLessThanTen">Jag är 10 år gammal eller yngre än 10 år</string>
     <string name="ageMoreThanTen">Jag är äldre än 10 år</string>
@@ -49,4 +48,7 @@
     <string name="messageStorageRequired">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
     <string name="ok">OK</string>
     <string name="lineupSelectImage">Välj bild</string>
+    <string name="settingsTitle">Inställningar</string>
+    <string name="prefFilesTitle">Filer</string>
+
 </resources>

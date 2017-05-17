@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="aggrathon.eyewitnessapp">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -22,17 +22,17 @@
         </activity>
         <activity
             android:name=".start.BackgroundInformationActivity"
-            android:noHistory="true"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".MainActivity"
             android:label="@string/backgroundInformationTitle"
+            android:noHistory="true"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
         <activity
             android:name=".experiment.LineupActivity"
             android:immersive="true"
-            android:noHistory="true"
             android:label="@string/lineupSelectImage"
+            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -62,10 +62,10 @@
         <activity
             android:name=".start.AgeActivity"
             android:immersive="true"
-            android:noHistory="true"
-            android:screenOrientation="landscape"
             android:label="@string/select"
+            android:noHistory="true"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
         <activity
@@ -138,9 +138,9 @@
         <activity
             android:name=".experiment.WaitActivity"
             android:immersive="true"
+            android:label="@string/wait"
             android:noHistory="true"
             android:screenOrientation="landscape"
-            android:label="@string/wait"
             android:theme="@style/AppTheme">
         </activity>
         <activity
@@ -149,6 +149,12 @@
             android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/settingsTitle">
         </activity>
     </application>
 
