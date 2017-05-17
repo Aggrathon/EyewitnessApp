@@ -56,7 +56,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 
 	public void onStartButton(View view) {
 		if (ageText.getText().length() < 1 || natText.getText().length() < 1 || livedText.getText().length() < 1) {
-			Toast.makeText(this, R.string.notificationFillAllValues, Toast.LENGTH_SHORT);
+			Toast.makeText(this, R.string.notificationFillAllValues, Toast.LENGTH_SHORT).show();
 		}
 		else {
 			try {
@@ -69,7 +69,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 				startActivity(new Intent(this, TutorialActivity.class));
 			}
 			catch (NumberFormatException e) {
-				Toast.makeText(this, R.string.notificationFillAllValues, Toast.LENGTH_SHORT);
+				Toast.makeText(this, R.string.notificationFillAllValues, Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

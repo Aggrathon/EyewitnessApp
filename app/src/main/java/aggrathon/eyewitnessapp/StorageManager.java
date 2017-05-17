@@ -51,7 +51,7 @@ public class StorageManager {
 	}
 
 	private static void showErrorToast(Activity activity) {
-		Toast.makeText(activity, R.string.notificationStorageError, Toast.LENGTH_LONG);
+		Toast.makeText(activity, R.string.notificationStorageError, Toast.LENGTH_LONG).show();
 	}
 
 	public static void createLogfile(Activity activity, String[] logs, String labels) { createLogfile(activity, logs, labels, true); }
