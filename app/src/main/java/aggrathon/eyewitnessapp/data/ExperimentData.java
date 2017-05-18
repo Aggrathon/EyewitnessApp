@@ -3,6 +3,7 @@ package aggrathon.eyewitnessapp.data;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import java.util.Random;
 
 import aggrathon.eyewitnessapp.MainActivity;
 import aggrathon.eyewitnessapp.R;
+import aggrathon.eyewitnessapp.SettingsActivity;
 import aggrathon.eyewitnessapp.StorageManager;
 
 public class ExperimentData {
@@ -37,12 +39,20 @@ public class ExperimentData {
 		return false;
 	}
 
+	public static boolean isInstanced() {
+		return instance != null;
+	}
+
 	public static void clearInstance() {
 		instance = null;
 	}
 
-	public static void createInstance(String language) {
-		instance = new ExperimentData(language);
+	public static void createInstance(Activity activity, String language) {
+		instance = new ExperimentData(activity, language);
+	}
+
+	public static void createSimpleInstance() {
+		instance = new ExperimentData();
 	}
 
 	public enum LineupVariant {
@@ -62,12 +72,21 @@ public class ExperimentData {
 	public PersonalInformation personalInformation;
 	public ArrayList<ExperimentIteration> data;
 
-	private ExperimentData(String language) {
+	private ExperimentData(Activity activity, String language) {
 		Random rnd = new Random();
-		LineupVariant[] vars = LineupVariant.values();
-		lineup = vars[rnd.nextInt(vars.length)];
-		//lineup = vars[1];
-		targetPresent = rnd.nextBoolean();
+		SharedPreferences prefs = activity.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
+		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
+
+		float variation = getSettings(prefs, SettingsActivity.LINEUP_VARIATION, normalise, SettingsActivity.LINEUP_STATS_SEQUENTIAL, SettingsActivity.LINEUP_STATS_SIMULTANEOUS);
+		if(rnd.nextFloat() > variation)
+			lineup = LineupVariant.sequential;
+		else
+			lineup = LineupVariant.simultaneous;
+		float presence = getSettings(prefs, SettingsActivity.LINEUP_TARGET, normalise, SettingsActivity.LINEUP_STATS_TARGET_ABSENT, SettingsActivity.LINEUP_STATS_TARGET_PRESENT);
+		if (rnd.nextFloat() > presence)
+			targetPresent = false;
+		else
+			targetPresent = true;
 
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
@@ -75,6 +94,36 @@ public class ExperimentData {
 		personalInformation = new PersonalInformation();
 		personalInformation.language = language;
 		data = new ArrayList<>();
+	}
+
+	private ExperimentData() {
+		lineup =LineupVariant.sequential;
+		targetPresent = true;
+		images = new ArrayList<>();
+		imageLabels = new ArrayList<>();
+
+		personalInformation = new PersonalInformation();
+		personalInformation.language = "non";
+		data = new ArrayList<>();
+	}
+
+	private float getSettings(SharedPreferences prefs, String setting, boolean normalised, String statA, String statB) {
+		float target = (float)prefs.getInt(setting, 50)/100f;
+		if (target<0.04f) {
+			return -1;
+		}
+		else if (target>0.96f) {
+			return 2;
+		}
+		else if (normalised) {
+			float a = prefs.getInt(statA, 1);
+			float b = prefs.getInt(statB, 1);
+			float stat = b / (a+b);
+			return  2* target - stat;
+		}
+		else {
+			return target;
+		}
 	}
 
 	public void LoadImages(String id, Activity act) {
@@ -148,6 +197,21 @@ public class ExperimentData {
 	}
 
 	public void save(Activity activity) {
+		SharedPreferences prefs = activity.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
+		SharedPreferences.Editor editor = prefs.edit();
+		if (targetPresent)
+			editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, 0)+1);
+		else
+			editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 0)+1);
+		switch (lineup) {
+			case sequential:
+				editor.putInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, prefs.getInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, 0)+1);
+				break;
+			case simultaneous:
+				editor.putInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, prefs.getInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, 0)+1);
+				break;
+		}
+		editor.commit();
 		StorageManager.createLogfile(activity, toCsv(), CSV_HEADERS);
 	}
 

@@ -41,17 +41,17 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void onLangSwedish(View view) {
-		ExperimentData.createInstance("swe");
+		ExperimentData.createInstance(this, "swe");
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangEnglish(View view) {
-		ExperimentData.createInstance("eng");
+		ExperimentData.createInstance(this, "eng");
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangFinnish(View view) {
-		ExperimentData.createInstance("fin");
+		ExperimentData.createInstance(this, "fin");
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
