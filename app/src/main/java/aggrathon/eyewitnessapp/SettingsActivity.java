@@ -40,7 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
 		SharedPreferences prefs = getSharedPreferences(PREFERENCE_NAME, 0);
 		lineupVariation.setProgress(prefs.getInt(LINEUP_VARIATION, lineupVariation.getProgress()));
 		lineupTarget.setProgress(prefs.getInt(LINEUP_TARGET, lineupTarget.getProgress()));
-		lineupNormalisation.setChecked(prefs.getBoolean(LINEUP_NORMALISATION, lineupNormalisation.isChecked()));
+		lineupNormalisation.setChecked(prefs.getBoolean(LINEUP_NORMALISATION, true));
 	}
 
 	@Override
