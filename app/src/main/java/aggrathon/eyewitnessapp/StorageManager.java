@@ -14,10 +14,8 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -29,14 +27,15 @@ public class StorageManager {
 	public static final String DIRECTORY_NAME = "Eyewitness";
 	public static final String PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME;
 	public static final String LOG_DIRECTORY = PATH + File.separator + "logs";
+	public static final String IMAGE_DIRECOTRY = PATH + File.separator + "images";
 	public static final String COMBINED_LOG = LOG_DIRECTORY + File.separator + "combinedlog.csv";
 
 	public static void createFolders(Activity activity) {
 		File logDir = new File(LOG_DIRECTORY);
-		File imgDir1 = new File(PATH + File.separator + "images" + File.separator + "1");
-		File imgDir2 = new File(PATH + File.separator + "images" + File.separator + "2");
-		File imgDir3 = new File(PATH + File.separator + "images" + File.separator + "3");
-		File imgDir4 = new File(PATH + File.separator + "images" + File.separator + "4");
+		File imgDir1 = new File(IMAGE_DIRECOTRY + File.separator + "1");
+		File imgDir2 = new File(IMAGE_DIRECOTRY + File.separator + "2");
+		File imgDir3 = new File(IMAGE_DIRECOTRY + File.separator + "3");
+		File imgDir4 = new File(IMAGE_DIRECOTRY + File.separator + "4");
 		File imgDirTest = new File(PATH + File.separator + "images" + File.separator + "Test");
 		logDir.mkdirs();
 		imgDir1.mkdirs();
@@ -110,6 +109,14 @@ public class StorageManager {
 		catch (Exception e) {
 			return null;
 		}
+	}
+
+	public static File[] getImageList(String id) {
+		File f = new File(IMAGE_DIRECOTRY + File.separator + id);
+		Log.d("Image read", f.getPath());
+		File[] files = f.listFiles();
+		Log.d("Image read", "Files in folder "+files.length);
+		return files;
 	}
 
 	public static void handleStoragePermissionCallback(Activity activity, boolean result) {

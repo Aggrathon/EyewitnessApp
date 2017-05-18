@@ -23,7 +23,6 @@
         <activity
             android:name=".start.BackgroundInformationActivity"
             android:label="@string/backgroundInformationTitle"
-            android:noHistory="true"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
@@ -32,14 +31,12 @@
             android:name=".experiment.LineupActivity"
             android:immersive="true"
             android:label="@string/lineupSelectImage"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
         <activity
             android:name=".experiment.QuestionsActivity"
             android:immersive="true"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -47,7 +44,6 @@
             android:name=".ResultActivity"
             android:immersive="true"
             android:label="@string/resultTitle"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -55,7 +51,6 @@
             android:name=".experiment.NumberActivity"
             android:immersive="true"
             android:label="@string/listenToNumberInstructions"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -63,7 +58,6 @@
             android:name=".start.AgeActivity"
             android:immersive="true"
             android:label="@string/select"
-            android:noHistory="true"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
@@ -72,7 +66,6 @@
             android:name=".start.ExperimentInformationActivity"
             android:immersive="true"
             android:label="@string/title_activity_experiment_information"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
             <meta-data
@@ -83,7 +76,6 @@
             android:name=".start.TutorialActivity"
             android:immersive="true"
             android:label="@string/title_activity_tutorial"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -91,7 +83,6 @@
             android:name=".start.TutorialActivity$TutorialNumbers"
             android:immersive="true"
             android:label="@string/listenToNumberInstructions"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -99,7 +90,6 @@
             android:name=".start.TutorialActivity$TutorialLineup"
             android:immersive="true"
             android:label="@string/lineupSelectImage"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -107,7 +97,6 @@
             android:name=".start.TutorialActivity$TutorialQuestions"
             android:immersive="true"
             android:label="@string/title_activity_tutorial"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -115,7 +104,6 @@
             android:name=".start.TutorialActivity$TutorialEnd"
             android:immersive="true"
             android:label="@string/title_activity_tutorial"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -123,7 +111,6 @@
             android:name=".start.TutorialActivity$TutorialWait"
             android:immersive="true"
             android:label="@string/title_activity_tutorial"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -131,7 +118,6 @@
             android:name=".start.TutorialActivity$TutorialTargetQuestions"
             android:immersive="true"
             android:label="@string/title_activity_tutorial"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
@@ -139,14 +125,12 @@
             android:name=".experiment.WaitActivity"
             android:immersive="true"
             android:label="@string/wait"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
         <activity
             android:name=".experiment.TargetQuestionsActivity"
             android:immersive="true"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

@@ -62,5 +62,6 @@
     <string name="prefFilesLogButton">Visa alla loggar</string>
     <string name="notificationNoLogExists">Ingen log existerar</string>
     <string name="prefImageInstructions">I bildmappen skall finnas fem mappar:\n    \"1\", \"2\", \"3\", \"4\" och \"Test\"\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
+    <string name="notificationImagesMissing">Kunde inte läsa alla bilder som behövs</string>
 
 </resources>

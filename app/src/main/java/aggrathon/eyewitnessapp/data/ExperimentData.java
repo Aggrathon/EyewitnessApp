@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -131,27 +132,28 @@ public class ExperimentData {
 	public void LoadImages(String id, Activity act) {
 		images.clear();
 		imageLabels.clear();
-		imageLabels.addAll(Arrays.asList(new String[] {"A", "B", "C", "D", "E", "F", "G", "_Correct"}));
-		if (!targetPresent)
-			imageLabels.remove(imageLabels.size()-1);
-		try {
-			for (int i = 0; i < imageLabels.size(); i++) {
-				images.add(BitmapFactory.decodeStream(act.getAssets().open(id+"/"+id+imageLabels.get(i)+".jpg")));
+		for (File f: StorageManager.getImageList(id)) {
+			String name = f.getName();
+			if (!targetPresent && name.toLowerCase().contains(CORRECT_TAG)) {
+				continue;
 			}
+			Bitmap bmp = BitmapFactory.decodeFile(f.getPath());
+			if (bmp != null) {
+				images.add(bmp);
+				imageLabels.add(f.getName());
+			}
+			else {
+				Log.d("Image Read", "Could not read bitmap from "+f.getPath());
+			}
+			if(images.size() == 8)
+				break;
 		}
-		catch (IOException e) {
-			Log.e("Load Images", "Could not load images for "+id);
-			Toast.makeText(act, "Could not read all images", Toast.LENGTH_LONG).show();
-			images.clear();
-			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_horizontal));
-			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_horizontal));
-			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_horizontal));
-			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_horizontal));
-			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
-			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
-			images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
-			if(targetPresent)
-				images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.test_vertical));
+		if(images.size() != 8) {
+			Toast.makeText(act, R.string.notificationImagesMissing, Toast.LENGTH_LONG).show();
+			for (int i = images.size(); i < 8; i++) {
+				images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.placeholder_image));
+				imageLabels.add(MISSING_TAG);
+			}
 		}
 		//Shuffle
 		Random rnd = new Random();
@@ -190,7 +192,7 @@ public class ExperimentData {
 		if (data != null && data.size() > 0) {
 			if (index > -1 && index < imageLabels.size()) {
 				String img = imageLabels.get(index);
-				data.get(data.size() - 1).selectedImage = img.equals("_Correct")? CORRECT_TAG : img;
+				data.get(data.size() - 1).selectedImage = img;
 			}
 			else {
 				data.get(data.size() - 1).selectedImage = MISSING_TAG;
@@ -257,7 +259,7 @@ public class ExperimentData {
 	public String getResultString() {
 		int correct = 0;
 		for (ExperimentIteration d : data) {
-			if (d.selectedImage.equals(CORRECT_TAG) || (!targetPresent && d.selectedImage.equals(MISSING_TAG)))
+			if ((!targetPresent && d.selectedImage.equals(MISSING_TAG)) || d.selectedImage.toLowerCase().contains(CORRECT_TAG))
 				correct++;
 		}
 
