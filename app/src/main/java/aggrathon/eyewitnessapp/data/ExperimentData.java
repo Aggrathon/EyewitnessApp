@@ -22,6 +22,8 @@ import aggrathon.eyewitnessapp.StorageManager;
 
 public class ExperimentData {
 
+	public static final String CORRECT_TAG = "correct";
+	public static final String MISSING_TAG = "missing";
 
 	//region static instance
 
@@ -188,10 +190,10 @@ public class ExperimentData {
 		if (data != null && data.size() > 0) {
 			if (index > -1 && index < imageLabels.size()) {
 				String img = imageLabels.get(index);
-				data.get(data.size() - 1).selectedImage = img.equals("_Correct")? "correct" : img;
+				data.get(data.size() - 1).selectedImage = img.equals("_Correct")? CORRECT_TAG : img;
 			}
 			else {
-				data.get(data.size() - 1).selectedImage = "missing";
+				data.get(data.size() - 1).selectedImage = MISSING_TAG;
 			}
 		}
 	}
@@ -255,14 +257,14 @@ public class ExperimentData {
 	public String getResultString() {
 		int correct = 0;
 		for (ExperimentIteration d : data) {
-			if (d.selectedImage.equals("correct"))
+			if (d.selectedImage.equals(CORRECT_TAG) || (!targetPresent && d.selectedImage.equals(MISSING_TAG)))
 				correct++;
 		}
 
 		if (personalInformation.language.equals("swe") || true) {
-			return "Du identifierade "+correct+" korrekta\n\nTack för ditt deltagande som ögonvittne!";
+			return "Du identifierade "+correct+" korrekt\n\nTack för ditt deltagande som ögonvittne!";
 		}
-		return "Du identifierade "+correct+" korrekta\n\nTack för ditt deltagande som ögonvittne!";
+		return "Du identifierade "+correct+" korrekt\n\nTack för ditt deltagande som ögonvittne!";
 	}
 
 	@Override
