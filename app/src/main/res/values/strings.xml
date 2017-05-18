@@ -50,5 +50,17 @@
     <string name="lineupSelectImage">Välj bild</string>
     <string name="settingsTitle">Inställningar</string>
     <string name="prefFilesTitle">Filer</string>
+    <string name="prefLineupTitle">Lineup</string>
+    <string name="prefLienupSequential">Sekventiell</string>
+    <string name="prefLineupSimultaneous">Samtidig</string>
+    <string name="prefLineupTargetAbsent">Target Absent</string>
+    <string name="prefLineupTargetPresent">Target Present</string>
+    <string name="prefLineupNormalise">Normalisera fördelningen genom statistik</string>
+    <string name="prefLineupReset">Nollställ Statistiken</string>
+    <string name="prefFilesText">Bild mapp:\t\'Documents/Eyewitness/images/\'\nLog mapp:\t\'Documents/Eyewitness/logs/\'</string>
+    <string name="prefFilesImageButton">Visa bildinstruktioner</string>
+    <string name="prefFilesLogButton">Visa alla loggar</string>
+    <string name="notificationNoLogExists">Ingen log existerar</string>
+    <string name="prefImageInstructions">I bildmappen skall finnas fem mappar:\n    \"1\", \"2\", \"3\", \"4\" och \"Test\"\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
 
 </resources>

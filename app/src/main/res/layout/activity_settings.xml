@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="Lineup"
+                    android:text="@string/prefLineupTitle"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
                 <android.support.constraint.ConstraintLayout
@@ -48,7 +48,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lineup Sequential"
+                        android:text="@string/prefLienupSequential"
                         android:textAppearance="@style/TextAppearance.AppCompat"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -57,13 +57,13 @@
                         android:id="@+id/textPrefSimultanteous"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lineup Simultaneous"
+                        android:text="@string/prefLineupSimultaneous"
                         android:textAppearance="@style/TextAppearance.AppCompat"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
 
                     <SeekBar
-                        android:id="@+id/seekBar"
+                        android:id="@+id/prefLineupVariationsSeekBar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -84,7 +84,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Target Absent"
+                        android:text="@string/prefLineupTargetAbsent"
                         android:textAppearance="@style/TextAppearance.AppCompat"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -93,7 +93,7 @@
                         android:id="@+id/textPrefTargetPresent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Target Present"
+                        android:text="@string/prefLineupTargetPresent"
                         android:textAppearance="@style/TextAppearance.AppCompat"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -115,17 +115,18 @@
                     android:id="@+id/prefLineupNormalizeSwitch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="Normalise Using Stats"
-                    tools:checked="true"
-                    android:layout_margin="@dimen/margin"/>
+                    android:text="@string/prefLineupNormalise"
+                    tools:checked="true"/>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_margin="@dimen/margin"
-                    android:text="Reset Stats"/>
+                    android:layout_weight="1"
+                    android:text="@string/prefLineupReset"
+                    android:onClick="onResetStatsButton"/>
             </LinearLayout>
 
             <Space
@@ -141,13 +142,6 @@
                 android:orientation="vertical"
                 android:padding="@dimen/margin">
 
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                </android.support.constraint.ConstraintLayout>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -161,30 +155,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="Current image folder:\t'Documents/Eyewitness/images/\nCurrent log folder: \t 'Documents/Eyewitness/logs/"
+                    android:text="@string/prefFilesText"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_margin="@dimen/margin"
-                    android:text="View Master Log File"/>
+                    android:layout_weight="1"
+                    android:text="@string/prefFilesImageButton"
+                    android:onClick="onImagesButton"/>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin"
                     android:layout_weight="1"
-                    android:layout_margin="@dimen/margin"
-                    android:text="Create Dummy Images*"/>
+                    android:text="@string/prefFilesLogButton"
+                    android:onClick="onLogButton"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
-                    android:layout_weight="1"
-                    android:text="* Replaces only missing files"
-                    android:textAppearance="@style/TextAppearance.AppCompat"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

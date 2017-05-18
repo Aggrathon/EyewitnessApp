@@ -14,10 +14,13 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class StorageManager {
 
@@ -94,6 +97,19 @@ public class StorageManager {
 			ActivityCompat.requestPermissions(activity, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_REQUEST);
 		else
 			createFolders(activity);
+	}
+
+	public static String readTextFile(File file) {
+		try {
+			Scanner scan = new Scanner(file);
+			scan.useDelimiter("\\Z");
+			String content = scan.next();
+			scan.close();
+			return content;
+		}
+		catch (Exception e) {
+			return null;
+		}
 	}
 
 	public static void handleStoragePermissionCallback(Activity activity, boolean result) {
