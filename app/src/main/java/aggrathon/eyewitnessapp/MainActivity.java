@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.widget.ImageButton;
 
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.start.AgeActivity;
+import aggrathon.eyewitnessapp.start.VisualAcuityActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,5 +79,15 @@ public class MainActivity extends AppCompatActivity {
 		}
 		else
 			return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if (keyCode == 75) {
+			ExperimentData.createInstance(this, "test");
+			startActivity(new Intent(this, VisualAcuityActivity.class));
+			return true;
+		}
+		return super.onKeyUp(keyCode, event);
 	}
 }
