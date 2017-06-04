@@ -64,5 +64,9 @@
     <string name="prefImageInstructions">I bildmappen skall finnas fem mappar:\n    \"1\", \"2\", \"3\", \"4\" och \"Test\"\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
     <string name="notificationImagesMissing">Kunde inte läsa alla bilder som behövs</string>
     <string name="visualAcuityActivity">Ögontest</string>
+    <string name="visualAcuityInstructions1">Till näst följer ett enkelt ögontest.\nBlunda med höger öga.</string>
+    <string name="visualAcuityTitle2">Ögontest: Välj rätt riktning</string>
+    <string name="visualAcuityInstructions2">Öppna båda ögonen.\nBlunda med vänster öga.</string>
+    <string name="visualAcuityInstructions3">Ögontestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
 
 </resources>
