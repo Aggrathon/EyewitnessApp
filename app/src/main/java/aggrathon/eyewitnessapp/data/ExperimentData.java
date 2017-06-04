@@ -6,14 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 import aggrathon.eyewitnessapp.MainActivity;
@@ -219,39 +216,19 @@ public class ExperimentData {
 		StorageManager.createLogfile(activity, toCsv(), CSV_HEADERS);
 	}
 
-	public static final String CSV_HEADERS = TextUtils.join("\",\"",new String[] {
-			"\"Time", "Language", "Test Number", "Language", "Nationality", "Home Country", "Age",
-			"Height", "Sex", "Previous Participant", "Iteration", "Lineup Number", "Lineup Presentation",
-			"Target in Lineup", "Image Order", "Selected Image", "Confidence", "Target Height",
-			"Target Weight", "Target Sex", "Target Distance", "Recognised Target", "Recognised Other\""
-	});
+	public static final String CSV_HEADERS = "\"Time\","+PersonalInformation.getCsvHeaders()+",\"Iteration\",\"Lineup Presentation\",\"Target in Lineup\","+ExperimentIteration.getCsvHeader();
+
 	public String[] toCsv() {
 		String[] csvs = new String[data.size()];
 		for (int i = 0; i < data.size(); i++) {
 			ExperimentIteration d = data.get(i);
 			csvs[i] =
 				'"'+d.time+ "\","+
-				personalInformation.testNumber +",\""+
-				personalInformation.language +"\",\""+
-				personalInformation.nationality.replace("\"","") +"\",\""+
-				personalInformation.country.replace("\"","") + "\"," +
-				personalInformation.age + ","+
-				personalInformation.height +",\""+
-				personalInformation.sex +",\"" +
-				personalInformation.previousParticipations +"\"," +
+				personalInformation.getCsvData() +"," +
 				i + ",\"" +
 				lineup.toString() + "\",\"" +
 				targetPresent + "\"," +
-				d.lineupNumber +",\"" +
-				d.imageOrder + "\",\"" +
-				d.selectedImage + "\"," +
-				d.confidence + "," +
-				d.targetHeight + "," +
-				d.targetWeight + ",\"" +
-				d.targetSex + "\"," +
-				d.distance + ",\"" +
-				d.recognisedTarget + "\",\"" +
-				d.recognisedOther + "\"";
+				d.getCsvData();
 		}
 		return csvs;
 	}

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +18,11 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class VisualAcuityActivity extends ACancelCheckActivity {
 
+	static final int MAX_VISUAL_STAGE = 20;
+	static final float TARGET_ACCURACY = 0.5625f;
+	static final float TARGET_WINDOW = 0.2f;
+	static final int NUM_IMAGES = 18;
+
 	public enum State {
 		setup,
 		instructions1,
@@ -26,13 +32,19 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		finnish
 	}
 
-	State state;
+
 	ImageView imageView;
 	ImageView directionView;
 	TextView textView;
 	Button nextButton;
-	int visualStage = 1;
 	Random rnd;
+
+	State state;
+	int visualStage = 0;
+	int numImagesShown = 0;
+	int[] numCorrect;
+	int[] numWrong;
+	int rotation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +59,10 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		directionView = (ImageView)findViewById(R.id.directionView);
 		imageView.setImageResource(R.drawable.landolt_c);
 		state = State.setup;
-		visualStage = 1;
+		visualStage = 0;
 		rnd = new Random();
+		numCorrect = new int[MAX_VISUAL_STAGE];
+		numWrong = new int[MAX_VISUAL_STAGE];
 		onNext(null);
 	}
 
@@ -70,7 +84,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				directionView.setVisibility(View.VISIBLE);
 				setTitle(R.string.visualAcuityTitle2);
 				state = State.left;
-				onNextImage();
+				resetTest();
+				onNextImage(true);
 				break;
 			case left:
 				textView.setVisibility(View.VISIBLE);
@@ -80,6 +95,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				textView.setText(R.string.visualAcuityInstructions2);
 				setTitle(R.string.visualAcuityActivity);
 				state = State.instructions2;
+				ExperimentData.getInstance().personalInformation.visualAcuityLeft = calculateVisualAcuity();
 				break;
 			case instructions2:
 				textView.setVisibility(View.INVISIBLE);
@@ -88,15 +104,18 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				directionView.setVisibility(View.VISIBLE);
 				setTitle(R.string.visualAcuityTitle2);
 				state = State.right;
-				onNextImage();
+				resetTest();
+				onNextImage(true);
 				break;
 			case right:
 				textView.setVisibility(View.VISIBLE);
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
+				directionView.setVisibility(View.INVISIBLE);
 				textView.setText(R.string.visualAcuityInstructions3);
 				setTitle(R.string.visualAcuityActivity);
 				state = State.finnish;
+				ExperimentData.getInstance().personalInformation.visualAcuityRight = calculateVisualAcuity();
 				break;
 			case finnish:
 				startActivity(new Intent(this, TutorialActivity.class));
@@ -104,23 +123,110 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		}
 	}
 
-	private void onNextImage() {
-		imageView.setRotation(rnd.nextInt(8)*45);
-		float scale = (float) Math.pow(0.7, visualStage);
+	private void resetTest() {
+		numImagesShown = 0;
+		visualStage = 0;
+		for (int i = 0; i < numCorrect.length; i++) {
+			numCorrect[i] = 0;
+		}
+		for (int i = 0; i < numWrong.length; i++) {
+			numWrong[i] = 0;
+		}
+	}
+
+	private void onNextImage(boolean correct) {
+		int origStage = visualStage;
+		if(numImagesShown != 0 && numImagesShown%6 == 0)
+			visualStage = Math.max(0, visualStage-4);
+
+		if (correct)
+			numCorrect[visualStage]++;
+		else
+			numWrong[visualStage]++;
+
+		if(numImagesShown != 0 && numImagesShown%6 == 0)
+			visualStage = origStage;
+
+		numImagesShown++;
+		int fastFind = 0;
+		for (int c : numWrong)
+			fastFind += c;
+		float accuracy = (float)numCorrect[visualStage] / (float)(numCorrect[visualStage]+numWrong[visualStage]);
+		if (fastFind == 0 || (fastFind == 1 && !correct)) { //fast find
+			if (accuracy > TARGET_ACCURACY+TARGET_WINDOW)
+				visualStage +=2;
+			else if (accuracy < TARGET_ACCURACY-TARGET_WINDOW)
+				visualStage--;
+		}
+		else {
+			if (accuracy > TARGET_ACCURACY+TARGET_WINDOW && numCorrect[visualStage]+numWrong[visualStage] > 1)
+				visualStage++;
+			else if (accuracy < TARGET_ACCURACY-TARGET_WINDOW && numCorrect[visualStage]+numWrong[visualStage] > 1)
+				visualStage--;
+		}
+		visualStage = visualStage < 0? 0 : visualStage >= MAX_VISUAL_STAGE? MAX_VISUAL_STAGE-1 : visualStage;
+
+		if(numImagesShown == NUM_IMAGES) {
+			onNext(null);
+			return;
+		}
+
+		if(numImagesShown%6 == 5) {
+			visualStage = Math.max(0, visualStage - 4);
+			origStage = visualStage;
+		}
+
+		rotation = rnd.nextInt(8)*45;
+		imageView.setRotation(rotation);
+		float scale = (float) Math.pow(0.75, visualStage);
 		imageView.setScaleX(scale);
 		imageView.setScaleY(scale);
+
+		if(numImagesShown%6 == 5)
+			visualStage = origStage;
+	}
+
+	private float calculateVisualAcuity() {
+		int level = 0;
+		float accuracy = 0;
+		for (int i = 0; i < MAX_VISUAL_STAGE; i++) {
+			float tmpAcc = (float)numCorrect[i] / (float)(numCorrect[i]+numWrong[i]);
+			if (tmpAcc > TARGET_ACCURACY-TARGET_WINDOW) {
+				level = i;
+				accuracy = tmpAcc;
+			}
+		}
+		if (Math.abs(accuracy-TARGET_ACCURACY) < TARGET_WINDOW*0.5f)
+			return level;
+		else if (accuracy < TARGET_ACCURACY) {
+			if (level == 0)
+				return 0;
+			float prevAcc = (float)numCorrect[level-1] / (float)(numCorrect[level-1]+numWrong[level-1]);
+			if (prevAcc > TARGET_ACCURACY+TARGET_WINDOW)
+				return (float)level-0.25f;
+			else
+				return (float)level-0.5f;
+		}
+		else {
+			if(level == MAX_VISUAL_STAGE-1)
+				return MAX_VISUAL_STAGE;
+			if (accuracy > TARGET_ACCURACY+TARGET_WINDOW)
+				return (float)level +0.5f;
+			else
+				return (float)level +0.25f;
+		}
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		if (state == State.left && event.getAction() == MotionEvent.ACTION_UP) {
-			visualStage++;
-			Log.d("VisualAcuity", "Stage: "+visualStage);
-			onNextImage();
-		}
-		else if (state == State.right && event.getAction() == MotionEvent.ACTION_UP) {
-			visualStage++;
-			onNextImage();
+		if ((state == State.left || state == State.right) && event.getAction() == MotionEvent.ACTION_UP) {
+			MotionEvent.PointerCoords pos = new MotionEvent.PointerCoords();
+			event.getPointerCoords(0, pos);
+			View parent = directionView.getRootView();
+			float dx = (float) (parent.getLeft() + parent.getRight())/2 - pos.x;
+			float dy = (float) (parent.getTop() + parent.getBottom())/2 - pos.y;
+			int touchRot = (int)(-Math.toDegrees(Math.atan2(dx,dy))+270)%360;
+			onNextImage(Math.abs(rotation - touchRot) < 22.5 || Math.abs(rotation + 360 - touchRot) < 22.5);
 		}
 		return super.onTouchEvent(event);
 	}

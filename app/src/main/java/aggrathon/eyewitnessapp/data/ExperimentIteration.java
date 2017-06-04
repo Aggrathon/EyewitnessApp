@@ -39,4 +39,23 @@ public class ExperimentIteration {
 				"\n\tRecognised Target: "+recognisedTarget+
 				"\n\tRecognised Other: "+recognisedOther+"\n";
 	}
+
+	public static String getCsvHeader() {
+		return "\"Lineup Number\",\"Image Order\",\"Selected Image\",\"Confidence\",\"Target Height\","+
+				"\"Target Weight\",\"Target Sex\",\"Target Distance\",\"Recognised Target\",\"Recognised Other\"";
+	}
+
+	public String getCsvData() {
+		return
+			lineupNumber +",\"" +
+			imageOrder + "\",\"" +
+			selectedImage + "\"," +
+			confidence + "," +
+			targetHeight + "," +
+			targetWeight + ",\"" +
+			targetSex + "\"," +
+			distance + ",\"" +
+			recognisedTarget + "\",\"" +
+			recognisedOther + "\"";
+	}
 }
