@@ -2,10 +2,8 @@ package aggrathon.eyewitnessapp.start;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,7 +16,7 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class VisualAcuityActivity extends ACancelCheckActivity {
 
-	static final int MAX_VISUAL_STAGE = 20;
+	static final int MAX_VISUAL_STAGE = 18;
 	static final float TARGET_ACCURACY = 0.5625f;
 	static final float TARGET_WINDOW = 0.2f;
 	static final int NUM_IMAGES = 18;
@@ -85,7 +83,6 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				setTitle(R.string.visualAcuityTitle2);
 				state = State.left;
 				resetTest();
-				onNextImage(true);
 				break;
 			case left:
 				textView.setVisibility(View.VISIBLE);
@@ -105,7 +102,6 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				setTitle(R.string.visualAcuityTitle2);
 				state = State.right;
 				resetTest();
-				onNextImage(true);
 				break;
 			case right:
 				textView.setVisibility(View.VISIBLE);
@@ -124,7 +120,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 	}
 
 	private void resetTest() {
-		numImagesShown = 0;
+		numImagesShown = -1;
 		visualStage = 0;
 		for (int i = 0; i < numCorrect.length; i++) {
 			numCorrect[i] = 0;
@@ -132,6 +128,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		for (int i = 0; i < numWrong.length; i++) {
 			numWrong[i] = 0;
 		}
+		numCorrect[0]--;
+		onNextImage(true);
 	}
 
 	private void onNextImage(boolean correct) {
@@ -146,43 +144,43 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 
 		if(numImagesShown != 0 && numImagesShown%6 == 0)
 			visualStage = origStage;
+		else {
+			int fastFind = 0;
+			for (int c : numWrong)
+				fastFind += c;
+			float accuracy = (float) numCorrect[visualStage] / (float) (numCorrect[visualStage] + numWrong[visualStage]);
+			if (fastFind == 0 || (fastFind == 1 && !correct)) { //fast find
+				if (accuracy > TARGET_ACCURACY + TARGET_WINDOW)
+					visualStage += 2;
+				else if (accuracy < TARGET_ACCURACY - TARGET_WINDOW)
+					visualStage--;
+			} else {
+				if (accuracy > TARGET_ACCURACY + TARGET_WINDOW && numCorrect[visualStage] + numWrong[visualStage] > 1)
+					visualStage++;
+				else if (accuracy < TARGET_ACCURACY - TARGET_WINDOW && numCorrect[visualStage] + numWrong[visualStage] > 1)
+					visualStage--;
+			}
+			visualStage = visualStage < 0 ? 0 : visualStage >= MAX_VISUAL_STAGE ? MAX_VISUAL_STAGE - 1 : visualStage;
+		}
 
 		numImagesShown++;
-		int fastFind = 0;
-		for (int c : numWrong)
-			fastFind += c;
-		float accuracy = (float)numCorrect[visualStage] / (float)(numCorrect[visualStage]+numWrong[visualStage]);
-		if (fastFind == 0 || (fastFind == 1 && !correct)) { //fast find
-			if (accuracy > TARGET_ACCURACY+TARGET_WINDOW)
-				visualStage +=2;
-			else if (accuracy < TARGET_ACCURACY-TARGET_WINDOW)
-				visualStage--;
-		}
-		else {
-			if (accuracy > TARGET_ACCURACY+TARGET_WINDOW && numCorrect[visualStage]+numWrong[visualStage] > 1)
-				visualStage++;
-			else if (accuracy < TARGET_ACCURACY-TARGET_WINDOW && numCorrect[visualStage]+numWrong[visualStage] > 1)
-				visualStage--;
-		}
-		visualStage = visualStage < 0? 0 : visualStage >= MAX_VISUAL_STAGE? MAX_VISUAL_STAGE-1 : visualStage;
-
-		if(numImagesShown == NUM_IMAGES) {
+		if(numImagesShown > NUM_IMAGES) {
 			onNext(null);
 			return;
 		}
 
-		if(numImagesShown%6 == 5) {
-			visualStage = Math.max(0, visualStage - 4);
+		if(numImagesShown != 0 && numImagesShown%6 == 0) {
 			origStage = visualStage;
+			visualStage = Math.max(0, visualStage - 4);
 		}
 
 		rotation = rnd.nextInt(8)*45;
 		imageView.setRotation(rotation);
-		float scale = (float) Math.pow(0.75, visualStage);
+		float scale = (float) Math.pow(0.75, visualStage+1);
 		imageView.setScaleX(scale);
 		imageView.setScaleY(scale);
 
-		if(numImagesShown%6 == 5)
+		if(numImagesShown != 0 && numImagesShown%6 == 0)
 			visualStage = origStage;
 	}
 
