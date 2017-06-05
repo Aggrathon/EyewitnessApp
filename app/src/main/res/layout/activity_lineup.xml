@@ -28,7 +28,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:background="@android:color/background_light"
-                android:elevation="@dimen/imageButtonElevation"
+                android:elevation="@dimen/panelElevation"
                 android:layout_margin="@dimen/margin"/>
         </LinearLayout>
 
@@ -45,7 +45,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:background="@android:color/background_light"
-                android:elevation="@dimen/imageButtonElevation"
+                android:elevation="@dimen/panelElevation"
                 android:layout_margin="@dimen/margin"/>
         </LinearLayout>
 
@@ -62,7 +62,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:background="@android:color/background_light"
-                android:elevation="@dimen/imageButtonElevation"
+                android:elevation="@dimen/panelElevation"
                 android:layout_margin="@dimen/margin"/>
         </LinearLayout>
 
@@ -79,7 +79,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:background="@android:color/background_light"
-                android:elevation="@dimen/imageButtonElevation"
+                android:elevation="@dimen/panelElevation"
                 android:layout_margin="@dimen/margin"/>
         </LinearLayout>
     </LinearLayout>
@@ -104,7 +104,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:background="@android:color/background_light"
-                android:elevation="@dimen/imageButtonElevation"
+                android:elevation="@dimen/panelElevation"
                 android:layout_margin="@dimen/margin"/>
         </LinearLayout>
 
@@ -121,7 +121,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:background="@android:color/background_light"
-                android:elevation="@dimen/imageButtonElevation"
+                android:elevation="@dimen/panelElevation"
                 android:layout_margin="@dimen/margin"/>
         </LinearLayout>
 
@@ -138,7 +138,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:background="@android:color/background_light"
-                android:elevation="@dimen/imageButtonElevation"
+                android:elevation="@dimen/panelElevation"
                 android:layout_margin="@dimen/margin"/>
         </LinearLayout>
 
@@ -155,7 +155,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:background="@android:color/background_light"
-                android:elevation="@dimen/imageButtonElevation"
+                android:elevation="@dimen/panelElevation"
                 android:layout_margin="@dimen/margin"/>
         </LinearLayout>
     </LinearLayout>

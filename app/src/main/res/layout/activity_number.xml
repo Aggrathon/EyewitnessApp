@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/background_light"
-            android:elevation="@dimen/imageButtonElevation"
+            android:elevation="@dimen/panelElevation"
             android:layout_margin="@dimen/margin"
             android:onClick="OnNumberOne"
             app:srcCompat="@drawable/one"/>
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/background_light"
-            android:elevation="@dimen/imageButtonElevation"
+            android:elevation="@dimen/panelElevation"
             android:onClick="OnNumberTwo"
             app:srcCompat="@drawable/two"
             android:layout_margin="@dimen/margin"/>
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/background_light"
-            android:elevation="@dimen/imageButtonElevation"
+            android:elevation="@dimen/panelElevation"
             android:onClick="OnNumberThree"
             app:srcCompat="@drawable/three"
             android:layout_margin="@dimen/margin"/>
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/background_light"
-            android:elevation="@dimen/imageButtonElevation"
+            android:elevation="@dimen/panelElevation"
             android:onClick="OnNumberFour"
             app:srcCompat="@drawable/four"
             android:layout_margin="@dimen/margin"/>

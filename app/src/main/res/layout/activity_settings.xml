@@ -23,8 +23,7 @@
                 android:layout_width="@dimen/tabletLandscapeColumnWidth"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
-                android:background="@android:color/background_light"
-                android:elevation="2dp"
+                style="@style/AppTheme.Panel"
                 android:orientation="vertical"
                 android:padding="@dimen/margin">
 
@@ -127,8 +126,7 @@
                 android:layout_width="@dimen/tabletLandscapeColumnWidth"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
-                android:background="@android:color/background_light"
-                android:elevation="2dp"
+                style="@style/AppTheme.Panel"
                 android:orientation="vertical"
                 android:padding="@dimen/margin">
 
@@ -171,8 +169,7 @@
                 android:layout_width="@dimen/tabletLandscapeColumnWidth"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
-                android:background="@android:color/background_light"
-                android:elevation="2dp"
+                style="@style/AppTheme.Panel"
                 android:orientation="vertical"
                 android:padding="@dimen/margin">
 

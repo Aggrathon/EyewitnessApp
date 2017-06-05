@@ -16,9 +16,11 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class VisualAcuityActivity extends ACancelCheckActivity {
 
-	static final int MAX_VISUAL_STAGE = 18;
+	static final int MAX_VISUAL_STAGE = 25;
 	static final float TARGET_ACCURACY = 0.5625f;
 	static final float TARGET_WINDOW = 0.2f;
+	static final float IMAGE_STARTING_SIZE = 0.65f;
+	static final float IMAGE_SCALING = 0.75f;
 	static final int NUM_IMAGES = 18;
 
 	public enum State {
@@ -176,7 +178,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 
 		rotation = rnd.nextInt(8)*45;
 		imageView.setRotation(rotation);
-		float scale = 0.65f * (float) Math.pow(0.8, visualStage);
+		float scale = IMAGE_STARTING_SIZE * (float) Math.pow(IMAGE_SCALING, visualStage);
 		imageView.setScaleX(scale);
 		imageView.setScaleY(scale);
 

@@ -18,9 +18,12 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
+                style="@style/AppTheme.Panel"
                 android:layout_width="@dimen/tabletLandscapeColumnWidth"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -36,8 +39,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/margin">
+                    android:layout_margin="@dimen/margin"
+                    android:orientation="horizontal">
 
                     <SeekBar
                         android:id="@+id/sureBar"
@@ -52,8 +55,8 @@
                         android:layout_width="60dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="100%"
                         android:gravity="bottom"
+                        android:text="100%"
                         android:textAlignment="textEnd"/>
 
                 </LinearLayout>
@@ -75,8 +78,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/margin">
+                    android:layout_margin="@dimen/margin"
+                    android:orientation="horizontal">
 
                     <SeekBar
                         android:id="@+id/distBar"
@@ -92,8 +95,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="bottom"
-                        android:textAlignment="textEnd"
-                        android:text="40 m"/>
+                        android:text="40 m"
+                        android:textAlignment="textEnd"/>
                 </LinearLayout>
 
                 <android.support.v4.widget.Space
@@ -112,9 +115,9 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
                     android:checkedButton="@+id/noAnswerTarget"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/margin">
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/yesAnswerTarget"
@@ -147,9 +150,9 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
                     android:checkedButton="@+id/noAnswerOther"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/margin">
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/yesAnswerOther"

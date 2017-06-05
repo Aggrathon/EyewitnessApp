@@ -18,7 +18,7 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:background="@android:color/background_light"
-        android:elevation="@dimen/imageButtonElevation">
+        android:elevation="@dimen/panelElevation">
 
         <ImageButton
             android:id="@+id/finButton"
@@ -54,7 +54,7 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:background="@android:color/background_light"
-        android:elevation="@dimen/imageButtonElevation">
+        android:elevation="@dimen/panelElevation">
 
         <ImageButton
             android:id="@+id/sweButton"
@@ -88,7 +88,7 @@
         android:layout_margin="@dimen/margin"
         android:layout_gravity="center"
         android:background="@android:color/background_light"
-        android:elevation="@dimen/imageButtonElevation">
+        android:elevation="@dimen/panelElevation">
 
         <ImageButton
             android:id="@+id/engButton"

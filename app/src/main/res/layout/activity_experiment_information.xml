@@ -15,6 +15,7 @@
         android:layout_weight="100">
 
         <LinearLayout
+            style="@style/AppTheme.Panel"
             android:layout_width="@dimen/tabletLandscapeColumnWidth"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -70,6 +71,7 @@
         android:layout_width="@dimen/tabletLandscapeColumnWidth"
         android:layout_height="wrap_content"
         android:onClick="onNextButton"
+        android:layout_margin="@dimen/margin"
         android:text="@string/next"/>
 
 </LinearLayout>

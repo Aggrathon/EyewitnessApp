@@ -13,6 +13,7 @@
         android:layout_gravity="center">
 
         <LinearLayout
+            style="@style/AppTheme.Panel"
             android:layout_width="@dimen/tabletLandscapeColumnWidth"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
