@@ -24,26 +24,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
-                android:text="@string/writeTestNumber"
-                android:textAppearance="@style/TextAppearance.AppCompat"/>
-
-            <EditText
-                android:id="@+id/testNumberField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:ems="10"
-                android:inputType="number"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/verticalSpace"
-                android:layout_margin="@dimen/margin"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
                 android:text="@string/question_previous_participations"
                 android:textAppearance="@style/TextAppearance.AppCompat"/>
 

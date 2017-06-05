@@ -18,7 +18,6 @@ public class ExperimentInformationActivity extends AppCompatActivity {
 
 	CheckBox conditionCheck;
 	Button nextButton;
-	EditText testNumber;
 	RadioButton prevPartButton;
 
 	@Override
@@ -30,7 +29,6 @@ public class ExperimentInformationActivity extends AppCompatActivity {
 
 		nextButton = (Button) findViewById(R.id.nextButton);
 		conditionCheck = (CheckBox) findViewById(R.id.checkBox);
-		testNumber = (EditText) findViewById(R.id.testNumberField);
 		prevPartButton = (RadioButton) findViewById(R.id.yesButton);
 		nextButton.setVisibility(View.INVISIBLE);
 		conditionCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -42,20 +40,8 @@ public class ExperimentInformationActivity extends AppCompatActivity {
 	}
 
 	public void onNextButton(View v) {
-		if (testNumber.getText().length() < 1) {
-			Toast.makeText(this, R.string.fillTestNumberNotification, Toast.LENGTH_SHORT).show();
-		}
-		else {
-			try {
-				ExperimentData.getInstance().personalInformation.testId = Integer.parseInt(testNumber.getText().toString());
-				ExperimentData.getInstance().personalInformation.previousParticipations = prevPartButton.isChecked();
-
-				startActivity(new Intent(this, BackgroundInformationActivity.class));
-			}
-			catch (NumberFormatException e) {
-				Toast.makeText(this, R.string.notificationTestNumberNotANumber, Toast.LENGTH_SHORT).show();
-			}
-		}
+		ExperimentData.getInstance().personalInformation.previousParticipations = prevPartButton.isChecked();
+		startActivity(new Intent(this, BackgroundInformationActivity.class));
 	}
 
 }

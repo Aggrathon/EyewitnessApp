@@ -171,37 +171,6 @@
 
             </LinearLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                android:layout_margin="@dimen/margin"
-                android:layout_weight="1"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sexRadioGroup"/>
-
-            <TextView
-                android:id="@+id/selfLivedLandTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:layout_weight="1"
-                android:labelFor="@+id/selfLivedLandField"
-                android:text="@string/selfLivedLand"/>
-
-            <EditText
-                android:id="@+id/selfLivedLandField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text|textAutoComplete"
-                android:maxLines="1"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/natTitle"/>
-
         </LinearLayout>
 
     </ScrollView>

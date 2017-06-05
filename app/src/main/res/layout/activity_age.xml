@@ -19,6 +19,13 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin"
+                android:text="@string/question_age"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

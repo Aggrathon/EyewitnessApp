@@ -25,13 +25,9 @@
     <string name="answer_age_less_than_eleven">Yngre än 11 år</string>
     <string name="answer_age_more_than_eleven">11 år eller äldre</string>
     <string name="information">Information</string>
-    <string name="writeTestNumber">Skriv in ditt testnummer</string>
     <string name="question_previous_participations">Har du deltagit i denna undersökning tidigare?</string>
     <string name="text_conditions">Jag har informerats om vad detta test går ut på och är medveten om att jag får avbryta utan orsak när som helst. Jag godkänner härmed att jag deltar i denna psykologiska studie.</string>
-    <string name="fillTestNumberNotification">Fyll i ditt testnummer först!</string>
-    <string name="notificationTestNumberNotANumber">Testnumret måste vara ett nummer</string>
     <string name="question_length">Vad är din kroppslängd?</string>
-    <string name="selfLivedLand">I vilket land har du bott största delen av ditt liv?</string>
     <string name="question_sex">Vad är ditt kön?</string>
     <string name="notification_fill_all">Fyll i alla fält först!</string>
     <string name="title_tutorial">Testrunda</string>

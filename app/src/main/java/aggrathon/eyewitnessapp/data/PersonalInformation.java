@@ -11,7 +11,6 @@ public class PersonalInformation {
 	public String nationality;
 	public String sex;
 	public int height;
-	public String country;
 	public float visualAcuityLeft;
 	public float visualAcuityRight;
 
@@ -31,15 +30,14 @@ public class PersonalInformation {
 				"\n\tNationality: "+nationality+
 				"\n\tSex: "+sex+
 				"\n\tHeight: "+height+
-				"\n\tCountry: "+country+
 				"\n\tLeft Eye: "+visualAcuityLeft+
 				"\n\tRight Eye: "+visualAcuityRight+"\n";
 	}
 
 	public static String getCsvHeaders() {
 		return TextUtils.join("\",\"",new String[] {
-				"\"Test ID", "Language", "Nationality", "Home Country", "Age",
-				"Height", "Sex", "Previous Participant", "Left Eye", "Right Eye", "Average Eye", "Min Eye", "Max Eye\""
+				"\"Test ID", "Language", "Nationality", "Age", "Height", "Sex", "Previous Participant",
+				"Left Eye", "Right Eye", "Average Eye", "Min Eye", "Max Eye\""
 		});
 	}
 
@@ -48,7 +46,6 @@ public class PersonalInformation {
 			"\""+ testId +"\","+
 			"\""+language +"\","+
 			"\""+nationality.replace("\"","") +"\","+
-			"\""+country.replace("\"","") + "\"," +
 			age + ","+
 			height +","+
 			"\""+sex +"," +

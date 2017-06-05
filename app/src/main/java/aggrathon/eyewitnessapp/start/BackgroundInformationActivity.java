@@ -22,7 +22,6 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 	RadioButton otherRadio;
 	SeekBar lengthBar;
 	TextView lengthText;
-	EditText livedText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,6 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		otherRadio = (RadioButton) findViewById(R.id.sexOther);
 		lengthBar = (SeekBar) findViewById(R.id.selfLengthBar);
 		lengthText = (TextView) findViewById(R.id.selfLengthText);
-		livedText = (EditText) findViewById(R.id.selfLivedLandField);
 
 		lengthBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
@@ -55,7 +53,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 	}
 
 	public void onStartButton(View view) {
-		if (ageText.getText().length() < 1 || natText.getText().length() < 1 || livedText.getText().length() < 1) {
+		if (ageText.getText().length() < 1 || natText.getText().length() < 1) {
 			Toast.makeText(this, R.string.notification_fill_all, Toast.LENGTH_SHORT).show();
 		}
 		else {
@@ -64,7 +62,6 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 				data.personalInformation.age = Integer.parseInt(ageText.getText().toString());
 				data.personalInformation.nationality = natText.getText().toString();
 				data.personalInformation.height = lengthBar.getProgress();
-				data.personalInformation.country = livedText.getText().toString();
 				data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
 				startActivity(new Intent(this, VisualAcuityActivity.class));
 			}
