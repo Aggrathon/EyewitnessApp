@@ -71,8 +71,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);
-				textView.setText(R.string.visualAcuityInstructions1);
-				setTitle(R.string.visualAcuityActivity);
+				textView.setText(R.string.text_visual_acuity_instructions1);
+				setTitle(R.string.title_visual_acuity);
 				state = State.instructions1;
 				break;
 			case instructions1:
@@ -80,7 +80,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				imageView.setVisibility(View.VISIBLE);
 				nextButton.setVisibility(View.INVISIBLE);
 				directionView.setVisibility(View.VISIBLE);
-				setTitle(R.string.visualAcuityTitle2);
+				setTitle(R.string.title_visual_acuity2);
 				state = State.left;
 				resetTest();
 				break;
@@ -89,8 +89,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);
-				textView.setText(R.string.visualAcuityInstructions2);
-				setTitle(R.string.visualAcuityActivity);
+				textView.setText(R.string.text_visual_acuity_instructions2);
+				setTitle(R.string.title_visual_acuity);
 				state = State.instructions2;
 				ExperimentData.getInstance().personalInformation.visualAcuityLeft = calculateVisualAcuity();
 				break;
@@ -99,7 +99,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				imageView.setVisibility(View.VISIBLE);
 				nextButton.setVisibility(View.INVISIBLE);
 				directionView.setVisibility(View.VISIBLE);
-				setTitle(R.string.visualAcuityTitle2);
+				setTitle(R.string.title_visual_acuity2);
 				state = State.right;
 				resetTest();
 				break;
@@ -108,8 +108,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);
-				textView.setText(R.string.visualAcuityInstructions3);
-				setTitle(R.string.visualAcuityActivity);
+				textView.setText(R.string.text_visual_acuity_instructions3);
+				setTitle(R.string.title_visual_acuity);
 				state = State.finnish;
 				ExperimentData.getInstance().personalInformation.visualAcuityRight = calculateVisualAcuity();
 				break;

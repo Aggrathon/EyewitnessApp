@@ -21,7 +21,7 @@ public class TutorialActivity extends AMessageActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if(ExperimentData.checkInstanced(null)) {
-			messageText.setText(R.string.tutorialInstructions1);
+			messageText.setText(R.string.text_tutorial_instructions1);
 			final Activity act = this;
 			nextButton.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -114,7 +114,7 @@ public class TutorialActivity extends AMessageActivity {
 		protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			if(ExperimentData.checkInstanced(null)) {
-				messageText.setText(R.string.tutorialInstructions2);
+				messageText.setText(R.string.text_tutorial_instructions2);
 				final Activity act = this;
 				nextButton.setOnClickListener(new View.OnClickListener() {
 					@Override

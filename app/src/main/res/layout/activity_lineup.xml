@@ -162,11 +162,12 @@
 
     <Button
         android:id="@+id/targetAbsentButton"
+        style="@style/AppTheme.Button.Color"
         android:layout_width="@dimen/tabletLandscapeColumnWidth"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/targetAbsent"
+        android:layout_margin="@dimen/margin"
         android:onClick="onTargetMissingButton"
-        android:layout_margin="@dimen/margin"/>
+        android:text="@string/absent"/>
 
 </LinearLayout>

@@ -1,12 +1,11 @@
 package aggrathon.eyewitnessapp.data;
 
-import android.support.annotation.StringRes;
 import android.text.TextUtils;
 
 public class PersonalInformation {
 
 	public String language;
-	public int testNumber;
+	public String testId;
 	public boolean previousParticipations;
 	public int age;
 	public String nationality;
@@ -17,13 +16,16 @@ public class PersonalInformation {
 	public float visualAcuityRight;
 
 
-	public PersonalInformation() {}
+	public PersonalInformation(String id, String lang) {
+		testId = id;
+		language = lang;
+	}
 
 	@Override
 	public String toString() {
 		return "Personal Information: " +
 				"\n\tLanguage: "+language +
-				"\n\tTestnumber: "+testNumber +
+				"\n\tTest ID: "+ testId +
 				"\n\tPrevious Participations: "+previousParticipations +
 				"\n\tAge: "+age+
 				"\n\tNationality: "+nationality+
@@ -36,14 +38,14 @@ public class PersonalInformation {
 
 	public static String getCsvHeaders() {
 		return TextUtils.join("\",\"",new String[] {
-				"\"Test Number", "Language", "Nationality", "Home Country", "Age",
+				"\"Test ID", "Language", "Nationality", "Home Country", "Age",
 				"Height", "Sex", "Previous Participant", "Left Eye", "Right Eye", "Average Eye", "Min Eye", "Max Eye\""
 		});
 	}
 
 	public String getCsvData() {
 		return
-			testNumber +","+
+			"\""+ testId +"\","+
 			"\""+language +"\","+
 			"\""+nationality.replace("\"","") +"\","+
 			"\""+country.replace("\"","") + "\"," +

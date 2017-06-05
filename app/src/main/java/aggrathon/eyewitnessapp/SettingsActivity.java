@@ -23,6 +23,7 @@ public class SettingsActivity extends AppCompatActivity {
 	public static final String LINEUP_STATS_SIMULTANEOUS = "LINEUP_STATS_SIMULTANEOUS";
 	public static final String LINEUP_STATS_TARGET_ABSENT = "LINEUP_STATS_TARGET_ABSENT";
 	public static final String LINEUP_STATS_TARGET_PRESENT = "LINEUP_STATS_TARGET_PRESENT";
+	public static final String TEST_NUM_COUNTER = "TEST_NUM_COUNTER";
 
 	SeekBar lineupVariation;
 	SeekBar lineupTarget;
@@ -65,7 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
 	}
 
 	public void onImagesButton(View v) {
-		new MessageDialog().show(getSupportFragmentManager(), "Image Instructions", R.string.prefImageInstructions);
+		new MessageDialog().show(getSupportFragmentManager(), "Image Instructions", R.string.text_settings_image_instructions);
 	}
 
 	public void onLogButton(View v) {
@@ -80,13 +81,13 @@ public class SettingsActivity extends AppCompatActivity {
 			} else {
 				String log = StorageManager.readTextFile(f);
 				if (f == null)
-					Toast.makeText(this, R.string.notificationNoLogExists, Toast.LENGTH_SHORT).show();
+					Toast.makeText(this, R.string.notification_no_log, Toast.LENGTH_SHORT).show();
 				else
 					new MessageDialog().show(getSupportFragmentManager(), "Master Log", log);
 			}
 		}
 		else {
-			Toast.makeText(this, R.string.notificationNoLogExists, Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, R.string.notification_no_log, Toast.LENGTH_SHORT).show();
 		}
 	}
 }

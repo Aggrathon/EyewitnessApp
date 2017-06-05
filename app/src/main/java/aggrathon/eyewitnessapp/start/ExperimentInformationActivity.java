@@ -47,7 +47,7 @@ public class ExperimentInformationActivity extends AppCompatActivity {
 		}
 		else {
 			try {
-				ExperimentData.getInstance().personalInformation.testNumber = Integer.parseInt(testNumber.getText().toString());
+				ExperimentData.getInstance().personalInformation.testId = Integer.parseInt(testNumber.getText().toString());
 				ExperimentData.getInstance().personalInformation.previousParticipations = prevPartButton.isChecked();
 
 				startActivity(new Intent(this, BackgroundInformationActivity.class));

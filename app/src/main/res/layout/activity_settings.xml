@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="@string/prefLineupTitle"
+                    android:text="@string/lineup"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
                 <android.support.constraint.ConstraintLayout
@@ -48,7 +48,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/prefLienupSequential"
+                        android:text="@string/sequential"
                         android:textAppearance="@style/TextAppearance.AppCompat"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -57,7 +57,7 @@
                         android:id="@+id/textPrefSimultanteous"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/prefLineupSimultaneous"
+                        android:text="@string/simultaneous"
                         android:textAppearance="@style/TextAppearance.AppCompat"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -84,7 +84,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/prefLineupTargetAbsent"
+                        android:text="@string/text_target_absent"
                         android:textAppearance="@style/TextAppearance.AppCompat"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -93,7 +93,7 @@
                         android:id="@+id/textPrefTargetPresent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/prefLineupTargetPresent"
+                        android:text="@string/text_target_present"
                         android:textAppearance="@style/TextAppearance.AppCompat"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -118,7 +118,7 @@
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="@string/prefLineupNormalise"
+                    android:text="@string/text_settings_normalisation"
                     tools:checked="true"/>
 
                 <Button
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="@string/prefLineupReset"
+                    android:text="@string/text_reset_stats"
                     android:onClick="onResetStatsButton"/>
             </LinearLayout>
 
@@ -148,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="@string/prefFilesTitle"
+                    android:text="@string/files"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
                 <TextView
@@ -156,7 +156,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="@string/prefFilesText"
+                    android:text="@string/text_settings_folder"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <Button
@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="@string/prefFilesImageButton"
+                    android:text="@string/text_show_image_instructions"
                     android:onClick="onImagesButton"/>
 
                 <Button
@@ -173,7 +173,7 @@
                     android:layout_marginLeft="@dimen/margin"
                     android:layout_marginRight="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="@string/prefFilesLogButton"
+                    android:text="@string/text_settings_view_logs"
                     android:onClick="onLogButton"/>
 
             </LinearLayout>

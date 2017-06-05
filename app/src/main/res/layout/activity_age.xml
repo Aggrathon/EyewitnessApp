@@ -24,14 +24,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:onClick="onLessThanTenButton"
-                android:text="@string/ageLessThanTen"/>
+                android:text="@string/answer_age_less_than_eleven"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:onClick="onMoreThanTenButton"
-                android:text="@string/ageMoreThanTen"/>
+                android:text="@string/answer_age_more_than_eleven"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

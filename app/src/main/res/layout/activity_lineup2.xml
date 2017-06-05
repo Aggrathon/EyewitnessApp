@@ -41,18 +41,18 @@
             android:layout_margin="@dimen/margin"
             android:layout_weight="1"
             android:onClick="onNextImageButton"
-            android:text="@string/noAnswer"/>
+            android:text="@string/no"/>
 
         <Button
             android:id="@+id/yesButton"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="@dimen/tabletLandscapeColumnWidth"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin"
             android:layout_weight="1"
             android:onClick="onSelectImageButton"
-            android:text="@string/yesAnswer"/>
+            android:text="@string/yes"
+            android:theme="@style/AppTheme.Button.Color"/>
     </LinearLayout>
 
 </LinearLayout>

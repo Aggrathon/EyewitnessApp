@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
-                    android:text="@string/sureTitle"
+                    android:text="@string/question_certain"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <LinearLayout
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:paddingTop="@dimen/largeMargin"
-                    android:text="@string/distTitle"
+                    android:text="@string/question_target_distance"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <LinearLayout
@@ -108,7 +108,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
-                    android:text="@string/recogniseTargetQuestionTitle"
+                    android:text="@string/question_target_recognised"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <RadioGroup
@@ -123,14 +123,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/yesAnswer"/>
+                        android:text="@string/yes"/>
 
                     <RadioButton
                         android:id="@+id/noAnswerTarget"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/noAnswer"/>
+                        android:text="@string/no"/>
                 </RadioGroup>
 
                 <android.support.v4.widget.Space
@@ -144,7 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
-                    android:text="@string/recogniseOtherQuestionTitle"
+                    android:text="@string/question_other_recognised"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <RadioGroup
@@ -159,14 +159,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/yesAnswer"/>
+                        android:text="@string/yes"/>
 
                     <RadioButton
                         android:id="@+id/noAnswerOther"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/noAnswer"/>
+                        android:text="@string/no"/>
                 </RadioGroup>
 
                 <android.support.v4.widget.Space
@@ -181,12 +181,11 @@
 
     <Button
         android:id="@+id/nextButton"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="@dimen/tabletLandscapeColumnWidth"
         android:layout_height="wrap_content"
-        android:onClick="onNextButton"
-        android:layout_weight="1"
         android:layout_margin="@dimen/margin"
+        android:layout_weight="1"
+        android:onClick="onNextButton"
         android:text="@string/next"/>
 
 

@@ -34,13 +34,13 @@ public abstract class ACancelCheckActivity extends AppCompatActivity {
 			final Activity act = getActivity();
 			// Use the Builder class for convenient dialog construction
 			AlertDialog.Builder builder = new AlertDialog.Builder(act);
-			builder.setMessage(R.string.endExperiment)
-					.setPositiveButton(R.string.yesAnswer, new DialogInterface.OnClickListener() {
+			builder.setMessage(R.string.end_experiment)
+					.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
 							act.startActivity(new Intent(act, ResultActivity.class));
 						}
 					})
-					.setNegativeButton(R.string.noAnswer, new DialogInterface.OnClickListener() {
+					.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) { }
 					});
 			return builder.create();

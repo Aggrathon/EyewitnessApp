@@ -91,19 +91,22 @@ public class ExperimentData {
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
 
-		personalInformation = new PersonalInformation();
-		personalInformation.language = language;
+		int testNum = prefs.getInt(SettingsActivity.TEST_NUM_COUNTER, 1);
+		String id = ""+testNum;
+		while (StorageManager.checkLogFile(id))
+			id = "" + (++testNum);
+		personalInformation = new PersonalInformation(id, language);
+		prefs.edit().putInt(SettingsActivity.TEST_NUM_COUNTER, testNum+1).commit();
 		data = new ArrayList<>();
 	}
 
 	private ExperimentData() {
-		lineup =LineupVariant.sequential;
+		lineup = LineupVariant.sequential;
 		targetPresent = true;
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
 
-		personalInformation = new PersonalInformation();
-		personalInformation.language = "non";
+		personalInformation = new PersonalInformation("", "non");
 		data = new ArrayList<>();
 	}
 
@@ -146,7 +149,7 @@ public class ExperimentData {
 				break;
 		}
 		if(images.size() != 8) {
-			Toast.makeText(act, R.string.notificationImagesMissing, Toast.LENGTH_LONG).show();
+			Toast.makeText(act, R.string.notification_images_missing, Toast.LENGTH_LONG).show();
 			for (int i = images.size(); i < 8; i++) {
 				images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.placeholder_image));
 				imageLabels.add(MISSING_TAG);
@@ -213,7 +216,7 @@ public class ExperimentData {
 				break;
 		}
 		editor.commit();
-		StorageManager.createLogfile(activity, toCsv(), CSV_HEADERS);
+		StorageManager.createLogfile(activity, toCsv(), CSV_HEADERS, personalInformation.testId);
 	}
 
 	public static final String CSV_HEADERS = "\"Time\","+PersonalInformation.getCsvHeaders()+",\"Iteration\",\"Lineup Presentation\",\"Target in Lineup\","+ExperimentIteration.getCsvHeader();

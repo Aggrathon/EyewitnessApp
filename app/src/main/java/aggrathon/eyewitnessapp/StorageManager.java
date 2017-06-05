@@ -53,14 +53,20 @@ public class StorageManager {
 	}
 
 	private static void showErrorToast(Activity activity) {
-		Toast.makeText(activity, R.string.notificationStorageError, Toast.LENGTH_LONG).show();
+		Toast.makeText(activity, R.string.notification_storage_error, Toast.LENGTH_LONG).show();
 	}
 
-	public static void createLogfile(Activity activity, String[] logs, String labels) { createLogfile(activity, logs, labels, true); }
+	public static boolean checkLogFile(String name) {
+		String fileName = "log_"+name+".csv";
+		File f = new File(LOG_DIRECTORY + File.separator + fileName);
+		return f.exists();
+	}
 
-	public static void createLogfile(Activity activity, String[] logs, String labels, boolean alsoCombined) {
+	public static void createLogfile(Activity activity, String[] logs, String labels, String name) { createLogfile(activity, logs, labels, name, true); }
+
+	public static void createLogfile(Activity activity, String[] logs, String labels, String name, boolean alsoCombined) {
 		createFolders(activity);
-		String fileName = "log_"+(System.currentTimeMillis()-1000000000000l)+".csv";
+		String fileName = "log_"+name+".csv";
 		BufferedWriter writer;
 		try {
 			writer = new BufferedWriter(new FileWriter(LOG_DIRECTORY + File.separator + fileName));
@@ -131,7 +137,7 @@ public class StorageManager {
 		public Dialog onCreateDialog(Bundle savedInstanceState) {
 			final Activity act = getActivity();
 			AlertDialog.Builder builder = new AlertDialog.Builder(act);
-			builder.setMessage(R.string.messageStorageRequired);
+			builder.setMessage(R.string.notification_storage_required);
 			builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
 							checkForStoragePermissions(act);
