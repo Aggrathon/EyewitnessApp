@@ -3,11 +3,14 @@ package aggrathon.eyewitnessapp.start;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
@@ -15,13 +18,13 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class BackgroundInformationActivity extends ACancelCheckActivity {
 
-	EditText ageText;
-	EditText natText;
 	RadioButton manRadio;
 	RadioButton womanRadio;
 	RadioButton otherRadio;
 	SeekBar lengthBar;
 	TextView lengthText;
+	Spinner ageSpinner;
+	Spinner natSpinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +33,24 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 			return;
 		setContentView(R.layout.activity_background_information);
 
-		ageText = (EditText) findViewById(R.id.ageField);
-		natText = (EditText) findViewById(R.id.natField);
 		manRadio = (RadioButton) findViewById(R.id.sexMan);
 		womanRadio = (RadioButton) findViewById(R.id.sexWoman);
 		otherRadio = (RadioButton) findViewById(R.id.sexOther);
 		lengthBar = (SeekBar) findViewById(R.id.selfLengthBar);
 		lengthText = (TextView) findViewById(R.id.selfLengthText);
+		ageSpinner = (Spinner) findViewById(R.id.ageSpinner);
+		natSpinner = (Spinner)findViewById(R.id.spinnerNationality);
+
+		ArrayList<Integer> list = new ArrayList<>(100);
+		for (int i = 5; i < 100; i++)
+			list.add(i);
+		ArrayAdapter<Integer> adap1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
+		adap1.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+		ageSpinner.setAdapter(adap1);
+		ageSpinner.setSelection(ExperimentData.getInstance().personalInformation.age-5);
+		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this, R.array.countries, android.R.layout.simple_spinner_item);
+		adap.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+		natSpinner.setAdapter(adap);
 
 		lengthBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
@@ -53,21 +67,16 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 	}
 
 	public void onStartButton(View view) {
-		if (ageText.getText().length() < 1 || natText.getText().length() < 1) {
+		if (natSpinner.getSelectedItem() == null || ageSpinner.getSelectedItem() == null) {
 			Toast.makeText(this, R.string.notification_fill_all, Toast.LENGTH_SHORT).show();
 		}
 		else {
-			try {
-				ExperimentData data = ExperimentData.getInstance();
-				data.personalInformation.age = Integer.parseInt(ageText.getText().toString());
-				data.personalInformation.nationality = natText.getText().toString();
-				data.personalInformation.height = lengthBar.getProgress();
-				data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
-				startActivity(new Intent(this, VisualAcuityActivity.class));
-			}
-			catch (NumberFormatException e) {
-				Toast.makeText(this, R.string.notification_fill_all, Toast.LENGTH_SHORT).show();
-			}
+			ExperimentData data = ExperimentData.getInstance();
+			data.personalInformation.age = (Integer) ageSpinner.getSelectedItem();
+			data.personalInformation.nationality = natSpinner.getSelectedItem().toString();
+			data.personalInformation.height = lengthBar.getProgress();
+			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
+			startActivity(new Intent(this, VisualAcuityActivity.class));
 		}
 	}
 }

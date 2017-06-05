@@ -20,10 +20,12 @@ public class AgeActivity extends AppCompatActivity {
 
 	public void onLessThanTenButton(View v) {
 		startActivity(new Intent(this, ExperimentInformationActivity.class));
+		ExperimentData.getInstance().personalInformation.age = 10;
 	}
 
 	public void onMoreThanTenButton(View v) {
 		startActivity(new Intent(this, ExperimentInformationActivity.class));
+		ExperimentData.getInstance().personalInformation.age = 20;
 	}
 
 }

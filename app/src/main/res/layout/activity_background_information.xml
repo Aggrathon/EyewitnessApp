@@ -26,7 +26,9 @@
                 android:id="@+id/ageTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
                 android:labelFor="@+id/ageField"
                 android:text="@string/question_age"
                 android:visibility="visible"
@@ -34,23 +36,18 @@
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_editor_absoluteY="24dp"/>
 
-            <EditText
-                android:id="@+id/ageField"
+            <Spinner
+                android:id="@+id/ageSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin"
-                android:layout_marginRight="@dimen/margin"
                 android:layout_marginLeft="@dimen/margin"
-                android:ems="10"
-                android:inputType="number"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ageTitle"/>
+                android:layout_marginRight="@dimen/margin"
+                android:theme="@style/AppTheme.NumberPicker"/>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:layout_margin="@dimen/margin"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ageField"/>
@@ -59,31 +56,23 @@
                 android:id="@+id/natTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
                 android:labelFor="@+id/natField"
-                android:text="@string/question_nationality"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space2"/>
+                android:text="@string/question_nationality"/>
 
-            <EditText
-                android:id="@+id/natField"
+            <Spinner
+                android:id="@+id/spinnerNationality"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_marginRight="@dimen/margin"
-                android:layout_marginBottom="@dimen/margin"
-                android:ems="10"
-                android:inputType="text|textAutoComplete"
-                android:maxLines="1"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/natTitle"/>
+                android:layout_marginBottom="@dimen/margin"/>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:layout_margin="@dimen/margin"
                 android:layout_weight="1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -103,7 +92,7 @@
             <RadioGroup
                 android:id="@+id/sexRadioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:checkedButton="@+id/sexOther"
                 android:orientation="horizontal"
@@ -140,7 +129,6 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:layout_margin="@dimen/margin"
                 android:layout_weight="1"/>
 
             <TextView
@@ -154,8 +142,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_margin="@dimen/margin">
+                android:layout_margin="@dimen/margin"
+                android:orientation="horizontal">
 
                 <SeekBar
                     android:id="@+id/selfLengthBar"
@@ -184,10 +172,8 @@
         android:layout_width="@dimen/tabletLandscapeColumnWidth"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin"
-        android:layout_marginEnd="@dimen/margin"
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginRight="@dimen/margin"
-        android:layout_marginStart="@dimen/margin"
         android:layout_weight="1"
         android:onClick="onStartButton"
         android:text="@string/next"/>

@@ -20,6 +20,7 @@ public class PersonalInformation {
 		language = lang;
 		nationality = "";
 		sex = "";
+		age = 20;
 	}
 
 	@Override

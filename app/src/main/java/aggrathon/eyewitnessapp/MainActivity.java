@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.start.AgeActivity;
+import aggrathon.eyewitnessapp.start.BackgroundInformationActivity;
 import aggrathon.eyewitnessapp.start.VisualAcuityActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		if (keyCode == 75) {
 			ExperimentData.createInstance(this, "test");
-			startActivity(new Intent(this, VisualAcuityActivity.class));
+			startActivity(new Intent(this, BackgroundInformationActivity.class));
 			return true;
 		}
 		return super.onKeyUp(keyCode, event);

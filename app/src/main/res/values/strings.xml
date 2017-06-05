@@ -70,4 +70,28 @@
     <string name="text_settings_testid">Nuvarande test id:</string>
     <string name="notification_delete_logs">Radera alla gamla logfiler?</string>
 
+    <string-array name="countries">
+        <item>Annat</item>
+        <item>Finland</item>
+        <item>Sverige</item>
+        <item>Ryssland</item>
+        <item>Norge</item>
+        <item>Estland</item>
+        <item>Tyskland</item>
+        <item>Frankrike</item>
+        <item>Storbrittanien</item>
+        <item>Danmark</item>
+        <item>Italien</item>
+        <item>Spanien</item>
+        <item>Ukraina</item>
+        <item>Polen</item>
+        <item>Rumänien</item>
+        <item>Nederländerna</item>
+        <item>USA</item>
+        <item>Australien</item>
+        <item>Kina</item>
+        <item>Indien</item>
+        <item>Japan</item>
+    </string-array>
+
 </resources>
