@@ -1,9 +1,11 @@
 package aggrathon.eyewitnessapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -109,5 +111,16 @@ public class SettingsActivity extends AppCompatActivity {
 		String testIdText = testID.getText().toString();
 		testIdText = testIdText.substring(0, testIdText.lastIndexOf(' ')+1) +"1";
 		testID.setText(testIdText);
+
+		AlertDialog.Builder b = new AlertDialog.Builder(this);
+		b.setTitle(R.string.notification_delete_logs);
+		b.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialogInterface, int i) {
+				StorageManager.deleteAllLogs();
+			}
+		});
+		b.setNegativeButton(R.string.no, null);
+		b.show();
 	}
 }

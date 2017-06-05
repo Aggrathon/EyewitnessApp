@@ -115,6 +115,14 @@ public class StorageManager {
 		}
 	}
 
+	public static void deleteAllLogs() {
+		File dir = new File(LOG_DIRECTORY);
+		File[] files = dir.listFiles();
+		for (File f: files) {
+			f.delete();
+		}
+	}
+
 	public static void checkForStoragePermissions(Activity activity) {
 		if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
 			ActivityCompat.requestPermissions(activity, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_REQUEST);

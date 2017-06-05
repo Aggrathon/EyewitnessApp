@@ -68,5 +68,6 @@
     <string name="text_setting_reset_test">Nollställ Test ID</string>
     <string name="notification_overwrite_log">Skriv över existerande log?</string>
     <string name="text_settings_testid">Nuvarande test id:</string>
+    <string name="notification_delete_logs">Radera alla gamla logfiler?</string>
 
 </resources>
