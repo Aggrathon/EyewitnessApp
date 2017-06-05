@@ -23,6 +23,9 @@ public class ExperimentIteration {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sdf.setTimeZone(TimeZone.getDefault());
 		time = sdf.format(new Date());
+		imageOrder = "";
+		selectedImage = "";
+		targetSex = "";
 	}
 
 	public String toString(int index) {

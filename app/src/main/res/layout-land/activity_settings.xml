@@ -8,16 +8,15 @@
     android:orientation="vertical"
     tools:context="aggrathon.eyewitnessapp.SettingsActivity">
 
-    <ScrollView
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="@dimen/tabletLandscapeColumnWidth"
@@ -163,9 +162,9 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin"
                     android:layout_marginLeft="@dimen/margin"
                     android:layout_marginRight="@dimen/margin"
+                    android:layout_marginBottom="@dimen/margin"
                     android:layout_weight="1"
                     android:onClick="onLogButton"
                     android:text="@string/text_settings_view_logs"/>
@@ -192,8 +191,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
+                    android:layout_margin="@dimen/margin"
                     android:text="@string/device_id"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
@@ -211,9 +210,9 @@
                     android:id="@+id/testIdText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
                     android:text="@string/text_settings_testid"
+                    android:layout_margin="@dimen/margin"
                     android:textAppearance="@style/TextAppearance.AppCompat"/>
 
                 <Button
@@ -225,6 +224,6 @@
                     android:text="@string/text_setting_reset_test"/>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </HorizontalScrollView>
 
 </LinearLayout>

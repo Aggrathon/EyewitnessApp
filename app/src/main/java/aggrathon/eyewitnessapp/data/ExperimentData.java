@@ -92,7 +92,7 @@ public class ExperimentData {
 		imageLabels = new ArrayList<>();
 
 		int testNum = prefs.getInt(SettingsActivity.TEST_NUM_COUNTER, 1);
-		String id = ""+testNum;
+		String id = prefs.getString(SettingsActivity.DEVICE_ID, "")+testNum;
 		while (StorageManager.checkLogFile(id))
 			id = "" + (++testNum);
 		personalInformation = new PersonalInformation(id, language);
@@ -216,7 +216,8 @@ public class ExperimentData {
 				break;
 		}
 		editor.commit();
-		StorageManager.createLogfile(activity, toCsv(), CSV_HEADERS, personalInformation.testId);
+		if(data != null || data.size() > 0)
+			StorageManager.createLogfile(activity, toCsv(), CSV_HEADERS, personalInformation.testId);
 	}
 
 	public static final String CSV_HEADERS = "\"Time\","+PersonalInformation.getCsvHeaders()+",\"Iteration\",\"Lineup Presentation\",\"Target in Lineup\","+ExperimentIteration.getCsvHeader();

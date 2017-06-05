@@ -18,6 +18,8 @@ public class PersonalInformation {
 	public PersonalInformation(String id, String lang) {
 		testId = id;
 		language = lang;
+		nationality = "";
+		sex = "";
 	}
 
 	@Override
@@ -49,7 +51,7 @@ public class PersonalInformation {
 			age + ","+
 			height +","+
 			"\""+sex +"," +
-			"\""+previousParticipations +"\""+
+			"\""+previousParticipations +"\","+
 			visualAcuityLeft+","+
 			visualAcuityRight+","+
 			((visualAcuityLeft+visualAcuityRight)/2)+","+

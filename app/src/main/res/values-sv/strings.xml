@@ -20,7 +20,7 @@
     <string name="title_backgorund_information">Bakgrundsinformation</string>
     <string name="result">Resultat</string>
     <string name="absent">Saknas</string>
-    <string name="end_experiment">Avsluta Experimentet?</string>
+    <string name="end_experiment">Avsluta Experimentet</string>
     <string name="select">Välj</string>
     <string name="answer_age_less_than_eleven">Yngre än 11 år</string>
     <string name="answer_age_more_than_eleven">11 år eller äldre</string>
@@ -63,5 +63,10 @@
     <string name="title_visual_acuity2">Ögontest: Välj rätt riktning</string>
     <string name="text_visual_acuity_instructions2">Öppna båda ögonen.\nBlunda med vänster öga.</string>
     <string name="text_visual_acuity_instructions3">Ögontestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
+    <string name="id">ID</string>
+    <string name="device_id">Enhetens ID</string>
+    <string name="text_setting_reset_test">Nollställ Test ID</string>
+    <string name="notification_overwrite_log">Skriv över existerande log?</string>
+    <string name="text_settings_testid">Nuvarande test id:</string>
 
 </resources>

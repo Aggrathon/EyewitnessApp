@@ -62,11 +62,29 @@ public class StorageManager {
 		return f.exists();
 	}
 
-	public static void createLogfile(Activity activity, String[] logs, String labels, String name) { createLogfile(activity, logs, labels, name, true); }
+	public static void createLogfile(Activity activity, String[] logs, String labels, String name) { createLogfile(activity, logs, labels, name, true, false); }
 
-	public static void createLogfile(Activity activity, String[] logs, String labels, String name, boolean alsoCombined) {
+	public static void createLogfile(final Activity activity, final String[] logs, final String labels, final String name, final boolean alsoCombined, boolean overwrite) {
 		createFolders(activity);
 		String fileName = "log_"+name+".csv";
+		if(checkLogFile(name)) {
+			if (overwrite) {
+				new File(LOG_DIRECTORY + File.separator + fileName).delete();
+			}
+			else {
+				AlertDialog.Builder b = new AlertDialog.Builder(activity);
+				b.setTitle(R.string.notification_overwrite_log);
+				b.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialogInterface, int i) {
+						createLogfile(activity, logs, labels, name, alsoCombined, true);
+					}
+				});
+				b.setNegativeButton(R.string.no, null);
+				b.show();
+				return;
+			}
+		}
 		BufferedWriter writer;
 		try {
 			writer = new BufferedWriter(new FileWriter(LOG_DIRECTORY + File.separator + fileName));
