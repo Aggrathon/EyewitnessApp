@@ -31,8 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="@string/question_target_sex"
-                    android:textAppearance="@style/TextAppearance.AppCompat"/>
+                    android:text="@string/question_target_sex"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -66,8 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
-                    android:text="@string/question_target_height"
-                    android:textAppearance="@style/TextAppearance.AppCompat"/>
+                    android:text="@string/question_target_height"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -90,8 +88,7 @@
                         android:layout_weight="1"
                         android:gravity="bottom"
                         android:text="170 cm"
-                        android:textAlignment="textEnd"
-                        android:textAppearance="@style/TextAppearance.AppCompat"/>
+                        android:textAlignment="textEnd"/>
 
                 </LinearLayout>
 
@@ -106,8 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:paddingTop="@dimen/largeMargin"
-                    android:text="@string/question_target_weight"
-                    android:textAppearance="@style/TextAppearance.AppCompat"/>
+                    android:text="@string/question_target_weight"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -130,8 +126,7 @@
                         android:layout_weight="1"
                         android:gravity="bottom"
                         android:text="70 kg"
-                        android:textAlignment="textEnd"
-                        android:textAppearance="@style/TextAppearance.AppCompat"/>
+                        android:textAlignment="textEnd"/>
                 </LinearLayout>
 
 

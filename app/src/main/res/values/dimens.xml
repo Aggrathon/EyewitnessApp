@@ -6,4 +6,7 @@
     <dimen name="actionBarHeight">64dp</dimen>
     <dimen name="tabletLandscapeColumnWidth">400dp</dimen>
     <dimen name="imageButtonElevation">4dp</dimen>
+    <dimen name="buttonHeight">64dp</dimen>
+    <dimen name="textSize">18sp</dimen>
+    <dimen name="textVerticalSpacing">4sp</dimen>
 </resources>

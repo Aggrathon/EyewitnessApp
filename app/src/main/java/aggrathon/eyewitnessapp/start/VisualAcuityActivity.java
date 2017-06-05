@@ -176,7 +176,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 
 		rotation = rnd.nextInt(8)*45;
 		imageView.setRotation(rotation);
-		float scale = (float) Math.pow(0.75, visualStage+1);
+		float scale = 0.65f * (float) Math.pow(0.8, visualStage);
 		imageView.setScaleX(scale);
 		imageView.setScaleY(scale);
 

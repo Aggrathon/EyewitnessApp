@@ -162,7 +162,6 @@
 
     <Button
         android:id="@+id/targetAbsentButton"
-        style="@style/AppTheme.Button.Color"
         android:layout_width="@dimen/tabletLandscapeColumnWidth"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
