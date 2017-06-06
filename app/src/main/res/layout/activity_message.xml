@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="aggrathon.eyewitnessapp.AMessageActivity">
+    tools:context="aggrathon.eyewitnessapp.AMessageActivity"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_weight="100"
+        android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/messageText"
+        <LinearLayout
+            style="@style/AppTheme.Panel"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="100"
-            android:gravity="center"
-            />
-
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="@dimen/tabletLandscapeColumnWidth"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/next"/>
-    </LinearLayout>
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
-</android.support.design.widget.CoordinatorLayout>
+            <TextView
+                android:id="@+id/messageText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Placeholder"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="@dimen/tabletLandscapeColumnWidth"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/next"/>
+
+</LinearLayout>

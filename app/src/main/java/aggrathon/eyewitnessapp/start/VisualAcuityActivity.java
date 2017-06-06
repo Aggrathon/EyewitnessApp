@@ -36,6 +36,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 	ImageView imageView;
 	ImageView directionView;
 	TextView textView;
+	View textPanel;
 	Button nextButton;
 	Random rnd;
 
@@ -54,6 +55,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		}
 		setContentView(R.layout.activity_visual_acuity);
 		textView = (TextView)findViewById(R.id.textView);
+		textPanel = findViewById(R.id.textPanel);
 		imageView = (ImageView)findViewById(R.id.imageView);
 		nextButton = (Button)findViewById(R.id.nextButton);
 		directionView = (ImageView)findViewById(R.id.directionView);
@@ -69,7 +71,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 	public void onNext(View v) {
 		switch (state) {
 			case setup:
-				textView.setVisibility(View.VISIBLE);
+				textPanel.setVisibility(View.VISIBLE);
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);
@@ -78,7 +80,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				state = State.instructions1;
 				break;
 			case instructions1:
-				textView.setVisibility(View.INVISIBLE);
+				textPanel.setVisibility(View.INVISIBLE);
 				imageView.setVisibility(View.VISIBLE);
 				nextButton.setVisibility(View.INVISIBLE);
 				directionView.setVisibility(View.VISIBLE);
@@ -87,7 +89,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				resetTest();
 				break;
 			case left:
-				textView.setVisibility(View.VISIBLE);
+				textPanel.setVisibility(View.VISIBLE);
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);
@@ -97,7 +99,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				ExperimentData.getInstance().personalInformation.visualAcuityLeft = calculateVisualAcuity();
 				break;
 			case instructions2:
-				textView.setVisibility(View.INVISIBLE);
+				textPanel.setVisibility(View.INVISIBLE);
 				imageView.setVisibility(View.VISIBLE);
 				nextButton.setVisibility(View.INVISIBLE);
 				directionView.setVisibility(View.VISIBLE);
@@ -106,7 +108,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				resetTest();
 				break;
 			case right:
-				textView.setVisibility(View.VISIBLE);
+				textPanel.setVisibility(View.VISIBLE);
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);

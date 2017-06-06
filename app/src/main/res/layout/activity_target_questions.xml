@@ -61,7 +61,7 @@
                 <android.support.v4.widget.Space
                     android:layout_width="0dp"
                     android:layout_height="@dimen/verticalSpace"
-                    android:layout_margin="@dimen/margin"/>
+                    />
 
                 <TextView
                     android:id="@+id/targetHeightTitle"
@@ -98,7 +98,7 @@
                 <android.support.v4.widget.Space
                     android:layout_width="0dp"
                     android:layout_height="@dimen/verticalSpace"
-                    android:layout_margin="@dimen/margin"/>
+                    />
 
                 <TextView
                     android:id="@+id/targetWeightTitle"

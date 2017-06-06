@@ -64,7 +64,7 @@
                 <android.support.v4.widget.Space
                     android:layout_width="0dp"
                     android:layout_height="@dimen/verticalSpace"
-                    android:layout_margin="@dimen/margin"/>
+                    />
 
                 <TextView
                     android:id="@+id/distTitle"
@@ -102,7 +102,7 @@
                 <android.support.v4.widget.Space
                     android:layout_width="0dp"
                     android:layout_height="@dimen/verticalSpace"
-                    android:layout_margin="@dimen/margin"/>
+                    />
 
                 <TextView
                     android:id="@+id/recogniseTargetQuestionTitle"
@@ -137,7 +137,7 @@
                 <android.support.v4.widget.Space
                     android:layout_width="0dp"
                     android:layout_height="@dimen/verticalSpace"
-                    android:layout_margin="@dimen/margin"/>
+                    />
 
 
                 <TextView
@@ -168,12 +168,6 @@
                         android:layout_weight="1"
                         android:text="@string/no"/>
                 </RadioGroup>
-
-                <android.support.v4.widget.Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin"
-                    android:layout_weight="100"/>
 
             </LinearLayout>
         </LinearLayout>
