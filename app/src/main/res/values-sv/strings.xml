@@ -26,7 +26,7 @@
     <string name="answer_age_more_than_eleven">11 år eller äldre</string>
     <string name="information">Information</string>
     <string name="question_previous_participations">Har du deltagit i denna undersökning tidigare?</string>
-    <string name="text_conditions">Jag har informerats om vad detta test går ut på och är medveten om att jag får avbryta utan orsak när som helst. Jag godkänner härmed att jag deltar i denna psykologiska studie.</string>
+    <string name="text_conditions">Jar har informerats om detta ögonvittnesexperiment och vet att jag får avsluta när som helst. Jag deltar frivilligt i experimentet</string>
     <string name="question_length">Vad är din kroppslängd?</string>
     <string name="question_sex">Vad är ditt kön?</string>
     <string name="notification_fill_all">Fyll i alla fält först!</string>

@@ -32,7 +32,7 @@
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
                     android:text="@string/lineup"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
                     android:text="@string/files"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -178,7 +178,7 @@
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
                     android:text="@string/id"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
                 <TextView
                     android:layout_width="match_parent"

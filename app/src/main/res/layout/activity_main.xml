@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="@dimen/margin"
+    android:layout_margin="@dimen/margin"
     tools:context="aggrathon.eyewitnessapp.MainActivity"
     android:gravity="center">
 
@@ -16,6 +17,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:layout_margin="@dimen/margin"
         style="@style/AppTheme.Panel">
 
         <ImageButton
@@ -30,18 +32,17 @@
             android:onClick="onLangFinnish"
             android:scaleType="fitCenter"
             android:layout_margin="@dimen/margin"
-            android:tint="@android:color/darker_gray"
             android:tintMode="screen"
             app:srcCompat="@drawable/flag_of_finland"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
             android:layout_weight="1"
             android:text="@string/finnish"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_margin="@dimen/margin"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
     </LinearLayout>
 
@@ -51,6 +52,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:layout_margin="@dimen/margin"
         style="@style/AppTheme.Panel">
 
         <ImageButton
@@ -70,11 +72,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
             android:layout_weight="1"
             android:text="@string/swedish"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_margin="@dimen/margin"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
     </LinearLayout>
 
@@ -84,6 +86,7 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:layout_gravity="center"
+        android:layout_margin="@dimen/margin"
         style="@style/AppTheme.Panel">
 
         <ImageButton
@@ -105,11 +108,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
             android:layout_weight="1"
             android:text="@string/english"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_margin="@dimen/margin"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
     </LinearLayout>
 

@@ -44,7 +44,7 @@ public class ExperimentIteration {
 	}
 
 	public static String getCsvHeader() {
-		return "\"Lineup Number\",\"Image Order\",\"Selected Image\",\"Confidence\",\"Target Height\","+
+		return "\"Lineup Number\",\"Image Order\",\"Selected Image\",\"Correct Identification\",\"Confidence\",\"Target Height\","+
 				"\"Target Weight\",\"Target Sex\",\"Target Distance\",\"Recognised Target\",\"Recognised Other\"";
 	}
 
@@ -53,6 +53,7 @@ public class ExperimentIteration {
 			lineupNumber +",\"" +
 			imageOrder + "\",\"" +
 			selectedImage + "\"," +
+			"\""+selectedImage.toLowerCase().contains(ExperimentData.CORRECT_TAG)+"\","+
 			confidence + "," +
 			targetHeight + "," +
 			targetWeight + ",\"" +

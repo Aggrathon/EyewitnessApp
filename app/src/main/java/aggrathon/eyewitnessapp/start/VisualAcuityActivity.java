@@ -96,7 +96,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				textView.setText(R.string.text_visual_acuity_instructions2);
 				setTitle(R.string.title_visual_acuity);
 				state = State.instructions2;
-				ExperimentData.getInstance().personalInformation.visualAcuityLeft = calculateVisualAcuity();
+				ExperimentData.getInstance().personalInformation.visualAcuityLeft = changeResultScale(calculateOptimalStage());
 				break;
 			case instructions2:
 				textPanel.setVisibility(View.INVISIBLE);
@@ -115,7 +115,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				textView.setText(R.string.text_visual_acuity_instructions3);
 				setTitle(R.string.title_visual_acuity);
 				state = State.finnish;
-				ExperimentData.getInstance().personalInformation.visualAcuityRight = calculateVisualAcuity();
+				ExperimentData.getInstance().personalInformation.visualAcuityRight = changeResultScale(calculateOptimalStage());
 				break;
 			case finnish:
 				startActivity(new Intent(this, TutorialActivity.class));
@@ -134,6 +134,10 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		}
 		numCorrect[0]--;
 		onNextImage(true);
+	}
+
+	private float getImageScale(float stage) {
+		return IMAGE_STARTING_SIZE * (float) Math.pow(IMAGE_SCALING, visualStage);
 	}
 
 	private void onNextImage(boolean correct) {
@@ -180,7 +184,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 
 		rotation = rnd.nextInt(8)*45;
 		imageView.setRotation(rotation);
-		float scale = IMAGE_STARTING_SIZE * (float) Math.pow(IMAGE_SCALING, visualStage);
+		float scale = getImageScale(visualStage);
 		imageView.setScaleX(scale);
 		imageView.setScaleY(scale);
 
@@ -188,7 +192,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 			visualStage = origStage;
 	}
 
-	private float calculateVisualAcuity() {
+	private float calculateOptimalStage() {
 		int level = 0;
 		float accuracy = 0;
 		for (int i = 0; i < MAX_VISUAL_STAGE; i++) {
@@ -217,6 +221,11 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 			else
 				return (float)level +0.25f;
 		}
+	}
+
+	private float changeResultScale(float stage) {
+		float scale = getImageScale(stage)/IMAGE_STARTING_SIZE;
+		return (float)Math.pow(1-scale, 4);
 	}
 
 	@Override
