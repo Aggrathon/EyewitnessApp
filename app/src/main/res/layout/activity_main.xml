@@ -39,6 +39,7 @@
                 android:onClick="onLangFinnish"
                 android:scaleType="fitCenter"
                 android:tintMode="screen"
+                android:tint="@android:color/darker_gray"
                 app:srcCompat="@drawable/flag_of_finland"/>
 
             <TextView
