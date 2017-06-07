@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context="aggrathon.eyewitnessapp.start.ExperimentInformationActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    style="@style/AppTheme.Background">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

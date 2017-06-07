@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="aggrathon.eyewitnessapp.experiment.LineupActivity">
+    tools:context="aggrathon.eyewitnessapp.experiment.LineupActivity"
+    style="@style/AppTheme.Background">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

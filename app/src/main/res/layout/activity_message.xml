@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     tools:context="aggrathon.eyewitnessapp.AMessageActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    style="@style/AppTheme.Background">
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="100"
@@ -28,9 +29,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:layout_margin="@dimen/margin"
                 android:text="Placeholder"/>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </ScrollView>
 
     <Button
         android:id="@+id/nextButton"

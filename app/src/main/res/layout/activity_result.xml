@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    style="@style/AppTheme.Background">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,15 +14,25 @@
         android:layout_margin="@dimen/margin"
         android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/resultText"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            style="@style/AppTheme.Panel"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/margin"
-            android:gravity="center"
-            android:text="TextView"
-            />
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/resultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
+                android:gravity="center"
+                android:text="Du identifierade 0 korrekt"
+                />
+        </LinearLayout>
     </ScrollView>
 
     <Button

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/margin"
+    style="@style/AppTheme.Background"
     tools:context="aggrathon.eyewitnessapp.experiment.QuestionsActivity"
     android:gravity="center">
 
