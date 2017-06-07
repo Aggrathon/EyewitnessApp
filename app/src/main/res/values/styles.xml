@@ -50,17 +50,12 @@
         <item name="android:lineSpacingExtra">@dimen/textVerticalSpacing</item>
     </style>
 
-    <style name="AppTheme.NumberPicker" >
-        <item name="android:textSize">@dimen/textSize</item>
-        <item name="android:verticalSpacing">0dp</item>
-        <item name="android:lineSpacingExtra">0dp</item>
-        <item name="android:maxHeight">128dp</item>
-    </style>
-
     <style name="AppTheme.Spinner" parent="Widget.AppCompat.Spinner.Underlined">
         <item name="android:elevation">@dimen/panelElevation</item>
         <item name="background">@color/colorPrimary</item>
         <item name="android:minHeight">48dp</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:textColor">@color/textSmall</item>
     </style>
 
     <style name="AppTheme.Panel">

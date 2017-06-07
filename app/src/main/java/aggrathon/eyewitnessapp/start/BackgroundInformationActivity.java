@@ -44,12 +44,12 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		ArrayList<Integer> list = new ArrayList<>(100);
 		for (int i = 5; i < 100; i++)
 			list.add(i);
-		ArrayAdapter<Integer> adap1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
-		adap1.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+		ArrayAdapter<Integer> adap1 = new ArrayAdapter(this, R.layout.spinner_text_element, list);
+		adap1.setDropDownViewResource(R.layout.spinner_text_dropdown);
 		ageSpinner.setAdapter(adap1);
 		ageSpinner.setSelection(ExperimentData.getInstance().personalInformation.age-5);
-		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this, R.array.countries, android.R.layout.simple_spinner_item);
-		adap.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this, R.array.countries, R.layout.spinner_text_element);
+		adap.setDropDownViewResource(R.layout.spinner_text_dropdown);
 		natSpinner.setAdapter(adap);
 
 		lengthBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
