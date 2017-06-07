@@ -41,4 +41,9 @@ public class ResultActivity extends AppCompatActivity {
 		}
 		return super.onKeyUp(keyCode, event);
 	}
+
+	@Override
+	public void onBackPressed() {
+		endExperiment(null);
+	}
 }

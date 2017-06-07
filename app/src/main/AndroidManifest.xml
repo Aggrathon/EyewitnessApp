@@ -45,6 +45,7 @@
             android:immersive="true"
             android:label="@string/result"
             android:screenOrientation="landscape"
+
             android:theme="@style/AppTheme">
         </activity>
         <activity
