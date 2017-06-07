@@ -2,6 +2,7 @@ package aggrathon.eyewitnessapp.start;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -240,5 +241,15 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 			onNextImage(Math.abs(rotation - touchRot) < 22.5 || Math.abs(rotation + 360 - touchRot) < 22.5);
 		}
 		return super.onTouchEvent(event);
+	}
+
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if(keyCode == 75) {
+			state = State.finnish;
+			onNext(null);
+			return true;
+		}
+		return super.onKeyUp(keyCode, event);
 	}
 }
