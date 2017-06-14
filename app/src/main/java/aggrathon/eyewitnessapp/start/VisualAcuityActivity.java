@@ -192,9 +192,9 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				else if (accuracy < TARGET_ACCURACY - TARGET_WINDOW)
 					visualStage--;
 			} else {
-				if (accuracy > TARGET_ACCURACY + TARGET_WINDOW && numCorrect[visualStage] + numWrong[visualStage] > 1)
+				if (accuracy > TARGET_ACCURACY + TARGET_WINDOW)
 					visualStage++;
-				else if (accuracy < TARGET_ACCURACY - TARGET_WINDOW && numCorrect[visualStage] + numWrong[visualStage] > 1)
+				else if (accuracy < TARGET_ACCURACY - TARGET_WINDOW)
 					visualStage--;
 			}
 			visualStage = visualStage < 0 ? 0 : visualStage >= MAX_VISUAL_STAGE ? MAX_VISUAL_STAGE - 1 : visualStage;
