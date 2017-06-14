@@ -15,6 +15,7 @@ public class ExperimentIteration {
 	public int targetWeight;
 	public int confidence;
 	public int distance;
+	public int age;
 	public boolean recognisedTarget;
 	public boolean recognisedOther;
 
@@ -37,6 +38,7 @@ public class ExperimentIteration {
 				"\n\tTarget sex: "+targetSex+
 				"\n\tTarget Height: "+targetHeight+
 				"\n\tTarget Weight: "+targetWeight+
+				"\n\tTarget Age: "+age+
 				"\n\tConfidence: "+confidence+
 				"\n\tDistance To Target: "+distance+
 				"\n\tRecognised Target: "+recognisedTarget+
@@ -45,7 +47,7 @@ public class ExperimentIteration {
 
 	public static String getCsvHeader() {
 		return "\"Lineup Number\",\"Image Order\",\"Selected Image\",\"Correct Identification\",\"Confidence\",\"Target Height\","+
-				"\"Target Weight\",\"Target Sex\",\"Target Distance\",\"Recognised Target\",\"Recognised Other\"";
+				"\"Target Weight\",\"Target Sex\",\"Target Age\",\"Target Distance\",\"Recognised Target\",\"Recognised Other\"";
 	}
 
 	public String getCsvData() {
@@ -58,6 +60,7 @@ public class ExperimentIteration {
 			targetHeight + "," +
 			targetWeight + ",\"" +
 			targetSex + "\"," +
+			age + "," +
 			distance + ",\"" +
 			recognisedTarget + "\",\"" +
 			recognisedOther + "\"";

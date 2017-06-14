@@ -73,50 +73,6 @@
                     />
 
                 <TextView
-                    android:id="@+id/distTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
-                    android:paddingTop="@dimen/largeMargin"
-                    android:text="@string/question_target_distance"
-                    />
-
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
-                    android:orientation="horizontal">
-
-                    <SeekBar
-                        android:id="@+id/distBar"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toLeftOf="@+id/distText"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_weight="100"
-                        android:max="200"
-                        android:progress="40"/>
-
-                    <TextView
-                        android:id="@+id/distText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:gravity="bottom"
-                        android:text="40 m"
-                        android:textAlignment="textEnd"/>
-                </android.support.constraint.ConstraintLayout>
-
-                <android.support.v4.widget.Space
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/verticalSpace"
-                    />
-
-                <TextView
                     android:id="@+id/recogniseTargetQuestionTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

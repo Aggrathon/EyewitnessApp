@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             style="@style/AppTheme.Panel"
-            android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center_horizontal"
+            android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/resultText"

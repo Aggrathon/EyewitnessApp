@@ -16,7 +16,6 @@ import aggrathon.eyewitnessapp.experiment.NumberActivity;
 public class QuestionsActivity extends ACancelCheckActivity {
 
 	SeekBar sureBar;
-	SeekBar distBar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,26 +38,11 @@ public class QuestionsActivity extends ACancelCheckActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
-
-		final TextView distText = (TextView)findViewById(R.id.distText);
-		distBar = ((SeekBar)findViewById(R.id.distBar));
-		distBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-				distText.setText(i+" m");
-			}
-
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {}
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {}
-		});
 	}
 
 	public void onNextButton(View v) {
 		ExperimentIteration data = ExperimentData.getInstance().getLatestData();
 		data.confidence = sureBar.getProgress();
-		data.distance = sureBar.getProgress();
 		data.recognisedTarget = ((RadioButton)findViewById(R.id.yesAnswerTarget)).isChecked();
 		data.recognisedOther = ((RadioButton)findViewById(R.id.yesAnswerOther)).isChecked();
 		startActivity(new Intent(this, NumberActivity.class));

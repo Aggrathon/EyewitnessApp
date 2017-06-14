@@ -7,19 +7,19 @@
     <string name="question_nationality">Vad är din nationalitet</string>
     <string name="start">Börja</string>
     <string name="question_certain">Hur säker är du på ditt val?</string>
-    <string name="question_target_distance">Hur långt ifrån skulle du estimera att personen var?</string>
+    <string name="question_target_distance">Hur långt ifrån dig stod personen?</string>
     <string name="question_target_age">Hur gammal skulle du säga att personen var?</string>
-    <string name="question_target_recognised">Var ansiktet du valde bekant?</string>
+    <string name="question_target_recognised">Var personen du valde bekant?</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
-    <string name="question_other_recognised">Var några av de övriga ansiktena bekanta?</string>
+    <string name="question_other_recognised">Var några av de övriga personerna bekanta?</string>
     <string name="next">Nästa</string>
     <string name="finnish">Suomi</string>
     <string name="swedish">Svenska</string>
     <string name="english">English</string>
     <string name="title_backgorund_information">Bakgrundsinformation</string>
     <string name="result">Resultat</string>
-    <string name="absent">Saknas</string>
+    <string name="text_lineup_absent">Personen finns inte bland bilderna</string>
     <string name="end_experiment">Avsluta Experimentet</string>
     <string name="select">Välj</string>
     <string name="answer_age_less_than_eleven">Yngre än 11 år</string>
@@ -42,14 +42,14 @@
     <string name="notification_storage_error">Kunde inte komma åt minnet</string>
     <string name="notification_storage_required">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
     <string name="ok">OK</string>
-    <string name="text_lineup_instructions">Välj bild</string>
+    <string name="text_lineup_instructions_simultaneous">Välj bild</string>
     <string name="settings">Inställningar</string>
     <string name="files">Filer</string>
     <string name="lineup">Lineup</string>
     <string name="sequential">Sekventiell</string>
     <string name="simultaneous">Samtidig</string>
-    <string name="text_target_absent">Target Absent</string>
-    <string name="text_target_present">Target Present</string>
+    <string name="text_settings_target_absent">Target Absent</string>
+    <string name="text_settings_target_present">Target Present</string>
     <string name="text_settings_normalisation">Normalisera fördelningen genom statistik</string>
     <string name="text_reset_stats">Nollställ Statistiken</string>
     <string name="text_settings_folder">Mapp för bilder och loggfiler:\n\n\t\'Documents/Eyewitness/\'</string>
@@ -94,5 +94,6 @@
         <item>Annat Land</item>
     </string-array>
     <string name="text_answer_questions">Svara på fågorna</string>
+    <string name="text_lineup_instructions_sequential">Välj bild på den person som du såg: Är detta personen som du såg?</string>
 
 </resources>

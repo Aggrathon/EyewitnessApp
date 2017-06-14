@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="verticalSpace">16dp</dimen>
+    <dimen name="verticalSpace">8dp</dimen>
     <dimen name="margin">8dp</dimen>
     <dimen name="largeMargin">16dp</dimen>
-    <dimen name="actionBarHeight">64dp</dimen>
     <dimen name="tabletLandscapeColumnWidth">500dp</dimen>
     <dimen name="narrowColumnWidth">400dp</dimen>
     <dimen name="panelElevation">4dp</dimen>
