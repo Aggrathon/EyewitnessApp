@@ -10,13 +10,17 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
+import java.util.TimeZone;
 
 import aggrathon.eyewitnessapp.MainActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.SettingsActivity;
-import aggrathon.eyewitnessapp.StorageManager;
+import aggrathon.eyewitnessapp.utils.CsvGenerator;
+import aggrathon.eyewitnessapp.utils.StorageManager;
 
 public class ExperimentData {
 
@@ -103,7 +107,7 @@ public class ExperimentData {
 		String id = prefs.getString(SettingsActivity.DEVICE_ID, "")+testNum;
 		while (StorageManager.checkLogFile(id))
 			id = "" + (++testNum);
-		personalInformation = new PersonalInformation(id, language);
+		personalInformation = new PersonalInformation(testNum, language);
 		prefs.edit().putInt(SettingsActivity.TEST_NUM_COUNTER, testNum+1).commit();
 		data = new ArrayList<>();
 	}
@@ -114,7 +118,7 @@ public class ExperimentData {
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
 
-		personalInformation = new PersonalInformation("", "non");
+		personalInformation = new PersonalInformation(0, "non");
 		data = new ArrayList<>();
 	}
 
@@ -224,25 +228,47 @@ public class ExperimentData {
 				break;
 		}
 		editor.commit();
-		if(data != null || data.size() > 0)
-			StorageManager.createLogfile(activity, toCsv(), CSV_HEADERS, personalInformation.testId);
-	}
-
-	public static final String CSV_HEADERS = "\"Time\","+PersonalInformation.getCsvHeaders()+",\"Iteration\",\"Lineup Presentation\",\"Target in Lineup\","+ExperimentIteration.getCsvHeader();
-
-	public String[] toCsv() {
-		String[] csvs = new String[data.size()];
-		for (int i = 0; i < data.size(); i++) {
-			ExperimentIteration d = data.get(i);
-			csvs[i] =
-				'"'+d.time+ "\","+
-				personalInformation.getCsvData() +"," +
-				i + ",\"" +
-				lineup.toString() + "\",\"" +
-				targetPresent + "\"," +
-				d.getCsvData();
+		if(data != null || data.size() > 0) {
+			CsvGenerator csv = new CsvGenerator();
+			SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat st = new SimpleDateFormat("HH:mm:ss");
+			sd.setTimeZone(TimeZone.getDefault());
+			st.setTimeZone(TimeZone.getDefault());
+			for (ExperimentIteration d : data) {
+				csv.beginRow();
+				csv.addString("Date", sd.format(d.time));
+				csv.addString("Time", st.format(d.time));
+				csv.addString("Tablet_ID", prefs.getString(SettingsActivity.DEVICE_ID, ""));
+				csv.addInt("Pt_ID", personalInformation.testId);
+				csv.addString("Pt_language", personalInformation.language);
+				csv.addString("Pt_nationality", personalInformation.nationality);
+				csv.addInt("Pt_age", personalInformation.age);
+				csv.addInt("Pt_height", personalInformation.height);
+				csv.addString("Pt_gener", personalInformation.sex);
+				csv.addBooleanAsInt("Pt_participated_before", personalInformation.previousParticipations);
+				csv.addFloat("Pt_left_eye", personalInformation.visualAcuityLeft);
+				csv.addFloat("Pt_right_eye", personalInformation.visualAcuityRight);
+				csv.addFloat("Pt_average_eye", personalInformation.visualAcuityRight*0.5f + personalInformation.visualAcuityLeft*0.5f);
+				csv.addFloat("Pt_min_eye", personalInformation.visualAcuityRight < personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
+				csv.addFloat("Pt_max_eye", personalInformation.visualAcuityRight > personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
+				csv.addString("Experiment_type", d.tutorial? "testrunda" : "huvudexperiment");
+				csv.addString("Lineup_type", lineup.toString());
+				csv.addBooleanAsInt("Target_present", targetPresent);
+				csv.addInt("Lineup_number", d.lineupNumber);
+				csv.addString("Image_order", d.imageOrder);
+				csv.addString("Selected_image", d.selectedImage);
+				csv.addBooleanAsInt("Identification", d.selectedImage.contains(CORRECT_TAG));
+				csv.addInt("Confidence", d.confidence);
+				csv.addInt("Target_height", d.targetHeight);
+				csv.addInt("Target_weight", d.targetWeight);
+				csv.addString("Target_gender", d.targetSex);
+				csv.addInt("Target_age", d.age);
+				csv.addInt("Target_distance", d.distance);
+				csv.addBooleanAsInt("Recognise_chosen", d.recognisedTarget);
+				csv.addBooleanAsInt("Recognise_other", d.recognisedOther);
+			}
+			StorageManager.createLogfile(activity, csv.getValues(), csv.getHeader(), prefs.getString(SettingsActivity.DEVICE_ID, "")+personalInformation.testId);
 		}
-		return csvs;
 	}
 
 	public int getResult() {

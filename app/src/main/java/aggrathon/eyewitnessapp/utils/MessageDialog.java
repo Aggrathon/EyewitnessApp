@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.utils;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import aggrathon.eyewitnessapp.R;
 
 
 public class MessageDialog extends DialogFragment {

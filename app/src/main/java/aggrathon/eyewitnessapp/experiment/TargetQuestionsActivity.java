@@ -90,6 +90,10 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 		data.distance = distBar.getProgress();
 		data.targetSex = manRadio.isChecked() ? "man" : "woman";
 		data.age = (Integer) ageSpinner.getSelectedItem();
+		NextActivity();
+	}
+
+	public void NextActivity() {
 		startActivity(new Intent(this, LineupActivity.class));
 	}
 }

@@ -6,7 +6,7 @@ import android.view.View;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
-import aggrathon.eyewitnessapp.StorageManager;
+import aggrathon.eyewitnessapp.utils.StorageManager;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class NumberActivity extends ACancelCheckActivity {
@@ -28,24 +28,28 @@ public class NumberActivity extends ACancelCheckActivity {
 	public void OnNumberOne(View v) {
 		ExperimentData.getInstance().LoadImages("1", this);
 		ExperimentData.getInstance().startExperimentIteration().lineupNumber = 1;
-		startActivity(new Intent(this, WaitActivity.class));
+		NextActivity();
 	}
 
 	public void OnNumberTwo(View v) {
 		ExperimentData.getInstance().LoadImages("2", this);
 		ExperimentData.getInstance().startExperimentIteration().lineupNumber = 2;
-		startActivity(new Intent(this, WaitActivity.class));
+		NextActivity();
 	}
 
 	public void OnNumberThree(View v) {
 		ExperimentData.getInstance().LoadImages("3", this);
 		ExperimentData.getInstance().startExperimentIteration().lineupNumber = 3;
-		startActivity(new Intent(this, WaitActivity.class));
+		NextActivity();
 	}
 
 	public void OnNumberFour(View v) {
 		ExperimentData.getInstance().LoadImages("4", this);
 		ExperimentData.getInstance().startExperimentIteration().lineupNumber = 4;
+		NextActivity();
+	}
+
+	public void NextActivity() {
 		startActivity(new Intent(this, WaitActivity.class));
 	}
 }

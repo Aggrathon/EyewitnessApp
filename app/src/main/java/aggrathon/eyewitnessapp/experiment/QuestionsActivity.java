@@ -45,6 +45,10 @@ public class QuestionsActivity extends ACancelCheckActivity {
 		data.confidence = sureBar.getProgress();
 		data.recognisedTarget = ((RadioButton)findViewById(R.id.yesAnswerTarget)).isChecked();
 		data.recognisedOther = ((RadioButton)findViewById(R.id.yesAnswerOther)).isChecked();
+		NextActivity();
+	}
+
+	public void NextActivity() {
 		startActivity(new Intent(this, NumberActivity.class));
 	}
 

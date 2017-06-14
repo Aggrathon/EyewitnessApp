@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.utils.StorageManager;
 
 
 public abstract class AImmersiveActivity extends AppCompatActivity {

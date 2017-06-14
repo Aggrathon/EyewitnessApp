@@ -3,6 +3,7 @@ package aggrathon.eyewitnessapp.start;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -64,11 +65,12 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		nextButton = (Button)findViewById(R.id.nextButton);
 		directionView = (ImageView)findViewById(R.id.directionView);
 		imageView.setImageResource(R.drawable.landolt_c);
-		nextState = State.instructions1;
 		visualStage = 0;
 		rnd = new Random();
 		numCorrect = new int[MAX_VISUAL_STAGE];
 		numWrong = new int[MAX_VISUAL_STAGE];
+		nextState = State.instructions1;
+		onNext(null);
 	}
 
 	public void onNext(View v) {
@@ -79,16 +81,16 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);
 				setTitle(R.string.title_visual_acuity);
-				startLeft = new Random().nextBoolean();
+				startLeft = rnd.nextBoolean();
 				hasBoth = false;
 				if(startLeft) {
-					Resources sys = Resources.getSystem();
-					textView.setText(sys.getText(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getText(R.string.text_close_eye_left));
+					Resources sys = getResources();
+					textView.setText(sys.getString(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getString(R.string.text_close_eye_left));
 					nextState = State.left;
 				}
 				else {
 					Resources sys = Resources.getSystem();
-					textView.setText(sys.getText(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getText(R.string.text_close_eye_right));
+					textView.setText(sys.getString(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getString(R.string.text_close_eye_right));
 					nextState = State.right;
 				}
 				break;
@@ -108,7 +110,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				directionView.setVisibility(View.INVISIBLE);
 				setTitle(R.string.title_visual_acuity);
 				if (startLeft) {
-					Resources sys = Resources.getSystem();
+					Resources sys = getResources();
 					textView.setText(sys.getText(R.string.text_visual_acuity_instructions2)+"\n\n"+sys.getText(R.string.text_close_eye_right));
 					hasBoth = true;
 					nextState = State.right;
@@ -265,7 +267,10 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 			float dy = (float) (parent.getTop() + parent.getBottom())/2 - pos.y;
 			int touchRot = (int)(-Math.toDegrees(Math.atan2(dx,dy))+270)%360;
 			onNextImage(Math.abs(rotation - touchRot) < 22.5 || Math.abs(rotation + 360 - touchRot) < 22.5);
+			return true;
 		}
+		if (event.getAction() == MotionEvent.ACTION_UP)
+			Log.d("eye", "touch "+nextState.toString());
 		return super.onTouchEvent(event);
 	}
 

@@ -1,12 +1,10 @@
 package aggrathon.eyewitnessapp.data;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 public class ExperimentIteration {
 
-	public String time;
+	public Date time;
 	public int lineupNumber;
 	public String imageOrder;
 	public String selectedImage;
@@ -18,12 +16,11 @@ public class ExperimentIteration {
 	public int age;
 	public boolean recognisedTarget;
 	public boolean recognisedOther;
+	public boolean tutorial;
 
 
 	public ExperimentIteration() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sdf.setTimeZone(TimeZone.getDefault());
-		time = sdf.format(new Date());
+		time = new Date();
 		imageOrder = "";
 		selectedImage = "";
 		targetSex = "";
@@ -32,6 +29,7 @@ public class ExperimentIteration {
 	public String toString(int index) {
 		return "Experiment Iteration "+index+":"+
 				"\n\tTime: "+time+
+				"\n\tTutorial: "+tutorial+
 				"\n\tNumber: "+lineupNumber+
 				"\n\tImage Order: "+imageOrder+
 				"\n\tSelected: "+selectedImage+
@@ -43,26 +41,5 @@ public class ExperimentIteration {
 				"\n\tDistance To Target: "+distance+
 				"\n\tRecognised Target: "+recognisedTarget+
 				"\n\tRecognised Other: "+recognisedOther+"\n";
-	}
-
-	public static String getCsvHeader() {
-		return "\"Lineup Number\",\"Image Order\",\"Selected Image\",\"Correct Identification\",\"Confidence\",\"Target Height\","+
-				"\"Target Weight\",\"Target Sex\",\"Target Age\",\"Target Distance\",\"Recognised Target\",\"Recognised Other\"";
-	}
-
-	public String getCsvData() {
-		return
-			lineupNumber +",\"" +
-			imageOrder + "\",\"" +
-			selectedImage + "\"," +
-			"\""+selectedImage.toLowerCase().contains(ExperimentData.CORRECT_TAG)+"\","+
-			confidence + "," +
-			targetHeight + "," +
-			targetWeight + ",\"" +
-			targetSex + "\"," +
-			age + "," +
-			distance + ",\"" +
-			recognisedTarget + "\",\"" +
-			recognisedOther + "\"";
 	}
 }

@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -17,7 +16,7 @@ import android.widget.ImageButton;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.start.AgeActivity;
 import aggrathon.eyewitnessapp.start.BackgroundInformationActivity;
-import aggrathon.eyewitnessapp.start.VisualAcuityActivity;
+import aggrathon.eyewitnessapp.utils.StorageManager;
 
 public class MainActivity extends AppCompatActivity {
 

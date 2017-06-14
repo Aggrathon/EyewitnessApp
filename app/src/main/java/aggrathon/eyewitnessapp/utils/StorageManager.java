@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.utils;
 
 
 import android.Manifest;
@@ -19,6 +19,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+
+import aggrathon.eyewitnessapp.R;
 
 public class StorageManager {
 
@@ -62,9 +64,9 @@ public class StorageManager {
 		return f.exists();
 	}
 
-	public static void createLogfile(Activity activity, String[] logs, String labels, String name) { createLogfile(activity, logs, labels, name, true, false); }
+	public static void createLogfile(Activity activity, String logs, String labels, String name) { createLogfile(activity, logs, labels, name, true, false); }
 
-	public static void createLogfile(final Activity activity, final String[] logs, final String labels, final String name, final boolean alsoCombined, boolean overwrite) {
+	public static void createLogfile(final Activity activity, final String logs, final String labels, final String name, final boolean alsoCombined, boolean overwrite) {
 		createFolders(activity);
 		String fileName = "log_"+name+".csv";
 		if(checkLogFile(name)) {
@@ -89,23 +91,18 @@ public class StorageManager {
 		try {
 			writer = new BufferedWriter(new FileWriter(LOG_DIRECTORY + File.separator + fileName));
 			writer.write(labels);
-			writer.newLine();
-			for (String s : logs) {
-				writer.write(s);
-				writer.newLine();
-			}
+			writer.write("\r\n");
+			writer.write(logs);
 			writer.close();
 			if (alsoCombined) {
 				boolean writeLabels = !new File(COMBINED_LOG).isFile();
 				writer = new BufferedWriter(new FileWriter(COMBINED_LOG, true));
 				if (writeLabels) {
 					writer.write(labels);
-					writer.newLine();
+					writer.write("\r\n");
 				}
-				for (String s : logs) {
-					writer.append(s);
-					writer.newLine();
-				}
+				writer.write(logs);
+				writer.write("\r\n");
 				writer.close();
 			}
 		}

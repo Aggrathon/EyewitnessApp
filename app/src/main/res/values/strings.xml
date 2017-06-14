@@ -64,11 +64,11 @@
     <string name="notification_overwrite_log">Skriv över existerande log?</string>
     <string name="text_settings_testid">Nuvarande test id:</string>
     <string name="notification_delete_logs">Radera alla gamla logfiler?</string>
+    <string name="notification_images_missing">Kunde inte läsa alla bilder som behövs</string>
     <string name="text_answer_questions">Svara på fågorna</string>
     <string name="text_participation_result">"Du identifierade # korrekt\n\nTack för ditt deltagande som ögonvittne!"</string>
     <string name="text_close_eye_right">Blunda med höger öga.</string>
     <string name="text_close_eye_left">Blunda med vänster öga.</string>
-    <string name="notification_images_missing">Kunde inte läsa alla bilder som behövs</string>
     <string name="title_visual_acuity">Ögontest</string>
     <string name="text_visual_acuity_instructions1">Till näst följer ett enkelt ögontest.</string>
     <string name="title_visual_acuity2">Ögontest: Välj rätt riktning</string>

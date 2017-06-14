@@ -32,7 +32,6 @@ public class TutorialActivity extends AMessageActivity {
 		}
 	}
 
-
 	public static class TutorialNumbers extends NumberActivity {
 
 		@Override
@@ -42,26 +41,9 @@ public class TutorialActivity extends AMessageActivity {
 		}
 
 		@Override
-		public void OnNumberOne(View v) {
+		public void NextActivity() {
 			ExperimentData.getInstance().LoadImages("Test", this);
-			startActivity(new Intent(this, TutorialWait.class));
-		}
-
-		@Override
-		public void OnNumberTwo(View v) {
-			ExperimentData.getInstance().LoadImages("Test", this);
-			startActivity(new Intent(this, TutorialWait.class));
-		}
-
-		@Override
-		public void OnNumberThree(View v) {
-			ExperimentData.getInstance().LoadImages("Test", this);
-			startActivity(new Intent(this, TutorialWait.class));
-		}
-
-		@Override
-		public void OnNumberFour(View v) {
-			ExperimentData.getInstance().LoadImages("Test", this);
+			ExperimentData.getInstance().getLatestData().tutorial = true;
 			startActivity(new Intent(this, TutorialWait.class));
 		}
 	}
@@ -82,29 +64,22 @@ public class TutorialActivity extends AMessageActivity {
 
 	public static class TutorialTargetQuestions extends TargetQuestionsActivity {
 		@Override
-		public void onNextButton(View v) {
+		public void NextActivity() {
 			startActivity(new Intent(this, TutorialLineup.class));
 		}
 	}
 
-
 	public static class TutorialLineup extends LineupActivity {
 
 		@Override
-		public void onTargetMissingButton(View v) {
-			startActivity(new Intent(this, TutorialQuestions.class));
-		}
-
-		@Override
-		public void onSelectImageButton(View v) {
+		public void NextActivity() {
 			startActivity(new Intent(this, TutorialQuestions.class));
 		}
 	}
 
-
 	public static class TutorialQuestions extends QuestionsActivity {
 		@Override
-		public void onNextButton(View v) {
+		public void NextActivity() {
 			startActivity(new Intent(this, TutorialEnd.class));
 		}
 	}

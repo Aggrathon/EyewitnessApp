@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import java.io.File;
 
+import aggrathon.eyewitnessapp.utils.MessageDialog;
+import aggrathon.eyewitnessapp.utils.StorageManager;
+
 public class SettingsActivity extends AppCompatActivity {
 
 	public static final String PREFERENCE_NAME = "Preferences";

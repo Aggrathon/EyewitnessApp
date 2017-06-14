@@ -1,11 +1,9 @@
 package aggrathon.eyewitnessapp.data;
 
-import android.text.TextUtils;
-
 public class PersonalInformation {
 
 	public String language;
-	public String testId;
+	public int testId;
 	public boolean previousParticipations;
 	public int age;
 	public String nationality;
@@ -15,7 +13,7 @@ public class PersonalInformation {
 	public float visualAcuityRight;
 
 
-	public PersonalInformation(String id, String lang) {
+	public PersonalInformation(int id, String lang) {
 		testId = id;
 		language = lang;
 		nationality = "";
@@ -35,28 +33,5 @@ public class PersonalInformation {
 				"\n\tHeight: "+height+
 				"\n\tLeft Eye: "+visualAcuityLeft+
 				"\n\tRight Eye: "+visualAcuityRight+"\n";
-	}
-
-	public static String getCsvHeaders() {
-		return TextUtils.join("\",\"",new String[] {
-				"\"Test ID", "Language", "Nationality", "Age", "Height", "Sex", "Previous Participant",
-				"Left Eye", "Right Eye", "Average Eye", "Min Eye", "Max Eye\""
-		});
-	}
-
-	public String getCsvData() {
-		return
-			"\""+ testId +"\","+
-			"\""+language +"\","+
-			"\""+nationality.replace("\"","") +"\","+
-			age + ","+
-			height +","+
-			"\""+sex +"," +
-			"\""+previousParticipations +"\","+
-			visualAcuityLeft+","+
-			visualAcuityRight+","+
-			((visualAcuityLeft+visualAcuityRight)/2)+","+
-			Math.min(visualAcuityLeft, visualAcuityRight)+","+
-			Math.max(visualAcuityLeft, visualAcuityRight);
 	}
 }
