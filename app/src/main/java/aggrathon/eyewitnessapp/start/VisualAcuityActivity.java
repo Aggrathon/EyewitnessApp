@@ -1,6 +1,7 @@
 package aggrathon.eyewitnessapp.start;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -25,12 +26,12 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 	static final int NUM_IMAGES = 18;
 
 	public enum State {
-		setup,
 		instructions1,
 		left,
 		instructions2,
 		right,
-		finnish
+		instructions3,
+		next
 	}
 
 
@@ -41,14 +42,14 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 	Button nextButton;
 	Random rnd;
 
-	State state;
+	State nextState;
 	int visualStage = 0;
 	int numImagesShown = 0;
 	int[] numCorrect;
 	int[] numWrong;
 	int rotation;
-	boolean hasLeft;
-	boolean hasRight;
+	boolean startLeft;
+	boolean hasBoth;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,66 +64,87 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		nextButton = (Button)findViewById(R.id.nextButton);
 		directionView = (ImageView)findViewById(R.id.directionView);
 		imageView.setImageResource(R.drawable.landolt_c);
-		state = State.setup;
+		nextState = State.instructions1;
 		visualStage = 0;
 		rnd = new Random();
 		numCorrect = new int[MAX_VISUAL_STAGE];
 		numWrong = new int[MAX_VISUAL_STAGE];
-		onNext(null);
-		hasLeft = false;
-		hasRight = false;
 	}
 
 	public void onNext(View v) {
-		switch (state) {
-			case setup:
+		switch (nextState) {
+			case instructions1:
 				textPanel.setVisibility(View.VISIBLE);
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);
-				textView.setText(R.string.text_visual_acuity_instructions1);
 				setTitle(R.string.title_visual_acuity);
-				state = State.instructions1;
-				break;
-			case instructions1:
-				textPanel.setVisibility(View.INVISIBLE);
-				imageView.setVisibility(View.VISIBLE);
-				nextButton.setVisibility(View.INVISIBLE);
-				directionView.setVisibility(View.VISIBLE);
-				setTitle(R.string.title_visual_acuity2);
-				state = State.left;
-				resetTest();
+				startLeft = new Random().nextBoolean();
+				hasBoth = false;
+				if(startLeft) {
+					Resources sys = Resources.getSystem();
+					textView.setText(sys.getText(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getText(R.string.text_close_eye_left));
+					nextState = State.left;
+				}
+				else {
+					Resources sys = Resources.getSystem();
+					textView.setText(sys.getText(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getText(R.string.text_close_eye_right));
+					nextState = State.right;
+				}
 				break;
 			case left:
-				textPanel.setVisibility(View.VISIBLE);
-				imageView.setVisibility(View.INVISIBLE);
-				nextButton.setVisibility(View.VISIBLE);
-				directionView.setVisibility(View.INVISIBLE);
-				textView.setText(R.string.text_visual_acuity_instructions2);
-				setTitle(R.string.title_visual_acuity);
-				state = State.instructions2;
-				ExperimentData.getInstance().personalInformation.visualAcuityLeft = changeResultScale(calculateOptimalStage());
-				break;
-			case instructions2:
 				textPanel.setVisibility(View.INVISIBLE);
 				imageView.setVisibility(View.VISIBLE);
 				nextButton.setVisibility(View.INVISIBLE);
 				directionView.setVisibility(View.VISIBLE);
 				setTitle(R.string.title_visual_acuity2);
-				state = State.right;
+				nextState = hasBoth? State.instructions3 : State.instructions2;
 				resetTest();
 				break;
+			case instructions2:
+				textPanel.setVisibility(View.VISIBLE);
+				imageView.setVisibility(View.INVISIBLE);
+				nextButton.setVisibility(View.VISIBLE);
+				directionView.setVisibility(View.INVISIBLE);
+				setTitle(R.string.title_visual_acuity);
+				if (startLeft) {
+					Resources sys = Resources.getSystem();
+					textView.setText(sys.getText(R.string.text_visual_acuity_instructions2)+"\n\n"+sys.getText(R.string.text_close_eye_right));
+					hasBoth = true;
+					nextState = State.right;
+					ExperimentData.getInstance().personalInformation.visualAcuityLeft = changeResultScale(calculateOptimalStage());
+				}
+				else {
+					Resources sys = Resources.getSystem();
+					textView.setText(sys.getText(R.string.text_visual_acuity_instructions2)+"\n\n"+sys.getText(R.string.text_close_eye_left));
+					hasBoth = true;
+					nextState = State.left;
+					ExperimentData.getInstance().personalInformation.visualAcuityRight = changeResultScale(calculateOptimalStage());
+				}
+				break;
 			case right:
+				textPanel.setVisibility(View.INVISIBLE);
+				imageView.setVisibility(View.VISIBLE);
+				nextButton.setVisibility(View.INVISIBLE);
+				directionView.setVisibility(View.VISIBLE);
+				setTitle(R.string.title_visual_acuity2);
+				nextState = hasBoth? State.instructions3 : State.instructions2;
+				resetTest();
+				break;
+			case instructions3:
 				textPanel.setVisibility(View.VISIBLE);
 				imageView.setVisibility(View.INVISIBLE);
 				nextButton.setVisibility(View.VISIBLE);
 				directionView.setVisibility(View.INVISIBLE);
 				textView.setText(R.string.text_visual_acuity_instructions3);
 				setTitle(R.string.title_visual_acuity);
-				state = State.finnish;
-				ExperimentData.getInstance().personalInformation.visualAcuityRight = changeResultScale(calculateOptimalStage());
+				nextState = State.next;
+				if (startLeft)
+					ExperimentData.getInstance().personalInformation.visualAcuityRight = changeResultScale(calculateOptimalStage());
+				else
+					ExperimentData.getInstance().personalInformation.visualAcuityLeft = changeResultScale(calculateOptimalStage());
 				break;
-			case finnish:
+			case next:
 				startActivity(new Intent(this, TutorialActivity.class));
 				break;
 		}
@@ -235,7 +257,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		if ((state == State.left || state == State.right) && event.getAction() == MotionEvent.ACTION_UP) {
+		if ((nextState == State.instructions2 || nextState == State.instructions3) && event.getAction() == MotionEvent.ACTION_UP) {
 			MotionEvent.PointerCoords pos = new MotionEvent.PointerCoords();
 			event.getPointerCoords(0, pos);
 			View parent = directionView.getRootView();
@@ -250,7 +272,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		if(keyCode == 75) {
-			state = State.finnish;
+			nextState = State.next;
 			onNext(null);
 			return true;
 		}

@@ -58,12 +58,6 @@
     <string name="text_settings_view_logs">Visa alla loggar</string>
     <string name="notification_no_log">Ingen log existerar</string>
     <string name="text_settings_image_instructions">I bildmappen skall finnas fem mappar:\n    \"1\", \"2\", \"3\", \"4\" och \"Test\"\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
-    <string name="notification_images_missing">Kunde inte läsa alla bilder som behövs</string>
-    <string name="title_visual_acuity">Ögontest</string>
-    <string name="text_visual_acuity_instructions1">Till näst följer ett enkelt ögontest.\nBlunda med höger öga.</string>
-    <string name="title_visual_acuity2">Ögontest: Välj rätt riktning</string>
-    <string name="text_visual_acuity_instructions2">Öppna båda ögonen.\nBlunda med vänster öga.</string>
-    <string name="text_visual_acuity_instructions3">Ögontestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
     <string name="id">ID</string>
     <string name="device_id">Enhetens ID</string>
     <string name="text_setting_reset_test">Nollställ Test ID</string>
@@ -72,6 +66,14 @@
     <string name="notification_delete_logs">Radera alla gamla logfiler?</string>
     <string name="text_answer_questions">Svara på fågorna</string>
     <string name="text_participation_result">"Du identifierade # korrekt\n\nTack för ditt deltagande som ögonvittne!"</string>
+    <string name="text_close_eye_right">Blunda med höger öga.</string>
+    <string name="text_close_eye_left">Blunda med vänster öga.</string>
+    <string name="notification_images_missing">Kunde inte läsa alla bilder som behövs</string>
+    <string name="title_visual_acuity">Ögontest</string>
+    <string name="text_visual_acuity_instructions1">Till näst följer ett enkelt ögontest.</string>
+    <string name="title_visual_acuity2">Ögontest: Välj rätt riktning</string>
+    <string name="text_visual_acuity_instructions2">Öppna båda ögonen.</string>
+    <string name="text_visual_acuity_instructions3">Ögontestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
 
     <string-array name="countries">
         <item>Finland</item>
