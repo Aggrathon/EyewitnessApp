@@ -69,6 +69,9 @@
     <string name="notification_overwrite_log">Skriv över existerande log?</string>
     <string name="text_settings_testid">Nuvarande test id:</string>
     <string name="notification_delete_logs">Radera alla gamla logfiler?</string>
+    <string name="text_answer_questions">Svara på fågorna</string>
+    <string name="text_lineup_instructions_sequential">Välj bild på den person som du såg: Är detta personen som du såg?</string>
+    <string name="text_participation_result">"Du identifierade # korrekt\n\nTack för ditt deltagande som ögonvittne!"</string>
 
     <string-array name="countries">
         <item>Finland</item>
@@ -93,7 +96,5 @@
         <item>Japan</item>
         <item>Annat Land</item>
     </string-array>
-    <string name="text_answer_questions">Svara på fågorna</string>
-    <string name="text_lineup_instructions_sequential">Välj bild på den person som du såg: Är detta personen som du såg?</string>
 
 </resources>

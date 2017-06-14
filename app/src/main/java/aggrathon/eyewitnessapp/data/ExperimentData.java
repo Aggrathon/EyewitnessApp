@@ -245,17 +245,13 @@ public class ExperimentData {
 		return csvs;
 	}
 
-	public String getResultString() {
+	public int getResult() {
 		int correct = 0;
 		for (ExperimentIteration d : data) {
 			if ((!targetPresent && d.selectedImage.equals(MISSING_TAG)) || d.selectedImage.toLowerCase().contains(CORRECT_TAG))
 				correct++;
 		}
-
-		if (personalInformation.language.equals("swe") || true) {
-			return "Du identifierade "+correct+" korrekt\n\nTack för ditt deltagande som ögonvittne!";
-		}
-		return "Du identifierade "+correct+" korrekt\n\nTack för ditt deltagande som ögonvittne!";
+		return correct;
 	}
 
 	@Override
