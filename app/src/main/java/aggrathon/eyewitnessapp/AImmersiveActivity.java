@@ -10,16 +10,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import aggrathon.eyewitnessapp.data.ExperimentData;
+
 
 public abstract class AImmersiveActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//Centered Action bar
 		CharSequence title = getSupportActionBar().getTitle();
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getSupportActionBar().setCustomView(R.layout.toolbar_center_title);
 		((TextView)findViewById(R.id.toolbar_title)).setText(title);
+		//Background Image
+		View root = findViewById(android.R.id.content);
+		if (ExperimentData.adultTheme())
+			root.setBackgroundResource(R.drawable.background_abstract);
+		else
+			root.setBackgroundResource(R.drawable.landscape_bitmap);
+		//Sticky Immersion
 		SetImmersiveListener();
 	}
 

@@ -43,6 +43,14 @@ public class ExperimentData {
 		return instance != null;
 	}
 
+	public static boolean adultTheme() {
+		if (instance == null)
+			return false;
+		if (instance.personalInformation == null)
+			return false;
+		return  instance.personalInformation.age > 10;
+	}
+
 	public static void clearInstance() {
 		instance = null;
 	}
