@@ -10,10 +10,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NotFullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -24,129 +26,96 @@
             android:name=".start.BackgroundInformationActivity"
             android:label="@string/title_backgorund_information"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.LineupActivity"
-            android:immersive="true"
             android:label="@string/text_lineup_instructions"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.QuestionsActivity"
-            android:immersive="true"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/text_answer_questions"
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".ResultActivity"
-            android:immersive="true"
             android:label="@string/result"
-            android:screenOrientation="landscape"
-
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.NumberActivity"
-            android:immersive="true"
             android:label="@string/text_number_instructions"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.AgeActivity"
-            android:immersive="true"
             android:label="@string/select"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.ExperimentInformationActivity"
-            android:immersive="true"
             android:label="@string/information"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="aggrathon.eyewitnessapp.MainActivity"/>
         </activity>
         <activity
             android:name=".start.TutorialActivity"
-            android:immersive="true"
             android:label="@string/title_tutorial"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialNumbers"
-            android:immersive="true"
             android:label="@string/text_number_instructions"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialLineup"
-            android:immersive="true"
             android:label="@string/text_lineup_instructions"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialQuestions"
-            android:immersive="true"
             android:label="@string/title_tutorial"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialEnd"
-            android:immersive="true"
             android:label="@string/title_tutorial"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialWait"
-            android:immersive="true"
             android:label="@string/title_tutorial"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialTargetQuestions"
-            android:immersive="true"
             android:label="@string/title_tutorial"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.WaitActivity"
-            android:immersive="true"
             android:label="@string/wait"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.TargetQuestionsActivity"
-            android:immersive="true"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/text_answer_questions"
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".start.VisualAcuityActivity"
-            android:immersive="true"
             android:label="@string/title_visual_acuity"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="landscape">
         </activity>
     </application>
 

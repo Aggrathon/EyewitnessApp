@@ -80,6 +80,10 @@
         android:layout_width="@dimen/tabletLandscapeColumnWidth"
         android:layout_height="wrap_content"
         android:onClick="onNextButton"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/largeMargin"
         android:layout_margin="@dimen/margin"
         android:text="@string/next"/>
 

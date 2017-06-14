@@ -5,10 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import aggrathon.eyewitnessapp.AImmersiveActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 
-public class AgeActivity extends AppCompatActivity {
+public class AgeActivity extends AImmersiveActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

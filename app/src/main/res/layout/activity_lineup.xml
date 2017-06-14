@@ -107,7 +107,10 @@
             android:id="@+id/targetAbsentButton"
             android:layout_width="@dimen/tabletLandscapeColumnWidth"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginBottom="@dimen/largeMargin"
             android:onClick="onTargetMissingButton"
             android:text="@string/absent"
             android:visibility="visible"/>

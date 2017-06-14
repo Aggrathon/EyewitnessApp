@@ -93,5 +93,6 @@
         <item>Japan</item>
         <item>Annat Land</item>
     </string-array>
+    <string name="text_answer_questions">Svara på fågorna</string>
 
 </resources>

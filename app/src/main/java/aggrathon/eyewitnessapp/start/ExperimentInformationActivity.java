@@ -11,10 +11,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import aggrathon.eyewitnessapp.AImmersiveActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 
-public class ExperimentInformationActivity extends AppCompatActivity {
+public class ExperimentInformationActivity extends AImmersiveActivity {
 
 	CheckBox conditionCheck;
 	Button nextButton;

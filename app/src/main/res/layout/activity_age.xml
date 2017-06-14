@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/AppTheme.Background">
+    style="@style/AppTheme.Background"
+    android:background="@drawable/background_colorful">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -42,4 +43,4 @@
                 android:text="@string/answer_age_more_than_eleven"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

@@ -47,6 +47,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 	int[] numCorrect;
 	int[] numWrong;
 	int rotation;
+	boolean hasLeft;
+	boolean hasRight;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		numCorrect = new int[MAX_VISUAL_STAGE];
 		numWrong = new int[MAX_VISUAL_STAGE];
 		onNext(null);
+		hasLeft = false;
+		hasRight = false;
 	}
 
 	public void onNext(View v) {

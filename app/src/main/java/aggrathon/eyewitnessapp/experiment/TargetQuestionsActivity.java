@@ -8,11 +8,12 @@ import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.data.ExperimentIteration;
 
-public class TargetQuestionsActivity extends AppCompatActivity {
+public class TargetQuestionsActivity extends ACancelCheckActivity {
 
 	SeekBar weightBar;
 	SeekBar heightBar;

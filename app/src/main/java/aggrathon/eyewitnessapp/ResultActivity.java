@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import aggrathon.eyewitnessapp.data.ExperimentData;
 
-public class ResultActivity extends AppCompatActivity {
+public class ResultActivity extends AImmersiveActivity {
 
 	ExperimentData data;
 	TextView resultText;
