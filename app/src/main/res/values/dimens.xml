@@ -3,7 +3,7 @@
     <dimen name="verticalSpace">8dp</dimen>
     <dimen name="margin">8dp</dimen>
     <dimen name="largeMargin">16dp</dimen>
-    <dimen name="tabletLandscapeColumnWidth">740dp</dimen>
+    <dimen name="tabletLandscapeColumnWidth">800dp</dimen>
     <dimen name="bottomButtonWidth">550dp</dimen>
     <dimen name="narrowColumnWidth">400dp</dimen>
     <dimen name="panelElevation">4dp</dimen>

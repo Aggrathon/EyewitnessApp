@@ -72,4 +72,18 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="AppTheme.Small" parent="AppTheme">
+        <item name="android:textAppearanceSmall">@style/AppTheme.Small.Text</item>
+        <item name="android:textAppearance">@style/AppTheme.Small.Text</item>
+        <item name="buttonStyle">@style/AppTheme.Small.Button</item>
+        <item name="android:buttonStyle">@style/AppTheme.Small.Button</item>
+    </style>
+    <style name="AppTheme.Small.Text" parent="Base.TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/textSmall</item>
+    </style>
+    <style name="AppTheme.Small.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:colorButtonNormal">@color/colorAccent</item>
+    </style>
+
 </resources>

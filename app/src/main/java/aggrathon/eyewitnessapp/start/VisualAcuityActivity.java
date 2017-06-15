@@ -269,8 +269,6 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 			onNextImage(Math.abs(rotation - touchRot) < 22.5 || Math.abs(rotation + 360 - touchRot) < 22.5);
 			return true;
 		}
-		if (event.getAction() == MotionEvent.ACTION_UP)
-			Log.d("eye", "touch "+nextState.toString());
 		return super.onTouchEvent(event);
 	}
 

@@ -110,7 +110,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.Small">
         </activity>
         <activity
             android:name=".start.VisualAcuityActivity"

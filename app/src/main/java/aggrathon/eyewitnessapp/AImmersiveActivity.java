@@ -19,6 +19,16 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setup();
+	}
+
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+		super.onCreate(savedInstanceState, persistentState);
+		setup();
+	}
+
+	protected void setup() {
 		//Centered Action bar
 		CharSequence title = getSupportActionBar().getTitle();
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -32,14 +42,7 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 			root.setBackgroundResource(R.drawable.landscape_bitmap);
 		//Sticky Immersion
 		SetImmersiveListener();
-	}
-
-	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-		super.onCreate(savedInstanceState, persistentState);
-		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-		getSupportActionBar().setCustomView(R.layout.toolbar_center_title);
-		SetImmersiveListener();
+		SetImmersion();
 	}
 
 	@Override
@@ -64,7 +67,6 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 				}
 			}
 		});
-		SetImmersion();
 	}
 
 	public void SetImmersion() {
