@@ -34,10 +34,9 @@
                 android:layout_marginTop="@dimen/margin"
                 android:labelFor="@+id/ageField"
                 android:text="@string/question_age"
-                android:visibility="visible"
+                android:textAlignment="center"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:layout_editor_absoluteY="24dp"/>
+                app:layout_constraintRight_toRightOf="parent"/>
 
             <Spinner
                 android:id="@+id/ageSpinner"
@@ -63,7 +62,8 @@
                 android:layout_marginRight="@dimen/margin"
                 android:layout_marginTop="@dimen/margin"
                 android:labelFor="@+id/natField"
-                android:text="@string/question_nationality"/>
+                android:text="@string/question_nationality"
+                android:textAlignment="center"/>
 
             <Spinner
                 android:id="@+id/spinnerNationality"
@@ -89,6 +89,7 @@
                 android:layout_margin="@dimen/margin"
                 android:labelFor="@+id/sexLayout"
                 android:text="@string/question_sex"
+                android:textAlignment="center"
                 android:visibility="visible"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/space1"/>
@@ -141,7 +142,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:labelFor="@+id/natField"
-                android:text="@string/question_length"/>
+                android:text="@string/question_length"
+                android:textAlignment="center"/>
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"

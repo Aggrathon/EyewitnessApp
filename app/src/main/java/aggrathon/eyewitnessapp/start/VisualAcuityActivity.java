@@ -89,7 +89,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 					nextState = State.left;
 				}
 				else {
-					Resources sys = Resources.getSystem();
+					Resources sys = getResources();
 					textView.setText(sys.getString(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getString(R.string.text_close_eye_right));
 					nextState = State.right;
 				}
@@ -117,7 +117,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 					ExperimentData.getInstance().personalInformation.visualAcuityLeft = changeResultScale(calculateOptimalStage());
 				}
 				else {
-					Resources sys = Resources.getSystem();
+					Resources sys = getResources();
 					textView.setText(sys.getText(R.string.text_visual_acuity_instructions2)+"\n\n"+sys.getText(R.string.text_close_eye_left));
 					hasBoth = true;
 					nextState = State.left;

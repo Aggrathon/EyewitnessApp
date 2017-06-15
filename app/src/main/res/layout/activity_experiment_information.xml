@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:text="@string/question_previous_participations"
-                />
+                android:textAlignment="viewStart"/>
 
             <RadioGroup
                 android:layout_width="match_parent"

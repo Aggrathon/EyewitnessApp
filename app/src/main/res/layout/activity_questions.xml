@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:text="@string/question_certain"
-                    />
+                    android:textAlignment="center"/>
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:text="@string/question_target_recognised"
-                    />
+                    android:textAlignment="center"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -113,7 +113,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
-                    android:text="@string/question_other_recognised"/>
+                    android:text="@string/question_other_recognised"
+                    android:textAlignment="center"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
