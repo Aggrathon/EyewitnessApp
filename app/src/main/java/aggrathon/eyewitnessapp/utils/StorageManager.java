@@ -115,9 +115,9 @@ public class StorageManager {
 	public static void deleteAllLogs() {
 		File dir = new File(LOG_DIRECTORY);
 		File[] files = dir.listFiles();
-		for (File f: files) {
-			f.delete();
-		}
+		if (files != null)
+			for (File f: files)
+				f.delete();
 	}
 
 	public static void checkForStoragePermissions(Activity activity) {

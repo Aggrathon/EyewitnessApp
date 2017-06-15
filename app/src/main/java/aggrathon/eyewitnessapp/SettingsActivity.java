@@ -86,23 +86,27 @@ public class SettingsActivity extends AppCompatActivity {
 
 	public void onLogButton(View v) {
 		File f = new File(StorageManager.COMBINED_LOG);
-		if(f.isFile()) {
-			Intent intent = new Intent();
-			intent.setAction(android.content.Intent.ACTION_VIEW);
-			intent.setDataAndType(Uri.fromFile(f), "text/plain");
-			PackageManager manager = getPackageManager();
-			if (manager.queryIntentActivities(intent, 0).size() > 0) {
-				startActivityForResult(intent, 10);
+		try {
+			if (f.isFile()) {
+				Intent intent = new Intent();
+				intent.setAction(android.content.Intent.ACTION_VIEW);
+				intent.setDataAndType(Uri.fromFile(f), "text/plain");
+				PackageManager manager = getPackageManager();
+				if (manager.queryIntentActivities(intent, 0).size() > 0) {
+					startActivityForResult(intent, 10);
+				} else {
+					String log = StorageManager.readTextFile(f);
+					if (f == null)
+						Toast.makeText(this, R.string.notification_no_log, Toast.LENGTH_SHORT).show();
+					else
+						new MessageDialog().show(getSupportFragmentManager(), "Master Log", log);
+				}
 			} else {
-				String log = StorageManager.readTextFile(f);
-				if (f == null)
-					Toast.makeText(this, R.string.notification_no_log, Toast.LENGTH_SHORT).show();
-				else
-					new MessageDialog().show(getSupportFragmentManager(), "Master Log", log);
+				Toast.makeText(this, R.string.notification_no_log, Toast.LENGTH_SHORT).show();
 			}
 		}
-		else {
-			Toast.makeText(this, R.string.notification_no_log, Toast.LENGTH_SHORT).show();
+		catch (Exception e) {
+			Toast.makeText(this, "Couldn't show the log", Toast.LENGTH_SHORT).show();
 		}
 	}
 

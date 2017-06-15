@@ -72,7 +72,7 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="AppTheme.Small" parent="AppTheme">
+    <style name="AppTheme.Small" parent="AppTheme.NotFullscreen">
         <item name="android:textAppearanceSmall">@style/AppTheme.Small.Text</item>
         <item name="android:textAppearance">@style/AppTheme.Small.Text</item>
         <item name="buttonStyle">@style/AppTheme.Small.Button</item>
