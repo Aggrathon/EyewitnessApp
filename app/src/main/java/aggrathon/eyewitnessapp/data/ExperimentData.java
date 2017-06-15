@@ -26,6 +26,7 @@ public class ExperimentData {
 
 	public static final String CORRECT_TAG = "correct";
 	public static final String MISSING_TAG = "missing";
+	public static final int NUM_IMAGES = 8;
 
 	//region static instance
 
@@ -143,7 +144,7 @@ public class ExperimentData {
 
 	public void LoadImages(String id, Activity act) {
 		images.clear();
-		imageLabels.clear();
+		imageLabels = new ArrayList<>();
 		for (File f: StorageManager.getImageList(id)) {
 			String name = f.getName();
 			if (!targetPresent && name.toLowerCase().contains(CORRECT_TAG)) {
@@ -157,12 +158,12 @@ public class ExperimentData {
 			else {
 				Log.d("Image Read", "Could not read bitmap from "+f.getPath());
 			}
-			if(images.size() == 8)
+			if(images.size() == NUM_IMAGES)
 				break;
 		}
-		if(images.size() != 8) {
+		if(images.size() != NUM_IMAGES) {
 			Toast.makeText(act, R.string.notification_images_missing, Toast.LENGTH_LONG).show();
-			for (int i = images.size(); i < 8; i++) {
+			for (int i = images.size(); i < NUM_IMAGES; i++) {
 				images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.placeholder_image));
 				imageLabels.add(MISSING_TAG);
 			}
@@ -185,11 +186,7 @@ public class ExperimentData {
 	public ExperimentIteration startExperimentIteration() {
 		ExperimentIteration iter = new ExperimentIteration();
 		data.add(iter);
-		String comb = "";
-		for (String s :imageLabels) {
-			comb += s+" ";
-		}
-		iter.imageOrder = comb.substring(0, comb.length()-1);
+		iter.imageOrder = imageLabels;
 		return iter;
 	}
 
@@ -216,18 +213,22 @@ public class ExperimentData {
 		SharedPreferences prefs = activity.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		SharedPreferences.Editor editor = prefs.edit();
 		if (targetPresent)
-			editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, 0)+1);
+			editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, 0) + 1);
 		else
-			editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 0)+1);
+			editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 0) + 1);
 		switch (lineup) {
 			case sequential:
-				editor.putInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, prefs.getInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, 0)+1);
+				editor.putInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, prefs.getInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, 0) + 1);
 				break;
 			case simultaneous:
-				editor.putInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, prefs.getInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, 0)+1);
+				editor.putInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, prefs.getInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, 0) + 1);
 				break;
 		}
 		editor.commit();
+		saveCsv(activity, prefs);
+	}
+
+	private void saveCsv(Activity activity, SharedPreferences prefs) {
 		if(data != null || data.size() > 0) {
 			CsvGenerator csv = new CsvGenerator();
 			SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
@@ -255,9 +256,22 @@ public class ExperimentData {
 				csv.addString("Lineup_type", lineup.toString());
 				csv.addBooleanAsInt("Target_present", targetPresent);
 				csv.addInt("Lineup_number", d.lineupNumber);
-				csv.addString("Image_order", d.imageOrder);
+				switch (lineup) {
+					case sequential:
+						for (int i = 0; i < NUM_IMAGES; i++)
+							csv.addString("Seq_image"+(i+1), d.imageOrder.get(i));
+						for (int i = 0; i < NUM_IMAGES; i++)
+							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), "");
+						break;
+					case simultaneous:
+						for (int i = 0; i < NUM_IMAGES; i++)
+							csv.addString("Seq_image"+(i+1), "");
+						for (int i = 0; i < NUM_IMAGES; i++)
+							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), d.imageOrder.get(i));
+						break;
+				}
 				csv.addString("Selected_image", d.selectedImage);
-				csv.addBooleanAsInt("Identification", d.selectedImage.contains(CORRECT_TAG));
+				csv.addBooleanAsInt("Identification", d.selectionIsCorrect(this));
 				csv.addInt("Confidence", d.confidence);
 				csv.addInt("Target_height", d.targetHeight);
 				csv.addInt("Target_weight", d.targetWeight);
@@ -274,7 +288,7 @@ public class ExperimentData {
 	public int getResult() {
 		int correct = 0;
 		for (ExperimentIteration d : data) {
-			if ((!targetPresent && d.selectedImage.equals(MISSING_TAG)) || d.selectedImage.toLowerCase().contains(CORRECT_TAG))
+			if (d.selectionIsCorrect(this))
 				correct++;
 		}
 		return correct;

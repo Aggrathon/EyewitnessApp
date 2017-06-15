@@ -1,12 +1,13 @@
 package aggrathon.eyewitnessapp.data;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ExperimentIteration {
 
 	public Date time;
 	public int lineupNumber;
-	public String imageOrder;
+	public ArrayList<String> imageOrder;
 	public String selectedImage;
 	public String targetSex;
 	public int targetHeight;
@@ -21,17 +22,20 @@ public class ExperimentIteration {
 
 	public ExperimentIteration() {
 		time = new Date();
-		imageOrder = "";
 		selectedImage = "";
 		targetSex = "";
 	}
 
 	public String toString(int index) {
+		String order = "";
+		if(imageOrder != null)
+			for (String s : imageOrder)
+				order += s+" ";
 		return "Experiment Iteration "+index+":"+
 				"\n\tTime: "+time+
 				"\n\tTutorial: "+tutorial+
 				"\n\tNumber: "+lineupNumber+
-				"\n\tImage Order: "+imageOrder+
+				"\n\tImage Order: "+order+
 				"\n\tSelected: "+selectedImage+
 				"\n\tTarget sex: "+targetSex+
 				"\n\tTarget Height: "+targetHeight+
@@ -41,5 +45,9 @@ public class ExperimentIteration {
 				"\n\tDistance To Target: "+distance+
 				"\n\tRecognised Target: "+recognisedTarget+
 				"\n\tRecognised Other: "+recognisedOther+"\n";
+	}
+
+	public boolean selectionIsCorrect(ExperimentData data) {
+		return selectedImage.toLowerCase().contains(ExperimentData.CORRECT_TAG) || (selectedImage.equals(ExperimentData.MISSING_TAG) && !data.targetPresent);
 	}
 }
