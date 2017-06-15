@@ -18,11 +18,13 @@ import aggrathon.eyewitnessapp.data.ExperimentIteration;
 
 public class TargetQuestionsActivity extends ACancelCheckActivity {
 
+	final static int MIN_AGE = 5;
+
 	SeekBar weightBar;
 	SeekBar heightBar;
 	SeekBar distBar;
 	RadioButton manRadio;
-	Spinner ageSpinner;
+	SeekBar ageBar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,14 +75,19 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 
 		manRadio = (RadioButton)findViewById(R.id.sexMan);
 
-		ageSpinner = (Spinner)findViewById(R.id.ageSpinner);
-		ArrayList<Integer> list = new ArrayList<>(100);
-		for (int i = 5; i < 100; i++)
-			list.add(i);
-		ArrayAdapter<Integer> adap1 = new ArrayAdapter(this, R.layout.spinner_text_element, list);
-		adap1.setDropDownViewResource(R.layout.spinner_text_dropdown);
-		ageSpinner.setAdapter(adap1);
-		ageSpinner.setSelection(20);
+		ageBar = (SeekBar) findViewById(R.id.ageBar);
+		final TextView ageText = (TextView)findViewById(R.id.ageText);
+		ageBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+				ageText.setText(Integer.toString(i+MIN_AGE));
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}
+		});
 	}
 
 	public void onNextButton(View v) {
@@ -89,7 +96,7 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 		data.targetHeight = heightBar.getProgress();
 		data.distance = distBar.getProgress();
 		data.targetSex = manRadio.isChecked() ? "man" : "woman";
-		data.age = (Integer) ageSpinner.getSelectedItem();
+		data.age = ageBar.getProgress()+MIN_AGE;
 		NextActivity();
 	}
 

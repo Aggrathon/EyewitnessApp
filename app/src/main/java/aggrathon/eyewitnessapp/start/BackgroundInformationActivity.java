@@ -18,12 +18,15 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class BackgroundInformationActivity extends ACancelCheckActivity {
 
+	final static int MIN_AGE = 5;
+
 	RadioButton manRadio;
 	RadioButton womanRadio;
 	RadioButton otherRadio;
 	SeekBar lengthBar;
 	TextView lengthText;
-	Spinner ageSpinner;
+	SeekBar ageBar;
+	TextView ageText;
 	Spinner natSpinner;
 
 	@Override
@@ -38,19 +41,23 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		otherRadio = (RadioButton) findViewById(R.id.sexOther);
 		lengthBar = (SeekBar) findViewById(R.id.selfLengthBar);
 		lengthText = (TextView) findViewById(R.id.selfLengthText);
-		ageSpinner = (Spinner) findViewById(R.id.ageSpinner);
+		ageBar = (SeekBar) findViewById(R.id.ageBar);
 		natSpinner = (Spinner)findViewById(R.id.spinnerNationality);
+		ageText = (TextView)findViewById(R.id.ageText);
 
-		ArrayList<Integer> list = new ArrayList<>(100);
-		for (int i = 5; i < 100; i++)
-			list.add(i);
-		ArrayAdapter<Integer> adap1 = new ArrayAdapter(this, R.layout.spinner_text_element, list);
-		adap1.setDropDownViewResource(R.layout.spinner_text_dropdown);
-		ageSpinner.setAdapter(adap1);
-		ageSpinner.setSelection(ExperimentData.getInstance().personalInformation.age-5);
-		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this, R.array.countries, R.layout.spinner_text_element);
-		adap.setDropDownViewResource(R.layout.spinner_text_dropdown);
-		natSpinner.setAdapter(adap);
+		ageBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+				ageText.setText(Integer.toString(i+MIN_AGE));
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}
+		});
+		ageBar.setProgress(ExperimentData.getInstance().personalInformation.age-MIN_AGE);
+		ageText.setText(Integer.toString(ageBar.getProgress()+MIN_AGE));
 
 		lengthBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
@@ -64,15 +71,19 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
 		lengthText.setText(lengthBar.getProgress()+" cm");
+
+		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this, R.array.countries, R.layout.spinner_text_element);
+		adap.setDropDownViewResource(R.layout.spinner_text_dropdown);
+		natSpinner.setAdapter(adap);
 	}
 
 	public void onStartButton(View view) {
-		if (natSpinner.getSelectedItem() == null || ageSpinner.getSelectedItem() == null) {
+		if (natSpinner.getSelectedItem() == null) {
 			Toast.makeText(this, R.string.notification_fill_all, Toast.LENGTH_SHORT).show();
 		}
 		else {
 			ExperimentData data = ExperimentData.getInstance();
-			data.personalInformation.age = (Integer) ageSpinner.getSelectedItem();
+			data.personalInformation.age = ageBar.getProgress()+MIN_AGE;
 			data.personalInformation.nationality = natSpinner.getSelectedItem().toString();
 			data.personalInformation.height = lengthBar.getProgress();
 			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
