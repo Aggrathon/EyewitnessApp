@@ -81,22 +81,24 @@
                     android:textAlignment="center"/>
 
                 <RadioGroup
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:checkedButton="@+id/noAnswerTarget"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center">
 
                     <RadioButton
                         android:id="@+id/yesAnswerTarget"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/radioButtonWidth"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/yes"/>
 
                     <RadioButton
                         android:id="@+id/noAnswerTarget"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/radioButtonWidth"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/no"/>
@@ -117,22 +119,23 @@
                     android:textAlignment="center"/>
 
                 <RadioGroup
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin"
                     android:checkedButton="@+id/noAnswerOther"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
 
                     <RadioButton
                         android:id="@+id/yesAnswerOther"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/radioButtonWidth"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/yes"/>
 
                     <RadioButton
                         android:id="@+id/noAnswerOther"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/radioButtonWidth"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/no"/>
@@ -144,12 +147,12 @@
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="@dimen/tabletLandscapeColumnWidth"
+        android:layout_width="@dimen/bottomButtonWidth"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/largeMargin"
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginRight="@dimen/margin"
         android:layout_marginTop="@dimen/margin"
-        android:layout_marginBottom="@dimen/largeMargin"
         android:layout_weight="1"
         android:onClick="onNextButton"
         android:text="@string/next"/>

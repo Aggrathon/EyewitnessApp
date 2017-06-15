@@ -81,13 +81,13 @@
 
     <Button
         android:id="@+id/endButton"
-        android:layout_width="@dimen/tabletLandscapeColumnWidth"
+        android:layout_width="@dimen/bottomButtonWidth"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/largeMargin"
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginRight="@dimen/margin"
         android:layout_marginTop="@dimen/margin"
-        android:layout_marginBottom="@dimen/largeMargin"
         android:onClick="OnEndButton"
         android:text="@string/end_experiment"/>
 

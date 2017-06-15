@@ -116,7 +116,7 @@
 
             <RadioGroup
                 android:id="@+id/sexRadioGroup"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:checkedButton="@+id/sexOther"
@@ -127,7 +127,7 @@
 
                 <RadioButton
                     android:id="@+id/sexMan"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/radioButtonWidth"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="false"
@@ -135,7 +135,7 @@
 
                 <RadioButton
                     android:id="@+id/sexWoman"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/radioButtonWidth"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="false"
@@ -143,7 +143,7 @@
 
                 <RadioButton
                     android:id="@+id/sexOther"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/radioButtonWidth"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
@@ -200,12 +200,12 @@
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="@dimen/tabletLandscapeColumnWidth"
+        android:layout_width="@dimen/bottomButtonWidth"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/largeMargin"
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginRight="@dimen/margin"
         android:layout_marginTop="@dimen/margin"
-        android:layout_marginBottom="@dimen/largeMargin"
         android:layout_weight="1"
         android:onClick="onStartButton"
         android:text="@string/next"/>
