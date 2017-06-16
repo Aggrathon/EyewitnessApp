@@ -4,52 +4,48 @@
     <string name="man">Man</string>
     <string name="woman">Kvinna</string>
     <string name="other">Annat</string>
-    <string name="question_nationality">Vad är din nationalitet</string>
-    <string name="start">Börja</string>
+    <string name="question_nationality">Från vilket land är du?</string>
     <string name="question_certain">Hur säker är du på ditt val?</string>
     <string name="question_target_distance">Hur långt ifrån dig stod personen?</string>
-    <string name="question_target_age">Hur gammal skulle du säga att personen var?</string>
-    <string name="question_target_recognised">Var personen du valde bekant?</string>
+    <string name="question_target_age">Hur gammal var personen?</string>
+    <string name="question_target_recognised">Har du sett denna person INNAN detta experiment?</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
-    <string name="question_other_recognised">Var några av de övriga personerna bekanta?</string>
+    <string name="question_other_recognised">Har du sett de övriga personerna INNAN detta experiment?</string>
     <string name="next">Nästa</string>
     <string name="finnish">Suomi</string>
     <string name="swedish">Svenska</string>
     <string name="english">English</string>
     <string name="title_backgorund_information">Bakgrundsinformation</string>
     <string name="result">Resultat</string>
-    <string name="text_lineup_absent">Personen finns inte bland bilderna</string>
+    <string name="text_lineup_absent">Personen finns inte på bild</string>
     <string name="end_experiment">Avsluta Experimentet</string>
-    <string name="select">Välj</string>
-    <string name="answer_age_less_than_eleven">Yngre än 11 år</string>
-    <string name="answer_age_more_than_eleven">11 år eller äldre</string>
     <string name="information">Information</string>
-    <string name="question_previous_participations">Har du deltagit i denna undersökning tidigare?</string>
+    <string name="question_previous_participations">Är det första gången du är med i detta experiment?</string>
     <string name="text_conditions">Jar har informerats om detta ögonvittnesexperiment och vet att jag får avsluta när som helst. Jag deltar frivilligt i experimentet</string>
-    <string name="question_length">Vad är din kroppslängd?</string>
+    <string name="question_length">Hur lång är du?</string>
     <string name="question_sex">Vad är ditt kön?</string>
     <string name="notification_fill_all">Fyll i alla fält först!</string>
     <string name="title_tutorial">Testrunda</string>
-    <string name="text_tutorial_instructions1">Till näst kommer du att göra en testrunda innan huvudexperimentet börjar</string>
-    <string name="text_number_instructions">Tryck på den siffra som testledare säger</string>
+    <string name="text_tutorial_instructions1">Nu övar vi lite innan vi börjar med experimentet.</string>
+    <string name="text_number_instructions">Tryck på den siffra som testledaren säger</string>
     <string name="text_tutorial_instructions2">Till näst börjar huvudexperimentet.\nDet fungerar på samma vis som testrudan.</string>
     <string name="wait">Vänta</string>
-    <string name="text_wait_instructions">Nu skall du vittna en person.\nVänta på instruktioner från testledaren innan du går vidare.</string>
-    <string name="question_target_sex">Vilket kön var personen som du såg?</string>
-    <string name="question_target_height">Hur lång var personen som du såg?</string>
-    <string name="question_target_weight">Hur mycket uppskattar du att personen väger?</string>
+    <string name="text_wait_instructions">Nu skall du få se en person.\nTitta upp och se rakt frammåt.</string>
+    <string name="question_target_sex">Vilket kön var personen?</string>
+    <string name="question_target_height">Hur lång var personen?</string>
+    <string name="question_target_weight">Hur mycket tror du att personen väger?</string>
     <string name="notification_storage_error">Kunde inte komma åt minnet</string>
     <string name="notification_storage_required">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
     <string name="ok">OK</string>
-    <string name="text_lineup_instructions_simultaneous">Välj bild</string>
+    <string name="text_lineup_instructions_simultaneous">Välj bild på den person som du såg</string>
     <string name="settings">Inställningar</string>
     <string name="files">Filer</string>
     <string name="lineup">Lineup</string>
     <string name="sequential">Sekventiell</string>
     <string name="simultaneous">Samtidig</string>
-    <string name="text_settings_target_absent">Target Absent</string>
-    <string name="text_settings_target_present">Target Present</string>
+    <string name="text_settings_target_absent">Saknas</string>
+    <string name="text_settings_target_present">Närvarande</string>
     <string name="text_settings_normalisation">Normalisera fördelningen genom statistik</string>
     <string name="text_reset_stats">Nollställ Statistiken</string>
     <string name="text_settings_folder">Mapp för bilder och loggfiler:\n\n\t\'Documents/Eyewitness/\'</string>
@@ -65,15 +61,15 @@
     <string name="notification_delete_logs">Radera alla gamla logfiler?</string>
     <string name="notification_images_missing">Kunde inte läsa alla bilder som behövs</string>
     <string name="text_answer_questions">Svara på fågorna</string>
-    <string name="text_lineup_instructions_sequential">Välj bild på den person som du såg: Är detta personen som du såg?</string>
-    <string name="text_participation_result">"Du identifierade # korrekt\n\nTack för ditt deltagande som ögonvittne!"</string>
-    <string name="text_close_eye_right">Blunda med höger öga.</string>
-    <string name="text_close_eye_left">Blunda med vänster öga.</string>
-    <string name="title_visual_acuity">Ögontest</string>
-    <string name="text_visual_acuity_instructions1">Till näst följer ett enkelt ögontest.</string>
-    <string name="title_visual_acuity2">Ögontest: Välj rätt riktning</string>
-    <string name="text_visual_acuity_instructions2">Öppna båda ögonen.</string>
-    <string name="text_visual_acuity_instructions3">Ögontestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
+    <string name="text_lineup_instructions_sequential">Är detta en bild på person som du såg?</string>
+    <string name="text_participation_result">Du identifierade # korrekt\n\nTack för att du ställde upp som ögonvittne!</string>
+    <string name="text_close_eye_right">Täck HÖGER öga med ena handen.</string>
+    <string name="text_close_eye_left">Täck VÄNSTER öga med ena handen.</string>
+    <string name="title_visual_acuity">Syntest</string>
+    <string name="text_visual_acuity_instructions1">Nu testar vi din syn!</string>
+    <string name="title_visual_acuity2">Syntest: Välj rätt riktning på öppningen</string>
+    <string name="text_visual_acuity_instructions2">Nu testar vi din syn!</string>
+    <string name="text_visual_acuity_instructions3">Syntestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
 
     <string-array name="countries">
         <item>Finland</item>
@@ -98,5 +94,7 @@
         <item>Japan</item>
         <item>Annat Land</item>
     </string-array>
+    <string name="man_age">Pojke / Man</string>
+    <string name="woman_age">Flicka / Kvinna</string>
 
 </resources>

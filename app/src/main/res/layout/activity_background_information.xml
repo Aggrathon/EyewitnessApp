@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="false"
-                    android:text="@string/man"/>
+                    android:text="@string/man_age"/>
 
                 <RadioButton
                     android:id="@+id/sexWoman"
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="false"
-                    android:text="@string/woman"/>
+                    android:text="@string/woman_age"/>
 
                 <RadioButton
                     android:id="@+id/sexOther"

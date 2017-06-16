@@ -25,7 +25,8 @@ public class CsvGenerator {
 	private void appendValue(String value) {
 		if (values.length() > 0 && values.charAt(values.length()-1) != '\n')
 			values.append(",");
-		values.append('"').append(value).append('"');
+		if(value != null && value.length() > 0)
+			values.append('"').append(value.replace(',', '.')).append('"');
 	}
 
 	private void appendValue(int value) {

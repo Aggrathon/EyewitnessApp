@@ -2,9 +2,12 @@ package aggrathon.eyewitnessapp;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -13,9 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.util.Locale;
+
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.start.AgeActivity;
 import aggrathon.eyewitnessapp.start.BackgroundInformationActivity;
+import aggrathon.eyewitnessapp.start.TutorialActivity;
 import aggrathon.eyewitnessapp.utils.StorageManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,24 +42,23 @@ public class MainActivity extends AppCompatActivity {
 		ExperimentData.clearInstance();	//RESET DATA
 
 		StorageManager.checkForStoragePermissions(this);
-		Log.d("Main",""+System.currentTimeMillis());
-
-		//Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
-		//setSupportActionBar(tb);
 	}
 
 	public void onLangSwedish(View view) {
 		ExperimentData.createInstance(this, "swe");
+		setLocale("sv");
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangEnglish(View view) {
 		ExperimentData.createInstance(this, "eng");
+		setLocale("en");
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangFinnish(View view) {
 		ExperimentData.createInstance(this, "fin");
+		setLocale("fi");
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
@@ -85,9 +90,17 @@ public class MainActivity extends AppCompatActivity {
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		if (keyCode == 75) {
 			ExperimentData.createInstance(this, "test");
-			startActivity(new Intent(this, BackgroundInformationActivity.class));
+			startActivity(new Intent(this, TutorialActivity.class));
 			return true;
 		}
 		return super.onKeyUp(keyCode, event);
+	}
+
+	public void setLocale(String lang) {
+		Locale myLocale = new Locale(lang);
+		Resources res = getResources();
+		Configuration conf = res.getConfiguration();
+		conf.setLocale(myLocale);
+		res.updateConfiguration(conf, res.getDisplayMetrics());
 	}
 }
