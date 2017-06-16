@@ -1,6 +1,8 @@
 package aggrathon.eyewitnessapp.start;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
@@ -63,11 +66,19 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		}
 		else {
 			ExperimentData data = ExperimentData.getInstance();
-			data.personalInformation.nationality = natSpinner.getSelectedItem().toString();
+			data.personalInformation.nationality = getselectedCountry();
 			data.personalInformation.height = lengthBar.getProgress();
 			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
 			startActivity(new Intent(this, VisualAcuityActivity.class));
 			finish();
 		}
+	}
+
+	private String getselectedCountry() {
+		Configuration conf = getResources().getConfiguration();
+		conf = new Configuration(conf);
+		conf.setLocale(new Locale("en"));
+		Context localizedContext = createConfigurationContext(conf);
+		return localizedContext.getResources().getStringArray(R.array.countries)[natSpinner.getSelectedItemPosition()];
 	}
 }

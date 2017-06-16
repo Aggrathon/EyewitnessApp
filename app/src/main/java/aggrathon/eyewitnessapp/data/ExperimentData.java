@@ -281,7 +281,8 @@ public class ExperimentData {
 				csv.addBooleanAsInt("Recognise_chosen", d.recognisedTarget);
 				csv.addBooleanAsInt("Recognise_other", d.recognisedOther);
 			}
-			StorageManager.createLogfile(activity, csv.getValues(), csv.getHeader(), prefs.getString(SettingsActivity.DEVICE_ID, "")+personalInformation.testId);
+			if(csv.hasContent())
+				StorageManager.createLogfile(activity, csv.getValues(), csv.getHeader(), prefs.getString(SettingsActivity.DEVICE_ID, "")+personalInformation.testId);
 		}
 	}
 

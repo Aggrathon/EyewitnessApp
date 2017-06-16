@@ -73,4 +73,29 @@
     <string name="notification_fill_all">Täytä vastaus kaikkiin kysymyksiin ensin</string>
     <string name="notification_images_missing">Kaikkia kuvia ei löytynyt</string>
     <string name="text_tutorial_instructions2">Seuraavaksi aloitetaan pääkokeilu.\nSe toimii samalla tavalla kuin testikierros.</string>
+
+    <string-array name="countries">
+        <item>Suomi</item>
+        <item>Ruotsi</item>
+        <item>Venäjä</item>
+        <item>Norja</item>
+        <item>Estonia</item>
+        <item>Saksa</item>
+        <item>Ranska</item>
+        <item>Britannia</item>
+        <item>Tanska</item>
+        <item>Italia</item>
+        <item>Espanja</item>
+        <item>Ukraina</item>
+        <item>Puola</item>
+        <item>Romania</item>
+        <item>Alankomaat</item>
+        <item>Yhdysvallat</item>
+        <item>Australia</item>
+        <item>Kiina</item>
+        <item>Intia</item>
+        <item>Japani</item>
+        <item>Muu Maa</item>
+    </string-array>
+
 </resources>

@@ -70,6 +70,8 @@
     <string name="title_visual_acuity2">Syntest: Välj rätt riktning på öppningen</string>
     <string name="text_visual_acuity_instructions2">Nu testar vi din syn!</string>
     <string name="text_visual_acuity_instructions3">Syntestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
+    <string name="man_age">Pojke / Man</string>
+    <string name="woman_age">Flicka / Kvinna</string>
 
     <string-array name="countries">
         <item>Finland</item>
@@ -94,7 +96,5 @@
         <item>Japan</item>
         <item>Annat Land</item>
     </string-array>
-    <string name="man_age">Pojke / Man</string>
-    <string name="woman_age">Flicka / Kvinna</string>
 
 </resources>

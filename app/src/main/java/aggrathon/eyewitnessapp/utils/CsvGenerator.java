@@ -64,6 +64,8 @@ public class CsvGenerator {
 	}
 
 
+	public boolean hasContent() { return values.length() > 0; }
+
 	public String getValues() {
 		return values.toString();
 	}
