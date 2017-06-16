@@ -51,5 +51,6 @@ public class NumberActivity extends ACancelCheckActivity {
 
 	public void NextActivity() {
 		startActivity(new Intent(this, WaitActivity.class));
+		finish();
 	}
 }

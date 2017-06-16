@@ -67,6 +67,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 			data.personalInformation.height = lengthBar.getProgress();
 			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
 			startActivity(new Intent(this, VisualAcuityActivity.class));
+			finish();
 		}
 	}
 }

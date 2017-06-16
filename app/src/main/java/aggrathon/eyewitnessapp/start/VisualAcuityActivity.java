@@ -148,6 +148,7 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				break;
 			case next:
 				startActivity(new Intent(this, TutorialActivity.class));
+				finish();
 				break;
 		}
 	}

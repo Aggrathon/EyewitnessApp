@@ -31,6 +31,7 @@ public class ResultActivity extends AImmersiveActivity {
 
 	public void endExperiment(View v) {
 		startActivity(new Intent(this, MainActivity.class));
+		finish();
 	}
 
 	@Override

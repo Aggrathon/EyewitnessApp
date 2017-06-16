@@ -102,5 +102,6 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 
 	public void NextActivity() {
 		startActivity(new Intent(this, LineupActivity.class));
+		finish();
 	}
 }

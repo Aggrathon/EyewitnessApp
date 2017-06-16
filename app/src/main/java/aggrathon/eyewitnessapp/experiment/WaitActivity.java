@@ -21,6 +21,7 @@ public class WaitActivity extends AMessageActivity {
 				@Override
 				public void onClick(View view) {
 					startActivity(new Intent(act, TargetQuestionsActivity.class));
+					finish();
 				}
 			});
 		}

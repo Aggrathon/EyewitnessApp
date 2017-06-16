@@ -84,5 +84,6 @@ public class LineupActivity extends ACancelCheckActivity {
 
 	public void NextActivity() {
 		startActivity(new Intent(this, QuestionsActivity.class));
+		finish();
 	}
 }

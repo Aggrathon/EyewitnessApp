@@ -27,6 +27,7 @@ public class TutorialActivity extends AMessageActivity {
 				@Override
 				public void onClick(View view) {
 					startActivity(new Intent(act, TutorialNumbers.class));
+					finish();
 				}
 			});
 		}
@@ -45,6 +46,7 @@ public class TutorialActivity extends AMessageActivity {
 			ExperimentData.getInstance().LoadImages("Test", this);
 			ExperimentData.getInstance().getLatestData().tutorial = true;
 			startActivity(new Intent(this, TutorialWait.class));
+			finish();
 		}
 	}
 
@@ -57,6 +59,7 @@ public class TutorialActivity extends AMessageActivity {
 				@Override
 				public void onClick(View view) {
 					startActivity(new Intent(act, TutorialTargetQuestions.class));
+					finish();
 				}
 			});
 		}
@@ -66,6 +69,7 @@ public class TutorialActivity extends AMessageActivity {
 		@Override
 		public void NextActivity() {
 			startActivity(new Intent(this, TutorialLineup.class));
+			finish();
 		}
 	}
 
@@ -74,6 +78,7 @@ public class TutorialActivity extends AMessageActivity {
 		@Override
 		public void NextActivity() {
 			startActivity(new Intent(this, TutorialQuestions.class));
+			finish();
 		}
 	}
 
@@ -81,6 +86,7 @@ public class TutorialActivity extends AMessageActivity {
 		@Override
 		public void NextActivity() {
 			startActivity(new Intent(this, TutorialEnd.class));
+			finish();
 		}
 	}
 
@@ -95,6 +101,7 @@ public class TutorialActivity extends AMessageActivity {
 					@Override
 					public void onClick(View view) {
 						startActivity(new Intent(act, NumberActivity.class));
+						finish();
 					}
 				});
 			}

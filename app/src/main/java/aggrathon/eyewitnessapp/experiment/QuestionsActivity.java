@@ -50,6 +50,7 @@ public class QuestionsActivity extends ACancelCheckActivity {
 
 	public void NextActivity() {
 		startActivity(new Intent(this, NumberActivity.class));
+		finish();
 	}
 
 }

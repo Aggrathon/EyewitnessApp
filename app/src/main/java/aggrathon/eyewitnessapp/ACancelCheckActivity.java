@@ -34,6 +34,7 @@ public abstract class ACancelCheckActivity extends AImmersiveActivity {
 					.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
 							act.startActivity(new Intent(act, ResultActivity.class));
+							act.finish();
 						}
 					})
 					.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
