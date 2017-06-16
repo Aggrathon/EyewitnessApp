@@ -2,8 +2,6 @@ package aggrathon.eyewitnessapp;
 
 import android.app.ActionBar;
 import android.content.pm.PackageManager;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
@@ -18,8 +16,7 @@ import aggrathon.eyewitnessapp.utils.StorageManager;
 
 public abstract class AImmersiveActivity extends AppCompatActivity {
 
-	static BitmapDrawable adultBackground;
-	static BitmapDrawable childBackground;
+	private TextView title;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,25 +32,32 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 
 	protected void setup() {
 		//Centered Action bar
-		CharSequence title = getSupportActionBar().getTitle();
+		CharSequence titleText = getSupportActionBar().getTitle();
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getSupportActionBar().setCustomView(R.layout.toolbar_center_title);
-		((TextView)findViewById(R.id.toolbar_title)).setText(title);
+		title = (TextView)findViewById(R.id.toolbar_title);
+		setTitle(titleText);
 		//Background Image
 		View root = findViewById(android.R.id.content);
 		if (ExperimentData.adultTheme()) {
-			if (adultBackground != null)
-				adultBackground = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.background_abstract));
-			root.setBackground(adultBackground);
+			root.setBackgroundResource( R.drawable.background_abstract);
 		}
 		else {
-			if (childBackground != null)
-				childBackground = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.landscape_bitmap));
-			root.setBackground(childBackground);
+			root.setBackgroundResource( R.drawable.landscape_bitmap);
 		}
 		//Sticky Immersion
 		SetImmersiveListener();
 		SetImmersion();
+	}
+
+	@Override
+	public void setTitle(CharSequence titleText) {
+		title.setText(titleText);
+	}
+
+	@Override
+	public void setTitle(int titleId) {
+		title.setText(titleId);
 	}
 
 	@Override

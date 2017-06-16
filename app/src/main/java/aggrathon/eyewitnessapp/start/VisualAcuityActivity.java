@@ -19,7 +19,7 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class VisualAcuityActivity extends ACancelCheckActivity {
 
-	static final int MAX_VISUAL_STAGE = 25;
+	static final int MAX_VISUAL_STAGE = 32;
 	static final float TARGET_ACCURACY = 0.5625f;
 	static final float TARGET_WINDOW = 0.2f;
 	static final float IMAGE_STARTING_SIZE = 0.65f;

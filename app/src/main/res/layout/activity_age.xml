@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/AppTheme.Background"
-    android:background="@drawable/background_colorful">
+    android:background="@drawable/background_colorful"
+    android:orientation="vertical"
+    tools:context="aggrathon.eyewitnessapp.start.AgeActivity">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
-        android:layout_gravity="center">
+        android:layout_weight="100">
 
         <LinearLayout
             style="@style/AppTheme.Panel"
@@ -28,19 +32,47 @@
                 android:text="@string/question_age"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:onClick="onLessThanTenButton"
-                android:text="@string/answer_age_less_than_eleven"/>
 
-            <Button
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
-                android:onClick="onMoreThanTenButton"
-                android:text="@string/answer_age_more_than_eleven"/>
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/ageBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="94"
+                    android:progress="20"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/ageText"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/ageText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-</FrameLayout>
+
+    <Button
+        android:layout_width="@dimen/bottomButtonWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/largeMargin"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_weight="1"
+        android:onClick="onNext"
+        android:text="@string/next"/>
+
+</LinearLayout>

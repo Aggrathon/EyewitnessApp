@@ -18,15 +18,11 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class BackgroundInformationActivity extends ACancelCheckActivity {
 
-	final static int MIN_AGE = 5;
-
 	RadioButton manRadio;
 	RadioButton womanRadio;
 	RadioButton otherRadio;
 	SeekBar lengthBar;
 	TextView lengthText;
-	SeekBar ageBar;
-	TextView ageText;
 	Spinner natSpinner;
 
 	@Override
@@ -41,23 +37,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		otherRadio = (RadioButton) findViewById(R.id.sexOther);
 		lengthBar = (SeekBar) findViewById(R.id.selfLengthBar);
 		lengthText = (TextView) findViewById(R.id.selfLengthText);
-		ageBar = (SeekBar) findViewById(R.id.ageBar);
 		natSpinner = (Spinner)findViewById(R.id.spinnerNationality);
-		ageText = (TextView)findViewById(R.id.ageText);
-
-		ageBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-				ageText.setText(Integer.toString(i+MIN_AGE));
-			}
-
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {}
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {}
-		});
-		ageBar.setProgress(ExperimentData.getInstance().personalInformation.age-MIN_AGE);
-		ageText.setText(Integer.toString(ageBar.getProgress()+MIN_AGE));
 
 		lengthBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
@@ -83,7 +63,6 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		}
 		else {
 			ExperimentData data = ExperimentData.getInstance();
-			data.personalInformation.age = ageBar.getProgress()+MIN_AGE;
 			data.personalInformation.nationality = natSpinner.getSelectedItem().toString();
 			data.personalInformation.height = lengthBar.getProgress();
 			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";

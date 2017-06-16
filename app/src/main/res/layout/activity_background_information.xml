@@ -26,82 +26,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/ageTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin"
-                android:layout_marginRight="@dimen/margin"
-                android:layout_marginTop="@dimen/margin"
-                android:labelFor="@+id/ageField"
-                android:text="@string/question_age"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:orientation="horizontal">
-
-                <SeekBar
-                    android:id="@+id/ageBar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:max="94"
-                    android:progress="20"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/ageText"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/ageText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="220 cm"
-                    android:textAlignment="textEnd"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-            </android.support.constraint.ConstraintLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/verticalSpace"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ageField"/>
-
-            <TextView
-                android:id="@+id/natTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin"
-                android:layout_marginRight="@dimen/margin"
-                android:layout_marginTop="@dimen/margin"
-                android:labelFor="@+id/natField"
-                android:text="@string/question_nationality"
-                />
-
-            <Spinner
-                android:id="@+id/spinnerNationality"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin"
-                android:layout_marginLeft="@dimen/margin"
-                android:layout_marginRight="@dimen/margin"
-                android:spinnerMode="dialog"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/verticalSpace"
-                android:layout_weight="1"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sexRadioGroup"/>
-
-            <TextView
                 android:id="@+id/sexTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -161,7 +85,7 @@
                 android:layout_margin="@dimen/margin"
                 android:labelFor="@+id/natField"
                 android:text="@string/question_length"
-                />
+                android:textAlignment="center"/>
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -191,6 +115,34 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
             </android.support.constraint.ConstraintLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/verticalSpace"
+                android:layout_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sexRadioGroup"/>
+
+            <TextView
+                android:id="@+id/natTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
+                android:labelFor="@+id/natField"
+                android:text="@string/question_nationality"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerNationality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin"
+                android:spinnerMode="dialog"/>
 
         </LinearLayout>
 

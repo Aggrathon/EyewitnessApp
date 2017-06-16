@@ -39,8 +39,6 @@
                 android:cropToPadding="false"
                 android:onClick="onLangFinnish"
                 android:scaleType="fitCenter"
-                android:tintMode="screen"
-                android:tint="@android:color/darker_gray"
                 app:srcCompat="@drawable/flag_of_finland"/>
 
             <TextView
@@ -109,8 +107,6 @@
                 android:cropToPadding="false"
                 android:onClick="onLangEnglish"
                 android:scaleType="fitCenter"
-                android:tint="@android:color/darker_gray"
-                android:tintMode="screen"
                 app:srcCompat="@drawable/flag_of_the_united_kingdom"/>
 
             <TextView
