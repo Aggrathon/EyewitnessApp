@@ -42,9 +42,8 @@ public class TutorialActivity extends AMessageActivity {
 		}
 
 		@Override
-		public void NextActivity() {
-			ExperimentData.getInstance().LoadImages("Test", this);
-			ExperimentData.getInstance().getLatestData().tutorial = true;
+		public void NextActivity(int number) {
+			ExperimentData.getInstance().startExperimentIteration(this, number, "Test").tutorial = true;
 			startActivity(new Intent(this, TutorialWait.class));
 			finish();
 		}

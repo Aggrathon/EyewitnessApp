@@ -6,6 +6,7 @@ import java.util.Date;
 public class ExperimentIteration {
 
 	public Date time;
+	public boolean targetPresent;
 	public int lineupNumber;
 	public ArrayList<String> imageOrder;
 	public String selectedImage;
@@ -20,10 +21,13 @@ public class ExperimentIteration {
 	public boolean tutorial;
 
 
-	public ExperimentIteration() {
+	public ExperimentIteration(int number, boolean targetPresent, ArrayList<String> imageOrder) {
 		time = new Date();
 		selectedImage = "";
 		targetSex = "";
+		lineupNumber = number;
+		this.targetPresent = targetPresent;
+		this.imageOrder = imageOrder;
 	}
 
 	public String toString(int index) {
@@ -36,6 +40,7 @@ public class ExperimentIteration {
 				"\n\tTutorial: "+tutorial+
 				"\n\tNumber: "+lineupNumber+
 				"\n\tImage Order: "+order+
+				"\n\tTarget Present: "+targetPresent+
 				"\n\tSelected: "+selectedImage+
 				"\n\tTarget sex: "+targetSex+
 				"\n\tTarget Height: "+targetHeight+
@@ -47,7 +52,7 @@ public class ExperimentIteration {
 				"\n\tRecognised Other: "+recognisedOther+"\n";
 	}
 
-	public boolean selectionIsCorrect(ExperimentData data) {
-		return selectedImage.toLowerCase().contains(ExperimentData.CORRECT_TAG) || (selectedImage.equals(ExperimentData.MISSING_TAG) && !data.targetPresent);
+	public boolean selectionIsCorrect() {
+		return selectedImage.toLowerCase().contains(ExperimentData.CORRECT_TAG) || (selectedImage.equals(ExperimentData.MISSING_TAG) && !targetPresent);
 	}
 }

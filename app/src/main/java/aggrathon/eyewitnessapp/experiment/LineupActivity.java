@@ -43,7 +43,6 @@ public class LineupActivity extends ACancelCheckActivity {
 				setupButton(R.id.imageButton5, 5, data);
 				setupButton(R.id.imageButton6, 6, data);
 				setupButton(R.id.imageButton7, 7, data);
-				findViewById(R.id.targetAbsentButton).setVisibility(data.targetPresent? View.GONE: View.VISIBLE);
 				break;
 		}
 	}

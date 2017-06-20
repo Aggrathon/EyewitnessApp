@@ -77,16 +77,16 @@ public class ExperimentData {
 
 	//Experiment Variables
 	public LineupVariant lineup;
-	public boolean targetPresent;
 	public ArrayList<Bitmap> images;
 	private ArrayList<String> imageLabels;
+	Random rnd;
 
 	//Information
 	public PersonalInformation personalInformation;
 	public ArrayList<ExperimentIteration> data;
 
 	private ExperimentData(Activity activity, String language) {
-		Random rnd = new Random();
+		rnd = new Random();
 		SharedPreferences prefs = activity.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
 
@@ -95,11 +95,6 @@ public class ExperimentData {
 			lineup = LineupVariant.sequential;
 		else
 			lineup = LineupVariant.simultaneous;
-		float presence = getSettings(prefs, SettingsActivity.LINEUP_TARGET, normalise, SettingsActivity.LINEUP_STATS_TARGET_ABSENT, SettingsActivity.LINEUP_STATS_TARGET_PRESENT);
-		if (rnd.nextFloat() > presence)
-			targetPresent = false;
-		else
-			targetPresent = true;
 
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
@@ -115,7 +110,6 @@ public class ExperimentData {
 
 	private ExperimentData() {
 		lineup = LineupVariant.sequential;
-		targetPresent = true;
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
 
@@ -142,7 +136,7 @@ public class ExperimentData {
 		}
 	}
 
-	public void LoadImages(String id, Activity act) {
+	private void LoadImages(String id, Activity act, boolean targetPresent) {
 		images.clear();
 		imageLabels = new ArrayList<>();
 		for (File f: StorageManager.getImageList(id)) {
@@ -183,16 +177,26 @@ public class ExperimentData {
 		}
 	}
 
-	public ExperimentIteration startExperimentIteration() {
-		ExperimentIteration iter = new ExperimentIteration();
+	public ExperimentIteration startExperimentIteration(Activity act, int number, String label) {
+		SharedPreferences prefs = act.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
+		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
+		float presence = getSettings(prefs, SettingsActivity.LINEUP_TARGET, normalise, SettingsActivity.LINEUP_STATS_TARGET_ABSENT, SettingsActivity.LINEUP_STATS_TARGET_PRESENT);
+		boolean targetPresent = rnd.nextFloat() <= presence;
+		LoadImages(label, act, targetPresent);
+		ExperimentIteration iter = new ExperimentIteration(number, targetPresent, imageLabels);
 		data.add(iter);
-		iter.imageOrder = imageLabels;
 		return iter;
 	}
 
 	public ExperimentIteration getLatestData() {
-		if (data == null || data.size() < 1)
-			return new ExperimentIteration();
+		if (data == null || data.size() < 1) {
+			if (imageLabels == null) {
+				imageLabels = new ArrayList<>();
+				for (int i = 0; i < NUM_IMAGES; i++)
+					imageLabels.add(MISSING_TAG);
+			}
+			return new ExperimentIteration(0, true, imageLabels);
+		}
 		else
 			return data.get(data.size()-1);
 	}
@@ -212,10 +216,12 @@ public class ExperimentData {
 	public void save(Activity activity) {
 		SharedPreferences prefs = activity.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		SharedPreferences.Editor editor = prefs.edit();
-		if (targetPresent)
-			editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, 0) + 1);
-		else
-			editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 0) + 1);
+		int pres = 0;
+		for (ExperimentIteration d: data)
+			if (d.targetPresent)
+				pres++;
+		editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, 0) + pres);
+		editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 0) + data.size()-pres);
 		switch (lineup) {
 			case sequential:
 				editor.putInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, prefs.getInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, 0) + 1);
@@ -254,7 +260,7 @@ public class ExperimentData {
 				csv.addFloat("Pt_max_eye", personalInformation.visualAcuityRight > personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
 				csv.addString("Experiment_type", d.tutorial? "testrunda" : "huvudexperiment");
 				csv.addString("Lineup_type", lineup.toString());
-				csv.addBooleanAsInt("Target_present", targetPresent);
+				csv.addBooleanAsInt("Target_present", d.targetPresent);
 				csv.addInt("Lineup_number", d.lineupNumber);
 				switch (lineup) {
 					case sequential:
@@ -271,7 +277,7 @@ public class ExperimentData {
 						break;
 				}
 				csv.addString("Selected_image", d.selectedImage);
-				csv.addBooleanAsInt("Identification", d.selectionIsCorrect(this));
+				csv.addBooleanAsInt("Identification", d.selectionIsCorrect());
 				csv.addInt("Confidence", d.confidence);
 				csv.addInt("Target_height", d.targetHeight);
 				csv.addInt("Target_weight", d.targetWeight);
@@ -289,7 +295,7 @@ public class ExperimentData {
 	public int getResult() {
 		int correct = 0;
 		for (ExperimentIteration d : data) {
-			if (d.selectionIsCorrect(this))
+			if (d.selectionIsCorrect())
 				correct++;
 		}
 		return correct;
@@ -306,15 +312,12 @@ public class ExperimentData {
 		sb.append("Lineup: ");
 		switch (lineup) {
 			case sequential:
-				sb.append("Sequential and the target was ");
+				sb.append("Sequential");
 				break;
 			case simultaneous:
-				sb.append("Simultaneous and the target was ");
+				sb.append("Simultaneous");
 		}
-		if(targetPresent)
-			sb.append("present.\n\n");
-		else
-			sb.append("absent.\n\n");
+		sb.append("\n\n");
 
 		for (int i = 0; i < data.size(); i++) {
 			sb.append(data.get(i).toString(i));
