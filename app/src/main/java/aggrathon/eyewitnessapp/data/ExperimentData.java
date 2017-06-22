@@ -276,6 +276,7 @@ public class ExperimentData {
 							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), d.imageOrder.get(i));
 						break;
 				}
+				csv.addFloat("Lineup_time", d.lineupTime);
 				csv.addString("Selected_image", d.selectedImage);
 				csv.addBooleanAsInt("Identification", d.selectionIsCorrect());
 				csv.addInt("Confidence", d.confidence);

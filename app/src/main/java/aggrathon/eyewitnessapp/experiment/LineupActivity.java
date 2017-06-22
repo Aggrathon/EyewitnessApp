@@ -14,6 +14,7 @@ public class LineupActivity extends ACancelCheckActivity {
 
 	private ImageView imageView;
 	private int imageIndex = 0;
+	private long startTime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class LineupActivity extends ACancelCheckActivity {
 				setupButton(R.id.imageButton7, 7, data);
 				break;
 		}
+		startTime = System.currentTimeMillis();
 	}
 
 	private void setupButton(int viewId, int index, ExperimentData data) {
@@ -62,6 +64,7 @@ public class LineupActivity extends ACancelCheckActivity {
 
 	public void onTargetMissingButton(View v) {
 		ExperimentData.getInstance().selectImage(-2);
+		ExperimentData.getInstance().getLatestData().setLineupTime(startTime, System.currentTimeMillis());
 		NextActivity();
 	}
 
@@ -78,6 +81,7 @@ public class LineupActivity extends ACancelCheckActivity {
 
 	public void onSelectImageButton(View v) {
 		ExperimentData.getInstance().selectImage(imageIndex);
+		ExperimentData.getInstance().getLatestData().setLineupTime(startTime, System.currentTimeMillis());
 		NextActivity();
 	}
 

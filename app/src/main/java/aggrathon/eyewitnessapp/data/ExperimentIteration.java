@@ -19,6 +19,7 @@ public class ExperimentIteration {
 	public boolean recognisedTarget;
 	public boolean recognisedOther;
 	public boolean tutorial;
+	public float lineupTime;
 
 
 	public ExperimentIteration(int number, boolean targetPresent, ArrayList<String> imageOrder) {
@@ -39,6 +40,7 @@ public class ExperimentIteration {
 				"\n\tTime: "+time+
 				"\n\tTutorial: "+tutorial+
 				"\n\tNumber: "+lineupNumber+
+				"\n\tLineup time: "+lineupTime+
 				"\n\tImage Order: "+order+
 				"\n\tTarget Present: "+targetPresent+
 				"\n\tSelected: "+selectedImage+
@@ -54,5 +56,9 @@ public class ExperimentIteration {
 
 	public boolean selectionIsCorrect() {
 		return selectedImage.toLowerCase().contains(ExperimentData.CORRECT_TAG) || (selectedImage.equals(ExperimentData.MISSING_TAG) && !targetPresent);
+	}
+
+	public void setLineupTime(long start, long end) {
+		lineupTime = (float)((double)(end-start)*0.001);
 	}
 }
