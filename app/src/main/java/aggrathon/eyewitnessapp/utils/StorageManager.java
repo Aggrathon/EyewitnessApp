@@ -27,18 +27,41 @@ public class StorageManager {
 
 	public static final int STORAGE_PERMISSION_REQUEST = 95;
 	public static final String DIRECTORY_NAME = "Eyewitness";
-	public static final String PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME;
-	public static final String LOG_DIRECTORY = PATH + File.separator + "logs";
-	public static final String IMAGE_DIRECOTRY = PATH + File.separator + "images";
-	public static final String COMBINED_LOG = LOG_DIRECTORY + File.separator + "combinedlog.csv";
+	public static String PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME;
+	public static String LOG_DIRECTORY = PATH + File.separator + "logs";
+	public static String IMAGE_DIRECTORY = PATH + File.separator + "images";
+	public static String COMBINED_LOG = LOG_DIRECTORY + File.separator + "combinedlog.csv";
+
+	public static void setDirectoryLocation(String dir) {
+		if(dir == null || dir.equals("") || dir.equals(".") || dir.equals(DIRECTORY_NAME))
+			PATH = Environment.getExternalStorageDirectory()+File.separator+DIRECTORY_NAME;
+		else
+			PATH = Environment.getExternalStorageDirectory()+File.separator+dir+File.separator+DIRECTORY_NAME;
+		LOG_DIRECTORY = PATH + File.separator + "logs";
+		IMAGE_DIRECTORY = PATH + File.separator + "images";
+		COMBINED_LOG = LOG_DIRECTORY + File.separator + "combinedlog.csv";
+	}
+
+	public static void moveDirectoryLocation(Activity activity, String dir) {
+		String oldPath = PATH;
+		setDirectoryLocation(dir);
+		if(oldPath.equals(PATH))
+			return;
+		File directory = new File(oldPath);
+		if (!directory.renameTo(new File(PATH))) {
+			Log.e("Storage", "Could not move directory");
+			showErrorToast(activity);
+		}
+		createFolders(activity);
+	}
 
 	public static void createFolders(Activity activity) {
 		File logDir = new File(LOG_DIRECTORY);
-		File imgDir1 = new File(IMAGE_DIRECOTRY + File.separator + "1");
-		File imgDir2 = new File(IMAGE_DIRECOTRY + File.separator + "2");
-		File imgDir3 = new File(IMAGE_DIRECOTRY + File.separator + "3");
-		File imgDir4 = new File(IMAGE_DIRECOTRY + File.separator + "4");
-		File imgDirTest = new File(PATH + File.separator + "images" + File.separator + "Test");
+		File imgDir1 = new File(IMAGE_DIRECTORY + File.separator + "1");
+		File imgDir2 = new File(IMAGE_DIRECTORY + File.separator + "2");
+		File imgDir3 = new File(IMAGE_DIRECTORY + File.separator + "3");
+		File imgDir4 = new File(IMAGE_DIRECTORY + File.separator + "4");
+		File imgDirTest = new File(IMAGE_DIRECTORY + File.separator + "Test");
 		logDir.mkdirs();
 		imgDir1.mkdirs();
 		imgDir2.mkdirs();
@@ -141,7 +164,7 @@ public class StorageManager {
 	}
 
 	public static File[] getImageList(String id) {
-		File f = new File(IMAGE_DIRECOTRY + File.separator + id);
+		File f = new File(IMAGE_DIRECTORY + File.separator + id);
 		Log.d("Image read", f.getPath());
 		File[] files = f.listFiles();
 		Log.d("Image read", "Files in folder "+files.length);

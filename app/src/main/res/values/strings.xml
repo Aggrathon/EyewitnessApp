@@ -51,7 +51,7 @@
     <string name="text_settings_target_present">Target Present</string>
     <string name="text_settings_normalisation">Normalisera fördelningen genom statistik</string>
     <string name="text_reset_stats">Nollställ Statistiken</string>
-    <string name="text_settings_folder">Mapp för bilder och loggfiler:\n\n\t\'Documents/Eyewitness/\'</string>
+    <string name="text_settings_folder">Mapp för bilder och loggfiler:</string>
     <string name="text_show_image_instructions">Visa bildinstruktioner</string>
     <string name="text_settings_view_logs">Visa alla loggar</string>
     <string name="notification_no_log">Ingen log existerar</string>

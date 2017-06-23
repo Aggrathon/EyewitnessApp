@@ -127,9 +127,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
+                android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="@dimen/margin"
-                android:layout_weight="1">
+                android:padding="@dimen/margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -145,6 +145,35 @@
                     android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
                     android:text="@string/text_settings_folder"/>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin">
+
+                    <Spinner
+                        android:id="@+id/spinnerFolder"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/textFolder"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/textFolder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin"
+                        android:paddingRight="@dimen/margin"
+                        android:text="/ Eyewitness"
+                        android:textColor="@color/specialText"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+                </android.support.constraint.ConstraintLayout>
 
                 <Button
                     android:layout_width="match_parent"
@@ -190,7 +219,8 @@
                     android:layout_marginRight="@dimen/margin"
                     android:layout_marginTop="@dimen/margin"
                     android:layout_weight="1"
-                    android:text="@string/device_id"/>
+                    android:text="@string/device_id"
+                    android:labelFor="@id/deviceIdText"/>
 
                 <EditText
                     android:id="@+id/deviceIdText"

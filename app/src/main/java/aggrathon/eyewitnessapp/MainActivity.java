@@ -4,11 +4,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,7 +19,6 @@ import java.util.Locale;
 
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.start.AgeActivity;
-import aggrathon.eyewitnessapp.start.BackgroundInformationActivity;
 import aggrathon.eyewitnessapp.start.TutorialActivity;
 import aggrathon.eyewitnessapp.utils.StorageManager;
 
@@ -41,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
 		ExperimentData.clearInstance();	//RESET DATA
 
+		StorageManager.setDirectoryLocation(getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0).getString(SettingsActivity.FOLDER_LOCATION, Environment.DIRECTORY_DOCUMENTS));
 		StorageManager.checkForStoragePermissions(this);
 	}
 
