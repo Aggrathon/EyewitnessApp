@@ -14,45 +14,35 @@ public class CsvGenerator {
 		staticHeader = false;
 	}
 
-	private void appendHeader(String name) {
+	private void nextValue(String header) {
 		if (!staticHeader) {
-			if (header.length() > 0)
-				header.append(",");
-			header.append('"').append(name).append('"');
+			if (this.header.length() > 0)
+				this.header.append(",");
+			this.header.append('"').append(header).append('"');
 		}
-	}
-
-	private void appendValue(String value) {
 		if (values.length() > 0 && values.charAt(values.length()-1) != '\n')
 			values.append(",");
+	}
+
+	public void addString(String name, String value) {
+		nextValue(name);
 		if(value != null && value.length() > 0)
 			values.append('"').append(value.replace(',', '.')).append('"');
 	}
 
-	private void appendValue(int value) {
-		if (values.length() > 0)
-			values.append(",");
+	public void addInt(String name, int value) {
+		nextValue(name);
 		values.append(value);
 	}
 
-	public void addString(String name, String value) {
-		appendHeader(name);
-		appendValue(value);
-	}
-
-	public void addInt(String name, int value) {
-		appendHeader(name);
-		appendValue(value);
-	}
-
 	public void addFloat(String name, float value) {
-		appendHeader(name);
-		appendValue(String.format("%.3f", value));
+		nextValue(name);
+		values.append(String.format("%.3f", value));
 	}
 
 	public void addBooleanAsInt(String name, boolean value) {
-		appendHeader(name);
-		appendValue(value? 1 : 0);
+		nextValue(name);
+		values.append(value? 1 : 0);
 	}
 
 
