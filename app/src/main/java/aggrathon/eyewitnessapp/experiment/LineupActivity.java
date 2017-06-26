@@ -9,12 +9,14 @@ import android.widget.ImageView;
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.data.ExperimentIteration;
 
 public class LineupActivity extends ACancelCheckActivity {
 
 	private ImageView imageView;
 	private int imageIndex = 0;
 	private long startTime;
+	private long startTime2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class LineupActivity extends ACancelCheckActivity {
 				imageView = (ImageView) findViewById(R.id.imageView);
 				imageIndex = 0;
 				imageView.setImageBitmap(data.images.get(imageIndex));
+				startTime2 = System.currentTimeMillis();
 				break;
 
 			case simultaneous:
@@ -63,14 +66,23 @@ public class LineupActivity extends ACancelCheckActivity {
 	}
 
 	public void onTargetMissingButton(View v) {
-		ExperimentData.getInstance().selectImage(-2);
-		ExperimentData.getInstance().getLatestData().setLineupTime(startTime, System.currentTimeMillis());
+		ExperimentData data = ExperimentData.getInstance();
+		data.selectImage(-2);
+		ExperimentIteration iter = data.getLatestData();
+		iter.setLineupTime(startTime, System.currentTimeMillis());
+		if (data.lineup == ExperimentData.LineupVariant.sequential) {
+			iter.setImageTime(imageIndex, startTime2, System.currentTimeMillis());
+		}
 		NextActivity();
 	}
 
 	public void onNextImageButton(View v) {
 		ExperimentData data = ExperimentData.getInstance();
 		if(imageView != null && data.images != null) {
+			if (data.lineup == ExperimentData.LineupVariant.sequential) {
+				data.getLatestData().setImageTime(imageIndex, startTime2, System.currentTimeMillis());
+				startTime2 = System.currentTimeMillis();
+			}
 			imageIndex++;
 			if (imageIndex == data.images.size())
 				onTargetMissingButton(null);
@@ -80,8 +92,13 @@ public class LineupActivity extends ACancelCheckActivity {
 	}
 
 	public void onSelectImageButton(View v) {
-		ExperimentData.getInstance().selectImage(imageIndex);
-		ExperimentData.getInstance().getLatestData().setLineupTime(startTime, System.currentTimeMillis());
+		ExperimentData data =  ExperimentData.getInstance();
+		data.selectImage(imageIndex);
+		ExperimentIteration iter = data.getLatestData();
+		iter.setLineupTime(startTime, System.currentTimeMillis());
+		if (data.lineup == ExperimentData.LineupVariant.sequential) {
+			iter.setImageTime(imageIndex, startTime2, System.currentTimeMillis());
+		}
 		NextActivity();
 	}
 

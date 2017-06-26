@@ -203,13 +203,7 @@ public class ExperimentData {
 
 	public void selectImage(int index) {
 		if (data != null && data.size() > 0) {
-			if (index > -1 && index < imageLabels.size()) {
-				String img = imageLabels.get(index);
-				data.get(data.size() - 1).selectedImage = img;
-			}
-			else {
-				data.get(data.size() - 1).selectedImage = MISSING_TAG;
-			}
+			data.get(data.size() - 1).selectedImage = index;
 		}
 	}
 
@@ -264,20 +258,26 @@ public class ExperimentData {
 				csv.addInt("Lineup_number", d.lineupNumber);
 				switch (lineup) {
 					case sequential:
-						for (int i = 0; i < NUM_IMAGES; i++)
-							csv.addString("Seq_image"+(i+1), d.imageOrder.get(i));
+						for (int i = 0; i < NUM_IMAGES; i++) {
+							csv.addString("Seq_image" + (i + 1), d.imageOrder.get(i));
+							csv.addBooleanAsInt("Seq_image" + (i + 1)+"_choice", d.selectedImage == i);
+							csv.addFloat("Seq_image" + (i + 1)+"_time", d.imageTimes[i]);
+						}
 						for (int i = 0; i < NUM_IMAGES; i++)
 							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), "");
 						break;
 					case simultaneous:
-						for (int i = 0; i < NUM_IMAGES; i++)
-							csv.addString("Seq_image"+(i+1), "");
+						for (int i = 0; i < NUM_IMAGES; i++) {
+							csv.addString("Seq_image" + (i + 1), "");
+							csv.addBooleanAsInt("Seq_image" + (i + 1)+"_choice", d.selectedImage == i);
+							csv.addFloat("Seq_image" + (i + 1)+"_time", d.imageTimes[i]);
+						}
 						for (int i = 0; i < NUM_IMAGES; i++)
 							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), d.imageOrder.get(i));
 						break;
 				}
 				csv.addFloat("Lineup_time", d.lineupTime);
-				csv.addString("Selected_image", d.selectedImage);
+				csv.addString("Selected_image", d.getSelectedImage());
 				csv.addBooleanAsInt("Identification", d.selectionIsCorrect());
 				csv.addInt("Confidence", d.confidence);
 				csv.addInt("Target_height", d.targetHeight);
