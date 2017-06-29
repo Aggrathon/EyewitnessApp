@@ -27,32 +27,77 @@ public class StorageManager {
 
 	public static final int STORAGE_PERMISSION_REQUEST = 95;
 	public static final String DIRECTORY_NAME = "Eyewitness";
-	public static String PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME;
-	public static String LOG_DIRECTORY = PATH + File.separator + "logs";
-	public static String IMAGE_DIRECTORY = PATH + File.separator + "images";
+	public static String LOG_DIRECTORY = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME + File.separator + "logs";
+	public static String IMAGE_DIRECTORY = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME + File.separator + "images";
 	public static String COMBINED_LOG = LOG_DIRECTORY + File.separator + "combinedlog.csv";
 
-	public static void setDirectoryLocation(String dir) {
-		if(dir == null || dir.equals("") || dir.equals(".") || dir.equals(DIRECTORY_NAME))
-			PATH = Environment.getExternalStorageDirectory()+File.separator+DIRECTORY_NAME;
+	public static void setDirectoryLocation(String logDir, String imageDir) {
+		setLogDirLocation(logDir);
+		setImageDirLocation(imageDir);
+	}
+
+	private static void setLogDirLocation(String logDir) {
+		if(logDir == null || logDir.equals("") || logDir.equals(".") || logDir.equals(DIRECTORY_NAME))
+			LOG_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+DIRECTORY_NAME + File.separator + "logs";
 		else
-			PATH = Environment.getExternalStorageDirectory()+File.separator+dir+File.separator+DIRECTORY_NAME;
-		LOG_DIRECTORY = PATH + File.separator + "logs";
-		IMAGE_DIRECTORY = PATH + File.separator + "images";
+			LOG_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+logDir+File.separator+DIRECTORY_NAME + File.separator + "logs";
 		COMBINED_LOG = LOG_DIRECTORY + File.separator + "combinedlog.csv";
 	}
 
-	public static void moveDirectoryLocation(Activity activity, String dir) {
-		String oldPath = PATH;
-		setDirectoryLocation(dir);
-		if(oldPath.equals(PATH))
+	private static void setImageDirLocation(String imageDir) {
+		if(imageDir == null || imageDir.equals("") || imageDir.equals(".") || imageDir.equals(DIRECTORY_NAME))
+			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+DIRECTORY_NAME + File.separator + "images";
+		else
+			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+imageDir+File.separator+DIRECTORY_NAME + File.separator + "images";
+	}
+
+	public static void moveLogDirectoryLocation(Activity activity, String dir) {
+		String oldPath = LOG_DIRECTORY;
+		setLogDirLocation(dir);
+		if(oldPath.equals(LOG_DIRECTORY))
 			return;
 		File directory = new File(oldPath);
-		if (!directory.renameTo(new File(PATH))) {
-			Log.e("Storage", "Could not move directory");
+		if(!directory.isDirectory())
+			return;
+		File root = directory.getParentFile();
+		try {
+			moveMergeDirectory(directory, new File(LOG_DIRECTORY));
+			root.delete();
+		}
+		catch (SecurityException e) {
+			Log.e("Storage", "Access to storage denied");
 			showErrorToast(activity);
 		}
-		createFolders(activity);
+	}
+
+	public static void moveImageDirectoryLocation(Activity activity, String dir) {
+		String oldPath = IMAGE_DIRECTORY;
+		setImageDirLocation(dir);
+		if(oldPath.equals(IMAGE_DIRECTORY))
+			return;
+		File directory = new File(oldPath);
+		if(!directory.isDirectory())
+			return;
+		File root = directory.getParentFile();
+		try {
+			moveMergeDirectory(directory, new File(IMAGE_DIRECTORY));
+			root.delete();
+		}
+		catch (SecurityException e) {
+			Log.e("Storage", "Access to storage denied");
+			showErrorToast(activity);
+		}
+	}
+
+	public static void moveMergeDirectory(File source, File dest) {
+		dest.mkdirs();
+		String[] files = source.list();
+		String src = source.toString();
+		String dst = dest.toString();
+		for (String s: files) {
+			new File(src + File.separator + s).renameTo(new File(dst + File.separator + s));
+		}
+		source.delete();
 	}
 
 	public static void createFolders(Activity activity) {

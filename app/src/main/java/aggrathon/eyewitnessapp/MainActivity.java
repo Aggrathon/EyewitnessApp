@@ -1,6 +1,7 @@
 package aggrathon.eyewitnessapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -38,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
 		langFinnish = (ImageButton)findViewById(R.id.engButton);
 
 		ExperimentData.clearInstance();	//RESET DATA
-
-		StorageManager.setDirectoryLocation(getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0).getString(SettingsActivity.FOLDER_LOCATION, Environment.DIRECTORY_DOCUMENTS));
+		SharedPreferences prefs = getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
+		StorageManager.setDirectoryLocation(
+				prefs.getString(SettingsActivity.LOG_FOLDER_LOCATION, Environment.DIRECTORY_DOCUMENTS),
+				prefs.getString(SettingsActivity.IMAGE_FOLDER_LOCATION, Environment.DIRECTORY_DOCUMENTS)
+		);
 		StorageManager.checkForStoragePermissions(this);
 	}
 

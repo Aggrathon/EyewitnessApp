@@ -10,7 +10,6 @@ import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,16 +38,16 @@ public class SettingsActivity extends AppCompatActivity {
 	public static final String LINEUP_STATS_TARGET_PRESENT = "LINEUP_STATS_TARGET_PRESENT";
 	public static final String TEST_NUM_COUNTER = "TEST_NUM_COUNTER";
 	public static final String DEVICE_ID = "DEVICE_ID";
-	public static final String FOLDER_LOCATION = "FOLDER_LOCATION";
-
-	private static final int FOLDER_REQUEST = 12342;
+	public static final String LOG_FOLDER_LOCATION = "LOG_FOLDER_LOCATION";
+	public static final String IMAGE_FOLDER_LOCATION = "IMAGE_FOLDER_LOCATION";
 
 	SeekBar lineupVariation;
 	SeekBar lineupTarget;
 	Switch lineupNormalisation;
 	EditText deviceID;
 	TextView testID;
-	Spinner folderSpinner;
+	Spinner logFolderSpinner;
+	Spinner imageFolderSpinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +59,8 @@ public class SettingsActivity extends AppCompatActivity {
 		lineupNormalisation = (Switch)findViewById(R.id.prefLineupNormalizeSwitch);
 		deviceID = (EditText)findViewById(R.id.deviceIdText);
 		testID = (TextView)findViewById(R.id.testIdText);
-		folderSpinner = (Spinner)findViewById(R.id.spinnerFolder);
+		logFolderSpinner = (Spinner)findViewById(R.id.spinnerLogFolder);
+		imageFolderSpinner = (Spinner)findViewById(R.id.spinnerImageFolder);
 
 		final SharedPreferences prefs = getSharedPreferences(PREFERENCE_NAME, 0);
 		lineupVariation.setProgress(prefs.getInt(LINEUP_VARIATION, lineupVariation.getProgress()));
@@ -76,15 +76,26 @@ public class SettingsActivity extends AppCompatActivity {
 			if(f.isDirectory())
 				folders.add(f.getName());
 		ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, folders);
-		//adapter.setDropDownViewResource(R.layout.spinner_text_dropdown);
-		folderSpinner.setAdapter(adapter);
-		folderSpinner.setSelection(folders.indexOf(prefs.getString(FOLDER_LOCATION, Environment.DIRECTORY_DOCUMENTS)));
+		logFolderSpinner.setAdapter(adapter);
+		logFolderSpinner.setSelection(folders.indexOf(prefs.getString(LOG_FOLDER_LOCATION, Environment.DIRECTORY_DOCUMENTS)));
 		final Activity act = this;
-		folderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		logFolderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-				StorageManager.moveDirectoryLocation(act, folders.get(i));
-				prefs.edit().putString(FOLDER_LOCATION, folders.get(i)).commit();
+				StorageManager.moveLogDirectoryLocation(act, folders.get(i));
+				prefs.edit().putString(LOG_FOLDER_LOCATION, folders.get(i)).commit();
+			}
+			@Override
+			public void onNothingSelected(AdapterView<?> adapterView) { }
+		});
+		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, folders);
+		imageFolderSpinner.setAdapter(adapter);
+		imageFolderSpinner.setSelection(folders.indexOf(prefs.getString(IMAGE_FOLDER_LOCATION, Environment.DIRECTORY_DOCUMENTS)));
+		imageFolderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+				StorageManager.moveImageDirectoryLocation(act, folders.get(i));
+				prefs.edit().putString(IMAGE_FOLDER_LOCATION, folders.get(i)).commit();
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> adapterView) { }
@@ -162,25 +173,5 @@ public class SettingsActivity extends AppCompatActivity {
 		});
 		b.setNegativeButton(R.string.no, null);
 		b.show();
-	}
-
-	public void onChangeFolder(View v) {
-		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-		intent.setType("file/*");
-		startActivityForResult(intent, FOLDER_REQUEST);
-	}
-
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode == FOLDER_REQUEST && data != null) {
-			String folder = data.getDataString();
-			Log.d("settings", folder);
-			if (folder.endsWith(StorageManager.DIRECTORY_NAME))
-				folder = folder.substring(0, folder.length()-StorageManager.DIRECTORY_NAME.length());
-			else if (folder.endsWith(StorageManager.DIRECTORY_NAME+"/"))
-				folder = folder.substring(0, folder.length()-StorageManager.DIRECTORY_NAME.length()-1);
-			String oldFolder = getSharedPreferences(PREFERENCE_NAME, 0).getString(FOLDER_LOCATION, StorageManager.PATH);
-		}
-		else
-			super.onActivityResult(requestCode, resultCode, data);
 	}
 }
