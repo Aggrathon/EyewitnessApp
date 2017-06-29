@@ -42,6 +42,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 	View textPanel;
 	Button nextButton;
 	Random rnd;
+	ImageView leftEyeImage;
+	ImageView rightEyeImage;
 
 	State nextState;
 	int visualStage = 0;
@@ -65,6 +67,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 		nextButton = (Button)findViewById(R.id.nextButton);
 		directionView = (ImageView)findViewById(R.id.directionView);
 		imageView.setImageResource(R.drawable.landolt_c);
+		leftEyeImage = (ImageView)findViewById(R.id.leftEyeImage);
+		rightEyeImage = (ImageView)findViewById(R.id.rightEyeImage);
 		visualStage = 0;
 		rnd = new Random();
 		numCorrect = new int[MAX_VISUAL_STAGE];
@@ -86,11 +90,17 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				if(startLeft) {
 					Resources sys = getResources();
 					textView.setText(sys.getString(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getString(R.string.text_close_eye_left));
+					leftEyeImage.setImageResource(R.drawable.hand);
+					rightEyeImage.setImageResource(R.drawable.eye);
+					rightEyeImage.setRotationY(0);
 					nextState = State.left;
 				}
 				else {
 					Resources sys = getResources();
 					textView.setText(sys.getString(R.string.text_visual_acuity_instructions1)+"\n\n"+sys.getString(R.string.text_close_eye_right));
+					leftEyeImage.setImageResource(R.drawable.eye);
+					rightEyeImage.setImageResource(R.drawable.hand);
+					rightEyeImage.setRotationY(180);
 					nextState = State.right;
 				}
 				break;
@@ -113,6 +123,9 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 					Resources sys = getResources();
 					textView.setText(sys.getText(R.string.text_visual_acuity_instructions2)+"\n\n"+sys.getText(R.string.text_close_eye_right));
 					hasBoth = true;
+					leftEyeImage.setImageResource(R.drawable.eye);
+					rightEyeImage.setImageResource(R.drawable.hand);
+					rightEyeImage.setRotationY(180);
 					nextState = State.right;
 					ExperimentData.getInstance().personalInformation.visualAcuityLeft = changeResultScale(calculateOptimalStage());
 				}
@@ -120,6 +133,9 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 					Resources sys = getResources();
 					textView.setText(sys.getText(R.string.text_visual_acuity_instructions2)+"\n\n"+sys.getText(R.string.text_close_eye_left));
 					hasBoth = true;
+					leftEyeImage.setImageResource(R.drawable.hand);
+					rightEyeImage.setImageResource(R.drawable.eye);
+					rightEyeImage.setRotationY(0);
 					nextState = State.left;
 					ExperimentData.getInstance().personalInformation.visualAcuityRight = changeResultScale(calculateOptimalStage());
 				}

@@ -32,11 +32,14 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 
 	protected void setup() {
 		//Centered Action bar
-		CharSequence titleText = getSupportActionBar().getTitle();
-		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-		getSupportActionBar().setCustomView(R.layout.toolbar_center_title);
-		title = (TextView)findViewById(R.id.toolbar_title);
-		setTitle(titleText);
+		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+		if (actionBar != null) {
+			CharSequence titleText = actionBar.getTitle();
+			getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+			getSupportActionBar().setCustomView(R.layout.toolbar_center_title);
+			title = (TextView) findViewById(R.id.toolbar_title);
+			setTitle(titleText);
+		}
 		//Background Image
 		View root = findViewById(android.R.id.content);
 		if (ExperimentData.adultTheme()) {
@@ -52,12 +55,12 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 
 	@Override
 	public void setTitle(CharSequence titleText) {
-		title.setText(titleText);
+		 if(title != null) title.setText(titleText);
 	}
 
 	@Override
 	public void setTitle(int titleId) {
-		title.setText(titleId);
+		if(title != null) title.setText(titleId);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Eyewitness App</string>
-    <string name="question_age">Vad är din ålder?</string>
+    <string name="question_age">Hur gammal är du?</string>
     <string name="man">Man</string>
     <string name="man_age">Pojke / Man</string>
     <string name="woman">Kvinna</string>
@@ -13,7 +13,7 @@
     <string name="question_target_recognised">Har du sett denna person INNAN detta experiment?</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
-    <string name="question_other_recognised">Har du sett de övriga personerna INNAN detta experiment?</string>
+    <string name="question_other_recognised">Har du sett någon av de övriga personerna INNAN detta experiment?</string>
     <string name="next">Nästa</string>
     <string name="finnish">Suomi</string>
     <string name="swedish">Svenska</string>
@@ -23,25 +23,25 @@
     <string name="text_lineup_absent">Personen finns inte på bild</string>
     <string name="end_experiment">Avsluta Experimentet</string>
     <string name="information">Information</string>
-    <string name="question_previous_participations">Är det första gången du är med i detta experiment?</string>
-    <string name="text_conditions">Jar har informerats om detta ögonvittnesexperiment och vet att jag får avsluta när som helst. Jag deltar frivilligt i experimentet</string>
+    <string name="question_previous_participations">Har du varit med i detta experiment tidigare?</string>
+    <string name="text_conditions">Jag har fått information om detta ögonvittnesexperiment. Jag vet att jag får avsluta när som helst. Jag deltar för att jag själv vill.</string>
     <string name="question_length">Hur lång är du?</string>
-    <string name="question_sex">Vad är ditt kön?</string>
+    <string name="question_sex">Är du:</string>
     <string name="notification_fill_all">Fyll i alla fält först!</string>
     <string name="title_tutorial">Testrunda</string>
     <string name="text_tutorial_instructions1">Nu övar vi lite innan vi börjar med experimentet.</string>
     <string name="text_number_instructions">Tryck på den siffra som testledaren säger</string>
     <string name="text_tutorial_instructions2">Till näst börjar huvudexperimentet.\nDet fungerar på samma vis som testrudan.</string>
     <string name="wait">Vänta</string>
-    <string name="text_wait_instructions">Nu skall du få se en person.\nTitta upp och se rakt frammåt.</string>
-    <string name="question_target_sex">Vilket kön var personen?</string>
+    <string name="text_wait_instructions">Nu skall du få se en person.\nTitta upp och se rakt frammåt.\nEfter att du sett personen får du fortsätta.</string>
+    <string name="question_target_sex">Personen var en:</string>
     <string name="question_target_height">Hur lång var personen?</string>
     <string name="question_target_weight">Hur mycket tror du att personen väger?</string>
     <string name="notification_storage_error">Kunde inte komma åt minnet</string>
     <string name="notification_storage_required">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
     <string name="ok">OK</string>
-    <string name="text_lineup_instructions_simultaneous">Välj bild på den person som du såg</string>
-    <string name="text_lineup_instructions_sequential">Är detta en bild på person som du såg?</string>
+    <string name="text_lineup_instructions_simultaneous">Nedan ser du 8 bilder som du får se bara en gång. Om någon av bilderna är den person du nyss såg, tryck på den bilden. Om ingen av bilderna är den person du nyss såg, tryck \"Personen finns inte bland bilderna\".</string>
+    <string name="text_lineup_instructions_sequential">Nedan ser du en av 8 bilder som du får se bara en gång. Om bilden är på den person du nyss såg, tryck JA. Om bilden inte visar denna person, tryck NEJ. Då du väljer JA, kommer inga fler bilder att visas.</string>
     <string name="settings">Inställningar</string>
     <string name="files">Filer</string>
     <string name="lineup">Lineup</string>
@@ -55,7 +55,6 @@
     <string name="text_settings_folder_images">Mapp för bilder:</string>
     <string name="text_show_image_instructions">Visa bildinstruktioner</string>
     <string name="text_settings_view_logs">Visa alla loggar</string>
-    <string name="notification_no_log">Ingen log existerar</string>
     <string name="text_settings_image_instructions">I bildmappen skall finnas fem mappar:\n    \"1\", \"2\", \"3\", \"4\" och \"Test\"\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
     <string name="id">ID</string>
     <string name="device_id">Enhetens ID</string>
@@ -64,14 +63,14 @@
     <string name="text_settings_testid">Nuvarande test id:</string>
     <string name="notification_delete_logs">Radera alla gamla logfiler?</string>
     <string name="notification_images_missing">Kunde inte läsa alla bilder som behövs</string>
-    <string name="text_answer_questions">Svara på fågorna</string>
+    <string name="text_answer_questions">Svara på frågorna</string>
     <string name="text_participation_result">Du identifierade # korrekt\n\nTack för ditt deltagande som ögonvittne!</string>
     <string name="text_close_eye_right">Täck HÖGER öga med ena handen.</string>
     <string name="text_close_eye_left">Täck VÄNSTER öga med ena handen.</string>
     <string name="title_visual_acuity">Syntest</string>
-    <string name="text_visual_acuity_instructions1">Nu testar vi din syn!</string>
+    <string name="text_visual_acuity_instructions1">Detta är ett syntest.\nVälj åt vilket håll öppningen i bokstaven \"C\" är riktat.\nFortsätt välja tills testet slutar.</string>
     <string name="title_visual_acuity2">Syntest: Välj rätt riktning på öppningen</string>
-    <string name="text_visual_acuity_instructions2">Nu testar vi din syn!</string>
+    <string name="text_visual_acuity_instructions2">Detta är ett syntest.\nVälj åt vilket håll öppningen i bokstaven \"C\" är riktat.\nFortsätt välja tills testet slutar.</string>
     <string name="text_visual_acuity_instructions3">Syntestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
 
     <string-array name="countries">

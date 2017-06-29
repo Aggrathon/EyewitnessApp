@@ -129,25 +129,19 @@ public class SettingsActivity extends AppCompatActivity {
 	}
 
 	public void onLogButton(View v) {
-		File f = new File(StorageManager.COMBINED_LOG);
 		try {
-			if (f.isFile()) {
-				Intent intent = new Intent();
-				intent.setAction(android.content.Intent.ACTION_VIEW);
-				intent.setDataAndType(Uri.fromFile(f), "text/plain");
-				PackageManager manager = getPackageManager();
+			Intent intent = new Intent(Intent.ACTION_VIEW);
+			intent.setData(Uri.parse(StorageManager.LOG_DIRECTORY));
+			String[] types = new String[] {"files/*", "resource/folder", "*/*"};
+			PackageManager manager = getPackageManager();
+			for (String s: types) {
+				intent.setType(s);
 				if (manager.queryIntentActivities(intent, 0).size() > 0) {
-					startActivityForResult(intent, 10);
-				} else {
-					String log = StorageManager.readTextFile(f);
-					if (f == null)
-						Toast.makeText(this, R.string.notification_no_log, Toast.LENGTH_SHORT).show();
-					else
-						new MessageDialog().show(getSupportFragmentManager(), "Master Log", log);
+					startActivity(intent);
+					return;
 				}
-			} else {
-				Toast.makeText(this, R.string.notification_no_log, Toast.LENGTH_SHORT).show();
 			}
+			Toast.makeText(this, "No filebrowser found", Toast.LENGTH_SHORT).show();
 		}
 		catch (Exception e) {
 			Toast.makeText(this, "Couldn't show the log", Toast.LENGTH_SHORT).show();

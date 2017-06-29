@@ -5,12 +5,12 @@
     <string name="question_age">Kuinka vanha olet?</string>
     <string name="finnish">Suomi</string>
     <string name="english">English</string>
-    <string name="question_previous_participations">Onko tämä ensimmäinen kerta kun osallistut tähän tutkimukseen?</string>
-    <string name="text_conditions">Minua on informoitu tästä silminnäkijäkokeesta ja tiedän, että voin lopettaa osallistumiseni koska vain haluan. Osallistun kokeeseen vapaaehtoisesti.</string>
+    <string name="question_previous_participations">Oletko osallistunut tähän tutkimukseen aiemmin?</string>
+    <string name="text_conditions">Minua on informoitu tästä silminnäkijäkokeesta. Tiedän, että voin lopettaa osallistumiseni koska vain haluan. Osallistun kokeeseen vapaaehtoisesti.</string>
     <string name="yes">Kyllä</string>
     <string name="no">Ei</string>
     <string name="question_nationality">Mistä maasta olet?</string>
-    <string name="question_sex">Mikä on sukupuolesi?</string>
+    <string name="question_sex">Oletko:</string>
     <string name="woman">Nainen</string>
     <string name="other">Muu</string>
     <string name="question_length">Kuinka pitkä olet?</string>
@@ -18,31 +18,30 @@
     <string name="text_visual_acuity_instructions3">Näön testaus on nyt valmis!\nVoit avata molemmat silmäsi.</string>
     <string name="text_close_eye_left">Peitä VASEN silmäsi kädellä.</string>
     <string name="text_close_eye_right">Peitä OIKEA silmäsi kädellä.</string>
-    <string name="text_visual_acuity_instructions1">Nyt testaamme näkösi!</string>
-    <string name="text_visual_acuity_instructions2">Nyt testaamme näkösi!</string>
+    <string name="text_visual_acuity_instructions1">Tämä on näkötesti.\nValitse mihin suuntaan kirjain \"C\" on auki.\nJatka kunnes testi loppuu.</string>
+    <string name="text_visual_acuity_instructions2">Tämä on näkötesti.\nValitse mihin suuntaan kirjain \"C\" on auki.\nJatka kunnes testi loppuu.</string>
     <string name="title_visual_acuity">Näkötesti</string>
     <string name="title_visual_acuity2">Näkötesti: Valitse aukon oikea suunta</string>
     <string name="text_tutorial_instructions1">Nyt harjoitellaan, ennen kuin aloitamme varsinaisen kokeen.</string>
     <string name="text_number_instructions">Valitse testin ohjaajan sanoma numero</string>
-    <string name="text_wait_instructions">Nyt näet henkilön.\nKatso ylös ja suoraan eteenpäin.</string>
-    <string name="question_target_sex">Kumpaa sukupuolta henkilö oli?</string>
+    <string name="text_wait_instructions">Näet nyt henkilön.\nKatso ylös ja suoraan eteenpäin.\nNähtyäsi henkilön voit jatkaa.</string>
+    <string name="question_target_sex">Henkilö oli:</string>
     <string name="question_target_height">Kuinka pitkä henkilö oli?</string>
     <string name="question_target_weight">Paljonko luulet henkilön painavan?</string>
     <string name="question_target_age">Kuinka vanha henkilö oli?</string>
     <string name="question_target_distance">Kuinka kaukana sinusta henkilö oli?</string>
-    <string name="text_lineup_instructions_simultaneous">Valitse näkemäsi henkilön kuva</string>
-    <string name="text_lineup_instructions_sequential">Onko tämä kuva näkemäsi henkilö?</string>
+    <string name="text_lineup_instructions_simultaneous">Alla on 8 kuvaa, jotka näet vain kerran. Mikäli jokin kuvista on näkemäsi henkilö, paina tätä kuvaa. Jos mikään kuvista ei ole näkemäsi henkilö, paina vaihtoehtoa ”Näkemäni henkilö ei ole kuvien joukossa”.</string>
+    <string name="text_lineup_instructions_sequential">Alla on yksi kahdeksasta kuvasta, jotka näet vain kerran. Mikäli kuva on juuri näkemäsi henkilö, paina KYLLÄ. Mikäli kuva ei ole juuri näkemäsi henkilö, paina EI. Jos valitset KYLLÄ, et näe useampia kuvia.</string>
     <string name="notification_delete_logs">Delete all old logs?</string>
-    <string name="notification_no_log">No log exists</string>
     <string name="notification_overwrite_log">Overwrite existing log?</string>
     <string name="notification_storage_error">Could not accesss file storage</string>
     <string name="notification_storage_required">Access to storage required</string>
     <string name="ok">OK</string>
     <string name="text_lineup_absent">Henkilö ei ole kuvassa</string>
-    <string name="text_answer_questions">Answer the questions</string>
+    <string name="text_answer_questions">Vastaa kysymyskiin</string>
     <string name="question_certain">Kuinka varma olet valinnastasi?</string>
     <string name="question_target_recognised">Oletko nähnyt tämän henkilön ENNEN tätä koetta?</string>
-    <string name="question_other_recognised">Oletko nähnyt joku muista henkilöistä ENNEN tätä koetta?</string>
+    <string name="question_other_recognised">Oletko nähnyt jonkun muista henkilöistä ENNEN tätä koetta?</string>
     <string name="text_participation_result">Tunnistit # henkilöä oikein\n\nKiitos, että osallistuit kokeeseen silminnäkijänä</string>
     <string name="wait">Odota</string>
     <string name="swedish">Svenska</string>
@@ -62,6 +61,7 @@
     <string name="text_settings_normalisation">Normalise the distibution</string>
     <string name="text_settings_image_instructions">I bildmappen skall finnas fem mappar:\n    \"1\", \"2\", \"3\", \"4\" och \"Test\"\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
     <string name="text_settings_folder_logs">Mapp för loggfiler:</string>
+    <string name="text_settings_folder_images">Mapp för bilder:</string>
     <string name="text_setting_reset_test">Reset Test ID</string>
     <string name="text_reset_stats">Reset stats</string>
     <string name="result">Tulos</string>
@@ -97,6 +97,5 @@
         <item>Japani</item>
         <item>Muu Maa</item>
     </string-array>
-    <string name="text_settings_folder_images">Mapp för bilder:</string>
 
 </resources>

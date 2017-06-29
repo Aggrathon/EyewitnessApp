@@ -9,6 +9,34 @@
     tools:context="aggrathon.eyewitnessapp.start.VisualAcuityActivity"
     style="@style/AppTheme.Background">
 
+    <ImageView
+        android:id="@+id/directionView"
+        style="@style/AppTheme.Panel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="0dp"
+        android:padding="@dimen/largeMargin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/directional_buttons"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="@dimen/panelElevation"
+        android:scaleX="0.65"
+        android:scaleY="0.65"
+        app:layout_constraintBottom_toBottomOf="@id/directionView"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintLeft_toLeftOf="@id/directionView"
+        app:layout_constraintRight_toRightOf="@id/directionView"
+        app:layout_constraintTop_toTopOf="@id/directionView"
+        app:srcCompat="@drawable/landolt_c"/>
+
     <LinearLayout
         android:id="@+id/textPanel"
         style="@style/AppTheme.Panel"
@@ -22,11 +50,33 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
             android:text="description text here"
             />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin">
+
+            <ImageView
+                android:id="@+id/leftEyeImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/eye"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/rightEyeImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hand"/>
+        </LinearLayout>
     </LinearLayout>
 
     <Button
@@ -39,34 +89,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
-
-    <ImageView
-        android:id="@+id/directionView"
-        style="@style/AppTheme.Panel"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/directional_buttons"
-        android:layout_margin="0dp"
-        android:padding="@dimen/largeMargin"/>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleX="0.65"
-        android:scaleY="0.65"
-        app:layout_constraintBottom_toBottomOf="@id/directionView"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintLeft_toLeftOf="@id/directionView"
-        app:layout_constraintRight_toRightOf="@id/directionView"
-        app:layout_constraintTop_toTopOf="@id/directionView"
-        app:srcCompat="@drawable/landolt_c"
-        android:elevation="@dimen/panelElevation"/>
 
 </android.support.constraint.ConstraintLayout>

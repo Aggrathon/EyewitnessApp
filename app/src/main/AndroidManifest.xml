@@ -30,8 +30,8 @@
         </activity>
         <activity
             android:name=".experiment.LineupActivity"
-            android:label="@string/text_lineup_instructions_simultaneous"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".experiment.QuestionsActivity"
@@ -74,8 +74,8 @@
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialLineup"
-            android:label="@string/text_lineup_instructions_simultaneous"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialQuestions"

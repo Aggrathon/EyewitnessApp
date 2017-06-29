@@ -8,6 +8,16 @@
     tools:context="aggrathon.eyewitnessapp.experiment.LineupActivity"
     style="@style/AppTheme.Background">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorPrimary"
+        android:text="@string/text_lineup_instructions_simultaneous"
+        android:textAlignment="center"
+        android:textAppearance="@style/AppTheme.CenterTitle"
+        android:padding="@dimen/largeMargin"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
