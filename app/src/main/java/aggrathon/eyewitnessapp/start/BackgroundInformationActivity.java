@@ -53,6 +53,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
+		lengthBar.setProgress(0);
 		lengthText.setText(lengthBar.getProgress()+" cm");
 
 		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this, R.array.countries, R.layout.spinner_text_element);

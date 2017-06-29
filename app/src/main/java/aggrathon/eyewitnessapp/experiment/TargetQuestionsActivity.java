@@ -44,6 +44,8 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
+		weightBar.setProgress(0);
+		weightText.setText(0+" kg");
 
 		final TextView heightText = (TextView)findViewById(R.id.heightText);
 		heightBar = ((SeekBar)findViewById(R.id.heightBar));
@@ -58,6 +60,8 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
+		heightBar.setProgress(0);
+		heightText.setText(0+" cm");
 
 		final TextView distText = (TextView)findViewById(R.id.distText);
 		distBar = ((SeekBar)findViewById(R.id.distBar));
@@ -72,6 +76,8 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
+		distBar.setProgress(0);
+		distText.setText(0+" m");
 
 		manRadio = (RadioButton)findViewById(R.id.sexMan);
 
@@ -88,6 +94,8 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
+		ageBar.setProgress(0);
+		ageText.setText(Integer.toString(MIN_AGE));
 	}
 
 	public void onNextButton(View v) {

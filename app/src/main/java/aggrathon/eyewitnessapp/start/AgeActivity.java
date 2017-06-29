@@ -39,7 +39,8 @@ public class AgeActivity extends AImmersiveActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
-		ageBar.setProgress(20);
+		ageBar.setProgress(0);
+		ageText.setText(Integer.toString(MIN_AGE));
 	}
 
 	public void onNext(View v) {

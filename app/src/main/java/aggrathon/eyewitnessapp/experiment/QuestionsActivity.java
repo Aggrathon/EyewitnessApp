@@ -38,6 +38,8 @@ public class QuestionsActivity extends ACancelCheckActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
+		sureBar.setProgress(0);
+		sureText.setText(0+" %");
 	}
 
 	public void onNextButton(View v) {
