@@ -156,6 +156,8 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 				directionView.setVisibility(View.INVISIBLE);
 				textView.setText(R.string.text_visual_acuity_instructions3);
 				setTitle(R.string.title_visual_acuity);
+				leftEyeImage.setImageResource(R.drawable.eye);
+				rightEyeImage.setImageResource(R.drawable.eye);
 				nextState = State.next;
 				if (startLeft)
 					ExperimentData.getInstance().personalInformation.visualAcuityRight = changeResultScale(calculateOptimalStage());
