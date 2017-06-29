@@ -29,7 +29,6 @@ public class StorageManager {
 	public static final String DIRECTORY_NAME = "Eyewitness";
 	public static String LOG_DIRECTORY = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME + File.separator + "logs";
 	public static String IMAGE_DIRECTORY = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME + File.separator + "images";
-	public static String COMBINED_LOG = LOG_DIRECTORY + File.separator + "combinedlog.csv";
 
 	public static void setDirectoryLocation(String logDir, String imageDir) {
 		setLogDirLocation(logDir);
@@ -41,7 +40,6 @@ public class StorageManager {
 			LOG_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+DIRECTORY_NAME + File.separator + "logs";
 		else
 			LOG_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+logDir+File.separator+DIRECTORY_NAME + File.separator + "logs";
-		COMBINED_LOG = LOG_DIRECTORY + File.separator + "combinedlog.csv";
 	}
 
 	private static void setImageDirLocation(String imageDir) {
@@ -132,12 +130,16 @@ public class StorageManager {
 		return f.exists();
 	}
 
-	public static void createLogfile(Activity activity, String logs, String labels, String name) { createLogfile(activity, logs, labels, name, true, false); }
+	public static void createLogfile(Activity activity, String logs, String labels, String deviceName, String testName) {
+		if (deviceName == null || deviceName.equals(""))
+			deviceName = "log";
+		createLogfile(activity, logs, labels, deviceName, testName, true, false);
+	}
 
-	public static void createLogfile(final Activity activity, final String logs, final String labels, final String name, final boolean alsoCombined, boolean overwrite) {
+	public static void createLogfile(final Activity activity, final String logs, final String labels, final String deviceName, final String testName, final boolean alsoCombined, boolean overwrite) {
 		createFolders(activity);
-		String fileName = "log_"+name+".csv";
-		if(checkLogFile(name)) {
+		String fileName = deviceName+"_"+testName+".csv";
+		if(checkLogFile(deviceName)) {
 			if (overwrite) {
 				new File(LOG_DIRECTORY + File.separator + fileName).delete();
 			}
@@ -147,7 +149,7 @@ public class StorageManager {
 				b.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialogInterface, int i) {
-						createLogfile(activity, logs, labels, name, alsoCombined, true);
+						createLogfile(activity, logs, labels, deviceName, testName, alsoCombined, true);
 					}
 				});
 				b.setNegativeButton(R.string.no, null);
@@ -163,8 +165,9 @@ public class StorageManager {
 			writer.write(logs);
 			writer.close();
 			if (alsoCombined) {
-				boolean writeLabels = !new File(COMBINED_LOG).isFile();
-				writer = new BufferedWriter(new FileWriter(COMBINED_LOG, true));
+				String combinedLog = LOG_DIRECTORY + File.separator + deviceName+"_combined.csv";
+				boolean writeLabels = !new File(combinedLog).isFile();
+				writer = new BufferedWriter(new FileWriter(combinedLog, true));
 				if (writeLabels) {
 					writer.write(labels);
 					writer.write("\r\n");

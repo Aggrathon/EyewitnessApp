@@ -289,7 +289,7 @@ public class ExperimentData {
 				csv.addBooleanAsInt("Recognise_other", d.recognisedOther);
 			}
 			if(csv.hasContent())
-				StorageManager.createLogfile(activity, csv.getValues(), csv.getHeader(), prefs.getString(SettingsActivity.DEVICE_ID, "")+personalInformation.testId);
+				StorageManager.createLogfile(activity, csv.getValues(), csv.getHeader(), prefs.getString(SettingsActivity.DEVICE_ID, ""), Integer.toString(personalInformation.testId));
 		}
 	}
 
