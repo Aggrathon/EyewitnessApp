@@ -65,6 +65,13 @@
         <item name="android:padding">@dimen/margin</item>
     </style>
 
+    <style name="AppTheme.ImageButton">
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:background">@android:color/background_light</item>
+        <item name="android:elevation">@dimen/panelElevation</item>
+        <item name="android:layout_margin">@dimen/margin</item>
+    </style>
+
     <style name="AppTheme.Background">
         <item name="android:layout_margin">0dp</item>
         <item name="android:padding">0dp</item>
