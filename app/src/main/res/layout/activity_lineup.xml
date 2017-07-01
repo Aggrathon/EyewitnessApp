@@ -23,7 +23,9 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_weight="100"
-        android:layout_margin="@dimen/margin">
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginTop="@dimen/margin">
 
         <ImageButton
             android:id="@+id/imageButton0"
@@ -61,7 +63,8 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_weight="100"
-        android:layout_margin="@dimen/margin">
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin">
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -103,12 +106,9 @@
 
         <Button
             android:id="@+id/targetAbsentButton"
-            android:layout_width="@dimen/bottomButtonWidth"
+            android:layout_width="600dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/largeMargin"
-            android:layout_marginLeft="@dimen/margin"
-            android:layout_marginRight="@dimen/margin"
-            android:layout_marginTop="@dimen/margin"
+            android:layout_margin="@dimen/margin"
             android:onClick="onTargetMissingButton"
             android:text="@string/text_lineup_absent"
             android:visibility="visible"/>

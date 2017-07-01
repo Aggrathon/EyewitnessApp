@@ -30,7 +30,7 @@
     <string name="question_target_weight">How much do you think the person weighs?</string>
     <string name="question_target_age">How old was the person?</string>
     <string name="question_target_distance">How far away from you was the person standing?</string>
-    <string name="text_lineup_instructions_simultaneous">Below are 8 images that you will see only once.\nIf an image is the person you saw, press that image.\nIf none of the images is the person you saw, press \"The person is not among the images\".</string>
+    <string name="text_lineup_instructions_simultaneous">Below are 8 images that you will see only once.\nIf an image is the person you saw, press that image.\nIf none of the images is the person you saw, press \"The person is not among the images\".\nIt is possible that the person you just saw is not among the images.</string>
     <string name="text_lineup_instructions_sequential">Below is 1 of 8 images that you will see only once.\nIf the image is the person you just saw, press YES.\nIf the image is not the person you just saw, press NO.\nIf you choose YES, no more images will be shown.\nIt is possible that the person you just saw is not among the images.</string>
     <string name="wait">Wait</string>
     <string name="notification_delete_logs">Delete all old logs?</string>
@@ -40,7 +40,7 @@
     <string name="notification_storage_error">Could not access file storage</string>
     <string name="notification_storage_required">Access to storage required</string>
     <string name="ok">OK</string>
-    <string name="text_lineup_absent">There is no image of the person</string>
+    <string name="text_lineup_absent">The person is not among the images</string>
     <string name="text_answer_questions">Answer the questions</string>
     <string name="question_certain">How certain are you of your choice?</string>
     <string name="question_target_recognised">Have you seen this person BEFORE this experiment?</string>
@@ -82,7 +82,7 @@
         <item>Estonia</item>
         <item>Germany</item>
         <item>France</item>
-        <item>United Kingdoms</item>
+        <item>United Kingdom</item>
         <item>Denmark</item>
         <item>Italy</item>
         <item>Spain</item>

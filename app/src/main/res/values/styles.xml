@@ -106,7 +106,6 @@
         <item name="android:minHeight">@dimen/buttonHeight</item>
         <item name="android:padding">@dimen/largeMargin</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:gravity">center</item>
         <item name="android:elevation">@dimen/panelElevation</item>
     </style>
 

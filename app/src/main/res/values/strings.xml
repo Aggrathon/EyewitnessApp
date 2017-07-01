@@ -20,7 +20,7 @@
     <string name="english">English</string>
     <string name="title_background_information">Bakgrundsinformation</string>
     <string name="result">Resultat</string>
-    <string name="text_lineup_absent">Personen finns inte på bild</string>
+    <string name="text_lineup_absent">Personen finns inte bland bilderna</string>
     <string name="end_experiment">Avsluta Experimentet</string>
     <string name="information">Information</string>
     <string name="question_previous_participations">Har du varit med i detta experiment tidigare?</string>
@@ -40,7 +40,7 @@
     <string name="notification_storage_error">Kunde inte komma åt minnet</string>
     <string name="notification_storage_required">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
     <string name="ok">OK</string>
-    <string name="text_lineup_instructions_simultaneous">Nedan ser du 8 bilder som du får se bara en gång.\nOm någon av bilderna är den person du nyss såg, tryck på den bilden.\nOm ingen av bilderna är den person du nyss såg, tryck \"Personen finns inte bland bilderna\".</string>
+    <string name="text_lineup_instructions_simultaneous">Nedan ser du 8 bilder som du får se bara en gång.\nOm någon av bilderna är den person du nyss såg, tryck på den bilden.\nOm ingen av bilderna är den person du nyss såg, tryck \"Personen finns inte bland bilderna\".\nDet är möjligt att personen du nyss såg inte är bland bilderna.</string>
     <string name="text_lineup_instructions_sequential">Nedan ser du en av 8 bilder som du får se bara en gång.\nOm bilden är på den person du nyss såg, tryck JA.\nOm bilden inte visar denna person, tryck NEJ.\nDå du väljer JA, kommer inga fler bilder att visas.\nDet är möjligt att personen du nyss såg inte är bland bilderna.</string>
     <string name="settings">Inställningar</string>
     <string name="files">Filer</string>

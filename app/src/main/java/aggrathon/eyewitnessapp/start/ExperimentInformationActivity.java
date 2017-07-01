@@ -41,7 +41,7 @@ public class ExperimentInformationActivity extends AImmersiveActivity {
 	}
 
 	public void onNextButton(View v) {
-		ExperimentData.getInstance().personalInformation.previousParticipations = !prevPartButton.isChecked();
+		ExperimentData.getInstance().personalInformation.previousParticipations = prevPartButton.isChecked();
 		startActivity(new Intent(this, BackgroundInformationActivity.class));
 		finish();
 	}
