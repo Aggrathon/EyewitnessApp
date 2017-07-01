@@ -5,6 +5,8 @@ import java.util.Date;
 
 public class ExperimentIteration {
 
+	public static final String SELECTED_NO_TARGET = "no image chosen";
+
 	public Date time;
 	public boolean targetPresent;
 	public int lineupNumber;
@@ -31,6 +33,7 @@ public class ExperimentIteration {
 		this.targetPresent = targetPresent;
 		this.imageOrder = imageOrder;
 		this.imageTimes = new float[imageOrder.size()];
+		selectedImage = -1;
 	}
 
 	public String toString(int index) {
@@ -65,7 +68,7 @@ public class ExperimentIteration {
 
 	public String getSelectedImage() {
 		if (selectedImage < 0 || selectedImage >= imageOrder.size())
-			return ExperimentData.MISSING_TAG;
+			return SELECTED_NO_TARGET;
 		else
 			return imageOrder.get(selectedImage);
 	}
