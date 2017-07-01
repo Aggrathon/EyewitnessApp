@@ -25,6 +25,7 @@ import aggrathon.eyewitnessapp.utils.StorageManager;
 public class ExperimentData {
 
 	public static final String CORRECT_TAG = "correct";
+	public static final String EXTRA_TAG = "extra";
 	public static final String MISSING_TAG = "missing";
 	public static final int NUM_IMAGES = 8;
 
@@ -139,9 +140,19 @@ public class ExperimentData {
 	private void LoadImages(String id, Activity act, boolean targetPresent) {
 		images.clear();
 		imageLabels = new ArrayList<>();
-		for (File f: StorageManager.getImageList(id)) {
+		File[] fileList = StorageManager.getImageList(id);
+		for (int i = 0; i < fileList.length; i++) {
+			File f = fileList[i];
 			String name = f.getName();
-			if (!targetPresent && name.toLowerCase().contains(CORRECT_TAG)) {
+			if(targetPresent) {
+				if (name.toLowerCase().contains(EXTRA_TAG)) {
+					File f2 = fileList[fileList.length-1];
+					fileList[i] = f2;
+					fileList[fileList.length-1] = f;
+					f = f2;
+				}
+			}
+			else if (name.toLowerCase().contains(CORRECT_TAG)) {
 				continue;
 			}
 			Bitmap bmp = BitmapFactory.decodeFile(f.getPath());
