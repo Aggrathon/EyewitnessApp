@@ -1,5 +1,6 @@
 package aggrathon.eyewitnessapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -48,20 +49,20 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void onLangSwedish(View view) {
-		ExperimentData.createInstance(this, "swe");
-		setLocale("sv");
+		ExperimentData.createInstance(this, "sv");
+		Locale.setDefault(new Locale("sv"));
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangEnglish(View view) {
-		ExperimentData.createInstance(this, "eng");
-		setLocale("en");
+		ExperimentData.createInstance(this, "en");
+		Locale.setDefault(new Locale("en"));
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangFinnish(View view) {
-		ExperimentData.createInstance(this, "fin");
-		setLocale("fi");
+		ExperimentData.createInstance(this, "fi");
+		Locale.setDefault(new Locale("fi"));
 		startActivity(new Intent(this, AgeActivity.class));
 	}
 
@@ -97,13 +98,5 @@ public class MainActivity extends AppCompatActivity {
 			return true;
 		}
 		return super.onKeyUp(keyCode, event);
-	}
-
-	public void setLocale(String lang) {
-		Locale myLocale = new Locale(lang);
-		Resources res = getResources();
-		Configuration conf = res.getConfiguration();
-		conf.setLocale(myLocale);
-		res.updateConfiguration(conf, res.getDisplayMetrics());
 	}
 }

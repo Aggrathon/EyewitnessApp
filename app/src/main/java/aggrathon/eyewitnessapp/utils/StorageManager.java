@@ -213,9 +213,7 @@ public class StorageManager {
 
 	public static File[] getImageList(String id) {
 		File f = new File(IMAGE_DIRECTORY + File.separator + id);
-		Log.d("Image read", f.getPath());
 		File[] files = f.listFiles();
-		Log.d("Image read", "Files in folder "+files.length);
 		return files;
 	}
 

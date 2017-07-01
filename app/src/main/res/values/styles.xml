@@ -11,14 +11,11 @@
         <item name="spinnerStyle">@style/AppTheme.Spinner</item>
         <item name="android:immersive">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="windowActionBar">true</item>
+        <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBarOverlay">true</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
     </style>
 
     <style name="AppTheme.CenterTitle" parent="TextAppearance.AppCompat.Large">
@@ -32,6 +29,7 @@
     <style name="AppTheme.NotFullscreen" parent="AppTheme">
         <item name="android:windowFullscreen">false</item>
         <item name="android:immersive">false</item>
+        <item name="windowActionBar">true</item>
     </style>
 
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
@@ -90,12 +88,24 @@
         <item name="buttonStyle">@style/AppTheme.Small.Button</item>
         <item name="android:buttonStyle">@style/AppTheme.Small.Button</item>
     </style>
+
     <style name="AppTheme.Small.Text" parent="Base.TextAppearance.AppCompat.Medium">
         <item name="android:textColor">@color/textSmall</item>
     </style>
+
     <style name="AppTheme.Small.Button" parent="Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="android:colorButtonNormal">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="AppTheme.CenterTitle">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:minHeight">@dimen/buttonHeight</item>
+        <item name="android:padding">@dimen/largeMargin</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:elevation">@dimen/panelElevation</item>
     </style>
 
 </resources>

@@ -10,6 +10,14 @@
     android:orientation="vertical"
     tools:context="aggrathon.eyewitnessapp.start.AgeActivity">
 
+    <TextView
+        android:id="@+id/title"
+        style="@style/AppTheme.ActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/question_age"/>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

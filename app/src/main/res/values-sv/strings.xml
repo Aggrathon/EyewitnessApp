@@ -16,7 +16,7 @@
     <string name="finnish">Suomi</string>
     <string name="swedish">Svenska</string>
     <string name="english">English</string>
-    <string name="title_backgorund_information">Bakgrundsinformation</string>
+    <string name="title_background_information">Bakgrundsinformation</string>
     <string name="result">Resultat</string>
     <string name="text_lineup_absent">Personen finns inte på bild</string>
     <string name="end_experiment">Avsluta Experimentet</string>
@@ -96,5 +96,7 @@
         <item>Annat Land</item>
     </string-array>
     <string name="text_settings_folder_images">Mapp för bilder:</string>
+    <string name="left">Vänster</string>
+    <string name="right">Höger</string>
 
 </resources>

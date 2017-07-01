@@ -1,6 +1,7 @@
 package aggrathon.eyewitnessapp;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -10,13 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.utils.ContextWrapper;
 import aggrathon.eyewitnessapp.utils.StorageManager;
 
 
 public abstract class AImmersiveActivity extends AppCompatActivity {
-
-	private TextView title;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,15 +33,6 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 	}
 
 	protected void setup() {
-		//Centered Action bar
-		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-		if (actionBar != null) {
-			CharSequence titleText = actionBar.getTitle();
-			getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-			getSupportActionBar().setCustomView(R.layout.toolbar_center_title);
-			title = (TextView) findViewById(R.id.toolbar_title);
-			setTitle(titleText);
-		}
 		//Background Image
 		View root = findViewById(android.R.id.content);
 		if (ExperimentData.adultTheme()) {
@@ -55,12 +48,12 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 
 	@Override
 	public void setTitle(CharSequence titleText) {
-		 if(title != null) title.setText(titleText);
+		((TextView)findViewById(R.id.title)).setText(titleText);
 	}
 
 	@Override
 	public void setTitle(int titleId) {
-		if(title != null) title.setText(titleId);
+		((TextView)findViewById(R.id.title)).setText(titleId);
 	}
 
 	@Override
@@ -101,5 +94,19 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 		super.onWindowFocusChanged(hasFocus);
 		if (hasFocus)
 			SetImmersion();
+	}
+
+	@Override
+	protected void attachBaseContext(Context newBase) {
+
+		ExperimentData data = ExperimentData.getInstance();
+		if(data != null) {
+			Locale newLocale = new Locale(data.personalInformation.language);
+			Context context = ContextWrapper.wrap(newBase, newLocale);
+			super.attachBaseContext(context);
+		}
+		else {
+			super.attachBaseContext(newBase);
+		}
 	}
 }

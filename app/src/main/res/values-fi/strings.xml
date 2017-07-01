@@ -68,7 +68,7 @@
     <string name="sequential">Peräkkäinen</string>
     <string name="information">Informaatio</string>
     <string name="lineup">Lineup</string>
-    <string name="title_backgorund_information">Taustatieto</string>
+    <string name="title_background_information">Taustatieto</string>
     <string name="title_tutorial">Testikierros</string>
     <string name="notification_fill_all">Täytä vastaus kaikkiin kysymyksiin ensin</string>
     <string name="notification_images_missing">Kaikkia kuvia ei löytynyt</string>
@@ -97,5 +97,7 @@
         <item>Japani</item>
         <item>Muu Maa</item>
     </string-array>
+    <string name="right">Oikea</string>
+    <string name="left">Vasen</string>
 
 </resources>

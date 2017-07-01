@@ -37,7 +37,7 @@
     <string name="notification_fill_all">Please fill answer all questions first</string>
     <string name="notification_images_missing">Could not find all images</string>
     <string name="notification_overwrite_log">Overwrite existing log?</string>
-    <string name="notification_storage_error">Could not accesss file storage</string>
+    <string name="notification_storage_error">Could not access file storage</string>
     <string name="notification_storage_required">Access to storage required</string>
     <string name="ok">OK</string>
     <string name="text_lineup_absent">There is no image of the person</string>
@@ -60,16 +60,17 @@
     <string name="text_settings_testid">Current test id:</string>
     <string name="text_settings_target_present">Target Present</string>
     <string name="text_settings_target_absent">Target Absent</string>
-    <string name="text_settings_normalisation">Normalise the distibution</string>
+    <string name="text_settings_normalisation">Normalise the distribution</string>
     <string name="text_settings_image_instructions">I bildmappen skall finnas fem mappar:\n    \"1\", \"2\", \"3\", \"4\" och \"Test\"\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
     <string name="text_settings_folder_logs">Folder for logfiles:</string>
+    <string name="text_settings_folder_images">Folder for pictures:</string>
     <string name="text_setting_reset_test">Reset Test ID</string>
     <string name="text_reset_stats">Reset stats</string>
     <string name="result">Results</string>
     <string name="sequential">Sequential</string>
     <string name="information">Information</string>
     <string name="lineup">Lineup</string>
-    <string name="title_backgorund_information">Background Infromation</string>
+    <string name="title_background_information">Background Information</string>
     <string name="title_tutorial">Test round</string>
     <string name="text_tutorial_instructions2">Next, the main experiment begins.\nIt works in the same way as the test round.</string>
 
@@ -96,6 +97,7 @@
         <item>Japan</item>
         <item>Other Country</item>
     </string-array>
-    <string name="text_settings_folder_images">Folder for pictures:</string>
+    <string name="right">Right</string>
+    <string name="left">Left</string>
 
 </resources>

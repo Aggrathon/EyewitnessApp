@@ -24,39 +24,32 @@
         </activity>
         <activity
             android:name=".start.BackgroundInformationActivity"
-            android:label="@string/title_backgorund_information"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.LineupActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.QuestionsActivity"
-            android:label="@string/text_answer_questions"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".ResultActivity"
-            android:label="@string/result"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.NumberActivity"
-            android:label="@string/text_number_instructions"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.AgeActivity"
-            android:label="@string/question_age"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.ExperimentInformationActivity"
-            android:label="@string/information"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -64,47 +57,38 @@
         </activity>
         <activity
             android:name=".start.TutorialActivity"
-            android:label="@string/title_tutorial"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialNumbers"
-            android:label="@string/text_number_instructions"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialLineup"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialQuestions"
-            android:label="@string/title_tutorial"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialEnd"
-            android:label="@string/title_tutorial"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialWait"
-            android:label="@string/title_tutorial"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".start.TutorialActivity$TutorialTargetQuestions"
-            android:label="@string/title_tutorial"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.WaitActivity"
-            android:label="@string/wait"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".experiment.TargetQuestionsActivity"
-            android:label="@string/text_answer_questions"
             android:screenOrientation="landscape">
         </activity>
         <activity
@@ -115,7 +99,6 @@
         </activity>
         <activity
             android:name=".start.VisualAcuityActivity"
-            android:label="@string/title_visual_acuity"
             android:screenOrientation="landscape">
         </activity>
     </application>

@@ -18,7 +18,7 @@
     <string name="finnish">Suomi</string>
     <string name="swedish">Svenska</string>
     <string name="english">English</string>
-    <string name="title_backgorund_information">Bakgrundsinformation</string>
+    <string name="title_background_information">Bakgrundsinformation</string>
     <string name="result">Resultat</string>
     <string name="text_lineup_absent">Personen finns inte på bild</string>
     <string name="end_experiment">Avsluta Experimentet</string>
@@ -72,6 +72,8 @@
     <string name="title_visual_acuity2">Syntest: Välj rätt riktning på öppningen</string>
     <string name="text_visual_acuity_instructions2">Detta är ett syntest.\nVälj åt vilket håll öppningen i bokstaven \"C\" är riktat.\nFortsätt välja tills testet slutar.</string>
     <string name="text_visual_acuity_instructions3">Syntestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
+    <string name="left">Vänster</string>
+    <string name="right">Höger</string>
 
     <string-array name="countries">
         <item>Finland</item>
