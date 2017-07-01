@@ -23,7 +23,8 @@ public class ResultActivity extends AImmersiveActivity {
 
 		data = ExperimentData.getInstance();
 		resultText = (TextView)findViewById(R.id.resultText);
-		resultText.setText(resultText.getText().toString().replace("#", Integer.toString(data.getResult())));
+		int[] res = data.getResult();
+		resultText.setText(String.format(resultText.getText().toString(), res[0], res[1], res[2]));
 		data.save(this);
 		ExperimentData.clearInstance();
 	}

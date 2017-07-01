@@ -299,13 +299,22 @@ public class ExperimentData {
 		}
 	}
 
-	public int getResult() {
+	public int[] getResult() {
 		int correct = 0;
+		int missings = 0;
+		int correct_miss = 0;
 		for (ExperimentIteration d : data) {
-			if (d.selectionIsCorrect())
-				correct++;
+			if (d.targetPresent) {
+				if (d.selectionIsCorrect())
+					correct++;
+			}
+			else {
+				missings++;
+				if (d.selectionIsCorrect())
+					correct_miss++;
+			}
 		}
-		return correct;
+		return new int[]{correct, missings, correct_miss};
 	}
 
 	@Override

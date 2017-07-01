@@ -29,7 +29,9 @@
     <style name="AppTheme.NotFullscreen" parent="AppTheme">
         <item name="android:windowFullscreen">false</item>
         <item name="android:immersive">false</item>
+        <item name="android:windowActionBar">true</item>
         <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
     </style>
 
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">

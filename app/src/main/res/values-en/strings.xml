@@ -22,7 +22,7 @@
     <string name="text_visual_acuity_instructions2">This is an eye test:\nChoose the direction of the opening in the letter \"C\".\nContinue until the test stops.</string>
     <string name="title_visual_acuity">Eye test</string>
     <string name="title_visual_acuity2">Eye test: Choose the right direction of the opening</string>
-    <string name="text_tutorial_instructions1">Now will practice a little before starting the experiment.</string>
+    <string name="text_tutorial_instructions1">Now we will practice a little before starting the experiment.</string>
     <string name="text_number_instructions">Choose the number that is given by the test leader</string>
     <string name="text_wait_instructions">Now you will see a person.\nLook up and straight forward.\nAfter you have seen the person, you can continue.</string>
     <string name="question_target_sex">The person was a:</string>
@@ -30,8 +30,8 @@
     <string name="question_target_weight">How much do you think the person weighs?</string>
     <string name="question_target_age">How old was the person?</string>
     <string name="question_target_distance">How far away from you was the person standing?</string>
-    <string name="text_lineup_instructions_simultaneous">Below are 8 images that you will see only once. If an image is the person you saw, press that image. If none of the images is the person you saw, press \"The person is not among the images\".</string>
-    <string name="text_lineup_instructions_sequential">Below is 1 of 8 images that you will see only once. If the image is the person you just saw, press YES. If the image is not the person you just saw, press NO. If you choose YES, no more images will be shown.</string>
+    <string name="text_lineup_instructions_simultaneous">Below are 8 images that you will see only once.\nIf an image is the person you saw, press that image.\nIf none of the images is the person you saw, press \"The person is not among the images\".</string>
+    <string name="text_lineup_instructions_sequential">Below is 1 of 8 images that you will see only once.\nIf the image is the person you just saw, press YES.\nIf the image is not the person you just saw, press NO.\nIf you choose YES, no more images will be shown.\nIt is possible that the person you just saw is not among the images.</string>
     <string name="wait">Wait</string>
     <string name="notification_delete_logs">Delete all old logs?</string>
     <string name="notification_fill_all">Please fill answer all questions first</string>
@@ -45,7 +45,7 @@
     <string name="question_certain">How certain are you of your choice?</string>
     <string name="question_target_recognised">Have you seen this person BEFORE this experiment?</string>
     <string name="question_other_recognised">Have you seen any of the other people BEFORE this experiment?</string>
-    <string name="text_participation_result">You identified # correct\n\nThank you for participating as an eyewitness!</string>
+    <string name="text_participation_result" formatted="false">You identified %d correct.\nThe person you saw was missing from the lineup %d times.\nWhen the image was missing you correctly chose not to identify %d times.\n\nThank you for participating as an eyewitness!</string>
     <string name="swedish">Svenska</string>
     <string name="settings">Settings</string>
     <string name="simultaneous">Simultaneous</string>
