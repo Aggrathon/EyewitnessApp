@@ -65,9 +65,16 @@ public class ExperimentIteration {
 
 	public String getSelectedImage() {
 		if (selectedImage < 0 || selectedImage >= imageOrder.size())
-			return ExperimentData.CORRECT_TAG;
+			return ExperimentData.MISSING_TAG;
 		else
 			return imageOrder.get(selectedImage);
+	}
+
+	public void selectImage(int index) {
+		if(index >= 0 && index < imageOrder.size())
+			selectedImage = index;
+		else
+			selectedImage = -1;
 	}
 
 	public void setLineupTime(long start, long end) {

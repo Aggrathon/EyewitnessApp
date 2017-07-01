@@ -67,8 +67,8 @@ public class LineupActivity extends ACancelCheckActivity {
 
 	public void onTargetMissingButton(View v) {
 		ExperimentData data = ExperimentData.getInstance();
-		data.selectImage(-2);
 		ExperimentIteration iter = data.getLatestData();
+		iter.selectImage(-1);
 		iter.setLineupTime(startTime, System.currentTimeMillis());
 		if (data.lineup == ExperimentData.LineupVariant.sequential) {
 			iter.setImageTime(imageIndex, startTime2, System.currentTimeMillis());
@@ -93,8 +93,8 @@ public class LineupActivity extends ACancelCheckActivity {
 
 	public void onSelectImageButton(View v) {
 		ExperimentData data =  ExperimentData.getInstance();
-		data.selectImage(imageIndex);
 		ExperimentIteration iter = data.getLatestData();
+		iter.selectImage(imageIndex);
 		iter.setLineupTime(startTime, System.currentTimeMillis());
 		if (data.lineup == ExperimentData.LineupVariant.sequential) {
 			iter.setImageTime(imageIndex, startTime2, System.currentTimeMillis());

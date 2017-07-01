@@ -212,12 +212,6 @@ public class ExperimentData {
 			return data.get(data.size()-1);
 	}
 
-	public void selectImage(int index) {
-		if (data != null && data.size() > 0) {
-			data.get(data.size() - 1).selectedImage = index;
-		}
-	}
-
 	public void save(Activity activity) {
 		SharedPreferences prefs = activity.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		SharedPreferences.Editor editor = prefs.edit();
@@ -287,6 +281,7 @@ public class ExperimentData {
 							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), d.imageOrder.get(i));
 						break;
 				}
+				csv.addBooleanAsInt("rejection", d.selectedImage < 0);
 				csv.addFloat("Lineup_time", d.lineupTime);
 				csv.addString("Selected_image", d.getSelectedImage());
 				csv.addBooleanAsInt("Identification", d.selectionIsCorrect());
