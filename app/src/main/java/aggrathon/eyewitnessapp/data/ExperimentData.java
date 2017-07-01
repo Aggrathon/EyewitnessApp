@@ -250,7 +250,7 @@ public class ExperimentData {
 				csv.addString("Pt_nationality", personalInformation.nationality);
 				csv.addInt("Pt_age", personalInformation.age);
 				csv.addInt("Pt_height", personalInformation.height);
-				csv.addString("Pt_gener", personalInformation.sex);
+				csv.addString("Pt_gender", personalInformation.sex);
 				csv.addBooleanAsInt("Pt_participated_before", personalInformation.previousParticipations);
 				csv.addFloat("Pt_left_eye", personalInformation.visualAcuityLeft);
 				csv.addFloat("Pt_right_eye", personalInformation.visualAcuityRight);
@@ -281,8 +281,9 @@ public class ExperimentData {
 							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), d.imageOrder.get(i));
 						break;
 				}
+				csv.addFloat("Simultaneous_choice_time", d.lineupTime);
 				csv.addBooleanAsInt("rejection", d.selectedImage < 0);
-				csv.addFloat("Lineup_time", d.lineupTime);
+				csv.addFloat("Lineup_total_time", d.lineupTime);
 				csv.addString("Selected_image", d.getSelectedImage());
 				csv.addBooleanAsInt("Identification", d.selectionIsCorrect());
 				csv.addInt("Confidence", d.confidence);
