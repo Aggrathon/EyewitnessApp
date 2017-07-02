@@ -215,18 +215,24 @@ public class ExperimentData {
 	public void save(Activity activity) {
 		SharedPreferences prefs = activity.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		SharedPreferences.Editor editor = prefs.edit();
+		int abs = 0;
 		int pres = 0;
-		for (ExperimentIteration d: data)
+		for (ExperimentIteration d: data) {
+			if (d.tutorial)
+				continue;
 			if (d.targetPresent)
 				pres++;
+			else
+				abs++;
+		}
 		editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_PRESENT, 0) + pres);
-		editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 0) + data.size()-pres);
+		editor.putInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 0) + abs);
 		switch (lineup) {
 			case sequential:
-				editor.putInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, prefs.getInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, 0) + 1);
+				editor.putInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, prefs.getInt(SettingsActivity.LINEUP_STATS_SEQUENTIAL, 0) + (abs+pres));
 				break;
 			case simultaneous:
-				editor.putInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, prefs.getInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, 0) + 1);
+				editor.putInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, prefs.getInt(SettingsActivity.LINEUP_STATS_SIMULTANEOUS, 0) + (abs+pres));
 				break;
 		}
 		editor.commit();
@@ -305,6 +311,8 @@ public class ExperimentData {
 		int missings = 0;
 		int correct_miss = 0;
 		for (ExperimentIteration d : data) {
+			if(d.tutorial)
+				continue;
 			if (d.targetPresent) {
 				if (d.selectionIsCorrect())
 					correct++;

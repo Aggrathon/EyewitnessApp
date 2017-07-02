@@ -37,7 +37,7 @@ public class CsvGenerator {
 
 	public void addFloat(String name, float value) {
 		nextValue(name);
-		values.append(String.format("%.3f", value));
+		values.append(String.format("%.3f", value).replace(',','.'));
 	}
 
 	public void addBooleanAsInt(String name, boolean value) {

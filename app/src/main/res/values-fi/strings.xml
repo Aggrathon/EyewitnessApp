@@ -21,7 +21,7 @@
     <string name="text_visual_acuity_instructions1">Tämä on näkötesti.\nValitse mihin suuntaan kirjain \"C\" on auki.\nJatka kunnes testi loppuu.</string>
     <string name="text_visual_acuity_instructions2">Tämä on näkötesti.\nValitse mihin suuntaan kirjain \"C\" on auki.\nJatka kunnes testi loppuu.</string>
     <string name="title_visual_acuity">Näkötesti</string>
-    <string name="title_visual_acuity2">Näkötesti: Valitse aukon oikea suunta</string>
+    <string name="title_visual_acuity2">Valitse mihin suuntaan kirjain \"C\" on auki.\nJatka kunnes testi loppuu.</string>
     <string name="text_tutorial_instructions1">Nyt harjoitellaan, ennen kuin aloitamme varsinaisen kokeen.</string>
     <string name="text_number_instructions">Valitse testin ohjaajan sanoma numero</string>
     <string name="text_wait_instructions">Näet nyt henkilön.\nKatso ylös ja suoraan eteenpäin.\nNähtyäsi henkilön voit jatkaa.</string>
@@ -42,7 +42,7 @@
     <string name="question_certain">Kuinka varma olet valinnastasi?</string>
     <string name="question_target_recognised">Oletko nähnyt tämän henkilön ENNEN tätä koetta?</string>
     <string name="question_other_recognised">Oletko nähnyt jonkun muista henkilöistä ENNEN tätä koetta?</string>
-    <string name="text_participation_result" formatted="false">Tunnistit %d henkilöä oikein.\nNäkemäsi henkilö puuttui rivistöstä %d kertaa.\nKuvan puuttuessa jätit oikein tekemättä valinnan %d kertaa. \n\nKiitos, että osallistuit kokeeseen silminnäkijänä</string>
+    <string name="text_participation_result" formatted="false">Tunnistit %d henkilöä oikein.\nNäkemäsi henkilö puuttui rivistöstä %d kertaa.\nKuvan puuttuessa jätit oikein tekemättä valinnan %d kertaa. \n\nKiitos, että osallistuit kokeeseen silminnäkijänä!</string>
     <string name="wait">Odota</string>
     <string name="swedish">Svenska</string>
     <string name="settings">Asetukset</string>

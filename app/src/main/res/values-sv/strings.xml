@@ -66,7 +66,7 @@
     <string name="text_close_eye_left">Täck VÄNSTER öga med ena handen.</string>
     <string name="title_visual_acuity">Syntest</string>
     <string name="text_visual_acuity_instructions1">Detta är ett syntest. \nVälj åt vilket håll öppningen i bokstaven \"C\" är riktat. \nFortsätt välja tills testet slutar.</string>
-    <string name="title_visual_acuity2">Syntest: Välj rätt riktning på öppningen</string>
+    <string name="title_visual_acuity2">Välj åt vilket håll öppningen i bokstaven \"C\" är riktat.\nFortsätt välja tills testet slutar.</string>
     <string name="text_visual_acuity_instructions2">Detta är ett syntest.\nVälj åt vilket håll öppningen i bokstaven \"C\" är riktat.\nFortsätt välja tills testet slutar.</string>
     <string name="text_visual_acuity_instructions3">Syntestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
     <string name="man_age">Pojke / Man</string>

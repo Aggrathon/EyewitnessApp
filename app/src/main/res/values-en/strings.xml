@@ -21,7 +21,7 @@
     <string name="text_visual_acuity_instructions1">This is an eye test:\nChoose the direction of the opening in the letter \"C\".\nContinue until the test stops.</string>
     <string name="text_visual_acuity_instructions2">This is an eye test:\nChoose the direction of the opening in the letter \"C\".\nContinue until the test stops.</string>
     <string name="title_visual_acuity">Eye test</string>
-    <string name="title_visual_acuity2">Eye test: Choose the right direction of the opening</string>
+    <string name="title_visual_acuity2">Choose the direction of the opening in the letter \"C\".\nContinue until the test stops.</string>
     <string name="text_tutorial_instructions1">Now we will practice a little before starting the experiment.</string>
     <string name="text_number_instructions">Choose the number that is given by the test leader</string>
     <string name="text_wait_instructions">Now you will see a person.\nLook up and straight forward.\nAfter you have seen the person, you can continue.</string>
