@@ -45,6 +45,9 @@ public class CsvGenerator {
 		values.append(value? 1 : 0);
 	}
 
+	public void addEmpty(String name) {
+		nextValue(name);
+	}
 
 	public void beginRow() {
 		if (header.length() > 0) {

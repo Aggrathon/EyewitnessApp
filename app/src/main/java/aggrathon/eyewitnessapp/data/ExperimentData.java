@@ -275,13 +275,13 @@ public class ExperimentData {
 							csv.addFloat("Seq_image" + (i + 1)+"_time", d.imageTimes[i]);
 						}
 						for (int i = 0; i < NUM_IMAGES; i++)
-							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), "");
+							csv.addEmpty("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1));
 						break;
 					case simultaneous:
 						for (int i = 0; i < NUM_IMAGES; i++) {
-							csv.addString("Seq_image" + (i + 1), "");
-							csv.addBooleanAsInt("Seq_image" + (i + 1)+"_choice", d.selectedImage == i);
-							csv.addFloat("Seq_image" + (i + 1)+"_time", d.imageTimes[i]);
+							csv.addEmpty("Seq_image" + (i + 1));
+							csv.addEmpty("Seq_image" + (i + 1)+"_choice");
+							csv.addEmpty("Seq_image" + (i + 1)+"_time");
 						}
 						for (int i = 0; i < NUM_IMAGES; i++)
 							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), d.imageOrder.get(i));
@@ -292,6 +292,14 @@ public class ExperimentData {
 				csv.addFloat("Lineup_total_time", d.lineupTime);
 				csv.addString("Selected_image", d.getSelectedImage());
 				csv.addBooleanAsInt("Identification", d.selectionIsCorrect());
+				if(d.targetPresent) {
+					csv.addBooleanAsInt("Target_present_identification", d.selectionIsCorrect());
+					csv.addString("Target_absent_identification", "N/A");
+				}
+				else {
+					csv.addString("Target_present_identification", "N/A");
+					csv.addBooleanAsInt("Target_absent_identification", d.selectedImage < 0);
+				}
 				csv.addInt("Confidence", d.confidence);
 				csv.addInt("Target_height", d.targetHeight);
 				csv.addInt("Target_weight", d.targetWeight);

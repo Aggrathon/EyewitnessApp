@@ -9,8 +9,8 @@ android {
         applicationId "aggrathon.eyewitnessapp"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 31
-        versionName '0.10.1'
+        versionCode 32
+        versionName '0.10.2'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         versionNameSuffix 'rc'
     }
