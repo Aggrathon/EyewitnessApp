@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="aggrathon.eyewitnessapp">
+          package="aggrathon.eyewitnessapp.light">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name="aggrathon.eyewitnessapp.light.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NotFullscreen">
@@ -23,42 +23,42 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".start.BackgroundInformationActivity"
-            android:parentActivityName=".MainActivity"
+            android:name="aggrathon.eyewitnessapp.light.start.BackgroundInformationActivity"
+            android:parentActivityName="aggrathon.eyewitnessapp.light.MainActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".experiment.LineupActivity"
+            android:name="aggrathon.eyewitnessapp.light.experiment.LineupActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".experiment.QuestionsActivity"
+            android:name="aggrathon.eyewitnessapp.light.experiment.QuestionsActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".experiment.NumberActivity"
+            android:name="aggrathon.eyewitnessapp.light.experiment.NumberActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".start.AgeActivity"
-            android:parentActivityName=".MainActivity"
+            android:name="aggrathon.eyewitnessapp.light.start.AgeActivity"
+            android:parentActivityName="aggrathon.eyewitnessapp.light.MainActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".start.ExperimentInformationActivity"
+            android:name="aggrathon.eyewitnessapp.light.start.ExperimentInformationActivity"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="aggrathon.eyewitnessapp.MainActivity"/>
+                android:value="aggrathon.eyewitnessapp.light.MainActivity"/>
         </activity>
         <activity
-            android:name=".experiment.WaitActivity"
+            android:name="aggrathon.eyewitnessapp.light.experiment.WaitActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name="aggrathon.eyewitnessapp.light.SettingsActivity"
             android:label="@string/settings"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="aggrathon.eyewitnessapp.light.MainActivity"
             android:theme="@style/AppTheme.Small">
         </activity>
     </application>

@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.utils;
+package aggrathon.eyewitnessapp.light.utils;
 
 
 public class CsvGenerator {

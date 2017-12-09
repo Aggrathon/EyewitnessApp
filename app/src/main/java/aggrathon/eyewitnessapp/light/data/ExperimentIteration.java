@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.data;
+package aggrathon.eyewitnessapp.light.data;
 
 import java.util.ArrayList;
 import java.util.Date;

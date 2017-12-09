@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.data;
+package aggrathon.eyewitnessapp.light.data;
 
 
 import android.app.Activity;
@@ -12,15 +12,14 @@ import android.widget.Toast;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Random;
 import java.util.TimeZone;
 
-import aggrathon.eyewitnessapp.MainActivity;
-import aggrathon.eyewitnessapp.R;
-import aggrathon.eyewitnessapp.SettingsActivity;
-import aggrathon.eyewitnessapp.utils.CsvGenerator;
-import aggrathon.eyewitnessapp.utils.StorageManager;
+import aggrathon.eyewitnessapp.light.MainActivity;
+import aggrathon.eyewitnessapp.light.R;
+import aggrathon.eyewitnessapp.light.SettingsActivity;
+import aggrathon.eyewitnessapp.light.utils.CsvGenerator;
+import aggrathon.eyewitnessapp.light.utils.StorageManager;
 
 public class ExperimentData {
 

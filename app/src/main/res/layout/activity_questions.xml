@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     style="@style/AppTheme.Background"
-    tools:context="aggrathon.eyewitnessapp.experiment.QuestionsActivity"
+    tools:context="aggrathon.eyewitnessapp.light.experiment.QuestionsActivity"
     android:gravity="center">
 
     <TextView

@@ -1,6 +1,5 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.light;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -13,9 +12,9 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
-import aggrathon.eyewitnessapp.data.ExperimentData;
-import aggrathon.eyewitnessapp.utils.ContextWrapper;
-import aggrathon.eyewitnessapp.utils.StorageManager;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.utils.ContextWrapper;
+import aggrathon.eyewitnessapp.light.utils.StorageManager;
 
 
 public abstract class AImmersiveActivity extends AppCompatActivity {

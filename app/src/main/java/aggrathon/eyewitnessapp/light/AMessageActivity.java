@@ -1,13 +1,12 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.light;
 
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
 
 public abstract class AMessageActivity extends ACancelCheckActivity {
 

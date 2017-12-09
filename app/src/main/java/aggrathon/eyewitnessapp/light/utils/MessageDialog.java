@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.utils;
+package aggrathon.eyewitnessapp.light.utils;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -8,12 +8,8 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
-import aggrathon.eyewitnessapp.R;
+import aggrathon.eyewitnessapp.light.R;
 
 
 public class MessageDialog extends DialogFragment {

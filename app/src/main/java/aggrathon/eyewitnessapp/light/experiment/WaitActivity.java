@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.experiment;
+package aggrathon.eyewitnessapp.light.experiment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import aggrathon.eyewitnessapp.AMessageActivity;
-import aggrathon.eyewitnessapp.R;
-import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.AMessageActivity;
+import aggrathon.eyewitnessapp.light.R;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
 
 public class WaitActivity extends AMessageActivity {
 	@Override

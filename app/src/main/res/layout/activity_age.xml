@@ -8,7 +8,7 @@
     style="@style/AppTheme.Background"
     android:background="@drawable/background_colorful"
     android:orientation="vertical"
-    tools:context="aggrathon.eyewitnessapp.start.AgeActivity">
+    tools:context="aggrathon.eyewitnessapp.light.start.AgeActivity">
 
     <TextView
         android:id="@+id/title"

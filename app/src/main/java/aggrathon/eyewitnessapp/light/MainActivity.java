@@ -1,11 +1,8 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.light;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -19,9 +16,9 @@ import android.widget.ImageButton;
 
 import java.util.Locale;
 
-import aggrathon.eyewitnessapp.data.ExperimentData;
-import aggrathon.eyewitnessapp.start.AgeActivity;
-import aggrathon.eyewitnessapp.utils.StorageManager;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.start.AgeActivity;
+import aggrathon.eyewitnessapp.light.utils.StorageManager;
 
 public class MainActivity extends AppCompatActivity {
 

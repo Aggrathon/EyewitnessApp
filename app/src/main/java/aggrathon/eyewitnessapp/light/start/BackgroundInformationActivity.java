@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.start;
+package aggrathon.eyewitnessapp.light.start;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-import aggrathon.eyewitnessapp.ACancelCheckActivity;
-import aggrathon.eyewitnessapp.R;
-import aggrathon.eyewitnessapp.data.ExperimentData;
-import aggrathon.eyewitnessapp.experiment.NumberActivity;
+import aggrathon.eyewitnessapp.light.ACancelCheckActivity;
+import aggrathon.eyewitnessapp.light.R;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.experiment.NumberActivity;
 
 public class BackgroundInformationActivity extends ACancelCheckActivity {
 

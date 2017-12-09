@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.experiment;
+package aggrathon.eyewitnessapp.light.experiment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,11 +7,10 @@ import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import aggrathon.eyewitnessapp.ACancelCheckActivity;
-import aggrathon.eyewitnessapp.R;
-import aggrathon.eyewitnessapp.data.ExperimentData;
-import aggrathon.eyewitnessapp.data.ExperimentIteration;
-import aggrathon.eyewitnessapp.experiment.NumberActivity;
+import aggrathon.eyewitnessapp.light.ACancelCheckActivity;
+import aggrathon.eyewitnessapp.light.R;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.data.ExperimentIteration;
 
 public class QuestionsActivity extends ACancelCheckActivity {
 

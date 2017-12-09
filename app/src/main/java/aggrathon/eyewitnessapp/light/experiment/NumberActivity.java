@@ -1,13 +1,13 @@
-package aggrathon.eyewitnessapp.experiment;
+package aggrathon.eyewitnessapp.light.experiment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import aggrathon.eyewitnessapp.ACancelCheckActivity;
-import aggrathon.eyewitnessapp.R;
-import aggrathon.eyewitnessapp.utils.StorageManager;
-import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.ACancelCheckActivity;
+import aggrathon.eyewitnessapp.light.R;
+import aggrathon.eyewitnessapp.light.utils.StorageManager;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
 
 public class NumberActivity extends ACancelCheckActivity {
 

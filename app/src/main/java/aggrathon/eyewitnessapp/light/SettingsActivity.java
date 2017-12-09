@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.light;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -23,8 +23,8 @@ import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 
-import aggrathon.eyewitnessapp.utils.MessageDialog;
-import aggrathon.eyewitnessapp.utils.StorageManager;
+import aggrathon.eyewitnessapp.light.utils.MessageDialog;
+import aggrathon.eyewitnessapp.light.utils.StorageManager;
 
 public class SettingsActivity extends AppCompatActivity {
 

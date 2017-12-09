@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.data;
+package aggrathon.eyewitnessapp.light.data;
 
 public class PersonalInformation {
 

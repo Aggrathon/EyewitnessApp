@@ -1,10 +1,10 @@
-package aggrathon.eyewitnessapp;
+package aggrathon.eyewitnessapp.light;
 
 import org.junit.Test;
 
 import java.util.Random;
 
-import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
 
 import static org.junit.Assert.*;
 

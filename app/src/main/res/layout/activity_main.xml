@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="horizontal"
-    tools:context="aggrathon.eyewitnessapp.MainActivity">
+    tools:context="aggrathon.eyewitnessapp.light.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

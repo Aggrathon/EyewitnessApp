@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.utils;
+package aggrathon.eyewitnessapp.light.utils;
 
 //See https://stackoverflow.com/questions/39705739/android-n-change-language-programatically/40849142#40849142
 

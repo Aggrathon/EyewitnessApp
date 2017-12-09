@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="aggrathon.eyewitnessapp.experiment.LineupActivity"
+    tools:context="aggrathon.eyewitnessapp.light.experiment.LineupActivity"
     style="@style/AppTheme.Background">
 
     <TextView

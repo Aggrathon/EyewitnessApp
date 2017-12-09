@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="aggrathon.eyewitnessapp.start.ExperimentInformationActivity"
+    tools:context="aggrathon.eyewitnessapp.light.start.ExperimentInformationActivity"
     android:orientation="vertical"
     android:gravity="center"
     style="@style/AppTheme.Background">

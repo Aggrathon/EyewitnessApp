@@ -1,15 +1,14 @@
-package aggrathon.eyewitnessapp.start;
+package aggrathon.eyewitnessapp.light.start;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import aggrathon.eyewitnessapp.AImmersiveActivity;
-import aggrathon.eyewitnessapp.R;
-import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.light.AImmersiveActivity;
+import aggrathon.eyewitnessapp.light.R;
+import aggrathon.eyewitnessapp.light.data.ExperimentData;
 
 public class AgeActivity extends AImmersiveActivity {
 

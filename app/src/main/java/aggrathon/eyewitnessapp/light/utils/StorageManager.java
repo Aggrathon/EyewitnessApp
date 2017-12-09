@@ -1,4 +1,4 @@
-package aggrathon.eyewitnessapp.utils;
+package aggrathon.eyewitnessapp.light.utils;
 
 
 import android.Manifest;
@@ -20,13 +20,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import aggrathon.eyewitnessapp.R;
+import aggrathon.eyewitnessapp.light.R;
 
 public class StorageManager {
 
 
 	public static final int STORAGE_PERMISSION_REQUEST = 95;
-	public static final String DIRECTORY_NAME = "Eyewitness";
+	public static final String DIRECTORY_NAME = "EyewitnessLight";
 	public static String LOG_DIRECTORY = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME + File.separator + "logs";
 	public static String IMAGE_DIRECTORY = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME + File.separator + "images";
 
@@ -44,9 +44,9 @@ public class StorageManager {
 
 	private static void setImageDirLocation(String imageDir) {
 		if(imageDir == null || imageDir.equals("") || imageDir.equals(".") || imageDir.equals(DIRECTORY_NAME))
-			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+DIRECTORY_NAME + File.separator + "images";
+			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator + File.separator + "images";
 		else
-			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+imageDir+File.separator+DIRECTORY_NAME + File.separator + "images";
+			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+imageDir+File.separator + File.separator + "images";
 	}
 
 	public static void moveLogDirectoryLocation(Activity activity, String dir) {
