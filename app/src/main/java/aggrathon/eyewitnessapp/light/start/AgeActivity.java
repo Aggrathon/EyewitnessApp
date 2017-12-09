@@ -44,7 +44,7 @@ public class AgeActivity extends AImmersiveActivity {
 
 	public void onNext(View v) {
 		ExperimentData.getInstance().personalInformation.age = ageBar.getProgress()+MIN_AGE;
-		startActivity(new Intent(this, ExperimentInformationActivity.class));
+		startActivity(new Intent(this, InformationActivity.class));
 		finish();
 	}
 

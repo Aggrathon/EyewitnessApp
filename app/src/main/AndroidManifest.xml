@@ -56,6 +56,11 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
+            android:name="aggrathon.eyewitnessapp.light.start.InformationActivity"
+            android:parentActivityName="aggrathon.eyewitnessapp.light.MainActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
             android:name="aggrathon.eyewitnessapp.light.SettingsActivity"
             android:label="@string/settings"
             android:parentActivityName="aggrathon.eyewitnessapp.light.MainActivity"

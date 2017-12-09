@@ -23,4 +23,10 @@ public abstract class AMessageActivity extends ACancelCheckActivity {
 		((TextView)findViewById(R.id.messageText)).setText(messageText);
 		(findViewById(R.id.nextButton)).setOnClickListener(action);
 	}
+
+	public void setMessage(int titleText, String messageText, View.OnClickListener action) {
+		((TextView)findViewById(R.id.title)).setText(titleText);
+		((TextView)findViewById(R.id.messageText)).setText(messageText);
+		(findViewById(R.id.nextButton)).setOnClickListener(action);
+	}
 }
