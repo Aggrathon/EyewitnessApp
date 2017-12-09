@@ -18,82 +18,33 @@
         android:text="@string/text_number_instructions"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="100"
         android:gravity="center"
+        android:layout_margin="@dimen/largeMargin"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/imageButton6"
-            android:layout_width="match_parent"
+            style="@style/AppTheme.Panel"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin"
-            android:layout_weight="1"
-            style="@style/AppTheme.Panel"
+            android:layout_weight="100"
             android:onClick="OnNumberOne"
             app:srcCompat="@drawable/one"/>
 
-        <Space
-            android:layout_width="@dimen/largeMargin"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
         <ImageButton
             android:id="@+id/imageButton7"
-            android:layout_width="match_parent"
+            style="@style/AppTheme.Panel"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin"
-            android:layout_weight="1"
-            style="@style/AppTheme.Panel"
+            android:layout_weight="100"
             android:onClick="OnNumberTwo"
             app:srcCompat="@drawable/two"/>
 
     </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/largeMargin"
-        android:layout_weight="1"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="100"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/imageButton9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/AppTheme.Panel"
-            android:onClick="OnNumberThree"
-            app:srcCompat="@drawable/three"/>
-
-        <Space
-            android:layout_width="@dimen/largeMargin"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/imageButton8"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/AppTheme.Panel"
-            android:onClick="OnNumberFour"
-            app:srcCompat="@drawable/four"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/endButton"
-        android:layout_width="@dimen/bottomButtonWidth"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/margin"
-        android:onClick="OnEndButton"
-        android:text="@string/end_experiment"/>
 
 </LinearLayout>

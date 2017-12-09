@@ -9,7 +9,7 @@ public class ExperimentIteration {
 
 	public Date time;
 	public boolean targetPresent;
-	public int lineupNumber;
+	public String lineupNumber;
 	public ArrayList<String> imageOrder;
 	public float[] imageTimes;
 	public int selectedImage;
@@ -25,11 +25,11 @@ public class ExperimentIteration {
 	public float lineupTime;
 
 
-	public ExperimentIteration(int number, boolean targetPresent, ArrayList<String> imageOrder) {
+	public ExperimentIteration(String folder, boolean targetPresent, ArrayList<String> imageOrder) {
 		time = new Date();
 		selectedImage = -1;
 		targetSex = "";
-		lineupNumber = number;
+		lineupNumber = folder;
 		this.targetPresent = targetPresent;
 		this.imageOrder = imageOrder;
 		this.imageTimes = new float[imageOrder.size()];

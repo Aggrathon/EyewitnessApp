@@ -19,6 +19,7 @@ public class WaitActivity extends AMessageActivity {
 			setMessage(R.string.wait, R.string.text_wait_instructions, new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
+					ExperimentData.getInstance().startExperimentIteration(act);
 					startActivity(new Intent(act, LineupActivity.class));
 					finish();
 				}

@@ -12,6 +12,8 @@ import android.widget.Toast;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Random;
 import java.util.TimeZone;
 
@@ -84,6 +86,7 @@ public class ExperimentData {
 	//Information
 	public PersonalInformation personalInformation;
 	public ArrayList<ExperimentIteration> data;
+	public ArrayList<String> folders;
 
 	private ExperimentData(Activity activity, String language) {
 		rnd = new Random();
@@ -106,6 +109,8 @@ public class ExperimentData {
 		personalInformation = new PersonalInformation(testNum, language);
 		prefs.edit().putInt(SettingsActivity.TEST_NUM_COUNTER, testNum+1).commit();
 		data = new ArrayList<>();
+		folders = new ArrayList<>();
+		rnd = new Random();
 	}
 
 	private ExperimentData() {
@@ -115,10 +120,12 @@ public class ExperimentData {
 
 		personalInformation = new PersonalInformation(0, "non");
 		data = new ArrayList<>();
+		folders = new ArrayList<>();
+		rnd = new Random();
 	}
 
 	private float getSettings(SharedPreferences prefs, String setting, boolean normalised, String statA, String statB) {
-		float target = (float)prefs.getInt(setting, 50)/100f;
+		float target = (float)prefs.getInt(setting, 100)/100f;
 		if (target<0.04f) {
 			return -1;
 		}
@@ -173,7 +180,6 @@ public class ExperimentData {
 			}
 		}
 		//Shuffle
-		Random rnd = new Random();
 		for (int i = 0; i < imageLabels.size(); i++) {
 			Bitmap a = images.get(i);
 			String as = imageLabels.get(i);
@@ -187,13 +193,28 @@ public class ExperimentData {
 		}
 	}
 
-	public ExperimentIteration startExperimentIteration(Activity act, int number, String label) {
+	public void setupExperimentIterations(String label) {
+		folders.clear();
+		StorageManager.getImageFolders(folders, label);
+		//Shuffle
+		for (int i = 0; i < folders.size(); i++) {
+			String tmp = folders.get(i);
+			int r = rnd.nextInt(folders.size()-i)+i;
+			folders.set(i, folders.get(r));
+			folders.set(r, tmp);
+		}
+		if (folders.size() == 0)
+			folders.add("test");
+	}
+
+	public ExperimentIteration startExperimentIteration(Activity act) {
 		SharedPreferences prefs = act.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
 		float presence = getSettings(prefs, SettingsActivity.LINEUP_TARGET, normalise, SettingsActivity.LINEUP_STATS_TARGET_ABSENT, SettingsActivity.LINEUP_STATS_TARGET_PRESENT);
 		boolean targetPresent = rnd.nextFloat() <= presence;
-		LoadImages(label, act, targetPresent);
-		ExperimentIteration iter = new ExperimentIteration(number, targetPresent, imageLabels);
+		String folder = folders.remove(folders.size()-1);
+		LoadImages(folder, act, targetPresent);
+		ExperimentIteration iter = new ExperimentIteration(folder, targetPresent, imageLabels);
 		data.add(iter);
 		return iter;
 	}
@@ -205,7 +226,7 @@ public class ExperimentData {
 				for (int i = 0; i < NUM_IMAGES; i++)
 					imageLabels.add(MISSING_TAG);
 			}
-			return new ExperimentIteration(0, true, imageLabels);
+			return new ExperimentIteration("", true, imageLabels);
 		}
 		else
 			return data.get(data.size()-1);
@@ -265,7 +286,7 @@ public class ExperimentData {
 				csv.addString("Experiment_type", d.tutorial? "testrunda" : "huvudexperiment");
 				csv.addString("Lineup_type", lineup.toString());
 				csv.addBooleanAsInt("Target_present", d.targetPresent);
-				csv.addInt("Lineup_number", d.lineupNumber);
+				csv.addString("Lineup_number", d.lineupNumber);
 				switch (lineup) {
 					case sequential:
 						for (int i = 0; i < NUM_IMAGES; i++) {

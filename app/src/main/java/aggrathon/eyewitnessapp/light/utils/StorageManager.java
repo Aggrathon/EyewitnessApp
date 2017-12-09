@@ -16,8 +16,12 @@ import android.widget.Toast;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import aggrathon.eyewitnessapp.light.R;
@@ -208,6 +212,13 @@ public class StorageManager {
 		}
 		catch (Exception e) {
 			return null;
+		}
+	}
+
+	public static void getImageFolders(ArrayList<String> list, final String pattern) {
+		File dir = new File(IMAGE_DIRECTORY);
+		for (File f: dir.listFiles((file) ->  file.isDirectory() && file.getName().contains(pattern))) {
+			list.add(f.getName());
 		}
 	}
 

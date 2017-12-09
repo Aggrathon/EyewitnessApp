@@ -63,8 +63,8 @@ public class SettingsActivity extends AppCompatActivity {
 		imageFolderSpinner = (Spinner)findViewById(R.id.spinnerImageFolder);
 
 		final SharedPreferences prefs = getSharedPreferences(PREFERENCE_NAME, 0);
-		lineupVariation.setProgress(prefs.getInt(LINEUP_VARIATION, lineupVariation.getProgress()));
-		lineupTarget.setProgress(prefs.getInt(LINEUP_TARGET, lineupTarget.getProgress()));
+		lineupVariation.setProgress(prefs.getInt(LINEUP_VARIATION, 100));
+		lineupTarget.setProgress(prefs.getInt(LINEUP_TARGET, 100));
 		lineupNormalisation.setChecked(prefs.getBoolean(LINEUP_NORMALISATION, true));
 		deviceID.setText(prefs.getString(DEVICE_ID, ""));
 		testID.setText(testID.getText()+" "+prefs.getInt(TEST_NUM_COUNTER, 1));
