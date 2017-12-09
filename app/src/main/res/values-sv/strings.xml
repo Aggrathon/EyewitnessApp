@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Eyewitness App</string>
+    <string name="app_name">Eyewitness Light</string>
     <string name="question_age">Hur gammal är du?</string>
     <string name="man">Man</string>
     <string name="woman">Kvinna</string>

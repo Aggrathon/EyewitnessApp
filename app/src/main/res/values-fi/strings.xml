@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eyewitness App</string>
+    <string name="app_name">Eyewitness Light</string>
     <string name="device_id">Device ID</string>
     <string name="question_age">Kuinka vanha olet?</string>
     <string name="finnish">Suomi</string>

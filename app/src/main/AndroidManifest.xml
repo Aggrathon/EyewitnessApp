@@ -36,10 +36,6 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".ResultActivity"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
             android:name=".experiment.NumberActivity"
             android:screenOrientation="landscape">
         </activity>
@@ -56,39 +52,7 @@
                 android:value="aggrathon.eyewitnessapp.MainActivity"/>
         </activity>
         <activity
-            android:name=".start.TutorialActivity"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
-            android:name=".start.TutorialActivity$TutorialNumbers"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
-            android:name=".start.TutorialActivity$TutorialLineup"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
-            android:name=".start.TutorialActivity$TutorialQuestions"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
-            android:name=".start.TutorialActivity$TutorialEnd"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
-            android:name=".start.TutorialActivity$TutorialWait"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
-            android:name=".start.TutorialActivity$TutorialTargetQuestions"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
             android:name=".experiment.WaitActivity"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
-            android:name=".experiment.TargetQuestionsActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
@@ -96,10 +60,6 @@
             android:label="@string/settings"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.Small">
-        </activity>
-        <activity
-            android:name=".start.VisualAcuityActivity"
-            android:screenOrientation="landscape">
         </activity>
     </application>
 

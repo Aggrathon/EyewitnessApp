@@ -12,12 +12,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.experiment.NumberActivity;
 
 public class BackgroundInformationActivity extends ACancelCheckActivity {
 
@@ -70,7 +70,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 			data.personalInformation.nationality = getselectedCountry();
 			data.personalInformation.height = lengthBar.getProgress();
 			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
-			startActivity(new Intent(this, VisualAcuityActivity.class));
+			startActivity(new Intent(this, NumberActivity.class));
 			finish();
 		}
 	}

@@ -21,7 +21,6 @@ import java.util.Locale;
 
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.start.AgeActivity;
-import aggrathon.eyewitnessapp.start.TutorialActivity;
 import aggrathon.eyewitnessapp.utils.StorageManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,15 +54,15 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void onLangEnglish(View view) {
-		ExperimentData.createInstance(this, "en");
-		Locale.setDefault(new Locale("en"));
-		startActivity(new Intent(this, AgeActivity.class));
+		//ExperimentData.createInstance(this, "en");
+		//Locale.setDefault(new Locale("en"));
+		//startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	public void onLangFinnish(View view) {
-		ExperimentData.createInstance(this, "fi");
-		Locale.setDefault(new Locale("fi"));
-		startActivity(new Intent(this, AgeActivity.class));
+		//ExperimentData.createInstance(this, "fi");
+		//Locale.setDefault(new Locale("fi"));
+		//startActivity(new Intent(this, AgeActivity.class));
 	}
 
 	@Override
@@ -93,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		if (keyCode == 75) {
-			ExperimentData.createInstance(this, "test");
-			startActivity(new Intent(this, TutorialActivity.class));
+			//ExperimentData.createInstance(this, "test");
+			//startActivity(new Intent(this, TutorialActivity.class));
 			return true;
 		}
 		return super.onKeyUp(keyCode, event);

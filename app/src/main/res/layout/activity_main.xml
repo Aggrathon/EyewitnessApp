@@ -19,7 +19,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            style="@style/AppTheme.Panel"
+            style="@style/AppTheme.Panel.Disabled"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -34,11 +34,12 @@
                 android:layout_margin="@dimen/margin"
                 android:layout_weight="100"
                 android:adjustViewBounds="true"
-                android:background="@android:color/background_light"
+                android:background="@android:color/transparent"
                 android:contentDescription="@string/finnish"
                 android:cropToPadding="false"
                 android:onClick="onLangFinnish"
                 android:scaleType="fitCenter"
+                android:tint="@color/disabledBackground"
                 app:srcCompat="@drawable/flag_of_finland"/>
 
             <TextView
@@ -87,7 +88,7 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/AppTheme.Panel"
+            style="@style/AppTheme.Panel.Disabled"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -102,11 +103,12 @@
                 android:layout_margin="@dimen/margin"
                 android:layout_weight="100"
                 android:adjustViewBounds="true"
-                android:background="@android:color/background_light"
+                android:background="@android:color/transparent"
                 android:contentDescription="@string/english"
                 android:cropToPadding="false"
                 android:onClick="onLangEnglish"
                 android:scaleType="fitCenter"
+                android:tint="@color/disabledBackground"
                 app:srcCompat="@drawable/flag_of_the_united_kingdom"/>
 
             <TextView

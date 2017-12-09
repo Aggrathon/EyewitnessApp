@@ -70,6 +70,10 @@
         <item name="android:padding">@dimen/margin</item>
     </style>
 
+    <style name="AppTheme.Panel.Disabled" parent="AppTheme.Panel">
+        <item name="android:background">@color/disabledBackground</item>
+    </style>
+
     <style name="AppTheme.ImageButton">
         <item name="android:scaleType">centerInside</item>
         <item name="android:background">@android:color/background_light</item>

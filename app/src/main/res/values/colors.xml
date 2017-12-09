@@ -6,4 +6,5 @@
     <color name="textButtonColored">#fff</color>
     <color name="textSmall">#000</color>
     <color name="specialText">#333</color>
+    <color name="disabledBackground">#aaaaaaaa</color>
 </resources>
