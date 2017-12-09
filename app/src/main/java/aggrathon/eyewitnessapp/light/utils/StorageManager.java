@@ -16,12 +16,9 @@ import android.widget.Toast;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileWriter;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 import aggrathon.eyewitnessapp.light.R;
@@ -50,7 +47,7 @@ public class StorageManager {
 		if(imageDir == null || imageDir.equals("") || imageDir.equals(".") || imageDir.equals(DIRECTORY_NAME))
 			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator + File.separator + "images";
 		else
-			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+imageDir+File.separator + File.separator + "images";
+			IMAGE_DIRECTORY = Environment.getExternalStorageDirectory()+File.separator+imageDir+File.separator +DIRECTORY_NAME+ File.separator + "images";
 	}
 
 	public static void moveLogDirectoryLocation(Activity activity, String dir) {
@@ -104,19 +101,12 @@ public class StorageManager {
 
 	public static void createFolders(Activity activity) {
 		File logDir = new File(LOG_DIRECTORY);
-		File imgDir1 = new File(IMAGE_DIRECTORY + File.separator + "1");
-		File imgDir2 = new File(IMAGE_DIRECTORY + File.separator + "2");
-		File imgDir3 = new File(IMAGE_DIRECTORY + File.separator + "3");
-		File imgDir4 = new File(IMAGE_DIRECTORY + File.separator + "4");
-		File imgDirTest = new File(IMAGE_DIRECTORY + File.separator + "Test");
+		File imgDir1 = new File(IMAGE_DIRECTORY + File.separator + "A1");
+		File imgDir2 = new File(IMAGE_DIRECTORY + File.separator + "B1");
 		logDir.mkdirs();
 		imgDir1.mkdirs();
 		imgDir2.mkdirs();
-		imgDir3.mkdirs();
-		imgDir4.mkdirs();
-		imgDirTest.mkdirs();
-		if(logDir.isDirectory() && imgDir1.isDirectory() && imgDir2.isDirectory() &&
-				imgDir3.isDirectory() && imgDir4.isDirectory() && imgDirTest.isDirectory()) {
+		if(logDir.isDirectory() && imgDir1.isDirectory() && imgDir2.isDirectory()) {
 		}
 		else {
 			Log.e("Storage", "Could not access storage to create directories");

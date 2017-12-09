@@ -203,8 +203,10 @@ public class ExperimentData {
 			folders.set(i, folders.get(r));
 			folders.set(r, tmp);
 		}
-		if (folders.size() == 0)
-			folders.add("test");
+	}
+
+	public boolean hasExperimentationsLeft() {
+		return folders.size() > 0;
 	}
 
 	public ExperimentIteration startExperimentIteration(Activity act) {
@@ -212,7 +214,11 @@ public class ExperimentData {
 		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
 		float presence = getSettings(prefs, SettingsActivity.LINEUP_TARGET, normalise, SettingsActivity.LINEUP_STATS_TARGET_ABSENT, SettingsActivity.LINEUP_STATS_TARGET_PRESENT);
 		boolean targetPresent = rnd.nextFloat() <= presence;
-		String folder = folders.remove(folders.size()-1);
+		String folder;
+		if (folders.isEmpty())
+			folder = "EMPTY";
+		else
+			folder = folders.remove(folders.size()-1);
 		LoadImages(folder, act, targetPresent);
 		ExperimentIteration iter = new ExperimentIteration(folder, targetPresent, imageLabels);
 		data.add(iter);
