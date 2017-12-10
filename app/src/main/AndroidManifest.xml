@@ -52,10 +52,6 @@
                 android:value="aggrathon.eyewitnessapp.light.MainActivity"/>
         </activity>
         <activity
-            android:name="aggrathon.eyewitnessapp.light.experiment.WaitActivity"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity
             android:name="aggrathon.eyewitnessapp.light.start.InformationActivity"
             android:parentActivityName="aggrathon.eyewitnessapp.light.MainActivity"
             android:screenOrientation="landscape">

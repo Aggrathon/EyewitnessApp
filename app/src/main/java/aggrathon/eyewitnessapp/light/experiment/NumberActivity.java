@@ -43,7 +43,8 @@ public class NumberActivity extends ACancelCheckActivity {
 
 	public void NextActivity(String label) {
 		ExperimentData.getInstance().setupExperimentIterations(label);
-		startActivity(new Intent(this, WaitActivity.class));
+		ExperimentData.getInstance().startExperimentIteration(this);
+		startActivity(new Intent(this, LineupActivity.class));
 		finish();
 	}
 }

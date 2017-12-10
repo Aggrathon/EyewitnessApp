@@ -51,8 +51,10 @@ public class QuestionsActivity extends ACancelCheckActivity {
 
 	public void NextActivity() {
 		ExperimentData data = ExperimentData.getInstance();
-		if (data.hasExperimentationsLeft())
-			startActivity(new Intent(this, WaitActivity.class));
+		if (data.hasExperimentationsLeft()) {
+			ExperimentData.getInstance().startExperimentIteration(this);
+			startActivity(new Intent(this, LineupActivity.class));
+		}
 		else {
 			data.save(this);
 			ExperimentData.clearInstance();
