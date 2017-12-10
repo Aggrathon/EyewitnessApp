@@ -46,17 +46,12 @@ public class QuestionsActivity extends ACancelCheckActivity {
 		data.confidence = sureBar.getProgress();
 		data.recognisedTarget = ((RadioButton)findViewById(R.id.yesAnswerTarget)).isChecked();
 		data.recognisedOther = ((RadioButton)findViewById(R.id.yesAnswerOther)).isChecked();
-		NextActivity();
-	}
-
-	public void NextActivity() {
-		ExperimentData data = ExperimentData.getInstance();
-		if (data.hasExperimentationsLeft()) {
+		if (ExperimentData.getInstance().hasExperimentationsLeft()) {
 			ExperimentData.getInstance().startExperimentIteration(this);
 			startActivity(new Intent(this, LineupActivity.class));
 		}
 		else {
-			data.save(this);
+			ExperimentData.getInstance().save(this);
 			ExperimentData.clearInstance();
 		}
 		finish();

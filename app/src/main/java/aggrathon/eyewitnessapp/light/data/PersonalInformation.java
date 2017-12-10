@@ -8,7 +8,6 @@ public class PersonalInformation {
 	public int age;
 	public String nationality;
 	public String sex;
-	public int height;
 
 
 	public PersonalInformation(int id, String lang) {
@@ -27,7 +26,6 @@ public class PersonalInformation {
 				"\n\tPrevious Participations: "+previousParticipations +
 				"\n\tAge: "+age+
 				"\n\tNationality: "+nationality+
-				"\n\tSex: "+sex+
-				"\n\tHeight: "+height+"\n";
+				"\n\tSex: "+sex+"\n";
 	}
 }

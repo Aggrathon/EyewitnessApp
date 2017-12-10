@@ -87,35 +87,35 @@
                 android:layout_weight="1"/>
 
             <TextView
-                android:id="@+id/selfLengthTitle"
+                android:id="@+id/ageTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:labelFor="@+id/natField"
-                android:text="@string/question_length"
+                android:text="@string/question_age"
                 />
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/margin"
                 android:orientation="horizontal">
 
                 <SeekBar
-                    android:id="@+id/selfLengthBar"
+                    android:id="@+id/ageBar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:max="220"
+                    android:max="100"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/selfLengthText"
+                    app:layout_constraintRight_toLeftOf="@+id/ageText"
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
-                    android:id="@+id/selfLengthText"
+                    android:id="@+id/ageText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="220 cm"
+                    android:text="25"
                     android:textAlignment="textEnd"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"

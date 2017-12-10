@@ -8,7 +8,7 @@ The original version you can find [here](https://github.com/Aggrathon/Eyewitness
 
 
 ## Download
-[Download the light version Android apks here.](https://github.com/Aggrathon/EyewitnessApp/releases/download/v1.1-light/eyewitness_light.apk)  
+[Download the light version Android apks here.](https://github.com/Aggrathon/EyewitnessApp/releases/download/v1.2-light/eyewitness_light.apk)  
 [Download the latest Android apks here (both versions).](https://github.com/Aggrathon/EyewitnessApp/releases)
 
 

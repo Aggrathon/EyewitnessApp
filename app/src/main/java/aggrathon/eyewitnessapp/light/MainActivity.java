@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import java.util.Locale;
 
 import aggrathon.eyewitnessapp.light.data.ExperimentData;
-import aggrathon.eyewitnessapp.light.start.AgeActivity;
+import aggrathon.eyewitnessapp.light.start.InformationActivity;
 import aggrathon.eyewitnessapp.light.utils.StorageManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,19 +47,19 @@ public class MainActivity extends AppCompatActivity {
 	public void onLangSwedish(View view) {
 		ExperimentData.createInstance(this, "sv");
 		Locale.setDefault(new Locale("sv"));
-		startActivity(new Intent(this, AgeActivity.class));
+		startActivity(new Intent(this, InformationActivity.class));
 	}
 
 	public void onLangEnglish(View view) {
 		//ExperimentData.createInstance(this, "en");
 		//Locale.setDefault(new Locale("en"));
-		//startActivity(new Intent(this, AgeActivity.class));
+		//startActivity(new Intent(this, InformationActivity.class));
 	}
 
 	public void onLangFinnish(View view) {
 		//ExperimentData.createInstance(this, "fi");
 		//Locale.setDefault(new Locale("fi"));
-		//startActivity(new Intent(this, AgeActivity.class));
+		//startActivity(new Intent(this, InformationActivity.class));
 	}
 
 	@Override

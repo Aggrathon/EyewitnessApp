@@ -24,8 +24,8 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 	RadioButton manRadio;
 	RadioButton womanRadio;
 	RadioButton otherRadio;
-	SeekBar lengthBar;
-	TextView lengthText;
+	SeekBar ageBar;
+	TextView ageText;
 	Spinner natSpinner;
 
 	@Override
@@ -38,14 +38,14 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		manRadio = (RadioButton) findViewById(R.id.sexMan);
 		womanRadio = (RadioButton) findViewById(R.id.sexWoman);
 		otherRadio = (RadioButton) findViewById(R.id.sexOther);
-		lengthBar = (SeekBar) findViewById(R.id.selfLengthBar);
-		lengthText = (TextView) findViewById(R.id.selfLengthText);
+		ageBar = (SeekBar) findViewById(R.id.ageBar);
+		ageText = (TextView) findViewById(R.id.ageText);
 		natSpinner = (Spinner)findViewById(R.id.spinnerNationality);
 
-		lengthBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+		ageBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-				lengthText.setText(i+" cm");
+				ageText.setText(""+i);
 			}
 
 			@Override
@@ -53,8 +53,8 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
-		lengthBar.setProgress(0);
-		lengthText.setText(lengthBar.getProgress()+" cm");
+		ageBar.setProgress(0);
+		ageText.setText(""+ageBar.getProgress());
 
 		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this, R.array.countries, R.layout.spinner_text_element);
 		adap.setDropDownViewResource(R.layout.spinner_text_dropdown);
@@ -68,7 +68,7 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		else {
 			ExperimentData data = ExperimentData.getInstance();
 			data.personalInformation.nationality = getselectedCountry();
-			data.personalInformation.height = lengthBar.getProgress();
+			data.personalInformation.age = ageBar.getProgress();
 			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
 			startActivity(new Intent(this, NumberActivity.class));
 			finish();

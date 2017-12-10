@@ -279,7 +279,6 @@ public class ExperimentData {
 				csv.addString("Pt_language", personalInformation.language);
 				csv.addString("Pt_nationality", personalInformation.nationality);
 				csv.addInt("Pt_age", personalInformation.age);
-				csv.addInt("Pt_height", personalInformation.height);
 				csv.addString("Pt_gender", personalInformation.sex);
 				csv.addBooleanAsInt("Pt_participated_before", personalInformation.previousParticipations);
 				csv.addString("Lineup_type", lineup.toString());
