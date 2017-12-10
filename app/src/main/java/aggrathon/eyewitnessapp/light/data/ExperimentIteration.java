@@ -13,22 +13,15 @@ public class ExperimentIteration {
 	public ArrayList<String> imageOrder;
 	public float[] imageTimes;
 	public int selectedImage;
-	public String targetSex;
-	public int targetHeight;
-	public int targetWeight;
 	public int confidence;
-	public int distance;
-	public int age;
 	public boolean recognisedTarget;
 	public boolean recognisedOther;
-	public boolean tutorial;
 	public float lineupTime;
 
 
 	public ExperimentIteration(String folder, boolean targetPresent, ArrayList<String> imageOrder) {
 		time = new Date();
 		selectedImage = -1;
-		targetSex = "";
 		lineupNumber = folder;
 		this.targetPresent = targetPresent;
 		this.imageOrder = imageOrder;
@@ -43,18 +36,12 @@ public class ExperimentIteration {
 				order += s+" ";
 		return "Experiment Iteration "+index+":"+
 				"\n\tTime: "+time+
-				"\n\tTutorial: "+tutorial+
 				"\n\tNumber: "+lineupNumber+
 				"\n\tLineup time: "+lineupTime+
 				"\n\tImage Order: "+order+
 				"\n\tTarget Present: "+targetPresent+
 				"\n\tSelected: "+getSelectedImage()+
-				"\n\tTarget sex: "+targetSex+
-				"\n\tTarget Height: "+targetHeight+
-				"\n\tTarget Weight: "+targetWeight+
-				"\n\tTarget Age: "+age+
 				"\n\tConfidence: "+confidence+
-				"\n\tDistance To Target: "+distance+
 				"\n\tRecognised Target: "+recognisedTarget+
 				"\n\tRecognised Other: "+recognisedOther+"\n";
 	}

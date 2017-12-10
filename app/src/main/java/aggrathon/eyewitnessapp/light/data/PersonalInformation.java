@@ -9,8 +9,6 @@ public class PersonalInformation {
 	public String nationality;
 	public String sex;
 	public int height;
-	public float visualAcuityLeft;
-	public float visualAcuityRight;
 
 
 	public PersonalInformation(int id, String lang) {
@@ -30,8 +28,6 @@ public class PersonalInformation {
 				"\n\tAge: "+age+
 				"\n\tNationality: "+nationality+
 				"\n\tSex: "+sex+
-				"\n\tHeight: "+height+
-				"\n\tLeft Eye: "+visualAcuityLeft+
-				"\n\tRight Eye: "+visualAcuityRight+"\n";
+				"\n\tHeight: "+height+"\n";
 	}
 }

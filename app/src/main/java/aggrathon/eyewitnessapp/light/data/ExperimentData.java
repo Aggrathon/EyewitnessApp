@@ -244,8 +244,6 @@ public class ExperimentData {
 		int abs = 0;
 		int pres = 0;
 		for (ExperimentIteration d: data) {
-			if (d.tutorial)
-				continue;
 			if (d.targetPresent)
 				pres++;
 			else
@@ -284,12 +282,6 @@ public class ExperimentData {
 				csv.addInt("Pt_height", personalInformation.height);
 				csv.addString("Pt_gender", personalInformation.sex);
 				csv.addBooleanAsInt("Pt_participated_before", personalInformation.previousParticipations);
-				csv.addFloat("Pt_left_eye", personalInformation.visualAcuityLeft);
-				csv.addFloat("Pt_right_eye", personalInformation.visualAcuityRight);
-				csv.addFloat("Pt_average_eye", personalInformation.visualAcuityRight*0.5f + personalInformation.visualAcuityLeft*0.5f);
-				csv.addFloat("Pt_min_eye", personalInformation.visualAcuityRight < personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
-				csv.addFloat("Pt_max_eye", personalInformation.visualAcuityRight > personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
-				csv.addString("Experiment_type", d.tutorial? "testrunda" : "huvudexperiment");
 				csv.addString("Lineup_type", lineup.toString());
 				csv.addBooleanAsInt("Target_present", d.targetPresent);
 				csv.addString("Lineup_number", d.lineupNumber);
@@ -327,11 +319,6 @@ public class ExperimentData {
 					csv.addBooleanAsInt("Target_absent_identification", d.selectedImage < 0);
 				}
 				csv.addInt("Confidence", d.confidence);
-				csv.addInt("Target_height", d.targetHeight);
-				csv.addInt("Target_weight", d.targetWeight);
-				csv.addString("Target_gender", d.targetSex);
-				csv.addInt("Target_age", d.age);
-				csv.addInt("Target_distance", d.distance);
 				csv.addBooleanAsInt("Recognise_chosen", d.recognisedTarget);
 				csv.addBooleanAsInt("Recognise_other", d.recognisedOther);
 			}
@@ -345,8 +332,6 @@ public class ExperimentData {
 		int missings = 0;
 		int correct_miss = 0;
 		for (ExperimentIteration d : data) {
-			if(d.tutorial)
-				continue;
 			if (d.targetPresent) {
 				if (d.selectionIsCorrect())
 					correct++;
