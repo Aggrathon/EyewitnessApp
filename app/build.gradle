@@ -4,7 +4,6 @@ android {
     signingConfigs {
     }
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId 'aggrathon.eyewitnessapp.light.eyewitnessapp.light'
         minSdkVersion 21
@@ -14,9 +13,6 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         versionNameSuffix 'rc'
 
-        jackOptions {
-            enabled true
-        }
     }
     buildTypes {
         release {
