@@ -56,7 +56,7 @@ public class LineupActivity extends ACancelCheckActivity {
 				setupButton(R.id.imageButton7, 7, data);
 
 				SharedPreferences prefs = this.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
-				int pres = prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 50);
+				int pres = prefs.getInt(SettingsActivity.LINEUP_TARGET, 50);
 				if (pres == 100) {
 					findViewById(R.id.targetAbsentButton).setVisibility(View.GONE);
 				}
@@ -72,10 +72,7 @@ public class LineupActivity extends ACancelCheckActivity {
 		if (instr != null && instr.length() > 0) {
 			TextView title = (TextView) findViewById(R.id.title);
 			title.setText(instr);
-			Log.d("Lineup", "Could read: "+f.getPath()+ " : "+instr);
 		}
-		else
-			Log.d("Lineup", "Could not read: "+f.getPath());
 	}
 
 	private void setupButton(int viewId, int index, ExperimentData data) {

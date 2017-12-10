@@ -40,7 +40,8 @@
                 android:cropToPadding="false"
                 android:scaleType="fitCenter"
                 android:tint="@color/disabledBackground"
-                app:srcCompat="@drawable/flag_of_finland"/>
+                app:srcCompat="@drawable/flag_of_finland"
+                android:onClick="onLangFinnish"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -49,7 +50,8 @@
                 android:layout_weight="1"
                 android:text="@string/finnish"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:onClick="onLangFinnish"/>
 
         </LinearLayout>
 
@@ -74,7 +76,8 @@
                 android:contentDescription="@string/swedish"
                 android:cropToPadding="false"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/flag_of_sweden"/>
+                app:srcCompat="@drawable/flag_of_sweden"
+                android:onClick="onLangSwedish"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -83,7 +86,8 @@
                 android:layout_weight="1"
                 android:text="@string/swedish"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:onClick="onLangSwedish"/>
 
         </LinearLayout>
 
@@ -109,7 +113,8 @@
                 android:cropToPadding="false"
                 android:scaleType="fitCenter"
                 android:tint="@color/disabledBackground"
-                app:srcCompat="@drawable/flag_of_the_united_kingdom"/>
+                app:srcCompat="@drawable/flag_of_the_united_kingdom"
+                android:onClick="onLangEnglish"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -118,7 +123,8 @@
                 android:layout_weight="1"
                 android:text="@string/english"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:onClick="onLangEnglish"/>
 
         </LinearLayout>
     </LinearLayout>
