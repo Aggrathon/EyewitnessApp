@@ -1,6 +1,7 @@
 package aggrathon.eyewitnessapp.light.experiment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import java.io.File;
 
 import aggrathon.eyewitnessapp.light.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.light.R;
+import aggrathon.eyewitnessapp.light.SettingsActivity;
 import aggrathon.eyewitnessapp.light.data.ExperimentData;
 import aggrathon.eyewitnessapp.light.data.ExperimentIteration;
 import aggrathon.eyewitnessapp.light.utils.StorageManager;
@@ -52,6 +54,16 @@ public class LineupActivity extends ACancelCheckActivity {
 				setupButton(R.id.imageButton5, 5, data);
 				setupButton(R.id.imageButton6, 6, data);
 				setupButton(R.id.imageButton7, 7, data);
+
+				SharedPreferences prefs = this.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
+				int pres = prefs.getInt(SettingsActivity.LINEUP_STATS_TARGET_ABSENT, 50);
+				if (pres == 100) {
+					findViewById(R.id.targetAbsentButton).setVisibility(View.GONE);
+				}
+				else {
+					findViewById(R.id.targetAbsentButton).setVisibility(View.VISIBLE);
+				}
+
 				break;
 		}
 		startTime = System.currentTimeMillis();
