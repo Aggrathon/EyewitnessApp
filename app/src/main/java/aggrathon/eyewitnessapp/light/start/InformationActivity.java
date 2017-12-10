@@ -23,12 +23,9 @@ public class InformationActivity extends AMessageActivity {
 			File file = new File(new File(StorageManager.IMAGE_DIRECTORY).getParentFile().getPath() + File.separator + "instructions.txt");
 			String instr = StorageManager.readTextFile(file);
 			if (instr == null || instr.length() == 0) {
-				try {
-					if (!file.exists())
-						file.createNewFile();
-				}
-				catch (Exception e) {}
-				instr = "Skapa en fil med instuktioner här:\n"+file.getPath();
+				startActivity(new Intent(act, ExperimentInformationActivity.class));
+				finish();
+				return;
 			}
 			setMessage(R.string.information, instr, new View.OnClickListener() {
 				@Override

@@ -49,9 +49,9 @@
     <string name="text_settings_normalisation">Normalisera fördelningen genom statistik</string>
     <string name="text_reset_stats">Nollställ Statistiken</string>
     <string name="text_settings_folder_logs">Mapp för loggfiler:</string>
-    <string name="text_show_image_instructions">Visa bildinstruktioner</string>
     <string name="text_settings_view_logs">Visa alla loggar</string>
-    <string name="text_settings_image_instructions">I bildmappen skall finnas mappar för alla linups:\n    \"A1\", \"B1\", \"A2\", \"B2\" etc.\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
+    <string name="text_show_image_instructions">Visa fil instruktioner</string>
+    <string name="text_settings_image_instructions">I bildmappen skall finnas mappar för alla lineups:\n\t\"A1\", \"B1\", \"A2\", \"B2\", etc.\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.\n\nExperimentets beskrivning kan läggas i en textfil med namn \"instructions.txt\".\nLineup instruktioner kan läggas i en textfil i lineup mapparna med namn \"instructions.txt\".</string>
     <string name="id">ID</string>
     <string name="device_id">Enhetens ID</string>
     <string name="text_setting_reset_test">Nollställ Test ID</string>

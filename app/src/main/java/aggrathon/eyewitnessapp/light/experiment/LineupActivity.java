@@ -2,14 +2,19 @@ package aggrathon.eyewitnessapp.light.experiment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.io.File;
 
 import aggrathon.eyewitnessapp.light.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.light.R;
 import aggrathon.eyewitnessapp.light.data.ExperimentData;
 import aggrathon.eyewitnessapp.light.data.ExperimentIteration;
+import aggrathon.eyewitnessapp.light.utils.StorageManager;
 
 public class LineupActivity extends ACancelCheckActivity {
 
@@ -50,6 +55,15 @@ public class LineupActivity extends ACancelCheckActivity {
 				break;
 		}
 		startTime = System.currentTimeMillis();
+		File f = new File(StorageManager.IMAGE_DIRECTORY+ File.separator + ExperimentData.getInstance().getLatestData().lineupNumber + File.separator + "instructions.txt");
+		String instr = StorageManager.readTextFile(f);
+		if (instr != null && instr.length() > 0) {
+			TextView title = (TextView) findViewById(R.id.title);
+			title.setText(instr);
+			Log.d("Lineup", "Could read: "+f.getPath()+ " : "+instr);
+		}
+		else
+			Log.d("Lineup", "Could not read: "+f.getPath());
 	}
 
 	private void setupButton(int viewId, int index, ExperimentData data) {
