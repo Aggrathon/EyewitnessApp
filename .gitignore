@@ -226,3 +226,4 @@ log.txt
 *__jb_tmp__
 *.xml___jb_tmp___
 *.tmp
+tmp/
