@@ -36,6 +36,8 @@ public class SettingsActivity extends AppCompatActivity {
 	public static final String LINEUP_STATS_SIMULTANEOUS = "LINEUP_STATS_SIMULTANEOUS";
 	public static final String LINEUP_STATS_TARGET_ABSENT = "LINEUP_STATS_TARGET_ABSENT";
 	public static final String LINEUP_STATS_TARGET_PRESENT = "LINEUP_STATS_TARGET_PRESENT";
+	public static final String LINEUP_COUNT = "LINEUP_COUNT";
+	public static final String IMAGE_COUNT = "IMAGE_COUNT";
 	public static final String TEST_NUM_COUNTER = "TEST_NUM_COUNTER";
 	public static final String DEVICE_ID = "DEVICE_ID";
 	public static final String LOG_FOLDER_LOCATION = "LOG_FOLDER_LOCATION";
@@ -48,6 +50,11 @@ public class SettingsActivity extends AppCompatActivity {
 	TextView testID;
 	Spinner logFolderSpinner;
 	Spinner imageFolderSpinner;
+	SeekBar lineupCountBar;
+	SeekBar imageCountBar;
+	TextView lineupCountText;
+	TextView imageCountText;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +70,8 @@ public class SettingsActivity extends AppCompatActivity {
 		imageFolderSpinner = (Spinner)findViewById(R.id.spinnerImageFolder);
 
 		final SharedPreferences prefs = getSharedPreferences(PREFERENCE_NAME, 0);
-		lineupVariation.setProgress(prefs.getInt(LINEUP_VARIATION, lineupVariation.getProgress()));
-		lineupTarget.setProgress(prefs.getInt(LINEUP_TARGET, lineupTarget.getProgress()));
+		lineupVariation.setProgress(prefs.getInt(LINEUP_VARIATION, 100));
+		lineupTarget.setProgress(prefs.getInt(LINEUP_TARGET, 100));
 		lineupNormalisation.setChecked(prefs.getBoolean(LINEUP_NORMALISATION, true));
 		deviceID.setText(prefs.getString(DEVICE_ID, ""));
 		testID.setText(testID.getText()+" "+prefs.getInt(TEST_NUM_COUNTER, 1));
@@ -100,6 +107,41 @@ public class SettingsActivity extends AppCompatActivity {
 			@Override
 			public void onNothingSelected(AdapterView<?> adapterView) { }
 		});
+
+
+		lineupCountBar = (SeekBar)findViewById(R.id.prefLineupCountSeekBar);
+		lineupCountText = (TextView)findViewById(R.id.prefLineupCountText);
+		lineupCountBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+				lineupCountText.setText(Integer.toString(i+1));
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}
+		});
+		int tmp = prefs.getInt(LINEUP_COUNT, 4);
+		lineupCountBar.setProgress(tmp-1);
+		lineupCountBar.setMax(9);
+		lineupCountText.setText(Integer.toString(tmp));
+
+		imageCountBar = (SeekBar)findViewById(R.id.prefImageCountSeekBar);
+		imageCountText = (TextView)findViewById(R.id.prefImageCountText);
+		lineupCountBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+				imageCountText.setText(Integer.toString(i+2));
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}
+		});
+		tmp = prefs.getInt(IMAGE_COUNT, 8);
+		lineupCountBar.setProgress(tmp-2);
+		lineupCountBar.setMax(8);
+		lineupCountText.setText(Integer.toString(tmp));
 	}
 
 	@Override
@@ -111,6 +153,8 @@ public class SettingsActivity extends AppCompatActivity {
 		editor.putInt(LINEUP_TARGET, lineupTarget.getProgress());
 		editor.putBoolean(LINEUP_NORMALISATION, lineupNormalisation.isChecked());
 		editor.putString(DEVICE_ID, deviceID.getText().toString());
+		editor.putInt(LINEUP_COUNT, lineupCountBar.getProgress()+1);
+		editor.putInt(IMAGE_COUNT, imageCountBar.getProgress()+2);
 		editor.commit();
 	}
 

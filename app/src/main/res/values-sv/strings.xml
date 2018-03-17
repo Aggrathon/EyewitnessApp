@@ -71,6 +71,7 @@
     <string name="text_visual_acuity_instructions3">Syntestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
     <string name="man_age">Pojke / Man</string>
     <string name="woman_age">Flicka / Kvinna</string>
+    <string name="text_settings_lineup_count">Antal Lineups</string>
 
     <string-array name="countries">
         <item>Finland</item>
@@ -98,5 +99,6 @@
     <string name="text_settings_folder_images">Mapp för bilder:</string>
     <string name="left">Vänster</string>
     <string name="right">Höger</string>
+    <string name="text_settings_image_count">Antal Bilder</string>
 
 </resources>

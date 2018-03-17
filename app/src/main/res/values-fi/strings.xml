@@ -73,6 +73,7 @@
     <string name="notification_fill_all">Täytä vastaus kaikkiin kysymyksiin ensin</string>
     <string name="notification_images_missing">Kaikkia kuvia ei löytynyt</string>
     <string name="text_tutorial_instructions2">Seuraavaksi aloitetaan pääkokeilu.\nSe toimii samalla tavalla kuin testikierros.</string>
+    <string name="text_settings_lineup_count">Number of Lineups</string>
 
     <string-array name="countries">
         <item>Suomi</item>
@@ -99,5 +100,6 @@
     </string-array>
     <string name="right">Oikea</string>
     <string name="left">Vasen</string>
+    <string name="text_settings_image_count">Number of Images</string>
 
 </resources>

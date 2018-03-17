@@ -73,6 +73,7 @@
     <string name="title_background_information">Background Information</string>
     <string name="title_tutorial">Test round</string>
     <string name="text_tutorial_instructions2">Next, the main experiment begins.\nIt works in the same way as the test round.</string>
+    <string name="text_settings_lineup_count">Number of Lineups</string>
 
     <string-array name="countries">
         <item>Finland</item>
@@ -99,5 +100,6 @@
     </string-array>
     <string name="right">Right</string>
     <string name="left">Left</string>
+    <string name="text_settings_image_count">Number of Images</string>
 
 </resources>

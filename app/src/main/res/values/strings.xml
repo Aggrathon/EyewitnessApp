@@ -74,6 +74,8 @@
     <string name="text_visual_acuity_instructions3">Syntestet är färdigt.\nDu kan öppna båda ögonen nu.</string>
     <string name="left">Vänster</string>
     <string name="right">Höger</string>
+    <string name="text_settings_lineup_count">Number of Lineups</string>
+    <string name="text_settings_image_count">Number of Images</string>
 
     <string-array name="countries">
         <item>Finland</item>
