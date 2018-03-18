@@ -1,6 +1,7 @@
 package aggrathon.eyewitnessapp.experiment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -8,8 +9,10 @@ import android.widget.ImageView;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
+import aggrathon.eyewitnessapp.SettingsActivity;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.data.ExperimentIteration;
+import aggrathon.eyewitnessapp.view.ImageButtonGrid;
 
 public class LineupActivity extends ACancelCheckActivity {
 
@@ -17,6 +20,7 @@ public class LineupActivity extends ACancelCheckActivity {
 	private int imageIndex = 0;
 	private long startTime;
 	private long startTime2;
+	ImageButtonGrid grid;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,31 +42,19 @@ public class LineupActivity extends ACancelCheckActivity {
 
 			case simultaneous:
 				setContentView(R.layout.activity_lineup);
-
-				setupButton(R.id.imageButton0, 0, data);
-				setupButton(R.id.imageButton1, 1, data);
-				setupButton(R.id.imageButton2, 2, data);
-				setupButton(R.id.imageButton3, 3, data);
-				setupButton(R.id.imageButton4, 4, data);
-				setupButton(R.id.imageButton5, 5, data);
-				setupButton(R.id.imageButton6, 6, data);
-				setupButton(R.id.imageButton7, 7, data);
+				grid = (ImageButtonGrid) findViewById(R.id.imageGrid);
+				grid.SetImages(data.images, new ImageButtonGrid.OnCLick() {
+					@Override
+					public void OnClick(int i) {
+						imageIndex = i;
+						onSelectImageButton(null);
+					}
+				});
+				// Here the light version removes the option for target not included if that's impossible
 				break;
 		}
 		startTime = System.currentTimeMillis();
-	}
-
-	private void setupButton(int viewId, int index, ExperimentData data) {
-		ImageButton imageButton = (ImageButton)findViewById(viewId);
-		imageButton.setImageBitmap(data.images.get(index));
-		final int i = index;
-		imageButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				imageIndex = i;
-				onSelectImageButton(null);
-			}
-		});
+		// Here the light version reads instruction text from a file
 	}
 
 	public void onTargetMissingButton(View v) {

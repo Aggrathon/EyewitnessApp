@@ -27,7 +27,7 @@ public class ExperimentData {
 	public static final String CORRECT_TAG = "correct";
 	public static final String EXTRA_TAG = "extra";
 	public static final String MISSING_TAG = "missing";
-	public static final int NUM_IMAGES = 8;
+	public static final int NUM_IMAGES = 10;
 
 	//region static instance
 
@@ -137,44 +137,56 @@ public class ExperimentData {
 		}
 	}
 
-	private void LoadImages(String id, Activity act, boolean targetPresent) {
+	private void LoadImages(SharedPreferences prefs, String id, Activity act, boolean targetPresent) {
+		int num_images = prefs.getInt(SettingsActivity.IMAGE_COUNT, 8);
 		images.clear();
 		imageLabels = new ArrayList<>();
-		File[] fileList = StorageManager.getImageList(id);
+		File[] fileList = StorageManager.getImageList(id); // Get the list of files
+		//Read the bitmaps
 		if (fileList != null) for (int i = 0; i < fileList.length; i++) {
 			File f = fileList[i];
 			String name = f.getName();
-			if(targetPresent) {
-				if (name.toLowerCase().contains(EXTRA_TAG)) {
-					File f2 = fileList[fileList.length-1];
-					fileList[i] = f2;
-					fileList[fileList.length-1] = f;
-					f = f2;
-				}
-			}
-			else if (name.toLowerCase().contains(CORRECT_TAG)) {
+			if (!targetPresent && name.toLowerCase().contains(CORRECT_TAG)) {
 				continue;
 			}
 			Bitmap bmp = BitmapFactory.decodeFile(f.getPath());
 			if (bmp != null) {
 				images.add(bmp);
-				imageLabels.add(f.getName());
+				imageLabels.add(name);
 			}
 			else {
 				Log.d("Image Read", "Could not read bitmap from "+f.getPath());
 			}
-			if(images.size() == NUM_IMAGES)
-				break;
 		}
-		if(images.size() != NUM_IMAGES) {
+		//Check if enough images
+		if(images.size() < num_images) {
 			Toast.makeText(act, R.string.notification_images_missing, Toast.LENGTH_LONG).show();
-			for (int i = images.size(); i < NUM_IMAGES; i++) {
+			for (int i = images.size(); i < num_images; i++) {
 				images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.placeholder_image));
 				imageLabels.add(MISSING_TAG);
 			}
 		}
+		//If more images than wanted remove the extra image
+		if (images.size() > num_images) {
+			for (int i = 0; i < images.size(); i++) {
+				if (imageLabels.get(i).toLowerCase().contains(EXTRA_TAG)) {
+					images.remove(i).recycle();
+					imageLabels.remove(i);
+					break;
+				}
+			}
+		}
+		if (rnd == null)
+			rnd = new Random();
+		//If still more images than wanted remove random images
+		while (images.size() > num_images) {
+			int i = rnd.nextInt(images.size());
+			if (targetPresent && imageLabels.get(i).toLowerCase().contains(CORRECT_TAG))
+				continue;
+			images.remove(i).recycle();
+			imageLabels.remove(i);
+		}
 		//Shuffle
-		Random rnd = new Random();
 		for (int i = 0; i < imageLabels.size(); i++) {
 			Bitmap a = images.get(i);
 			String as = imageLabels.get(i);
@@ -193,7 +205,7 @@ public class ExperimentData {
 		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
 		float presence = getSettings(prefs, SettingsActivity.LINEUP_TARGET, normalise, SettingsActivity.LINEUP_STATS_TARGET_ABSENT, SettingsActivity.LINEUP_STATS_TARGET_PRESENT);
 		boolean targetPresent = rnd.nextFloat() <= presence;
-		LoadImages(label, act, targetPresent);
+		LoadImages(prefs, label, act, targetPresent);
 		ExperimentIteration iter = new ExperimentIteration(number, targetPresent, imageLabels);
 		data.add(iter);
 		return iter;

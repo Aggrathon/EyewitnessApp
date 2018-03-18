@@ -17,84 +17,16 @@
         android:background="@color/colorPrimary"
         android:text="@string/text_lineup_instructions_simultaneous"/>
 
-    <LinearLayout
+    <aggrathon.eyewitnessapp.view.ImageButtonGrid
+        android:id="@+id/imageGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_weight="1000"
-        android:layout_marginLeft="@dimen/margin"
-        android:layout_marginRight="@dimen/margin"
-        android:layout_marginTop="@dimen/margin">
+        android:layout_margin="@dimen/margin">
 
-        <ImageButton
-            android:id="@+id/imageButton0"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/AppTheme.ImageButton"/>
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/AppTheme.ImageButton"/>
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/AppTheme.ImageButton"/>
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/AppTheme.ImageButton"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_weight="1000"
-        android:layout_marginLeft="@dimen/margin"
-        android:layout_marginRight="@dimen/margin">
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            style="@style/AppTheme.ImageButton"/>
-
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            style="@style/AppTheme.ImageButton"/>
-
-        <ImageButton
-            android:id="@+id/imageButton6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            style="@style/AppTheme.ImageButton"/>
-
-        <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            style="@style/AppTheme.ImageButton"/>
-
-    </LinearLayout>
+    </aggrathon.eyewitnessapp.view.ImageButtonGrid>
 
     <LinearLayout
         android:layout_width="match_parent"
