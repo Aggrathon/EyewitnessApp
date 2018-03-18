@@ -8,13 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Space;
 
 import java.util.ArrayList;
 
 import aggrathon.eyewitnessapp.R;
 
-public class ImageButtonGrid extends GridLayout {
+public class ImageButtonGrid extends LinearLayout {
 	/**
 	 * This class implements a grid of Image Buttons.
 	 * It is based on the GridLayout.
@@ -27,66 +28,87 @@ public class ImageButtonGrid extends GridLayout {
 
 	public ImageButtonGrid(Context context) {
 		super(context);
+		init();
 	}
 	public ImageButtonGrid(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		init();
 	}
-	public ImageButtonGrid(Context context, AttributeSet attrs, int defStyleAttr) { super(context, attrs, defStyleAttr); }
-	public ImageButtonGrid(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) { super(context, attrs, defStyleAttr, defStyleRes); }
+	public ImageButtonGrid(Context context, AttributeSet attrs, int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
+		init();
+	}
+	public ImageButtonGrid(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+		super(context, attrs, defStyleAttr, defStyleRes);
+		init();
+	}
 
-	public void SetImages(Context context, int[] images, final OnCLick onCLick) {
-		removeAllViews();
-		LayoutInflater inf = LayoutInflater.from(context);
-		//addView(new Space(context));
+
+	private void init() {
+		inflate(getContext(),R.layout.layout_image_button_grid,this);
+		setOrientation(VERTICAL);
+	}
+
+	public void SetImages(int[] images, final OnCLick onCLick) {
+		ArrayList<ImageButton> buttons = getButtons(images.length);
 		for (int i = 0; i < images.length; i++) {
-			ImageButton ib = (ImageButton)inf.inflate(R.layout.layout_image_button, null);
+			buttons.get(i).setImageResource(images[i]);
 			final int i_ = i;
-			ib.setOnClickListener(new OnClickListener() {
+			buttons.get(i).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
 					onCLick.OnClick(i_);
 				}
 			});
-			ib.setImageResource(images[i]);
-			addView(ib);
-			//LayoutParams params = (LayoutParams) ib.getLayoutParams();
-			//params.setMargins(16, 16, 16, 16);
-			//params.setGravity(Gravity.CENTER);
-			//ib.setLayoutParams(params);
-			//addView(new Space(context));
 		}
-		if (images.length < 4) {
-			setRowCount(1);
-			setColumnCount(images.length);
-		}
-		else {
-			setRowCount(2);
-			setColumnCount((images.length+1)/2);
-		}
-		requestLayout();
 	}
 
-	public void SetImages(Context context, ArrayList<Bitmap> images, final OnCLick onCLick) {
+	public void SetImages(ArrayList<Bitmap> images, final OnCLick onCLick) {
+		ArrayList<ImageButton> buttons = getButtons(images.size());
 		for (int i = 0; i < images.size(); i++) {
-			ImageButton ib = (ImageButton)inflate(context, R.layout.layout_image_button, this);
+			buttons.get(i).setImageBitmap(images.get(i));
 			final int i_ = i;
-			ib.setOnClickListener(new OnClickListener() {
+			buttons.get(i).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
 					onCLick.OnClick(i_);
 				}
 			});
-			ib.setImageBitmap(images.get(i));
-			addView(ib);
 		}
-		if (images.size() < 4) {
-			setRowCount(1);
-			setColumnCount(images.size()*2);
+	}
+
+	ArrayList<ImageButton> getButtons(int num) {
+		ArrayList<ImageButton> list = new ArrayList<>();
+		list.add((ImageButton)findViewById(R.id.imageButton0));
+		list.add((ImageButton)findViewById(R.id.imageButton1));
+		list.add((ImageButton)findViewById(R.id.imageButton2));
+		list.add((ImageButton)findViewById(R.id.imageButton3));
+		list.add((ImageButton)findViewById(R.id.imageButton4));
+		list.add((ImageButton)findViewById(R.id.imageButton5));
+		list.add((ImageButton)findViewById(R.id.imageButton6));
+		list.add((ImageButton)findViewById(R.id.imageButton7));
+		list.add((ImageButton)findViewById(R.id.imageButton8));
+		list.add((ImageButton)findViewById(R.id.imageButton9));
+		if (num < 4) {
+			for (int i = 0; i < num; i++)
+				list.get(i).setVisibility(VISIBLE);
+			for (int i = num; i < 10; i++)
+				list.get(i).setVisibility(GONE);
 		}
 		else {
-			setRowCount(2);
-			setColumnCount((images.size()+1)/2);
+			int width = (num + 1)/2;
+			for (int i = 0; i < width; i++) {
+				ImageButton tmp = list.get(width+i);
+				list.set(width+i, list.get(5+i));
+				list.set(5+i, tmp);
+			}
+			for (int i = 0; i < num; i++)
+				list.get(i).setVisibility(VISIBLE);
+			for (int i = num; i < 10; i++)
+				list.get(i).setVisibility(GONE);
+			if (num%2 == 1)
+				list.get(num).setVisibility(INVISIBLE);
 		}
-		requestLayout();
+		return list;
 	}
 }

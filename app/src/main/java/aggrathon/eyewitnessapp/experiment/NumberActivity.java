@@ -53,7 +53,7 @@ public class NumberActivity extends ACancelCheckActivity {
 			imgs[8] = R.drawable.nine;
 		if (10 <= num)
 			imgs[9] = R.drawable.ten;
-		grid.SetImages(this, imgs, onClick);
+		grid.SetImages(imgs, onClick);
 
 	}
 

@@ -2,11 +2,13 @@
 <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:app="http://schemas.android.com/apk/res-auto"
              style="@style/AppTheme.Panel"
-             android:layout_width="wrap_content"
+             android:layout_width="0dp"
              android:layout_height="0dp"
-             android:layout_columnWeight="100"
-             android:layout_rowWeight="100"
+             android:layout_columnWeight="1"
+             android:layout_rowWeight="1"
              android:layout_gravity="center"
              android:foregroundGravity="center"
-             app:layout_anchorGravity="center">
+             app:layout_anchorGravity="center"
+    android:layout_margin="@dimen/margin"
+    android:padding="@dimen/margin">
 </ImageButton>

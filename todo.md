@@ -10,6 +10,8 @@
     - Setting (0-100, 0)
 - [ ] Image timelimit
     - Setting (100ms-20 000ms, infinite)
+- [ ] Screen physical size
+    - Add to Log
 
 ## Light
 
@@ -21,3 +23,5 @@
     - Setting (0-100, 0)
 - [ ] Image timelimit
     - Setting (100ms-20 000ms, infinite)
+- [ ] Screen physical size
+    - Add to Log
