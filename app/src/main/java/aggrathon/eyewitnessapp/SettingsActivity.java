@@ -128,7 +128,7 @@ public class SettingsActivity extends AppCompatActivity {
 
 		imageCountBar = (SeekBar)findViewById(R.id.prefImageCountSeekBar);
 		imageCountText = (TextView)findViewById(R.id.prefImageCountText);
-		lineupCountBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+		imageCountBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 				imageCountText.setText(Integer.toString(i+2));
@@ -139,9 +139,9 @@ public class SettingsActivity extends AppCompatActivity {
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
 		tmp = prefs.getInt(IMAGE_COUNT, 8);
-		lineupCountBar.setProgress(tmp-2);
-		lineupCountBar.setMax(8);
-		lineupCountText.setText(Integer.toString(tmp));
+		imageCountBar.setProgress(tmp-2);
+		imageCountBar.setMax(8);
+		imageCountText.setText(Integer.toString(tmp));
 	}
 
 	@Override

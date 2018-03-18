@@ -17,75 +17,16 @@
         android:layout_weight="1"
         android:text="@string/text_number_instructions"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="100"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/imageButton6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin"
-            android:layout_weight="1"
-            style="@style/AppTheme.Panel"
-            android:onClick="OnNumberOne"
-            app:srcCompat="@drawable/one"/>
-
-        <Space
-            android:layout_width="@dimen/largeMargin"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin"
-            android:layout_weight="1"
-            style="@style/AppTheme.Panel"
-            android:onClick="OnNumberTwo"
-            app:srcCompat="@drawable/two"/>
-
-    </LinearLayout>
-
-    <Space
+    <aggrathon.eyewitnessapp.view.ImageButtonGrid
+        android:id="@+id/numberGrid"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/largeMargin"
-        android:layout_weight="1"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="fill_horizontal"
+        android:useDefaultMargins="true"
         android:layout_weight="100"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/imageButton9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/AppTheme.Panel"
-            android:onClick="OnNumberThree"
-            app:srcCompat="@drawable/three"/>
-
-        <Space
-            android:layout_width="@dimen/largeMargin"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/imageButton8"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/AppTheme.Panel"
-            android:onClick="OnNumberFour"
-            app:srcCompat="@drawable/four"/>
-    </LinearLayout>
+        android:columnCount="4"
+        android:rowCount="2">
+    </aggrathon.eyewitnessapp.view.ImageButtonGrid>
 
     <Button
         android:id="@+id/endButton"

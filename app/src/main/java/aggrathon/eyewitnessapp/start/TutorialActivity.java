@@ -1,5 +1,6 @@
 package aggrathon.eyewitnessapp.start;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import aggrathon.eyewitnessapp.experiment.QuestionsActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.experiment.TargetQuestionsActivity;
+import aggrathon.eyewitnessapp.view.ImageButtonGrid;
 
 public class TutorialActivity extends AMessageActivity {
 
@@ -34,9 +36,15 @@ public class TutorialActivity extends AMessageActivity {
 
 	public static class TutorialNumbers extends NumberActivity {
 
+		@SuppressLint("MissingSuperCall")
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
+			super.onCreate(savedInstanceState, new ImageButtonGrid.OnCLick() {
+				@Override
+				public void OnClick(int i) {
+					NextActivity(i);
+				}
+			});
 			findViewById(R.id.endButton).setVisibility(View.GONE);
 		}
 

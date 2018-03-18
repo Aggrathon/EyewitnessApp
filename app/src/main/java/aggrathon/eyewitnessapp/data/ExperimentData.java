@@ -141,7 +141,7 @@ public class ExperimentData {
 		images.clear();
 		imageLabels = new ArrayList<>();
 		File[] fileList = StorageManager.getImageList(id);
-		for (int i = 0; i < fileList.length; i++) {
+		if (fileList != null) for (int i = 0; i < fileList.length; i++) {
 			File f = fileList[i];
 			String name = f.getName();
 			if(targetPresent) {
