@@ -176,7 +176,7 @@ public class SettingsActivity extends AppCompatActivity {
 		try {
 			Intent intent = new Intent(Intent.ACTION_VIEW);
 			intent.setData(Uri.parse(StorageManager.LOG_DIRECTORY));
-			String[] types = new String[] {"files/*", "resource/folder", "*/*"};
+			String[] types = new String[] {"files/*", "resource/folder"};
 			PackageManager manager = getPackageManager();
 			for (String s: types) {
 				intent.setType(s);
@@ -186,9 +186,11 @@ public class SettingsActivity extends AppCompatActivity {
 				}
 			}
 			Toast.makeText(this, "No filebrowser found", Toast.LENGTH_SHORT).show();
+			StorageManager.showCombinedLog(deviceID.getText().toString(), this);
 		}
 		catch (Exception e) {
 			Toast.makeText(this, "Couldn't show the log", Toast.LENGTH_SHORT).show();
+			StorageManager.showCombinedLog(deviceID.getText().toString(), this);
 		}
 	}
 

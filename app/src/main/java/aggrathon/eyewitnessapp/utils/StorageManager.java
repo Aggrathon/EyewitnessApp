@@ -11,7 +11,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.widget.Scroller;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedWriter;
@@ -29,6 +33,12 @@ public class StorageManager {
 	public static final String DIRECTORY_NAME = "Eyewitness";
 	public static String LOG_DIRECTORY = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME + File.separator + "logs";
 	public static String IMAGE_DIRECTORY = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + DIRECTORY_NAME + File.separator + "images";
+
+	public static String getCombinedLogFile(String deviceName) {
+		if (deviceName == null || deviceName.equals(""))
+			deviceName = "log";
+		return LOG_DIRECTORY + File.separator + deviceName+"_combined.csv";
+	}
 
 	public static void setDirectoryLocation(String logDir, String imageDir) {
 		setLogDirLocation(logDir);
@@ -165,7 +175,7 @@ public class StorageManager {
 			writer.write(logs);
 			writer.close();
 			if (alsoCombined) {
-				String combinedLog = LOG_DIRECTORY + File.separator + deviceName+"_combined.csv";
+				String combinedLog = getCombinedLogFile(deviceName);
 				boolean writeLabels = !new File(combinedLog).isFile();
 				writer = new BufferedWriter(new FileWriter(combinedLog, true));
 				if (writeLabels) {
@@ -208,6 +218,23 @@ public class StorageManager {
 		}
 		catch (Exception e) {
 			return null;
+		}
+	}
+
+	public static void showCombinedLog(String deviceName, AppCompatActivity activity) {
+		File combinedLog = new File(getCombinedLogFile(deviceName));
+		if (combinedLog.isFile()) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+			builder.setTitle("Combined Log");
+			builder.setMessage(readTextFile(combinedLog));
+			builder.setPositiveButton("OK", null);
+			AlertDialog dialog = builder.create();
+			dialog.show();
+			TextView text = (TextView)dialog.findViewById(android.R.id.message);
+			text.setScroller(new Scroller(activity));
+			text.setVerticalScrollBarEnabled(true);
+			text.setHorizontalScrollBarEnabled(true);
+			text.setMovementMethod(new ScrollingMovementMethod());
 		}
 	}
 

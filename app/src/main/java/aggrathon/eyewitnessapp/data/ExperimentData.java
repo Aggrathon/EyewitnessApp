@@ -80,6 +80,7 @@ public class ExperimentData {
 	public LineupVariant lineup;
 	public ArrayList<Bitmap> images;
 	private ArrayList<String> imageLabels;
+	private int numImages;
 	Random rnd;
 
 	//Information
@@ -138,7 +139,7 @@ public class ExperimentData {
 	}
 
 	private void LoadImages(SharedPreferences prefs, String id, Activity act, boolean targetPresent) {
-		int num_images = prefs.getInt(SettingsActivity.IMAGE_COUNT, 8);
+		numImages = prefs.getInt(SettingsActivity.IMAGE_COUNT, 8);
 		images.clear();
 		imageLabels = new ArrayList<>();
 		File[] fileList = StorageManager.getImageList(id); // Get the list of files
@@ -159,15 +160,15 @@ public class ExperimentData {
 			}
 		}
 		//Check if enough images
-		if(images.size() < num_images) {
+		if(images.size() < numImages) {
 			Toast.makeText(act, R.string.notification_images_missing, Toast.LENGTH_LONG).show();
-			for (int i = images.size(); i < num_images; i++) {
+			for (int i = images.size(); i < numImages; i++) {
 				images.add(BitmapFactory.decodeResource(act.getResources(), R.drawable.placeholder_image));
 				imageLabels.add(MISSING_TAG);
 			}
 		}
 		//If more images than wanted remove the extra image
-		if (images.size() > num_images) {
+		if (images.size() > numImages) {
 			for (int i = 0; i < images.size(); i++) {
 				if (imageLabels.get(i).toLowerCase().contains(EXTRA_TAG)) {
 					images.remove(i).recycle();
@@ -179,7 +180,7 @@ public class ExperimentData {
 		if (rnd == null)
 			rnd = new Random();
 		//If still more images than wanted remove random images
-		while (images.size() > num_images) {
+		while (images.size() > numImages) {
 			int i = rnd.nextInt(images.size());
 			if (targetPresent && imageLabels.get(i).toLowerCase().contains(CORRECT_TAG))
 				continue;
@@ -279,12 +280,13 @@ public class ExperimentData {
 				csv.addString("Lineup_type", lineup.toString());
 				csv.addBooleanAsInt("Target_present", d.targetPresent);
 				csv.addInt("Lineup_number", d.lineupNumber);
+				csv.addInt("Lineup_size", numImages);
 				switch (lineup) {
 					case sequential:
 						for (int i = 0; i < NUM_IMAGES; i++) {
-							csv.addString("Seq_image" + (i + 1), d.imageOrder.get(i));
+							csv.addString("Seq_image" + (i + 1), d.getImageOrder(i));
 							csv.addBooleanAsInt("Seq_image" + (i + 1)+"_choice", d.selectedImage == i);
-							csv.addFloat("Seq_image" + (i + 1)+"_time", d.imageTimes[i]);
+							csv.addFloat("Seq_image" + (i + 1)+"_time", d.getImageTime(i));
 						}
 						for (int i = 0; i < NUM_IMAGES; i++)
 							csv.addEmpty("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1));
@@ -296,7 +298,7 @@ public class ExperimentData {
 							csv.addEmpty("Seq_image" + (i + 1)+"_time");
 						}
 						for (int i = 0; i < NUM_IMAGES; i++)
-							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), d.imageOrder.get(i));
+							csv.addString("Sim_row"+(i*2/NUM_IMAGES+1)+"_image"+(i%(NUM_IMAGES/2)+1), d.getImageOrder(i));
 						break;
 				}
 				csv.addFloat("Simultaneous_choice_time", d.lineupTime);

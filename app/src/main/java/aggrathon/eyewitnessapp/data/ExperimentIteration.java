@@ -10,8 +10,8 @@ public class ExperimentIteration {
 	public Date time;
 	public boolean targetPresent;
 	public int lineupNumber;
-	public ArrayList<String> imageOrder;
-	public float[] imageTimes;
+	private ArrayList<String> imageOrder;
+	private float[] imageTimes;
 	public int selectedImage;
 	public String targetSex;
 	public int targetHeight;
@@ -87,5 +87,23 @@ public class ExperimentIteration {
 	public void setImageTime(int index, long start, long end) {
 		if (index >= 0 && index < imageTimes.length)
 			imageTimes[index] = (float)((double)(end-start)*0.001);
+	}
+
+	public String getImageOrder(int index) {
+		if (index < 0 ||index >= imageOrder.size()) {
+			return "";
+		}
+		else {
+			return imageOrder.get(index);
+		}
+	}
+
+	public float getImageTime(int index) {
+		if (index < 0 || index >= imageTimes.length) {
+			return 0.0f;
+		}
+		else {
+			return imageTimes[index];
+		}
 	}
 }

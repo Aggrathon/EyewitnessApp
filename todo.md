@@ -6,10 +6,10 @@
     - [x] Setting(1-10, 4)
     - [x] Activity
     - [x] Images
-- [ ] Number of images
+- [x] Number of images
     - [x] Setting (2-10, 8)
     - [x] Activity
-    - [ ] Log (Ask how the overflow should be handled, and handle nulls)
+    - [x] Log
 - [ ] Blurry images
     - Setting (0-100, 0)
 - [ ] Image timelimit
