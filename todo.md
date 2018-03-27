@@ -2,14 +2,14 @@
 
 ## Normal
 
-- [ ] Number of loops
+- [x] Number of loops
     - [x] Setting(1-10, 4)
     - [x] Activity
-    - [ ] Images
+    - [x] Images
 - [ ] Number of images
     - [x] Setting (2-10, 8)
     - [x] Activity
-    - [ ] Log (Ask how the overflow should be handled)
+    - [ ] Log (Ask how the overflow should be handled, and handle nulls)
 - [ ] Blurry images
     - Setting (0-100, 0)
 - [ ] Image timelimit

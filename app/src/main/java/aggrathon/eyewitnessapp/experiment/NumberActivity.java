@@ -52,9 +52,8 @@ public class NumberActivity extends ACancelCheckActivity {
 		if (9 <= num)
 			imgs[8] = R.drawable.nine;
 		if (10 <= num)
-			imgs[9] = R.drawable.ten;
+			imgs[9] = R.drawable.zero;
 		grid.SetImages(imgs, onClick);
-
 	}
 
 	@SuppressLint("MissingSuperCall")

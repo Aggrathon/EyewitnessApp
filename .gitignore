@@ -227,3 +227,4 @@ log.txt
 *.xml___jb_tmp___
 *.tmp
 tmp/
+app/release/
