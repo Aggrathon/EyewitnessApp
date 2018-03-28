@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -252,6 +253,14 @@ public class ExperimentData {
 		saveCsv(activity, prefs);
 	}
 
+	public static float getScreenSize() {
+		DisplayMetrics dm = new DisplayMetrics();
+		double width = (double)dm.widthPixels / (double)dm.xdpi;
+		double height = (double)dm.heightPixels / (double)dm.ydpi;
+		double size = Math.sqrt(width*width+ height*height);
+		return (float)size;
+	}
+
 	private void saveCsv(Activity activity, SharedPreferences prefs) {
 		if(data != null || data.size() > 0) {
 			CsvGenerator csv = new CsvGenerator();
@@ -264,6 +273,7 @@ public class ExperimentData {
 				csv.addString("Date", sd.format(d.time));
 				csv.addString("Time", st.format(d.time));
 				csv.addString("Tablet_ID", prefs.getString(SettingsActivity.DEVICE_ID, ""));
+				csv.addFloat("Sceen_Size", getScreenSize());
 				csv.addInt("Pt_ID", personalInformation.testId);
 				csv.addString("Pt_language", personalInformation.language);
 				csv.addString("Pt_nationality", personalInformation.nationality);
