@@ -42,6 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
 	public static final String DEVICE_ID = "DEVICE_ID";
 	public static final String LOG_FOLDER_LOCATION = "LOG_FOLDER_LOCATION";
 	public static final String IMAGE_FOLDER_LOCATION = "IMAGE_FOLDER_LOCATION";
+	public static final String TIME_LIMIT = "TIME_LIMIT";
 
 	SeekBar lineupVariation;
 	SeekBar lineupTarget;
@@ -54,6 +55,8 @@ public class SettingsActivity extends AppCompatActivity {
 	SeekBar imageCountBar;
 	TextView lineupCountText;
 	TextView imageCountText;
+	TextView timeLimitText;
+	SeekBar timeLimitBar;
 
 
 	@Override
@@ -142,6 +145,28 @@ public class SettingsActivity extends AppCompatActivity {
 		imageCountBar.setProgress(tmp-2);
 		imageCountBar.setMax(8);
 		imageCountText.setText(Integer.toString(tmp));
+
+		timeLimitText = (TextView)findViewById(R.id.textTimeLimitText);
+		timeLimitBar = (SeekBar)findViewById(R.id.prefTimeLimitSeekBar);
+		timeLimitBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+				if (i == 0)
+					timeLimitText.setText("∞");
+				else
+					timeLimitText.setText(Integer.toString(i/10)+","+Integer.toString(i%10)+"s");
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}
+		});
+		tmp = prefs.getInt(TIME_LIMIT, 0);
+		timeLimitBar.setProgress(tmp);
+		if (tmp == 0)
+			timeLimitText.setText("∞");
+		else
+			timeLimitText.setText(Integer.toString(tmp/10)+","+Integer.toString(tmp%10)+"s");
 	}
 
 	@Override
@@ -155,6 +180,7 @@ public class SettingsActivity extends AppCompatActivity {
 		editor.putString(DEVICE_ID, deviceID.getText().toString());
 		editor.putInt(LINEUP_COUNT, lineupCountBar.getProgress()+1);
 		editor.putInt(IMAGE_COUNT, imageCountBar.getProgress()+2);
+		editor.putInt(TIME_LIMIT, timeLimitBar.getProgress());
 		editor.commit();
 	}
 

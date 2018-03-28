@@ -101,5 +101,7 @@
     <string name="right">Oikea</string>
     <string name="left">Vasen</string>
     <string name="text_settings_image_count">Number of Images</string>
+    <string name="text_settings_time_limit">Time Limit</string>
+    <string name="sequence">Sequence</string>
 
 </resources>

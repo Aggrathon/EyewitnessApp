@@ -12,7 +12,7 @@
     - [x] Log
 - [ ] Blurry images
     - Setting (0-100, 0)
-- [ ] Image timelimit
+- [x] Image timelimit
     - Setting (100ms-20 000ms, infinite)
 - [x] Screen physical size
     - Add to Log

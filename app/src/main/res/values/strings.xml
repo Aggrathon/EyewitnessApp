@@ -76,6 +76,8 @@
     <string name="right">Höger</string>
     <string name="text_settings_lineup_count">Number of Lineups</string>
     <string name="text_settings_image_count">Number of Images</string>
+    <string name="text_settings_time_limit">Time Limit</string>
+    <string name="sequence">Sequence</string>
 
     <string-array name="countries">
         <item>Finland</item>

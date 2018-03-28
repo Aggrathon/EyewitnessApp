@@ -6,6 +6,7 @@ import java.util.Date;
 public class ExperimentIteration {
 
 	public static final String SELECTED_NO_TARGET = "no image chosen";
+	public static final String SELECTED_TIME_LIMIT = "run out of time";
 
 	public Date time;
 	public boolean targetPresent;
@@ -67,6 +68,8 @@ public class ExperimentIteration {
 	}
 
 	public String getSelectedImage() {
+		if (selectedImage == -2)
+			return SELECTED_TIME_LIMIT;
 		if (selectedImage < 0 || selectedImage >= imageOrder.size())
 			return SELECTED_NO_TARGET;
 		else

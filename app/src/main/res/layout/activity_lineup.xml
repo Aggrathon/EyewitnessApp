@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,38 +14,50 @@
         style="@style/AppTheme.ActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
-        android:text="@string/text_lineup_instructions_simultaneous"/>
+        android:text="@string/text_lineup_instructions_simultaneous"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <aggrathon.eyewitnessapp.view.ImageButtonGrid
         android:id="@+id/imageGrid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@id/targetAbsentButton"
+        android:layout_alignTop="@id/title"
+        android:layout_margin="@dimen/margin"
         android:gravity="center"
-        android:layout_weight="1000"
-        android:layout_margin="@dimen/margin">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/targetAbsentButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
 
     </aggrathon.eyewitnessapp.view.ImageButtonGrid>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/targetAbsentButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="onTargetMissingButton"
+        android:text="@string/text_lineup_absent"
+        android:visibility="visible"/>
 
-        <Button
-            android:id="@+id/targetAbsentButton"
-            android:layout_width="600dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin"
-            android:onClick="onTargetMissingButton"
-            android:text="@string/text_lineup_absent"
-            android:visibility="visible"/>
+    <TextView
+        android:id="@+id/timeLimitText"
+        style="@style/AppTheme.Panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="0 s"/>
 
-    </LinearLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -52,9 +52,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin"
-            android:layout_weight="1"
+            android:layout_weight="10"
             android:onClick="onNextImageButton"
             android:text="@string/no"/>
+
+        <TextView
+            android:id="@+id/timeLimitText"
+            style="@style/AppTheme.Panel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="0 s"
+            android:gravity="center"
+            android:layout_gravity="center"/>
 
         <Button
             android:id="@+id/yesButton"
@@ -62,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin"
-            android:layout_weight="1"
+            android:layout_weight="10"
             android:onClick="onSelectImageButton"
             android:text="@string/yes"
             android:theme="@style/AppTheme.Button.Color"/>

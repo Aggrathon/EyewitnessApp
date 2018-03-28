@@ -100,5 +100,7 @@
     <string name="left">Vänster</string>
     <string name="right">Höger</string>
     <string name="text_settings_image_count">Antal Bilder</string>
+    <string name="text_settings_time_limit">Tidsgräns</string>
+    <string name="sequence">Sekvens</string>
 
 </resources>

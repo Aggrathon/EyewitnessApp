@@ -81,7 +81,8 @@ public class ExperimentData {
 	public LineupVariant lineup;
 	public ArrayList<Bitmap> images;
 	private ArrayList<String> imageLabels;
-	private int numImages;
+	public int numImages;
+	public int timeLimit;
 	Random rnd;
 
 	//Information
@@ -109,6 +110,7 @@ public class ExperimentData {
 		personalInformation = new PersonalInformation(testNum, language);
 		prefs.edit().putInt(SettingsActivity.TEST_NUM_COUNTER, testNum+1).commit();
 		data = new ArrayList<>();
+		timeLimit = prefs.getInt(SettingsActivity.TIME_LIMIT, 0);
 	}
 
 	private ExperimentData() {
@@ -118,6 +120,7 @@ public class ExperimentData {
 
 		personalInformation = new PersonalInformation(0, "non");
 		data = new ArrayList<>();
+		timeLimit = 0;
 	}
 
 	private float getSettings(SharedPreferences prefs, String setting, boolean normalised, String statA, String statB) {
@@ -291,6 +294,7 @@ public class ExperimentData {
 				csv.addBooleanAsInt("Target_present", d.targetPresent);
 				csv.addInt("Lineup_number", d.lineupNumber);
 				csv.addInt("Lineup_size", numImages);
+				csv.addFloat("Lineup_time_limit", (float)timeLimit*0.1f);
 				switch (lineup) {
 					case sequential:
 						for (int i = 0; i < NUM_IMAGES; i++) {
