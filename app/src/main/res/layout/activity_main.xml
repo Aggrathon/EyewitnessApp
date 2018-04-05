@@ -25,7 +25,8 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:onClick="onLangFinnish">
 
             <ImageButton
                 android:id="@+id/finButton"
@@ -36,8 +37,8 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/background_light"
                 android:contentDescription="@string/finnish"
-                android:cropToPadding="false"
                 android:onClick="onLangFinnish"
+                android:cropToPadding="false"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/flag_of_finland"/>
 
@@ -59,6 +60,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin"
             android:layout_weight="1"
+            android:onClick="onLangSwedish"
             android:orientation="vertical">
 
             <ImageButton
@@ -70,8 +72,8 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/background_light"
                 android:contentDescription="@string/swedish"
-                android:cropToPadding="false"
                 android:onClick="onLangSwedish"
+                android:cropToPadding="false"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/flag_of_sweden"/>
 
@@ -93,7 +95,8 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:onClick="onLangEnglish">
 
             <ImageButton
                 android:id="@+id/engButton"
@@ -105,9 +108,9 @@
                 android:background="@android:color/background_light"
                 android:contentDescription="@string/english"
                 android:cropToPadding="false"
-                android:onClick="onLangEnglish"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/flag_of_the_united_kingdom"/>
+                app:srcCompat="@drawable/flag_of_the_united_kingdom"
+                android:onClick="onLangEnglish"/>
 
             <TextView
                 android:layout_width="match_parent"
