@@ -107,5 +107,6 @@
     <string name="allow_manual_id">Välj deltagarnummer</string>
     <string name="ok">OK</string>
     <string name="cancel">Avbryt</string>
+    <string name="eye_test">Syntest</string>
 
 </resources>

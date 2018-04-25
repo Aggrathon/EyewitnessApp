@@ -241,6 +241,21 @@
                         app:layout_constraintTop_toBottomOf="@+id/textTimeLimit"/>
                 </android.support.constraint.ConstraintLayout>
 
+                <Switch
+                    android:id="@+id/switchEyeTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/eye_test"
+                    android:layout_margin="@dimen/margin"/>
+
+                <Switch
+                    android:id="@+id/switchTutorial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/title_tutorial"
+                    android:layout_margin="@dimen/margin"/>
 
             </LinearLayout>
 
@@ -399,7 +414,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/allow_manual_id"/>
+                    android:text="@string/allow_manual_id"
+                    android:layout_margin="@dimen/margin"/>
 
                 <TextView
                     android:id="@+id/testIdText"

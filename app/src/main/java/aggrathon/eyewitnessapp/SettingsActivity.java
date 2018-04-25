@@ -44,6 +44,8 @@ public class SettingsActivity extends AppCompatActivity {
 	public static final String LOG_FOLDER_LOCATION = "LOG_FOLDER_LOCATION";
 	public static final String IMAGE_FOLDER_LOCATION = "IMAGE_FOLDER_LOCATION";
 	public static final String TIME_LIMIT = "TIME_LIMIT";
+	public static final String EYE_TEST = "EYE_TEST";
+	public static final String TUTORIAL = "TUTORIAL";
 
 	SeekBar lineupVariation;
 	SeekBar lineupTarget;
@@ -59,6 +61,8 @@ public class SettingsActivity extends AppCompatActivity {
 	TextView timeLimitText;
 	SeekBar timeLimitBar;
 	Switch switchManualID;
+	Switch switchEyeTest;
+	Switch switchTutorial;
 
 
 	@Override
@@ -172,6 +176,12 @@ public class SettingsActivity extends AppCompatActivity {
 
 		switchManualID = (Switch) findViewById(R.id.switchManualId);
 		switchManualID.setChecked(prefs.getBoolean(MANUAL_ID, false));
+
+		switchEyeTest = (Switch) findViewById(R.id.switchEyeTest);
+		switchEyeTest.setChecked(prefs.getBoolean(EYE_TEST, true));
+
+		switchTutorial = (Switch) findViewById(R.id.switchTutorial);
+		switchTutorial.setChecked(prefs.getBoolean(TUTORIAL, true));
 	}
 
 	@Override
@@ -187,6 +197,8 @@ public class SettingsActivity extends AppCompatActivity {
 		editor.putInt(IMAGE_COUNT, imageCountBar.getProgress()+2);
 		editor.putInt(TIME_LIMIT, timeLimitBar.getProgress());
 		editor.putBoolean(MANUAL_ID, switchManualID.isChecked());
+		editor.putBoolean(EYE_TEST, switchEyeTest.isChecked());
+		editor.putBoolean(TUTORIAL, switchTutorial.isChecked());
 		editor.commit();
 	}
 

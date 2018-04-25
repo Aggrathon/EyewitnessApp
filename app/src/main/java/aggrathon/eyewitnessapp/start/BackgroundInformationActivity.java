@@ -12,12 +12,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
+import aggrathon.eyewitnessapp.SettingsActivity;
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.experiment.NumberActivity;
 
 public class BackgroundInformationActivity extends ACancelCheckActivity {
 
@@ -67,15 +68,20 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		}
 		else {
 			ExperimentData data = ExperimentData.getInstance();
-			data.personalInformation.nationality = getselectedCountry();
+			data.personalInformation.nationality = getSelectedCountry();
 			data.personalInformation.height = lengthBar.getProgress();
 			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
-			startActivity(new Intent(this, VisualAcuityActivity.class));
+			if(getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0).getBoolean(SettingsActivity.EYE_TEST, true))
+				startActivity(new Intent(this, VisualAcuityActivity.class));
+			else if(getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0).getBoolean(SettingsActivity.TUTORIAL, true))
+				startActivity(new Intent(this, TutorialActivity.class));
+			else
+				startActivity(new Intent(this, NumberActivity.class));
 			finish();
 		}
 	}
 
-	private String getselectedCountry() {
+	private String getSelectedCountry() {
 		Configuration conf = getResources().getConfiguration();
 		conf = new Configuration(conf);
 		conf.setLocale(new Locale("en"));

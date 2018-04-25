@@ -83,6 +83,7 @@
     <string name="allow_manual_id">Välj deltagarnummer</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="eye_test">Syntest</string>
 
     <string-array name="countries">
         <item>Finland</item>

@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "aggrathon.eyewitnessapp"
         minSdkVersion 21
-        targetSdkVersion 25
-        versionCode 35
-        versionName '1.2'
+        targetSdkVersion 26
+        versionCode 36
+        versionName '1.2.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

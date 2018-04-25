@@ -15,7 +15,9 @@ import java.util.Random;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
+import aggrathon.eyewitnessapp.SettingsActivity;
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.experiment.NumberActivity;
 
 public class VisualAcuityActivity extends ACancelCheckActivity {
 
@@ -165,7 +167,10 @@ public class VisualAcuityActivity extends ACancelCheckActivity {
 					ExperimentData.getInstance().personalInformation.visualAcuityLeft = changeResultScale(calculateOptimalStage());
 				break;
 			case next:
-				startActivity(new Intent(this, TutorialActivity.class));
+				if(getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0).getBoolean(SettingsActivity.TUTORIAL, true))
+					startActivity(new Intent(this, TutorialActivity.class));
+				else
+					startActivity(new Intent(this, NumberActivity.class));
 				finish();
 				break;
 		}
