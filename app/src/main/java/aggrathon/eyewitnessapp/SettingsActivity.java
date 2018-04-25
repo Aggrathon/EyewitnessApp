@@ -40,6 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
 	public static final String IMAGE_COUNT = "IMAGE_COUNT";
 	public static final String TEST_NUM_COUNTER = "TEST_NUM_COUNTER";
 	public static final String DEVICE_ID = "DEVICE_ID";
+	public static final String MANUAL_ID = "MANUAL_ID";
 	public static final String LOG_FOLDER_LOCATION = "LOG_FOLDER_LOCATION";
 	public static final String IMAGE_FOLDER_LOCATION = "IMAGE_FOLDER_LOCATION";
 	public static final String TIME_LIMIT = "TIME_LIMIT";
@@ -57,6 +58,7 @@ public class SettingsActivity extends AppCompatActivity {
 	TextView imageCountText;
 	TextView timeLimitText;
 	SeekBar timeLimitBar;
+	Switch switchManualID;
 
 
 	@Override
@@ -167,6 +169,9 @@ public class SettingsActivity extends AppCompatActivity {
 			timeLimitText.setText("∞");
 		else
 			timeLimitText.setText(Integer.toString(tmp/10)+","+Integer.toString(tmp%10)+"s");
+
+		switchManualID = (Switch) findViewById(R.id.switchManualId);
+		switchManualID.setChecked(prefs.getBoolean(MANUAL_ID, false));
 	}
 
 	@Override
@@ -181,6 +186,7 @@ public class SettingsActivity extends AppCompatActivity {
 		editor.putInt(LINEUP_COUNT, lineupCountBar.getProgress()+1);
 		editor.putInt(IMAGE_COUNT, imageCountBar.getProgress()+2);
 		editor.putInt(TIME_LIMIT, timeLimitBar.getProgress());
+		editor.putBoolean(MANUAL_ID, switchManualID.isChecked());
 		editor.commit();
 	}
 

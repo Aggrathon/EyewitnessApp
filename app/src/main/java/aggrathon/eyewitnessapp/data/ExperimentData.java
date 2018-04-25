@@ -278,6 +278,7 @@ public class ExperimentData {
 				csv.addString("Tablet_ID", prefs.getString(SettingsActivity.DEVICE_ID, ""));
 				csv.addFloat("Sceen_Size", getScreenSize());
 				csv.addInt("Pt_ID", personalInformation.testId);
+				csv.addString("Manual_ID", personalInformation.personalId);
 				csv.addString("Pt_language", personalInformation.language);
 				csv.addString("Pt_nationality", personalInformation.nationality);
 				csv.addInt("Pt_age", personalInformation.age);

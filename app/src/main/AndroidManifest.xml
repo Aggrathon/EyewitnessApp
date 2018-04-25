@@ -50,11 +50,14 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".start.ExperimentInformationActivity"
+            android:name=".start.NrActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="landscape">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="aggrathon.eyewitnessapp.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".start.ExperimentInformationActivity"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".start.TutorialActivity"

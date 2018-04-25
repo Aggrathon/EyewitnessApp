@@ -21,6 +21,7 @@ import java.util.Locale;
 
 import aggrathon.eyewitnessapp.data.ExperimentData;
 import aggrathon.eyewitnessapp.start.AgeActivity;
+import aggrathon.eyewitnessapp.start.NrActivity;
 import aggrathon.eyewitnessapp.start.TutorialActivity;
 import aggrathon.eyewitnessapp.utils.StorageManager;
 
@@ -51,19 +52,19 @@ public class MainActivity extends AppCompatActivity {
 	public void onLangSwedish(View view) {
 		ExperimentData.createInstance(this, "sv");
 		Locale.setDefault(new Locale("sv"));
-		startActivity(new Intent(this, AgeActivity.class));
+		onNext();
 	}
 
 	public void onLangEnglish(View view) {
 		ExperimentData.createInstance(this, "en");
 		Locale.setDefault(new Locale("en"));
-		startActivity(new Intent(this, AgeActivity.class));
+		onNext();
 	}
 
 	public void onLangFinnish(View view) {
 		ExperimentData.createInstance(this, "fi");
 		Locale.setDefault(new Locale("fi"));
-		startActivity(new Intent(this, AgeActivity.class));
+		onNext();
 	}
 
 	@Override
@@ -98,5 +99,12 @@ public class MainActivity extends AppCompatActivity {
 			return true;
 		}
 		return super.onKeyUp(keyCode, event);
+	}
+
+	void onNext() {
+		if (getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0).getBoolean(SettingsActivity.MANUAL_ID, false))
+			startActivity(new Intent(this, NrActivity.class));
+		else
+			startActivity(new Intent(this, AgeActivity.class));
 	}
 }

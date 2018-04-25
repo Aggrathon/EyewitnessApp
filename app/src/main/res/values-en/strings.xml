@@ -39,7 +39,6 @@
     <string name="notification_overwrite_log">Overwrite existing log?</string>
     <string name="notification_storage_error">Could not access file storage</string>
     <string name="notification_storage_required">Access to storage required</string>
-    <string name="ok">OK</string>
     <string name="text_lineup_absent">The person is not among the images</string>
     <string name="text_answer_questions">Answer the questions</string>
     <string name="question_certain">How certain are you of your choice?</string>
@@ -103,5 +102,11 @@
     <string name="text_settings_image_count">Number of Images</string>
     <string name="text_settings_time_limit">Time Limit</string>
     <string name="sequence">Sequence</string>
+    <string name="question_id_number">Participant ID</string>
+    <string name="manual_id_number">Specify Participant ID</string>
+    <string name="random_id_number">Random Participant ID</string>
+    <string name="allow_manual_id">Select Participant ID</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

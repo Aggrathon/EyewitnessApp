@@ -39,7 +39,6 @@
     <string name="question_target_weight">Hur mycket tror du att personen väger?</string>
     <string name="notification_storage_error">Kunde inte komma åt minnet</string>
     <string name="notification_storage_required">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
-    <string name="ok">OK</string>
     <string name="text_lineup_instructions_simultaneous">Nedan ser du 8 bilder som du får se bara en gång.\nOm någon av bilderna är den person du nyss såg, tryck på den bilden.\nOm ingen av bilderna är den person du nyss såg, tryck \"Personen finns inte bland bilderna\".\nDet är möjligt att personen du nyss såg inte är bland bilderna.</string>
     <string name="text_lineup_instructions_sequential">Nedan ser du en av 8 bilder som du får se bara en gång.\nOm bilden är på den person du nyss såg, tryck JA.\nOm bilden inte visar denna person, tryck NEJ.\nDå du väljer JA, kommer inga fler bilder att visas.\nDet är möjligt att personen du nyss såg inte är bland bilderna.</string>
     <string name="settings">Inställningar</string>
@@ -78,6 +77,12 @@
     <string name="text_settings_image_count">Number of Images</string>
     <string name="text_settings_time_limit">Time Limit</string>
     <string name="sequence">Sequence</string>
+    <string name="question_id_number">Deltagarnummer</string>
+    <string name="manual_id_number">Ange deltagarnummer</string>
+    <string name="random_id_number">Slumpvald deltagarnummer</string>
+    <string name="allow_manual_id">Välj deltagarnummer</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
     <string-array name="countries">
         <item>Finland</item>

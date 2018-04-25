@@ -394,6 +394,13 @@
                     android:inputType="textPersonName"
                     />
 
+                <Switch
+                    android:id="@+id/switchManualId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/allow_manual_id"/>
+
                 <TextView
                     android:id="@+id/testIdText"
                     android:layout_width="match_parent"
