@@ -6,7 +6,6 @@ There is an alternative "light" version you can find [here](https://github.com/A
 
 
 ## Download
-[Download the Android apk here.](https://github.com/Aggrathon/EyewitnessApp/releases/download/v0.10.2/eyewitness.apk)  
 [Download the latest Android apks here (both versions).](https://github.com/Aggrathon/EyewitnessApp/releases)
 
 
