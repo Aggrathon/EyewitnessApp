@@ -228,3 +228,4 @@ log.txt
 *.tmp
 tmp/
 app/release
+.idea/
