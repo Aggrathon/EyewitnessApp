@@ -33,14 +33,14 @@ public abstract class AImmersiveActivity extends AppCompatActivity {
 	}
 
 	protected void setup() {
-		//Background Image
+		/*//Background Image
 		View root = findViewById(android.R.id.content);
 		if (ExperimentData.adultTheme()) {
 			root.setBackgroundResource( R.drawable.background_abstract);
 		}
 		else {
 			root.setBackgroundResource( R.drawable.landscape_bitmap);
-		}
+		}*/
 		//Sticky Immersion
 		SetImmersiveListener();
 		SetImmersion();

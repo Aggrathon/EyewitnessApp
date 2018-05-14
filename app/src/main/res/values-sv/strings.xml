@@ -37,7 +37,7 @@
     <string name="question_target_weight">Hur mycket tror du att personen väger?</string>
     <string name="notification_storage_error">Kunde inte komma åt minnet</string>
     <string name="notification_storage_required">Åtkomst till minnet krävs för att läsa bilder och skriva logfiler</string>
-    <string name="text_lineup_instructions_simultaneous">Nedan ser du 8 bilder som du får se bara en gång.\nOm någon av bilderna är den person du nyss såg, tryck på den bilden.\nOm ingen av bilderna är den person du nyss såg, tryck \"Personen finns inte bland bilderna\".\nDet är möjligt att personen du nyss såg inte är bland bilderna.</string>
+    <string name="text_lineup_instructions_simultaneous">Nedan ser du %1$d bilder som du får se bara en gång.\nOm någon av bilderna är den person du nyss såg, tryck på den bilden.\nOm ingen av bilderna är den person du nyss såg, tryck \"Personen finns inte bland bilderna\".\nDet är möjligt att personen du nyss såg inte är bland bilderna.</string>
     <string name="settings">Inställningar</string>
     <string name="files">Filer</string>
     <string name="lineup">Lineup</string>
@@ -59,7 +59,7 @@
     <string name="notification_delete_logs">Radera alla gamla logfiler?</string>
     <string name="notification_images_missing">Kunde inte läsa alla bilder som behövs</string>
     <string name="text_answer_questions">Svara på frågorna</string>
-    <string name="text_lineup_instructions_sequential">Nedan ser du en av 8 bilder som du får se bara en gång.\nOm bilden är på den person du nyss såg, tryck JA.\nOm bilden inte visar denna person, tryck NEJ.\nDå du väljer JA, kommer inga fler bilder att visas.\nDet är möjligt att personen du nyss såg inte är bland bilderna.</string>
+    <string name="text_lineup_instructions_sequential">Nedan ser du en av %1$d bilder som du får se bara en gång.\nOm bilden är på den person du nyss såg, tryck JA.\nOm bilden inte visar denna person, tryck NEJ.\nDå du väljer JA, kommer inga fler bilder att visas.\nDet är möjligt att personen du nyss såg inte är bland bilderna.</string>
     <string name="text_participation_result" formatted="false">Du identifierade %d korrekt.\nPersonen du såg saknades från uppställningen %d gånger. \nNär bilden saknades gjorde du korrekt beslut att låta bli att identifiera %d gånger.\n\nTack för ditt deltagande som ögonvittne!</string>
     <string name="text_close_eye_right">Täck HÖGER öga med ena handen.</string>
     <string name="text_close_eye_left">Täck VÄNSTER öga med ena handen.</string>

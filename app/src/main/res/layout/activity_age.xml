@@ -51,7 +51,7 @@
                     android:id="@+id/ageBar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:max="94"
+                    android:max="99"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/ageText"

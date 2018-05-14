@@ -8,6 +8,7 @@ import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 	SeekBar heightBar;
 	SeekBar distBar;
 	RadioButton manRadio;
+	RadioButton womanRadio;
 	SeekBar ageBar;
 
 	@Override
@@ -80,6 +82,7 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 		distText.setText(0+" m");
 
 		manRadio = (RadioButton)findViewById(R.id.sexMan);
+		womanRadio = (RadioButton)findViewById(R.id.sexWoman);
 
 		ageBar = (SeekBar) findViewById(R.id.ageBar);
 		final TextView ageText = (TextView)findViewById(R.id.ageText);
@@ -99,6 +102,10 @@ public class TargetQuestionsActivity extends ACancelCheckActivity {
 	}
 
 	public void onNextButton(View v) {
+		if (!manRadio.isChecked() && !womanRadio.isChecked()) {
+			Toast.makeText(this, R.string.notification_fill_all, Toast.LENGTH_SHORT).show();
+			return;
+		}
 		ExperimentIteration data = ExperimentData.getInstance().getLatestData();
 		data.targetWeight = weightBar.getProgress();
 		data.targetHeight = heightBar.getProgress();

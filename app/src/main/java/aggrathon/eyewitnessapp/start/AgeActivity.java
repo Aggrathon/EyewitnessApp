@@ -13,7 +13,7 @@ import aggrathon.eyewitnessapp.data.ExperimentData;
 
 public class AgeActivity extends AImmersiveActivity {
 
-	final static int MIN_AGE = 5;
+	final static int MIN_AGE = 0;
 
 	SeekBar ageBar;
 	TextView ageText;

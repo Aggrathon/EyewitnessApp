@@ -30,8 +30,8 @@
     <string name="question_target_weight">Paljonko luulet henkilön painavan?</string>
     <string name="question_target_age">Kuinka vanha henkilö oli?</string>
     <string name="question_target_distance">Kuinka kaukana sinusta henkilö oli?</string>
-    <string name="text_lineup_instructions_simultaneous">Alla on 8 kuvaa, jotka näet vain kerran.\nMikäli jokin kuvista on näkemäsi henkilö, paina tätä kuvaa.\nJos mikään kuvista ei ole näkemäsi henkilö, paina vaihtoehtoa ”Näkemäni henkilö ei ole kuvien joukossa”.\nOn mahdollista, että juuri näkemäsi henkilö ei ole mukana kuvissa.</string>
-    <string name="text_lineup_instructions_sequential">"Alla on yksi kahdeksasta kuvasta, jotka näet vain kerran.\nMikäli kuva on juuri näkemäsi henkilö, paina KYLLÄ.\nMikäli kuva ei ole juuri näkemäsi henkilö, paina EI.\nJos valitset KYLLÄ, et näe useampia kuvia.\nOn mahdollista, että juuri näkemäsi henkilö ei ole mukana kuvissa. "</string>
+    <string name="text_lineup_instructions_simultaneous">Alla on %1$d kuvaa, jotka näet vain kerran. Mikäli jokin kuvista on näkemäsi henkilö, paina tätä kuvaa. Jos mikään kuvista ei ole näkemäsi henkilö, paina vaihtoehtoa ”Näkemäni henkilö ei ole kuvien joukossa”. On mahdollista, että juuri näkemäsi henkilö ei ole mukana kuvissa.</string>
+    <string name="text_lineup_instructions_sequential">"Alla on yksi %1$d:sta kuvasta, jotka näet vain kerran.\nMikäli kuva on juuri näkemäsi henkilö, paina KYLLÄ.\nMikäli kuva ei ole juuri näkemäsi henkilö, paina EI.\nJos valitset KYLLÄ, et näe useampia kuvia.\nOn mahdollista, että juuri näkemäsi henkilö ei ole mukana kuvissa. "</string>
     <string name="notification_delete_logs">Delete all old logs?</string>
     <string name="notification_overwrite_log">Overwrite existing log?</string>
     <string name="notification_storage_error">Could not accesss file storage</string>

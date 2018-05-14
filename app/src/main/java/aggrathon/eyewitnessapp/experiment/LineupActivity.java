@@ -18,6 +18,7 @@ import aggrathon.eyewitnessapp.view.ImageButtonGrid;
 
 public class LineupActivity extends ACancelCheckActivity {
 
+	private TextView title;
 	private ImageView imageView;
 	private int imageIndex = 0;
 	private long startTime;
@@ -38,7 +39,8 @@ public class LineupActivity extends ACancelCheckActivity {
 		switch (data.lineup) {
 			case sequential:
 				setContentView(R.layout.activity_lineup2);
-
+				title = (TextView) findViewById(R.id.title);
+				title.setText(getString(R.string.text_lineup_instructions_sequential, data.images.size()));
 				imageView = (ImageView) findViewById(R.id.imageView);
 				imageIndex = 0;
 				imageView.setImageBitmap(data.images.get(imageIndex));
@@ -48,6 +50,8 @@ public class LineupActivity extends ACancelCheckActivity {
 			case simultaneous:
 				imageView = null;
 				setContentView(R.layout.activity_lineup);
+				title = (TextView) findViewById(R.id.title);
+				title.setText(getString(R.string.text_lineup_instructions_simultaneous, data.images.size()));
 				grid = (ImageButtonGrid) findViewById(R.id.imageGrid);
 				grid.SetImages(data.images, new ImageButtonGrid.OnCLick() {
 					@Override
