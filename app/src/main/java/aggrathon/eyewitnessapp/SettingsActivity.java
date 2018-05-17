@@ -49,6 +49,9 @@ public class SettingsActivity extends AppCompatActivity {
 
 	SeekBar lineupVariation;
 	SeekBar lineupTarget;
+	TextView lineupVariationText;
+	TextView lineupTargetText;
+	TextView lineupStatsText;
 	Switch lineupNormalisation;
 	EditText deviceID;
 	TextView testID;
@@ -70,8 +73,6 @@ public class SettingsActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 
-		lineupVariation = (SeekBar)findViewById(R.id.prefLineupVariationsSeekBar);
-		lineupTarget = (SeekBar)findViewById(R.id.prefTargetInLineupSeekBar);
 		lineupNormalisation = (Switch)findViewById(R.id.prefLineupNormalizeSwitch);
 		deviceID = (EditText)findViewById(R.id.deviceIdText);
 		testID = (TextView)findViewById(R.id.testIdText);
@@ -79,11 +80,50 @@ public class SettingsActivity extends AppCompatActivity {
 		imageFolderSpinner = (Spinner)findViewById(R.id.spinnerImageFolder);
 
 		final SharedPreferences prefs = getSharedPreferences(PREFERENCE_NAME, 0);
-		lineupVariation.setProgress(prefs.getInt(LINEUP_VARIATION, 100));
-		lineupTarget.setProgress(prefs.getInt(LINEUP_TARGET, 100));
 		lineupNormalisation.setChecked(prefs.getBoolean(LINEUP_NORMALISATION, true));
 		deviceID.setText(prefs.getString(DEVICE_ID, ""));
 		testID.setText(testID.getText()+" "+prefs.getInt(TEST_NUM_COUNTER, 1));
+
+		lineupVariation = (SeekBar)findViewById(R.id.prefLineupVariationsSeekBar);
+		lineupVariationText = (TextView)findViewById(R.id.prefLineupVariationsText);
+		int tmp = prefs.getInt(LINEUP_VARIATION, 50);
+		lineupVariation.setProgress(tmp/5);
+		lineupVariationText.setText(Integer.toString(tmp)+ (tmp==100? "%" :" %"));
+		lineupVariation.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+				lineupVariationText.setText(Integer.toString(i*5)+ (i==20? "%" :" %"));
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}
+		});
+
+		lineupTarget = (SeekBar)findViewById(R.id.prefTargetInLineupSeekBar);
+		lineupTargetText = (TextView)findViewById(R.id.prefTargetInLineupText);
+		tmp = prefs.getInt(LINEUP_TARGET, 50);
+		lineupTarget.setProgress(tmp/5);
+		lineupTargetText.setText(Integer.toString(tmp)+ (tmp==100? "%" :" %"));
+		lineupTarget.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+				lineupTargetText.setText(Integer.toString(i*5)+ (i==20? "%" :" %"));
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}
+		});
+
+		lineupStatsText = (TextView)findViewById(R.id.prefStatsText);
+		int a1 = prefs.getInt(LINEUP_STATS_SEQUENTIAL, 1);
+		int b1 = prefs.getInt(LINEUP_STATS_SIMULTANEOUS, 1);
+		int r1 = (int)((float)b1 * 100f / (float)(a1+b1));
+		int a2 = prefs.getInt(LINEUP_STATS_TARGET_ABSENT, 1);
+		int b2 = prefs.getInt(LINEUP_STATS_TARGET_PRESENT, 1);
+		int r2 = (int)((float)b2 * 100f / (float)(a2+b2));
+		lineupStatsText.setText("Stats:\n\tSimultaneous: "+r1+" %\n\tPresent: "+r2+" %");
 
 		File root = Environment.getExternalStorageDirectory();
 		final ArrayList<String> folders = new ArrayList<>();
@@ -130,7 +170,7 @@ public class SettingsActivity extends AppCompatActivity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {}
 		});
-		int tmp = prefs.getInt(LINEUP_COUNT, 4);
+		tmp = prefs.getInt(LINEUP_COUNT, 4);
 		lineupCountBar.setProgress(tmp-1);
 		lineupCountBar.setMax(9);
 		lineupCountText.setText(Integer.toString(tmp));
@@ -189,8 +229,8 @@ public class SettingsActivity extends AppCompatActivity {
 		super.onStop();
 		SharedPreferences prefs = getSharedPreferences(PREFERENCE_NAME, 0);
 		SharedPreferences.Editor editor = prefs.edit();
-		editor.putInt(LINEUP_VARIATION, lineupVariation.getProgress());
-		editor.putInt(LINEUP_TARGET, lineupTarget.getProgress());
+		editor.putInt(LINEUP_VARIATION, lineupVariation.getProgress()*5);
+		editor.putInt(LINEUP_TARGET, lineupTarget.getProgress()*5);
 		editor.putBoolean(LINEUP_NORMALISATION, lineupNormalisation.isChecked());
 		editor.putString(DEVICE_ID, deviceID.getText().toString());
 		editor.putInt(LINEUP_COUNT, lineupCountBar.getProgress()+1);
@@ -205,10 +245,10 @@ public class SettingsActivity extends AppCompatActivity {
 	public void onResetStatsButton(View v) {
 		SharedPreferences prefs = getSharedPreferences(PREFERENCE_NAME, 0);
 		SharedPreferences.Editor editor = prefs.edit();
-		editor.putInt(LINEUP_STATS_SEQUENTIAL, 0);
-		editor.putInt(LINEUP_STATS_SIMULTANEOUS, 0);
-		editor.putInt(LINEUP_STATS_TARGET_ABSENT, 0);
-		editor.putInt(LINEUP_STATS_TARGET_PRESENT, 0);
+		editor.putInt(LINEUP_STATS_SEQUENTIAL, 1);
+		editor.putInt(LINEUP_STATS_SIMULTANEOUS, 1);
+		editor.putInt(LINEUP_STATS_TARGET_ABSENT, 1);
+		editor.putInt(LINEUP_STATS_TARGET_PRESENT, 1);
 		editor.commit();
 	}
 

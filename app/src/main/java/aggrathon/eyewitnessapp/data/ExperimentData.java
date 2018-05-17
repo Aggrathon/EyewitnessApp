@@ -94,11 +94,16 @@ public class ExperimentData {
 		SharedPreferences prefs = activity.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
 
-		float variation = getSettings(prefs, SettingsActivity.LINEUP_VARIATION, normalise, SettingsActivity.LINEUP_STATS_SEQUENTIAL, SettingsActivity.LINEUP_STATS_SIMULTANEOUS);
-		if(rnd.nextFloat() > variation)
-			lineup = LineupVariant.sequential;
-		else
+		if(getSettings(
+				prefs,
+				SettingsActivity.LINEUP_VARIATION,
+				normalise,
+				SettingsActivity.LINEUP_STATS_SEQUENTIAL,
+				SettingsActivity.LINEUP_STATS_SIMULTANEOUS,
+				rnd))
 			lineup = LineupVariant.simultaneous;
+		else
+			lineup = LineupVariant.sequential;
 
 		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
@@ -123,23 +128,24 @@ public class ExperimentData {
 		timeLimit = 0;
 	}
 
-	private float getSettings(SharedPreferences prefs, String setting, boolean normalised, String statA, String statB) {
+	private boolean getSettings(SharedPreferences prefs, String setting, boolean normalised, String statA, String statB, Random rnd) {
 		float target = (float)prefs.getInt(setting, 50)/100f;
 		if (target<0.04f) {
-			return -1;
+			return false;
 		}
 		else if (target>0.96f) {
-			return 2;
+			return true;
 		}
 		else if (normalised) {
-			float a = prefs.getInt(statA, 1);
-			float b = prefs.getInt(statB, 1);
-			float stat = b / (a+b);
-			return  2* target - stat;
+			return normalise(target, prefs.getInt(statA, 1), prefs.getInt(statB, 1), rnd);
 		}
 		else {
-			return target;
+			return rnd.nextFloat() < target;
 		}
+	}
+
+	public static boolean normalise(float target, float a, float b, Random rnd) {
+		return rnd.nextFloat() <  2 * target  - b / (a + b);
 	}
 
 	private void LoadImages(SharedPreferences prefs, String id, Activity act, boolean targetPresent) {
@@ -208,8 +214,13 @@ public class ExperimentData {
 	public ExperimentIteration startExperimentIteration(Activity act, int number, String label) {
 		SharedPreferences prefs = act.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
-		float presence = getSettings(prefs, SettingsActivity.LINEUP_TARGET, normalise, SettingsActivity.LINEUP_STATS_TARGET_ABSENT, SettingsActivity.LINEUP_STATS_TARGET_PRESENT);
-		boolean targetPresent = rnd.nextFloat() <= presence;
+		boolean targetPresent = getSettings(
+				prefs,
+				SettingsActivity.LINEUP_TARGET,
+				normalise,
+				SettingsActivity.LINEUP_STATS_TARGET_ABSENT,
+				SettingsActivity.LINEUP_STATS_TARGET_PRESENT,
+				rnd);
 		LoadImages(prefs, label, act, targetPresent);
 		ExperimentIteration iter = new ExperimentIteration(number, targetPresent, imageLabels);
 		data.add(iter);
