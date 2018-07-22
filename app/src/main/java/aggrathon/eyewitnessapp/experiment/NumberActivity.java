@@ -72,8 +72,8 @@ public class NumberActivity extends ACancelCheckActivity {
 	}
 
 	public void NextActivity(int number) {
-		ExperimentData.getInstance().startExperimentIteration(this, number+1, Integer.toString(number+1));
-		startActivity(new Intent(this, WaitActivity.class));
+		ExperimentData.getInstance().startExperimentIteration(this, number+1);
+		startActivity(new Intent(this, ShowActivity.class));
 		finish();
 	}
 }

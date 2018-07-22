@@ -26,6 +26,7 @@ import aggrathon.eyewitnessapp.utils.StorageManager;
 public class ExperimentData {
 
 	public static final String CORRECT_TAG = "correct";
+	public static final String SHOW_TAG = "show";
 	public static final String EXTRA_TAG = "extra";
 	public static final String MISSING_TAG = "missing";
 	public static final int NUM_IMAGES = 10;
@@ -77,12 +78,14 @@ public class ExperimentData {
 
 	//endregion
 
+	public enum ShowVariant { live, video, image }
+
 	//Experiment Variables
 	public LineupVariant lineup;
-	public ArrayList<Bitmap> images;
 	private ArrayList<String> imageLabels;
 	public int numImages;
 	public int timeLimit;
+	public ShowVariant show;
 	Random rnd;
 
 	//Information
@@ -105,7 +108,6 @@ public class ExperimentData {
 		else
 			lineup = LineupVariant.sequential;
 
-		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
 
 		int testNum = prefs.getInt(SettingsActivity.TEST_NUM_COUNTER, 1);
@@ -116,11 +118,22 @@ public class ExperimentData {
 		prefs.edit().putInt(SettingsActivity.TEST_NUM_COUNTER, testNum+1).commit();
 		data = new ArrayList<>();
 		timeLimit = prefs.getInt(SettingsActivity.TIME_LIMIT, 0);
+
+		int sl = prefs.getInt(SettingsActivity.SHOW_LIVE, 10);
+		int sv = prefs.getInt(SettingsActivity.SHOW_VIDEO, 0);
+		int si = prefs.getInt(SettingsActivity.SHOW_IMAGE, 0);
+		int sum = sl + sv + si;
+		int n = rnd.nextInt(sum);
+		if (n <= sl)
+			show = ShowVariant.live;
+		else if (n - sl < sv)
+			show = ShowVariant.video;
+		else
+			show = ShowVariant.image;
 	}
 
 	private ExperimentData() {
 		lineup = LineupVariant.sequential;
-		images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
 
 		personalInformation = new PersonalInformation(0, "non");
@@ -148,16 +161,23 @@ public class ExperimentData {
 		return rnd.nextFloat() <  2 * target  - b / (a + b);
 	}
 
-	private void LoadImages(SharedPreferences prefs, String id, Activity act, boolean targetPresent) {
+	public ArrayList<Bitmap> LoadImages(Activity act) {
+		SharedPreferences prefs = act.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
+		ExperimentIteration iter = getLatestData();
 		numImages = prefs.getInt(SettingsActivity.IMAGE_COUNT, 8);
-		images.clear();
+		ArrayList<Bitmap> images = new ArrayList<>();
 		imageLabels = new ArrayList<>();
-		File[] fileList = StorageManager.getImageList(id); // Get the list of files
+		File[] fileList = StorageManager.getImageList(iter.lineupLabel); // Get the list of files
 		//Read the bitmaps
 		if (fileList != null) for (int i = 0; i < fileList.length; i++) {
 			File f = fileList[i];
 			String name = f.getName();
-			if (!targetPresent && name.toLowerCase().contains(CORRECT_TAG)) {
+			String lower = name.toLowerCase();
+			if (lower.contains(SHOW_TAG))
+				continue;
+			if (!lower.contains(".png") && !lower.contains(".jpg") && !lower.contains(".jpeg") && !lower.contains(".gif"))
+				continue;
+			if (!iter.targetPresent && lower.contains(CORRECT_TAG)) {
 				continue;
 			}
 			Bitmap bmp = BitmapFactory.decodeFile(f.getPath());
@@ -192,7 +212,7 @@ public class ExperimentData {
 		//If still more images than wanted remove random images
 		while (images.size() > numImages) {
 			int i = rnd.nextInt(images.size());
-			if (targetPresent && imageLabels.get(i).toLowerCase().contains(CORRECT_TAG))
+			if (iter.targetPresent && imageLabels.get(i).toLowerCase().contains(CORRECT_TAG))
 				continue;
 			images.remove(i).recycle();
 			imageLabels.remove(i);
@@ -209,8 +229,13 @@ public class ExperimentData {
 			imageLabels.set(r, as);
 			imageLabels.set(i, bs);
 		}
+		iter.setImages(imageLabels);
+		return images;
 	}
 
+	public ExperimentIteration startExperimentIteration(Activity act, int number) {
+		return startExperimentIteration(act, number, null);
+	}
 	public ExperimentIteration startExperimentIteration(Activity act, int number, String label) {
 		SharedPreferences prefs = act.getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		boolean normalise = prefs.getBoolean(SettingsActivity.LINEUP_NORMALISATION, true);
@@ -221,8 +246,10 @@ public class ExperimentData {
 				SettingsActivity.LINEUP_STATS_TARGET_ABSENT,
 				SettingsActivity.LINEUP_STATS_TARGET_PRESENT,
 				rnd);
-		LoadImages(prefs, label, act, targetPresent);
-		ExperimentIteration iter = new ExperimentIteration(number, targetPresent, imageLabels);
+		if (label == null) {
+			label = Integer.toString(number);
+		}
+		ExperimentIteration iter = new ExperimentIteration(number, targetPresent, label);
 		data.add(iter);
 		return iter;
 	}
@@ -234,7 +261,7 @@ public class ExperimentData {
 				for (int i = 0; i < NUM_IMAGES; i++)
 					imageLabels.add(MISSING_TAG);
 			}
-			return new ExperimentIteration(0, true, imageLabels);
+			return new ExperimentIteration(0, true, "0");
 		}
 		else
 			return data.get(data.size()-1);
@@ -302,6 +329,8 @@ public class ExperimentData {
 				csv.addFloat("Pt_min_eye", personalInformation.visualAcuityRight < personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
 				csv.addFloat("Pt_max_eye", personalInformation.visualAcuityRight > personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
 				csv.addString("Experiment_type", d.tutorial? "testrunda" : "huvudexperiment");
+				csv.addString("Show_type", (show == ShowVariant.live? "live" : (show == ShowVariant.video? "video" : "image")));
+				csv.addInt("Show_distance", d.showDistance);
 				csv.addString("Lineup_type", lineup.toString());
 				csv.addBooleanAsInt("Target_present", d.targetPresent);
 				csv.addInt("Lineup_number", d.lineupNumber);

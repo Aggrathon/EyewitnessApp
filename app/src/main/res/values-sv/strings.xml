@@ -112,5 +112,6 @@
     <string name="text_settings_show_live">Live</string>
     <string name="text_settings_show_video">Video</string>
     <string name="text_settings_show_range">Target Distance Range</string>
+    <string name="show_look">Titta</string>
 
 </resources>

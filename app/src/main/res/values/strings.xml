@@ -89,6 +89,7 @@
     <string name="text_settings_show_video">Video</string>
     <string name="text_settings_show_image">Image</string>
     <string name="text_settings_show_range">Target Distance Range</string>
+    <string name="show_look">Look</string>
 
     <string-array name="countries">
         <item>Finland</item>

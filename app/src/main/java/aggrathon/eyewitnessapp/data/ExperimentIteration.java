@@ -9,8 +9,10 @@ public class ExperimentIteration {
 	public static final String SELECTED_TIME_LIMIT = "run out of time";
 
 	public Date time;
+	public int showDistance;
 	public boolean targetPresent;
 	public int lineupNumber;
+	public String lineupLabel;
 	private ArrayList<String> imageOrder;
 	private float[] imageTimes;
 	public int selectedImage;
@@ -26,15 +28,20 @@ public class ExperimentIteration {
 	public float lineupTime;
 
 
-	public ExperimentIteration(int number, boolean targetPresent, ArrayList<String> imageOrder) {
+	public ExperimentIteration(int number, boolean targetPresent, String label) {
 		time = new Date();
 		selectedImage = -1;
 		targetSex = "";
 		lineupNumber = number;
 		this.targetPresent = targetPresent;
+		selectedImage = -1;
+		this.showDistance = -1;
+		lineupLabel = label;
+	}
+
+	public void setImages(ArrayList<String> imageOrder) {
 		this.imageOrder = imageOrder;
 		this.imageTimes = new float[imageOrder.size()];
-		selectedImage = -1;
 	}
 
 	public String toString(int index) {
@@ -46,6 +53,7 @@ public class ExperimentIteration {
 				"\n\tTime: "+time+
 				"\n\tTutorial: "+tutorial+
 				"\n\tNumber: "+lineupNumber+
+				"\n\tShowDistance: "+showDistance+
 				"\n\tLineup time: "+lineupTime+
 				"\n\tImage Order: "+order+
 				"\n\tTarget Present: "+targetPresent+

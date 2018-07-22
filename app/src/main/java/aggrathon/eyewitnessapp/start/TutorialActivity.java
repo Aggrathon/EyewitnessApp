@@ -14,6 +14,7 @@ import aggrathon.eyewitnessapp.experiment.NumberActivity;
 import aggrathon.eyewitnessapp.experiment.QuestionsActivity;
 import aggrathon.eyewitnessapp.R;
 import aggrathon.eyewitnessapp.data.ExperimentData;
+import aggrathon.eyewitnessapp.experiment.ShowActivity;
 import aggrathon.eyewitnessapp.experiment.TargetQuestionsActivity;
 import aggrathon.eyewitnessapp.view.ImageButtonGrid;
 
@@ -56,18 +57,11 @@ public class TutorialActivity extends AMessageActivity {
 		}
 	}
 
-	public static class TutorialWait extends AMessageActivity {
+	public static class TutorialWait extends ShowActivity {
 		@Override
-		protected void onCreate(@Nullable Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			final Activity act = this;
-			setMessage(R.string.title_tutorial, R.string.text_wait_instructions, new View.OnClickListener() {
-				@Override
-				public void onClick(View view) {
-					startActivity(new Intent(act, TutorialTargetQuestions.class));
-					finish();
-				}
-			});
+		public void NextActivity() {
+			startActivity(new Intent(this, TutorialTargetQuestions.class));
+			finish();
 		}
 	}
 

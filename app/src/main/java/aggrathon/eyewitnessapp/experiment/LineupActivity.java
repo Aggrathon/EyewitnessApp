@@ -2,12 +2,15 @@ package aggrathon.eyewitnessapp.experiment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import aggrathon.eyewitnessapp.ACancelCheckActivity;
 import aggrathon.eyewitnessapp.R;
@@ -28,6 +31,8 @@ public class LineupActivity extends ACancelCheckActivity {
 	private int timeLimit;
 	private TextView timeLimitText;
 
+	private ArrayList<Bitmap> images;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,15 +40,15 @@ public class LineupActivity extends ACancelCheckActivity {
 			return;
 		}
 		ExperimentData data = ExperimentData.getInstance();
-
+		images = data.LoadImages(this);
 		switch (data.lineup) {
 			case sequential:
 				setContentView(R.layout.activity_lineup2);
 				title = (TextView) findViewById(R.id.title);
-				title.setText(getString(R.string.text_lineup_instructions_sequential, data.images.size()));
+				title.setText(getString(R.string.text_lineup_instructions_sequential, images.size()));
 				imageView = (ImageView) findViewById(R.id.imageView);
 				imageIndex = 0;
-				imageView.setImageBitmap(data.images.get(imageIndex));
+				imageView.setImageBitmap(images.get(imageIndex));
 				startTime2 = System.currentTimeMillis();
 				break;
 
@@ -51,9 +56,9 @@ public class LineupActivity extends ACancelCheckActivity {
 				imageView = null;
 				setContentView(R.layout.activity_lineup);
 				title = (TextView) findViewById(R.id.title);
-				title.setText(getString(R.string.text_lineup_instructions_simultaneous, data.images.size()));
+				title.setText(getString(R.string.text_lineup_instructions_simultaneous, images.size()));
 				grid = (ImageButtonGrid) findViewById(R.id.imageGrid);
-				grid.SetImages(data.images, new ImageButtonGrid.OnCLick() {
+				grid.SetImages(images, new ImageButtonGrid.OnCLick() {
 					@Override
 					public void OnClick(int i) {
 						imageIndex = i;
@@ -79,7 +84,7 @@ public class LineupActivity extends ACancelCheckActivity {
 	private void countDown() {
 		if (timeLimit <= 0) {
 			ExperimentData data = ExperimentData.getInstance();
-			if (data.lineup == ExperimentData.LineupVariant.simultaneous || imageIndex+1 == data.images.size())
+			if (data.lineup == ExperimentData.LineupVariant.simultaneous || imageIndex+1 == images.size())
 				onTargetMissingButton(-2);
 			else
 				onNextImageButton(null);
@@ -124,7 +129,7 @@ public class LineupActivity extends ACancelCheckActivity {
 
 	public void onNextImageButton(View v) {
 		ExperimentData data = ExperimentData.getInstance();
-		if(imageView != null && data.images != null) {
+		if(imageView != null && images != null) {
 			if (data.lineup == ExperimentData.LineupVariant.sequential) {
 				ExperimentIteration iter = data.getLatestData();
 				iter.setImageTime(imageIndex, startTime2, System.currentTimeMillis());
@@ -134,10 +139,10 @@ public class LineupActivity extends ACancelCheckActivity {
 					countDown();
 			}
 			imageIndex++;
-			if (imageIndex == data.images.size())
+			if (imageIndex == images.size())
 				onTargetMissingButton(null);
 			else
-				imageView.setImageBitmap(data.images.get(imageIndex));
+				imageView.setImageBitmap(images.get(imageIndex));
 		}
 	}
 
@@ -167,6 +172,9 @@ public class LineupActivity extends ACancelCheckActivity {
 		if (handler != null) {
 			handler.removeCallbacksAndMessages(null);
 			handler = null;
+		}
+		for (Bitmap bmp : images) {
+			bmp.recycle();
 		}
 	}
 }

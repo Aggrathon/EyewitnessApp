@@ -88,7 +88,7 @@
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".experiment.WaitActivity"
+            android:name=".experiment.ShowActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
