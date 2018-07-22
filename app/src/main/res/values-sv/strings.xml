@@ -108,5 +108,9 @@
     <string name="ok">OK</string>
     <string name="cancel">Avbryt</string>
     <string name="eye_test">Syntest</string>
+    <string name="title_show">Show</string>
+    <string name="text_settings_show_live">Live</string>
+    <string name="text_settings_show_video">Video</string>
+    <string name="text_settings_show_range">Target Distance Range</string>
 
 </resources>

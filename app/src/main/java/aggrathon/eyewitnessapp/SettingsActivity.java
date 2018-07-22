@@ -46,6 +46,11 @@ public class SettingsActivity extends AppCompatActivity {
 	public static final String TIME_LIMIT = "TIME_LIMIT";
 	public static final String EYE_TEST = "EYE_TEST";
 	public static final String TUTORIAL = "TUTORIAL";
+	public static final String SHOW_LIVE = "SHOW_LIVE";
+	public static final String SHOW_IMAGE = "SHOW_IMAGE";
+	public static final String SHOW_VIDEO = "SHOW_VIDEO";
+	public static final String SHOW_RANGE_MIN = "SHOW_RANGE_MIN";
+	public static final String SHOW_RANGE_MAX = "SHOW_RANGE_MAX";
 
 	SeekBar lineupVariation;
 	SeekBar lineupTarget;
@@ -66,7 +71,14 @@ public class SettingsActivity extends AppCompatActivity {
 	Switch switchManualID;
 	Switch switchEyeTest;
 	Switch switchTutorial;
-
+	EditText showRangeMin;
+	EditText showRangeMax;
+	SeekBar showLiveBar;
+	SeekBar showImageBar;
+	SeekBar showVideoBar;
+	TextView showLiveText;
+	TextView showImageText;
+	TextView showVideoText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -222,6 +234,44 @@ public class SettingsActivity extends AppCompatActivity {
 
 		switchTutorial = (Switch) findViewById(R.id.switchTutorial);
 		switchTutorial.setChecked(prefs.getBoolean(TUTORIAL, true));
+
+		showRangeMax = (EditText)findViewById(R.id.showRangeMax);
+		showRangeMax.setText(Integer.toString(prefs.getInt(SHOW_RANGE_MAX, 1000)));
+		showRangeMin = (EditText)findViewById(R.id.showRangeMin);
+		showRangeMin.setText(Integer.toString(prefs.getInt(SHOW_RANGE_MIN, 0)));
+		showLiveBar = (SeekBar)findViewById(R.id.showLiveBar);
+		showImageBar = (SeekBar)findViewById(R.id.showImageBar);
+		showVideoBar = (SeekBar)findViewById(R.id.showVideoBar);
+		showLiveText = (TextView) findViewById(R.id.showLiveValue);
+		showVideoText = (TextView) findViewById(R.id.showVideoValue);
+		showImageText = (TextView) findViewById(R.id.showImageValue);
+		showLiveBar.setProgress(prefs.getInt(SHOW_LIVE, 10));
+		showVideoBar.setProgress(prefs.getInt(SHOW_VIDEO, 0));
+		showImageBar.setProgress(prefs.getInt(SHOW_IMAGE, 0));
+		SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+				SetLivePerc();
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {}
+		};
+		showLiveBar.setOnSeekBarChangeListener(listener);
+		showVideoBar.setOnSeekBarChangeListener(listener);
+		showImageBar.setOnSeekBarChangeListener(listener);
+		SetLivePerc();
+	}
+
+	private void SetLivePerc() {
+		int lp = showLiveBar.getProgress();
+		int vp = showVideoBar.getProgress();
+		int ip = showImageBar.getProgress();
+		int sum = lp + vp + ip;
+		showLiveText.setText((lp * 100 / sum ) + "%");
+		showVideoText.setText((vp * 100 / sum ) + "%");
+		showImageText.setText((ip * 100 / sum ) + "%");
 	}
 
 	@Override
@@ -239,6 +289,11 @@ public class SettingsActivity extends AppCompatActivity {
 		editor.putBoolean(MANUAL_ID, switchManualID.isChecked());
 		editor.putBoolean(EYE_TEST, switchEyeTest.isChecked());
 		editor.putBoolean(TUTORIAL, switchTutorial.isChecked());
+		editor.putInt(SHOW_IMAGE, showImageBar.getProgress());
+		editor.putInt(SHOW_LIVE, showLiveBar.getProgress());
+		editor.putInt(SHOW_VIDEO, showVideoBar.getProgress());
+		editor.putInt(SHOW_RANGE_MIN, Integer.parseInt(showRangeMin.getText().toString()));
+		editor.putInt(SHOW_RANGE_MAX, Integer.parseInt(showRangeMax.getText().toString()));
 		editor.commit();
 	}
 
