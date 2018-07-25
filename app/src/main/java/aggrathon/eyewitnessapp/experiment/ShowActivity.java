@@ -35,6 +35,7 @@ public class ShowActivity extends ACancelCheckActivity {
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_show);
 		title = (TextView)findViewById(R.id.title);
 		message = (TextView)findViewById(R.id.showLive);
 		image = (ImageView)findViewById(R.id.showImage);
@@ -51,7 +52,9 @@ public class ShowActivity extends ACancelCheckActivity {
 		message.setVisibility(View.VISIBLE);
 		image.setVisibility(View.INVISIBLE);
 		video.setVisibility(View.INVISIBLE);
-		ExperimentData.getInstance().getLatestData().showDistance = -1;
+		ExperimentIteration exp = ExperimentData.getInstance().getLatestData();
+		exp.showDistance = -1;
+		exp.show = "live";
 	}
 
 	public void setVideo() {
@@ -77,12 +80,13 @@ public class ShowActivity extends ACancelCheckActivity {
 			files.add(f);
 		}
 		if (files.size() == 0) {
-			Log.d("Image Read", "Could not find any video to show");
+			Log.d("Video Read", "Could not find any video to show");
 			Toast.makeText(this, "Could not find any video to show", Toast.LENGTH_LONG).show();
 			return;
 		}
 		File imagefile = files.get(new Random().nextInt(files.size()));
 		iter.showDistance = getDistance(imagefile.getName().toLowerCase());
+		iter.show = imagefile.getName();
 		video.setVideoPath(imagefile.getPath());
 		video.start();
 		video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -122,6 +126,7 @@ public class ShowActivity extends ACancelCheckActivity {
 		}
 		File imagefile = files.get(new Random().nextInt(files.size()));
 		iter.showDistance = getDistance(imagefile.getName().toLowerCase());
+		iter.show = imagefile.getName();
 		Bitmap bmp = BitmapFactory.decodeFile(imagefile.getPath());
 		if (bmp == null) {
 			Log.d("Image Read", "Could not read bitmap from "+imagefile.getPath());

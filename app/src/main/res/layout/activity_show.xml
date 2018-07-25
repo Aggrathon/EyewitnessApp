@@ -18,43 +18,37 @@
         android:layout_weight="1"
         android:text="@string/show_look" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <LinearLayout
+        style="@style/AppTheme.Panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_weight="100"
-        android:layout_gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <LinearLayout
-            style="@style/AppTheme.Panel"
+        <ImageView
+            android:id="@+id/showImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            app:srcCompat="@drawable/placeholder_image" />
+
+        <TextView
+            android:id="@+id/showLive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin"
+            android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:text="@string/text_wait_instructions" />
 
-            <ImageView
-                android:id="@+id/showImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/placeholder_image" />
-
-            <TextView
-                android:id="@+id/showLive"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/text_wait_instructions" />
-
-            <VideoView
-                android:id="@+id/showVideo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-    </ScrollView>
+        <VideoView
+            android:id="@+id/showVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="100" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/nextButton"

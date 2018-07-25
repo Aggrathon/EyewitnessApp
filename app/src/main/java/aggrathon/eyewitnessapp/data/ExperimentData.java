@@ -330,6 +330,7 @@ public class ExperimentData {
 				csv.addFloat("Pt_max_eye", personalInformation.visualAcuityRight > personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
 				csv.addString("Experiment_type", d.tutorial? "testrunda" : "huvudexperiment");
 				csv.addString("Show_type", (show == ShowVariant.live? "live" : (show == ShowVariant.video? "video" : "image")));
+				csv.addString("Show", d.show);
 				csv.addInt("Show_distance", d.showDistance);
 				csv.addString("Lineup_type", lineup.toString());
 				csv.addBooleanAsInt("Target_present", d.targetPresent);

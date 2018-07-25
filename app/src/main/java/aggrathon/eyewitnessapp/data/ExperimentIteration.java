@@ -26,6 +26,7 @@ public class ExperimentIteration {
 	public boolean recognisedOther;
 	public boolean tutorial;
 	public float lineupTime;
+	public String show;
 
 
 	public ExperimentIteration(int number, boolean targetPresent, String label) {
@@ -37,6 +38,7 @@ public class ExperimentIteration {
 		selectedImage = -1;
 		this.showDistance = -1;
 		lineupLabel = label;
+		show = "";
 	}
 
 	public void setImages(ArrayList<String> imageOrder) {
@@ -53,6 +55,7 @@ public class ExperimentIteration {
 				"\n\tTime: "+time+
 				"\n\tTutorial: "+tutorial+
 				"\n\tNumber: "+lineupNumber+
+				"\n\tShow: "+show+
 				"\n\tShowDistance: "+showDistance+
 				"\n\tLineup time: "+lineupTime+
 				"\n\tImage Order: "+order+
@@ -101,7 +104,7 @@ public class ExperimentIteration {
 	}
 
 	public String getImageOrder(int index) {
-		if (index < 0 ||index >= imageOrder.size()) {
+		if (index < 0 || imageOrder == null || index >= imageOrder.size()) {
 			return "";
 		}
 		else {
@@ -110,7 +113,7 @@ public class ExperimentIteration {
 	}
 
 	public float getImageTime(int index) {
-		if (index < 0 || index >= imageTimes.length) {
+		if (index < 0 || imageTimes == null || index >= imageTimes.length) {
 			return 0.0f;
 		}
 		else {
