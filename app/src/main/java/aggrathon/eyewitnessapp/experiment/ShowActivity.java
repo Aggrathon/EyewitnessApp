@@ -50,8 +50,8 @@ public class ShowActivity extends ACancelCheckActivity {
 	public void setLive() {
 		title.setText(R.string.wait);
 		message.setVisibility(View.VISIBLE);
-		image.setVisibility(View.INVISIBLE);
-		video.setVisibility(View.INVISIBLE);
+		image.setVisibility(View.GONE);
+		video.setVisibility(View.GONE);
 		ExperimentIteration exp = ExperimentData.getInstance().getLatestData();
 		exp.showDistance = -1;
 		exp.show = "live";
@@ -59,8 +59,8 @@ public class ShowActivity extends ACancelCheckActivity {
 
 	public void setVideo() {
 		title.setText(R.string.show_look);
-		message.setVisibility(View.INVISIBLE);
-		image.setVisibility(View.INVISIBLE);
+		message.setVisibility(View.GONE);
+		image.setVisibility(View.GONE);
 		video.setVisibility(View.VISIBLE);
 		ExperimentIteration iter = ExperimentData.getInstance().getLatestData();
 		SharedPreferences prefs = getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
@@ -99,9 +99,9 @@ public class ShowActivity extends ACancelCheckActivity {
 
 	public void setImage() {
 		title.setText(R.string.show_look);
-		message.setVisibility(View.INVISIBLE);
+		message.setVisibility(View.GONE);
 		image.setVisibility(View.VISIBLE);
-		video.setVisibility(View.INVISIBLE);
+		video.setVisibility(View.GONE);
 		ExperimentIteration iter = ExperimentData.getInstance().getLatestData();
 		SharedPreferences prefs = getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0);
 		int min = prefs.getInt(SettingsActivity.SHOW_RANGE_MIN, 0);

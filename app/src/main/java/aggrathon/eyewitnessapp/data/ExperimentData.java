@@ -124,7 +124,7 @@ public class ExperimentData {
 		int si = prefs.getInt(SettingsActivity.SHOW_IMAGE, 0);
 		int sum = sl + sv + si;
 		int n = rnd.nextInt(sum);
-		if (n <= sl)
+		if (n < sl)
 			show = ShowVariant.live;
 		else if (n - sl < sv)
 			show = ShowVariant.video;
