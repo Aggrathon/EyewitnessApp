@@ -78,7 +78,7 @@ public class ExperimentData {
 
 	//endregion
 
-	public enum ShowVariant { live, video, image }
+	public enum ShowVariant { live, video, image, blurred }
 
 	//Experiment Variables
 	public LineupVariant lineup;
@@ -122,14 +122,17 @@ public class ExperimentData {
 		int sl = prefs.getInt(SettingsActivity.SHOW_LIVE, 10);
 		int sv = prefs.getInt(SettingsActivity.SHOW_VIDEO, 0);
 		int si = prefs.getInt(SettingsActivity.SHOW_IMAGE, 0);
-		int sum = sl + sv + si;
+		int sb = prefs.getInt(SettingsActivity.SHOW_BLURRED, 0);
+		int sum = sl + sv + si + sb;
 		int n = rnd.nextInt(sum);
 		if (n < sl)
 			show = ShowVariant.live;
 		else if (n - sl < sv)
 			show = ShowVariant.video;
-		else
+		else if (n - sl - sv < si)
 			show = ShowVariant.image;
+		else
+			show = ShowVariant.blurred;
 	}
 
 	private ExperimentData() {
@@ -329,7 +332,7 @@ public class ExperimentData {
 				csv.addFloat("Pt_min_eye", personalInformation.visualAcuityRight < personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
 				csv.addFloat("Pt_max_eye", personalInformation.visualAcuityRight > personalInformation.visualAcuityLeft? personalInformation.visualAcuityRight : personalInformation.visualAcuityLeft);
 				csv.addString("Experiment_type", d.tutorial? "testrunda" : "huvudexperiment");
-				csv.addString("Show_type", (show == ShowVariant.live? "live" : (show == ShowVariant.video? "video" : "image")));
+				csv.addString("Show_type", (show == ShowVariant.live? "live" : (show == ShowVariant.video? "video" : (show == ShowVariant.image? "image" : "blurred"))));
 				csv.addString("Show", d.show);
 				csv.addInt("Show_distance", d.showDistance);
 				csv.addString("Lineup_type", lineup.toString());

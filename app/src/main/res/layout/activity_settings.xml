@@ -416,6 +416,42 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/showBlurredText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_settings_show_blurred"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/showBlurredValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:text="100%" />
+
+                <SeekBar
+                    android:id="@+id/showBlurredBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:max="10"
+                    android:progress="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/showBlurredValue"
+                    app:layout_constraintTop_toBottomOf="@+id/showBlurredText" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin"
+                android:layout_weight="1">
+
+                <TextView
                     android:id="@+id/showRangeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

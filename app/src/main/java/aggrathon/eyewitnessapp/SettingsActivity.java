@@ -49,6 +49,7 @@ public class SettingsActivity extends AppCompatActivity {
 	public static final String SHOW_LIVE = "SHOW_LIVE";
 	public static final String SHOW_IMAGE = "SHOW_IMAGE";
 	public static final String SHOW_VIDEO = "SHOW_VIDEO";
+	public static final String SHOW_BLURRED = "SHOW_BLURRED";
 	public static final String SHOW_RANGE_MIN = "SHOW_RANGE_MIN";
 	public static final String SHOW_RANGE_MAX = "SHOW_RANGE_MAX";
 
@@ -76,9 +77,11 @@ public class SettingsActivity extends AppCompatActivity {
 	SeekBar showLiveBar;
 	SeekBar showImageBar;
 	SeekBar showVideoBar;
+	SeekBar showBlurredBar;
 	TextView showLiveText;
 	TextView showImageText;
 	TextView showVideoText;
+	TextView showBlurredText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -242,12 +245,15 @@ public class SettingsActivity extends AppCompatActivity {
 		showLiveBar = (SeekBar)findViewById(R.id.showLiveBar);
 		showImageBar = (SeekBar)findViewById(R.id.showImageBar);
 		showVideoBar = (SeekBar)findViewById(R.id.showVideoBar);
+		showBlurredBar = (SeekBar)findViewById(R.id.showBlurredBar);
 		showLiveText = (TextView) findViewById(R.id.showLiveValue);
 		showVideoText = (TextView) findViewById(R.id.showVideoValue);
 		showImageText = (TextView) findViewById(R.id.showImageValue);
+		showBlurredText = (TextView) findViewById(R.id.showBlurredValue);
 		showLiveBar.setProgress(prefs.getInt(SHOW_LIVE, 10));
 		showVideoBar.setProgress(prefs.getInt(SHOW_VIDEO, 0));
 		showImageBar.setProgress(prefs.getInt(SHOW_IMAGE, 0));
+		showBlurredBar.setProgress(prefs.getInt(SHOW_BLURRED, 0));
 		SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -261,6 +267,7 @@ public class SettingsActivity extends AppCompatActivity {
 		showLiveBar.setOnSeekBarChangeListener(listener);
 		showVideoBar.setOnSeekBarChangeListener(listener);
 		showImageBar.setOnSeekBarChangeListener(listener);
+		showBlurredBar.setOnSeekBarChangeListener(listener);
 		SetLivePerc();
 	}
 
@@ -268,10 +275,12 @@ public class SettingsActivity extends AppCompatActivity {
 		int lp = showLiveBar.getProgress();
 		int vp = showVideoBar.getProgress();
 		int ip = showImageBar.getProgress();
-		int sum = lp + vp + ip;
+		int bp = showBlurredBar.getProgress();
+		int sum = lp + vp + ip + bp;
 		showLiveText.setText((lp * 100 / sum ) + "%");
 		showVideoText.setText((vp * 100 / sum ) + "%");
 		showImageText.setText((ip * 100 / sum ) + "%");
+		showBlurredText.setText((bp * 100 / sum ) + "%");
 	}
 
 	@Override
@@ -292,6 +301,7 @@ public class SettingsActivity extends AppCompatActivity {
 		editor.putInt(SHOW_IMAGE, showImageBar.getProgress());
 		editor.putInt(SHOW_LIVE, showLiveBar.getProgress());
 		editor.putInt(SHOW_VIDEO, showVideoBar.getProgress());
+		editor.putInt(SHOW_BLURRED, showBlurredBar.getProgress());
 		editor.putInt(SHOW_RANGE_MIN, Integer.parseInt(showRangeMin.getText().toString()));
 		editor.putInt(SHOW_RANGE_MAX, Integer.parseInt(showRangeMax.getText().toString()));
 		editor.commit();

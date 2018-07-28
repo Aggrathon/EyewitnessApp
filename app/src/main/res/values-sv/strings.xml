@@ -113,5 +113,7 @@
     <string name="text_settings_show_video">Video</string>
     <string name="text_settings_show_range">Target Distance Range</string>
     <string name="show_look">Titta</string>
+    <string name="text_settings_show_blurred">Suddig Bild</string>
+    <string name="text_settings_show_image">Bild</string>
 
 </resources>

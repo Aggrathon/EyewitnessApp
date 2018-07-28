@@ -20,8 +20,8 @@
 
     <LinearLayout
         style="@style/AppTheme.Panel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="100"
         android:gravity="center"
@@ -29,9 +29,10 @@
 
         <ImageView
             android:id="@+id/showImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="10"
+            android:scaleType="fitCenter"
             android:visibility="gone"
             app:srcCompat="@drawable/placeholder_image" />
 
@@ -46,8 +47,8 @@
 
         <VideoView
             android:id="@+id/showVideo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="100"
             android:visibility="gone" />
     </LinearLayout>
