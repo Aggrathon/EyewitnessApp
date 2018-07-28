@@ -52,13 +52,12 @@
     <string name="man">Mies</string>
     <string name="man_age">Poika / Mies</string>
     <string name="woman_age">Tyttö / Nainen</string>
-    <string name="text_show_image_instructions">Show Image Instructions</string>
+    <string name="text_show_image_instructions">Instructions</string>
     <string name="text_settings_view_logs">Show all logs</string>
     <string name="text_settings_testid">Current test id:</string>
     <string name="text_settings_target_present">Target Present</string>
     <string name="text_settings_target_absent">Target Absent</string>
     <string name="text_settings_normalisation">Normalise the distibution</string>
-    <string name="text_settings_image_instructions">I bildmappen skall finnas fem mappar:\n    \"1\", \"2\", \"3\", \"4\" och \"Test\"\nI varje mapp skall det finnas 9 bilder.\nEn av dessa bilder skall ha \"correct\" i namnet.</string>
     <string name="text_settings_folder_logs">Mapp för loggfiler:</string>
     <string name="text_settings_folder_images">Mapp för bilder:</string>
     <string name="text_setting_reset_test">Reset Test ID</string>

@@ -318,7 +318,8 @@ public class SettingsActivity extends AppCompatActivity {
 	}
 
 	public void onImagesButton(View v) {
-		new MessageDialog().show(getSupportFragmentManager(), "Image Instructions", R.string.text_settings_image_instructions);
+		startActivity(new Intent(this, FileInstructionsActivity.class));
+		finish();
 	}
 
 	public void onLogButton(View v) {

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <style>
+        td {
+            border-top: 1px solid #AAA;
+        }
+        tbody tr:first-child td {
+            border-top: none;
+        }
+        td:first-child:empty + td {
+            border-top: none;
+        }
+        td:first-child:empty {
+            border-top: none;
+        }
+        th {
+            border-bottom: 1px solid black;
+        }
+        table {
+            border: 1px solid #AAA;
+        }
+    </style>
+</head>
+<body class="markdown-body">
+    <h1 data-line="0" class="code-line" id="eyewitness-app">Eyewitness App</h1>
+    <p data-line="2" class="code-line">An app for a psychology experiment.<br>
+        You can find the latest developments <a href="https://github.com/Aggrathon/EyewitnessApp">here</a>.</p>
+    <h2 data-line="5" class="code-line" id="eyewitness-light">Eyewitness Light</h2>
+    <p data-line="7" class="code-line">There is an alternative &quot;light&quot; version you can find <a href="https://github.com/Aggrathon/EyewitnessApp/tree/light">here</a>.</p>
+    <h2 data-line="9" class="code-line" id="download">Download</h2>
+    <p data-line="11" class="code-line"><a href="https://github.com/Aggrathon/EyewitnessApp/releases">Download the latest Android apk:s here.</a></p>
+    <h2 data-line="13" class="code-line" id="file-structure">File structure</h2>
+    <p data-line="15" class="code-line">The app reads images from and writes logs to a publicly available directory (by default in 'Documents'). This is how the files are structured:</p>
+    <table>
+        <thead>
+        <tr>
+            <th>Directory</th>
+            <th>Files</th>
+            <th>Instructions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Eyewitness/</td>
+            <td></td>
+            <td>The base directory. Usually in the 'Documents' directory.</td>
+        </tr>
+        <tr>
+            <td>Eyewitness/logs/</td>
+            <td></td>
+            <td>Here you can find all the stored logs.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>log_X.csv</td>
+            <td>The result from a single instance. X is the unique id.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>log_combined.csv</td>
+            <td>All the results combined into a single file.</td>
+        </tr>
+        <tr>
+            <td>Eyewitness/images/</td>
+            <td></td>
+            <td>This directory contains the line-ups.</td>
+        </tr>
+        <tr>
+            <td>Eyewitness/images/1/</td>
+            <td></td>
+            <td>Line-up 1</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>image.png</td>
+            <td>The directory contains 8-9 images for the line-up. The file names can be freely chosen, but must not contain &quot;show&quot;.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>correct.png</td>
+            <td>One of the image names must contain &quot;correct&quot; for it to be automatically recognised as the correct answer. Otherwise the rules above apply.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>show.png</td>
+            <td>If using non-live shows (see settings) the show files must contain &quot;show&quot;, but otherwise the naming is unconstrained (see below).</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>show.mp4</td>
+            <td>The shows can also be videos.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>show_blurred.png</td>
+            <td>To differentiate between normal image shows and blurred image shows, the blurred ones must have &quot;blurred&quot; somewhere in the name.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>show_240.png</td>
+            <td>If the shows are constrained by distances, then the last thing in the filename before the ending must be a &quot;_&quot; followed by the distance. This also works for videos and blurred images.</td>
+        </tr>
+        <tr>
+            <td>Eyewitness/images/X/</td>
+            <td></td>
+            <td>You can have 1-10 different line-ups (the X is the number). The layout is the same as above.</td>
+        </tr>
+        <tr>
+            <td>Eyewitness/images/Test/</td>
+            <td></td>
+            <td>The tutorial line-up, otherwise same as the line-ups above.</td>
+        </tr>
+        </tbody>
+    </table>
+
+</body></html>
