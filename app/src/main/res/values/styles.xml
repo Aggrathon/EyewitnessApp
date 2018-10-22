@@ -106,6 +106,8 @@
         <item name="android:backgroundTint">@color/colorPrimary</item>
         <item name="android:minHeight">@dimen/buttonHeight</item>
         <item name="android:padding">@dimen/largeMargin</item>
+        <item name="android:paddingTop">@dimen/margin</item>
+        <item name="android:paddingBottom">@dimen/margin</item>
         <item name="android:textAlignment">center</item>
         <item name="android:elevation">@dimen/panelElevation</item>
     </style>

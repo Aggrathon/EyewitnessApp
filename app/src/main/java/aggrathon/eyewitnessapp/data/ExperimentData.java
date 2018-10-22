@@ -257,6 +257,11 @@ public class ExperimentData {
 		return iter;
 	}
 
+	public void removeExperimentIteration() {
+		if (data != null && data.size() > 0)
+			data.remove(data.size()-1);
+	}
+
 	public ExperimentIteration getLatestData() {
 		if (data == null || data.size() < 1) {
 			if (imageLabels == null) {

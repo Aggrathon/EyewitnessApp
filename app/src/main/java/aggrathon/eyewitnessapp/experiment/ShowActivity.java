@@ -156,4 +156,10 @@ public class ShowActivity extends ACancelCheckActivity {
 		startActivity(new Intent(this, TargetQuestionsActivity.class));
 		finish();
 	}
+
+	public void onPrevButton(View v) {
+		ExperimentData.getInstance().removeExperimentIteration();
+		startActivity(new Intent(this, NumberActivity.class));
+		finish();
+	}
 }

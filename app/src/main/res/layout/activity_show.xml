@@ -10,13 +10,45 @@
     android:gravity="center"
     style="@style/AppTheme.Background">
 
-    <TextView
-        android:id="@+id/title"
-        style="@style/AppTheme.ActionBar"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/show_look" />
+        style="@style/AppTheme.ActionBar"
+        android:padding="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:text="@string/show_look"
+            android:textAlignment="center"
+            android:textAppearance="@style/AppTheme.CenterTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/back"
+            style="@android:style/Widget.ImageButton"
+            android:layout_width="128dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="Back"
+            android:onClick="onPrevButton"
+            android:padding="8dp"
+            android:paddingBottom="12dp"
+            android:scaleType="fitStart"
+            android:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         style="@style/AppTheme.Panel"
