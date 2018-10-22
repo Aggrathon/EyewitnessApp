@@ -45,6 +45,10 @@ public class CsvGenerator {
 		values.append(value? 1 : 0);
 	}
 
+	public void addBooleanAsString(String name, boolean value) {
+		addString(name, value? "yes" : "no");
+	}
+
 	public void addEmpty(String name) {
 		nextValue(name);
 	}

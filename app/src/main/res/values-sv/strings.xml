@@ -114,5 +114,14 @@
     <string name="show_look">Titta</string>
     <string name="text_settings_show_blurred">Suddig Bild</string>
     <string name="text_settings_show_image">Bild</string>
+    <string name="questionGlasses1">Använder du vanligtvis glasögon eller kontaktlinser?</string>
+    <string name="questionGlasses2">Har du glasögon eller kontaktlinser på just nu?</string>
+
+    <string-array name="glassesOptions">
+        <item>Ja, jag ser dåligt på långt avstånd</item>
+        <item>Ja, jag ser dåligt på kort avstånd</item>
+        <item>Ja, annan orsak</item>
+        <item>Nej</item>
+    </string-array>
 
 </resources>

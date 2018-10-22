@@ -115,5 +115,14 @@
     <string name="text_settings_show_range">Target Distance Range</string>
     <string name="show_look">Look</string>
     <string name="text_settings_show_blurred">Blurred</string>
+    <string name="questionGlasses1">Do you usually wear glasses or contact lenses?</string>
+    <string name="questionGlasses2">Are you wearing glasses or contact lenses at the moment?</string>
+
+    <string-array name="glassesOptions">
+        <item>Yes, I see poorly at far distances</item>
+        <item>Yes, I see poorly at close distances</item>
+        <item>Yes, for a different reason</item>
+        <item>No</item>
+    </string-array>
 
 </resources>

@@ -8,6 +8,8 @@ public class PersonalInformation {
 	public boolean previousParticipations;
 	public int age;
 	public String nationality;
+	public boolean glassesCurrent;
+	public String glassesUsually;
 	public String sex;
 	public int height;
 	public float visualAcuityLeft;

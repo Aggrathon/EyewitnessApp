@@ -8,7 +8,7 @@
     <dimen name="narrowColumnWidth">400dp</dimen>
     <dimen name="panelElevation">4dp</dimen>
     <dimen name="buttonHeight">80dp</dimen>
-    <dimen name="textSize">24sp</dimen>
+    <dimen name="textSize">22sp</dimen>
     <dimen name="textSizeLarge">28sp</dimen>
     <dimen name="textVerticalSpacing">4sp</dimen>
     <dimen name="radioButtonWidth">220dp</dimen>

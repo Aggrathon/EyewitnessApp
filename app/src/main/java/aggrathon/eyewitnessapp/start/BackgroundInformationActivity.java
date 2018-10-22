@@ -28,6 +28,9 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 	SeekBar lengthBar;
 	TextView lengthText;
 	Spinner natSpinner;
+	RadioButton glassesYesRadio;
+	RadioButton glassesNoRadio;
+	Spinner glassesSpinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		lengthBar = (SeekBar) findViewById(R.id.selfLengthBar);
 		lengthText = (TextView) findViewById(R.id.selfLengthText);
 		natSpinner = (Spinner)findViewById(R.id.spinnerNationality);
+		glassesSpinner = (Spinner)findViewById(R.id.spinnerGlasses);
+		glassesNoRadio = (RadioButton) findViewById(R.id.glassesNo);
+		glassesYesRadio = (RadioButton) findViewById(R.id.glassesYes);
 
 		lengthBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
@@ -60,10 +66,15 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this, R.array.countries, R.layout.spinner_text_element);
 		adap.setDropDownViewResource(R.layout.spinner_text_dropdown);
 		natSpinner.setAdapter(adap);
+
+		adap = ArrayAdapter.createFromResource(this, R.array.glassesOptions, R.layout.spinner_text_element);
+		adap.setDropDownViewResource(R.layout.spinner_text_dropdown);
+		glassesSpinner.setAdapter(adap);
+		glassesSpinner.setSelection(3);
 	}
 
 	public void onStartButton(View view) {
-		if (natSpinner.getSelectedItem() == null) {
+		if (natSpinner.getSelectedItem() == null || glassesSpinner.getSelectedItem() == null) {
 			Toast.makeText(this, R.string.notification_fill_all, Toast.LENGTH_SHORT).show();
 		}
 		else {
@@ -71,6 +82,8 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 			data.personalInformation.nationality = getSelectedCountry();
 			data.personalInformation.height = lengthBar.getProgress();
 			data.personalInformation.sex = manRadio.isChecked() ? "man" : womanRadio.isChecked() ? "woman" : "other";
+			data.personalInformation.glassesCurrent = glassesYesRadio.isChecked();
+			data.personalInformation.glassesUsually = getGlasses();
 			if(getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0).getBoolean(SettingsActivity.EYE_TEST, true))
 				startActivity(new Intent(this, VisualAcuityActivity.class));
 			else if(getSharedPreferences(SettingsActivity.PREFERENCE_NAME, 0).getBoolean(SettingsActivity.TUTORIAL, true))
@@ -87,5 +100,15 @@ public class BackgroundInformationActivity extends ACancelCheckActivity {
 		conf.setLocale(new Locale("en"));
 		Context localizedContext = createConfigurationContext(conf);
 		return localizedContext.getResources().getStringArray(R.array.countries)[natSpinner.getSelectedItemPosition()];
+	}
+
+	private String getGlasses() {
+		switch (glassesSpinner.getSelectedItemPosition()) {
+			case 0: return "far";
+			case 1: return "close";
+			case 2: return "other";
+			case 3: return "no";
+			default: return "";
+		}
 	}
 }

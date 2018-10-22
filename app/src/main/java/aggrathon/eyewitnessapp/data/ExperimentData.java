@@ -325,6 +325,8 @@ public class ExperimentData {
 				csv.addInt("Pt_age", personalInformation.age);
 				csv.addInt("Pt_height", personalInformation.height);
 				csv.addString("Pt_gender", personalInformation.sex);
+				csv.addString("Pt_glasses_usually", personalInformation.glassesUsually);
+				csv.addBooleanAsString("Pt_glasses_current", personalInformation.glassesCurrent);
 				csv.addBooleanAsInt("Pt_participated_before", personalInformation.previousParticipations);
 				csv.addFloat("Pt_left_eye", personalInformation.visualAcuityLeft);
 				csv.addFloat("Pt_right_eye", personalInformation.visualAcuityRight);

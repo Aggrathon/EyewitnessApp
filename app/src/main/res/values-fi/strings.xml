@@ -115,5 +115,13 @@
     <string name="text_settings_show_range">Target Distance Range</string>
     <string name="show_look">Look</string>
     <string name="text_settings_show_blurred">Blurred</string>
+    <string name="questionGlasses1">Käytätkö yleensä silmälaseja tai piilolinssejä?</string>
+    <string name="questionGlasses2">Käytätkö silmälaseja tai piilolaseja tällä hetkellä?</string>
 
+    <string-array name="glassesOptions">
+        <item>Kyllä, näen huonosti kauas</item>
+        <item>Kyllä, näen huonosti lähelle</item>
+        <item>Kyllä, muusta syystä</item>
+        <item>Ei</item>
+    </string-array>
 </resources>
